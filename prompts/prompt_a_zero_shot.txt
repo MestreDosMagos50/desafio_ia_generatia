@@ -1,0 +1,4 @@
+Redija uma resposta institucional oficial para a solicitação de matrícula do cidadão a seguir.
+
+Solicitação:
+{texto_solicitacao}

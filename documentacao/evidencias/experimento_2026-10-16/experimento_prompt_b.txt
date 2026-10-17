@@ -1,0 +1,70 @@
+=== PROMPT B (ESTRUTURADO - PERSONA/CONTEXTO/FORMATO) ===
+Timestamp: 2026-10-16T17:17:22.358485
+Latência: 15825.1 ms | Tokens Prompt: 780 | Tokens Resposta: 851
+Custo Estimado: $0.000314
+==================================================
+
+**GOVERNO DO ESTADO DE MATO GROSSO**  
+**SECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO (SECITECI/MT)**  
+**ESCOLA TÉCNICA ESTADUAL DE CUIABÁ**  
+
+---
+
+### IDENTIFICAÇÃO DO PROTOCOLO E SOLICITANTE
+- **Número do Protocolo:** 2026-000142  
+- **Data da Solicitação:** 14/10/2026  
+- **Canal de Origem:** E-mail  
+- **Interessado:** Marcos Vinícius de Almeida Santos  
+
+---
+
+### SÍNTESE DA SOLICITAÇÃO
+Trata-se de solicitação de efetivação de matrícula submetida pelo cidadão para ingresso no curso Técnico em Enfermagem, turno noturno, com data de início prevista para 01/02/2027, bem como pedido de esclarecimentos quanto à documentação complementar necessária.
+
+---
+
+### QUADRO DE DADOS CADASTRAIS E SITUAÇÃO DOCUMENTAL
+
+| Campo Cadastral / Documento | Informação Declarada / Situação |
+| :--- | :--- |
+| **Nome Completo** | Marcos Vinícius de Almeida Santos |
+| **CPF** | \*\*\*.456.789-\*\* |
+| **Documento de Identidade (RG)** | 1234567-8 |
+| **Órgão Expedidor do RG** | não localizado |
+| **Data de Nascimento** | 12/08/2008 |
+| **Naturalidade** | Cuiabá |
+| **Filiação (Nome da Mãe)** | Lúcia Helena de Almeida Santos |
+| **Filiação (Nome do Pai)** | não localizado |
+| **E-mail de Contato** | marcos.almeida.teste@examplo.com |
+| **Telefone de Contato** | não localizado |
+| **Endereço Residencial** | não localizado |
+| **Curso Pretendido** | Técnico em Enfermagem |
+| **Eixo Tecnológico** | Saúde |
+| **Carga Horária** | 1200 horas |
+| **Turno** | Noturno |
+| **Data da Solicitação de Matrícula**| 14/10/2026 |
+| **Data de Início do Curso** | 01/02/2027 |
+| **Documentos Comprobatórios Anexos**| não localizado |
+
+---
+
+### ORIENTAÇÕES DE ASSIDUIDADE E DOCUMENTAÇÃO PENDENTE
+
+1. **Regra de Assiduidade e Cancelamento:**  
+   Registra-se a formalização e ciência da regra institucional de assiduidade: a matrícula será automaticamente cancelada na hipótese de **ausência injustificada nos 2 primeiros dias consecutivos ou em 3 dias alternados nos primeiros 10 dias de aula**.
+
+2. **Pendências de Informações e Documentos:**  
+   Constata-se que todos os itens descritos no quadro com o status **"não localizado"** (órgão expedidor do documento de identidade, telefone de contato, endereço residencial e documentos comprobatórios digitalizados) constam como pendentes perante esta instituição para fins de regularização e conclusão do processo de matrícula.
+
+---
+
+Atenciosamente,
+
+**Atendimento Institucional**  
+Escola Técnica Estadual de Cuiabá  
+Secretaria de Estado de Ciência, Tecnologia e Inovação (SECITECI/MT)  
+
+---
+
+> **Aviso Institucional (Human-in-the-Loop):**  
+> *Esta minuta de comunicação foi elaborada com base exclusiva nos registros recebidos e encontra-se pendente de validação humana pelo servidor público responsável para posterior envio e homologação formal.*

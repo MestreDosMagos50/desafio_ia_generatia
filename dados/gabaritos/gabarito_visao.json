@@ -1,0 +1,69 @@
+{
+  "caso_id": "CASO_02_VISAO_DOCUMENTO",
+  "modalidade": "visao_documento",
+  "arquivo_origem": "dados/originais/entrada_pdf-imagem.pdf",
+  "descricao": "Ficha de Matrícula manuscrita digitalizada da Escola Técnica Estadual de Cuiabá (SECITECI/MT)",
+  "dados_extraidos_esperados": {
+    "codigo_matricula": "2026-000142",
+    "data_matricula": "14/10/2026",
+    "instituicao": "Escola Técnica Estadual de Cuiabá - SECITECI/MT",
+    "solicitante": {
+      "nome_completo": "MARCOS VINÍCIUS DE ALMEIDA SANTOS",
+      "data_nascimento": "12/08/2008",
+      "naturalidade": "CUIABÁ",
+      "uf": "não localizado",
+      "cpf": "123.456.789-00",
+      "rg": "1234567-8",
+      "orgao_expedidor": "não localizado",
+      "nome_mae": "LÚCIA HELENA DE ALMEIDA SANTOS",
+      "nome_pai": "não localizado",
+      "telefone_celular": "não localizado",
+      "telefone_residencial": "não localizado",
+      "email": "MARCOS.ALMEIDA.TESTE@EXAMPLO.COM"
+    },
+    "curso": {
+      "nome": "TÉCNICO EM ENFERMAGEM",
+      "eixo_tecnologico": "SAÚDE",
+      "carga_horaria": "1200 HORAS",
+      "turno": "NOTURNO",
+      "turma": "não localizado",
+      "municipio": "não localizado",
+      "inicio_curso": "01/02/2027",
+      "termino_curso": "não localizado"
+    },
+    "conformidade_e_assinaturas": {
+      "termo_ciencia_faltas_assinado": true,
+      "assinatura_aluno_presente": true,
+      "assinatura_secretaria_escolar": "não localizado"
+    },
+    "classificacao": {
+      "categoria": "MATRICULA_INICIAL",
+      "assunto": "Validação de Ficha de Matrícula Manuscrita",
+      "urgencia": "ALTA"
+    },
+    "campos_em_branco_detectados": [
+      "orgao_expedidor",
+      "uf",
+      "nome_pai",
+      "turma",
+      "municipio",
+      "termino_curso",
+      "telefone_celular",
+      "telefone_residencial",
+      "assinatura_secretaria_escolar"
+    ]
+  },
+  "observacoes_gabarito": [
+    "O e-mail está escrito na ficha como 'EXAMPLO.COM' (com A), diferente do áudio ('exemplo'). O gabarito registra o que está escrito; a divergência entre canais é tratada na conferência cruzada.",
+    "Na ficha, os pontos do e-mail parecem vírgulas ('MARCOS, ALMEIDA, TESTE'); o valor esperado usa pontos, como ajuste de formatação."
+  ],
+  "campos_incertos_esperados": {
+    "codigo": "Dígitos manuscritos do código com traçado que admite mais de uma leitura; o leitor deve sinalizar INCERTO.",
+    "cpf": "Final do CPF ('789-00') com traçado sobreposto/rasurado; o leitor deve sinalizar INCERTO e registrar leituras alternativas."
+  },
+  "decisao_humana_esperada": {
+    "decisao": "APROVADO",
+    "objeto_final": "ficha",
+    "motivo": "Leitura confirmada pelo revisor após conferir os campos incertos (CPF e código) na imagem."
+  }
+}

@@ -1,0 +1,20 @@
+
+==============================================================================
+JUSTIFICATIVA TÉCNICA: PROCESSAMENTO LOCAL (ON-PREMISE / OCR) VS. NUVEM (RF08)
+==============================================================================
+1. Soberania e Sigilo Institucional:
+   Em órgãos públicos e secretarias de estado, formulários de matrícula e fichas
+   cadastrais contêm documentos de identidade (RG, CPF) e assinaturas manuscritas.
+   O processamento local (via OCR tradicional como Tesseract ou modelos locais
+   como TrOCR/Llama-Vision on-premise) garante que imagens biométricas de assinaturas
+   nunca deixem a infraestrutura controlada pelo Estado.
+
+2. Conformidade com a LGPD (Arts. 6º, 33 e 46):
+   O envio de imagens de formulários com grafotécnica e dados de menores de idade
+   a provedores de nuvem estrangeiros (EUA) pode configurar transferência internacional
+   de dados pessoais sem consentimento específico. O OCR local elimina esse risco.
+
+3. Resiliência Operacional em Unidades Remotas:
+   Escolas técnicas situadas em municípios do interior ou com conectividade intermitente
+   mantêm a capacidade de digitalizar e homologar matrículas mesmo sem acesso à internet.
+==============================================================================

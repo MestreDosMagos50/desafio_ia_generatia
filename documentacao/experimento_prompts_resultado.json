@@ -1,0 +1,105 @@
+{
+  "executado_em": "2026-10-17T10:45:59",
+  "condicoes": {
+    "provedor": "google",
+    "modelo": "gemini-3.8-flash",
+    "temperatura": 0.2,
+    "seed": 20261017,
+    "entrada": "dados/originais/entrada_texto.txt"
+  },
+  "resultados": [
+    {
+      "tag": "prompt_a",
+      "nome": "Prompt A (zero-shot)",
+      "prompt_id": "PROMPT_A_ZERO_SHOT",
+      "prompt_versao": "1.0",
+      "id_execucao": "EXEC-F48D79CB",
+      "arquivo_saida": "resultados/minutas/experimento_prompt_a.txt",
+      "telemetria": {
+        "latencia_ms": 15421.0,
+        "tokens_prompt": 310,
+        "tokens_resposta": 672,
+        "tokens_raciocinio": 1187,
+        "tokens_total": 2169,
+        "custo_estimado_usd": 0.00720375
+      },
+      "medicoes": {
+        "palavras": 350,
+        "cpf_completo_exposto": false,
+        "rg_exposto": false,
+        "email_exposto": false,
+        "nome_mae_exposto": false,
+        "ocorrencias_nao_localizado": 0,
+        "menciona_alternados": true,
+        "trecho_alternados": "os dois primeiros dias de aula consecutivos ou em três dias alternados dentro dos dez primeiros dias letivos*",
+        "documentos_citados_fora_da_entrada": [
+          "certidão de nascimento ou casamento",
+          "histórico escolar",
+          "certificado de conclusão",
+          "comprovante de residência",
+          "foto 3x4",
+          "quitação eleitoral / título de eleitor",
+          "serviço militar / reservista",
+          "carteira de vacinação"
+        ],
+        "qtd_documentos_citados_fora_da_entrada": 8
+      }
+    },
+    {
+      "tag": "prompt_b",
+      "nome": "Prompt B v1 (estruturado)",
+      "prompt_id": "PROMPT_B_ESTRUTURADO",
+      "prompt_versao": "1.0",
+      "id_execucao": "EXEC-71009D73",
+      "arquivo_saida": "resultados/minutas/experimento_prompt_b.txt",
+      "telemetria": {
+        "latencia_ms": 16632.7,
+        "tokens_prompt": 780,
+        "tokens_resposta": 923,
+        "tokens_raciocinio": 1563,
+        "tokens_total": 3266,
+        "custo_estimado_usd": 0.009907500000000001
+      },
+      "medicoes": {
+        "palavras": 452,
+        "cpf_completo_exposto": false,
+        "rg_exposto": true,
+        "email_exposto": true,
+        "nome_mae_exposto": true,
+        "ocorrencias_nao_localizado": 6,
+        "menciona_alternados": false,
+        "trecho_alternados": null,
+        "documentos_citados_fora_da_entrada": [],
+        "qtd_documentos_citados_fora_da_entrada": 0
+      }
+    },
+    {
+      "tag": "prompt_c",
+      "nome": "Prompt C (gerado por metaprompt)",
+      "prompt_id": "PROMPT_C_METAPROMPT",
+      "prompt_versao": "2.0",
+      "id_execucao": "EXEC-BE39FB15",
+      "arquivo_saida": "resultados/minutas/experimento_prompt_c.txt",
+      "telemetria": {
+        "latencia_ms": 30676.7,
+        "tokens_prompt": 739,
+        "tokens_resposta": 356,
+        "tokens_raciocinio": 1403,
+        "tokens_total": 2498,
+        "custo_estimado_usd": 0.0071505
+      },
+      "medicoes": {
+        "palavras": 193,
+        "cpf_completo_exposto": false,
+        "rg_exposto": false,
+        "email_exposto": false,
+        "nome_mae_exposto": false,
+        "ocorrencias_nao_localizado": 1,
+        "menciona_alternados": false,
+        "trecho_alternados": null,
+        "documentos_citados_fora_da_entrada": [],
+        "qtd_documentos_citados_fora_da_entrada": 0
+      }
+    }
+  ]
+}

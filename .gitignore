@@ -1,0 +1,36 @@
+# Arquivos de segredos e credenciais (OBRIGATÓRIO LGPD / SEGURANÇA)
+.env
+*.env
+*.key
+*.pem
+
+# Python bytecode e caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# Testes e cobertura
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs de depuração temporários
+*.tmp
+temp/
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

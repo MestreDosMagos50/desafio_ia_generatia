@@ -1,0 +1,20 @@
+{
+  "gerado_em": "2026-10-17T10:44:53",
+  "metaprompt": "prompts/metaprompt_gerador_prompt_c.txt",
+  "provedor": "google",
+  "modelo": "gemini-3.8-flash",
+  "parametros": {
+    "temperatura": 0.2,
+    "timeout_s": 90,
+    "max_tentativas": 3,
+    "saida_json": false,
+    "versao_modelo": "gemini-3.8-flash",
+    "seed": 20261017
+  },
+  "tokens_prompt": 358,
+  "tokens_resposta": 460,
+  "tokens_raciocinio": 963,
+  "latencia_ms": 12283.7,
+  "versao_anterior": "prompts/prompt_c_v1_sem_metaprompt.txt (escrita sem metaprompt; usada na execução de 16/10/2026)",
+  "edicao_humana": "nenhuma"
+}

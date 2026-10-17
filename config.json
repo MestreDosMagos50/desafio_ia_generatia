@@ -1,0 +1,130 @@
+{
+  "app": {
+    "name": "Central Inteligente de Atendimento e Comunicação Institucional",
+    "version": "1.0.0",
+    "institution": "Escola Técnica Estadual de Cuiabá - SECITECI / Governo de Mato Grosso",
+    "description": "Solução multimodal de atendimento com inteligência artificial generativa, governança e human-in-the-loop."
+  },
+  "diretorios": {
+    "dados_originais": "dados/originais",
+    "dados_gabaritos": "dados/gabaritos",
+    "dados_processados": "dados/processados",
+    "resultados_minutas": "resultados/minutas",
+    "resultados_audios": "resultados/audios",
+    "resultados_imagens": "resultados/imagens",
+    "resultados_logs": "resultados/logs",
+    "prompts": "prompts",
+    "testes": "testes",
+    "documentacao": "documentacao"
+  },
+  "arquivos_originais": {
+    "texto": "dados/originais/entrada_texto.txt",
+    "audio": "dados/originais/entrada_audio.mp3",
+    "documento_imagem": "dados/originais/entrada_pdf-imagem.pdf",
+    "brasao": "dados/originais/brasao.png"
+  },
+  "gabaritos": {
+    "dados/originais/entrada_texto.txt": "dados/gabaritos/gabarito_texto.json",
+    "dados/originais/entrada_texto_injection.txt": "dados/gabaritos/gabarito_texto_injection.json",
+    "dados/originais/entrada_audio.mp3": "dados/gabaritos/gabarito_audio.json",
+    "dados/originais/entrada_pdf-imagem.pdf": "dados/gabaritos/gabarito_visao.json"
+  },
+  "llm": {
+    "provider_padrao": "google",
+    "modelo_padrao": "gemini-3.8-flash",
+    "modelos_alternativos": [
+      "gemini-3.5-flash",
+      "gemini-3.1-flash-lite"
+    ],
+    "observacao_modelos_alternativos": "Usados em ordem quando o modelo principal responde 429 (cota) ou 5xx (sobrecarga). No nível gratuito cada modelo tem cota própria. O modelo que respondeu fica no log; o custo dessas chamadas não é estimado porque a tabela de preços abaixo é a do modelo principal. O experimento RF02 não usa alternativos.",
+    "temperatura": 0.2,
+    "seed_experimento": 20261017,
+    "timeout_segundos": 90,
+    "max_tentativas": 4,
+    "espera_inicial_segundos": 5,
+    "custo_estimado_por_1k_tokens": {
+      "modelo": "gemini-3.8-flash",
+      "input_usd": 0.00075,
+      "output_usd": 0.00375,
+      "fonte": "https://ai.google.dev/gemini-api/docs/pricing",
+      "consultado_em": "2026-10-16",
+      "observacao": "Nível pago do gemini-3.8-flash (US$ 0,75 e US$ 3,75 por 1M de tokens), válido até 31/12/2026; o valor dobra a partir de 01/01/2027. Tokens de raciocínio são cobrados como saída. No nível gratuito o custo efetivo é zero; o valor estima o custo em produção."
+    }
+  },
+  "audio": {
+    "tamanho_maximo_mb": 20,
+    "extensoes_permitidas": [
+      ".mp3",
+      ".wav",
+      ".ogg"
+    ],
+    "tts_voz_padrao": "pt-BR-FranciscaNeural",
+    "tts_taxa": "-5%",
+    "tts_volume": "+0%",
+    "tts_tom": "+0Hz",
+    "verificar_tts": true,
+    "observacao_tts": "Voz feminina neural pt-BR, fala 5% mais lenta para comunicação institucional clara. verificar_tts transcreve o MP3 gerado (1 chamada ao modelo) para conferir o critério de aceite do RF07."
+  },
+  "visao": {
+    "tamanho_maximo_mb": 20,
+    "extensoes_permitidas": [
+      ".pdf",
+      ".png",
+      ".jpg",
+      ".jpeg"
+    ]
+  },
+  "imagem": {
+    "provedor": "google",
+    "modelo": "gemini-3.1-flash-image",
+    "proporcao": "21:9",
+    "seed": 20261017,
+    "alternativa_aberta": {
+      "provedor": "huggingface",
+      "modelo": "black-forest-labs/FLUX.1-schnell",
+      "licenca": "Apache-2.0 (pesos abertos)",
+      "space": "black-forest-labs/FLUX.1-schnell",
+      "api_name": "/infer",
+      "largura": 1280,
+      "altura": 256,
+      "passos_inferencia": 4,
+      "variavel_token": "HF_TOKEN"
+    },
+    "observacao": "O nível gratuito da API Gemini não inclui modelos de imagem (HTTP 429 com cota zero, testado em 17/10/2026). Nesse caso o sistema usa o modelo aberto FLUX.1-schnell no Space oficial do Hugging Face (cota gratuita de GPU da conta do HF_TOKEN). A API de inferência paga do Hugging Face não é usada: o provedor hf-inference descontinuou o modelo (HTTP 410) e os demais exigem créditos (HTTP 402), testado em 17/10/2026. A substituição fica registrada nos metadados do cartaz."
+  },
+  "classificacao": {
+    "categorias_validas": [
+      "MATRICULA_INICIAL",
+      "DOCUMENTACAO_PENDENTE",
+      "CANCELAMENTO_MATRICULA",
+      "INFORMACAO_GERAL",
+      "OUTROS"
+    ]
+  },
+  "extracao": {
+    "campos_obrigatorios": [
+      "protocolo",
+      "data_solicitacao",
+      "solicitante.nome_completo",
+      "solicitante.data_nascimento",
+      "solicitante.cpf",
+      "solicitante.rg",
+      "solicitante.orgao_expedidor",
+      "solicitante.uf",
+      "solicitante.nome_mae",
+      "solicitante.nome_pai",
+      "solicitante.email",
+      "solicitante.telefone_celular",
+      "solicitante.telefone_residencial",
+      "curso.nome",
+      "curso.turno",
+      "curso.data_inicio",
+      "documentos_comprobatorios_anexos"
+    ]
+  },
+  "seguranca": {
+    "termo_ausente_obrigatorio": "não localizado",
+    "envio_automatico_permitido": false,
+    "requer_revisao_humana": true
+  }
+}

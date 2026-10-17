@@ -1,0 +1,50 @@
+=== PROMPT A (ZERO-SHOT) ===
+Timestamp: 2026-10-17T10:45:12.571797
+Modelo: gemini-3.8-flash | Temperatura: 0.2 | Seed: 20261017
+Latência: 15421.0 ms | Tokens prompt: 310 | Tokens resposta: 672 | Tokens raciocínio: 1187
+Custo estimado: 0.00720375 USD
+==================================================
+
+**Assunto:** Confirmação de Solicitação de Matrícula – Protocolo nº 2026-000142 | Curso Técnico em Enfermagem
+
+---
+
+Prezado **Marcos Vinícius de Almeida Santos**,
+
+Acusamos o recebimento de sua solicitação de matrícula, formalizada sob o **Protocolo nº 2026-000142**, em 14 de outubro de 2026.
+
+Informamos que o seu pedido de inscrição para o curso **Técnico em Enfermagem** (Eixo Tecnológico: Saúde, carga horária de 1.200 horas, turno **Noturno**), com início previsto para **01/02/2027**, foi pré-processado com sucesso em nosso sistema de registros acadêmicos.
+
+Registramos formalmente a sua ciência quanto à norma de frequência inicial, a saber: *o cancelamento automático da matrícula em caso de ausência sem justificativa comprovada nos dois primeiros dias de aula consecutivos ou em três dias alternados dentro dos dez primeiros dias letivos*.
+
+---
+
+### **Documentação Pendente para Efetivação da Matrícula**
+
+Para a homologação definitiva da sua vaga, solicitamos a apresentação (cópia simples acompanhada do original para conferência, ou cópia autenticada) dos seguintes documentos:
+
+1. **Documento Oficial de Identidade (RG)** e **CPF**;
+2. **Certidão de Nascimento**;
+3. **Certificado de Conclusão e Histórico Escolar do Ensino Médio** (ou declaração oficial equivalente de conclusão emitida pela instituição de ensino);
+4. **Comprovante de Residência** atualizado (com data de emissão máxima de 90 dias);
+5. **Título de Eleitor** e certidão de quitação eleitoral;
+6. **Certificado de Alistamento Militar (CAM)** ou **Certificado de Reservista** (obrigatório para o sexo masculino maior de 18 anos);
+7. **01 (uma) foto 3x4** recente;
+8. **Carteira de Vacinação atualizada** (requisito obrigatório para cursos da área da Saúde, contendo comprovação do esquema vacinal regular, em especial contra Hepatite B, Tétano e Covid-19).
+
+---
+
+### **Orientações e Prazos**
+
+* **Prazo de entrega:** A documentação deverá ser entregue ou anexada via portal acadêmico até o dia **15 de dezembro de 2026**.
+* **Local de atendimento presencial:** Secretaria de Registros Acadêmicos, de segunda a sexta-feira, das 08h às 20h.
+
+A efetivação final da matrícula está condicionada à validação integral dos documentos listados acima.
+
+Permanecemos à disposição para eventuais dúvidas por meio deste canal ou pelo telefone institucional.
+
+Atenciosamente,
+
+**Secretaria de Registros Acadêmicos**  
+Diretoria de Ensino e Registro Escolar  
+*Instituição de Ensino Técnico e Profissionalizante*

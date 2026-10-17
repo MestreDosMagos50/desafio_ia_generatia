@@ -1,0 +1,24 @@
+# Versões fixadas e testadas com Python 3.12.10 (Windows 11)
+
+# Integração com o modelo de linguagem Google Gemini (RF04)
+google-genai==2.31.0
+httpx==0.28.1
+
+# Configuração e validação de dados (RF01, RF05)
+python-dotenv==1.2.3
+pydantic==2.14.1
+
+# Áudio: metadados (RF06) e síntese de voz para acessibilidade (RF07)
+mutagen==1.48.1
+edge-tts==7.3.1
+
+# Imagem e PDF (RF08, RF10); gradio_client chama o Space do modelo aberto de imagem
+pillow==12.3.0
+gradio_client==2.7.2
+pypdf==6.21.0
+
+# Minuta em .docx com o brasão institucional (RF09)
+python-docx==1.2.0
+
+# Testes automatizados
+pytest==9.1.1

@@ -1,0 +1,73 @@
+=== PROMPT B V1 (ESTRUTURADO) ===
+Timestamp: 2026-10-17T10:45:29.205328
+Modelo: gemini-3.8-flash | Temperatura: 0.2 | Seed: 20261017
+Latência: 16632.7 ms | Tokens prompt: 780 | Tokens resposta: 923 | Tokens raciocínio: 1563
+Custo estimado: 0.009907500000000001 USD
+==================================================
+
+**GOVERNO DO ESTADO DE MATO GROSSO**  
+**SECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO – SECITECI**  
+**ESCOLA TÉCNICA ESTADUAL DE CUIABÁ**  
+
+---
+
+### **IDENTIFICAÇÃO DO PROTOCOLO E SOLICITANTE**
+* **Protocolo:** 2026-000142  
+* **Data do Requerimento:** 14/10/2026  
+* **Canal de Origem:** E-mail  
+* **Interessado:** Marcos Vinícius de Almeida Santos  
+
+---
+
+### **SÍNTESE DA SOLICITAÇÃO**
+Acusamos o recebimento da solicitação de efetivação de matrícula submetida pelo cidadão para ingresso no curso Técnico em Enfermagem, bem como o pedido de levantamento de pendências documentais necessárias à finalização do procedimento acadêmico.
+
+---
+
+### **QUADRO DE INFORMAÇÕES CADASTRAIS E DE CURSO**
+
+| Campo Cadastral / Acadêmico | Informação Registrada | Status |
+| :--- | :--- | :--- |
+| **Nome Completo** | Marcos Vinícius de Almeida Santos | Validado |
+| **Data de Nascimento** | 12/08/2008 | Validado |
+| **Naturalidade** | Cuiabá | Validado |
+| **CPF** | \*\*\*.456.789-\*\* | Validado (Dado mascarado - LGPD) |
+| **Registro Geral (RG)** | 1234567-8 | Validado |
+| **Órgão Expedidor do RG** | *não localizado* | Pendente |
+| **Nome da Mãe** | Lúcia Helena de Almeida Santos | Validado |
+| **Nome do Pai** | *não localizado* | Pendente |
+| **Telefone de Contato** | *não localizado* | Pendente |
+| **Endereço Residencial** | *não localizado* | Pendente |
+| **E-mail de Contato** | marcos.almeida.teste@examplo.com | Validado |
+| **Curso** | Técnico em Enfermagem | Validado |
+| **Eixo Tecnológico** | Saúde | Validado |
+| **Carga Horária** | 1200 horas | Validado |
+| **Turno** | Noturno | Validado |
+| **Data da Matrícula** | 14/10/2026 | Validado |
+| **Previsão de Início das Aulas**| 01/02/2027 | Validado |
+| **Documentos Comprobatórios Anexos** | *não localizado* | Pendente |
+
+---
+
+### **ORIENTAÇÕES DE ASSIDUIDADE E DOCUMENTAÇÃO PENDENTE**
+
+1. **Documentação e Dados Pendentes:**  
+   Verifica-se que, com exceção dos dados informados no corpo da mensagem, os respectivos arquivos ou vias de comprovação documental constam com o status de **não localizado**. Para a formalização plena, faz-se necessário o saneamento dos dados cadastrais faltantes e a apresentação da documentação comprobatória correspondente.
+
+2. **Regra de Assiduidade e Cancelamento de Matrícula:**  
+   Ressaltamos o registro e a ciência expressa de que a matrícula será automaticamente cancelada caso haja ausência, sem justificativa comprovada, nos **dois primeiros dias de aula consecutivos** ou em **três dias de aula, consecutivos ou não, nos primeiros dez dias de aula**.
+
+---
+
+### **FECHAMENTO FORMAL**
+
+Permanecemos à disposição para prestar os esclarecimentos institucionais cabíveis.
+
+Atenciosamente,
+
+**Atendimento Institucional**  
+Escola Técnica Estadual de Cuiabá  
+Secretaria de Estado de Ciência, Tecnologia e Inovação – SECITECI/MT  
+
+---
+*Nota: Esta minuta foi processada com base estrita nas informações fornecidas e encontra-se pendente de validação humana pelo servidor público responsável para fins de homologação oficial.*

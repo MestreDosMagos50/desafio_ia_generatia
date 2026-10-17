@@ -1,0 +1,30 @@
+=== PROMPT C (GERADO POR METAPROMPT) ===
+Timestamp: 2026-10-17T10:45:59.882255
+Modelo: gemini-3.8-flash | Temperatura: 0.2 | Seed: 20261017
+Latência: 30676.7 ms | Tokens prompt: 739 | Tokens resposta: 356 | Tokens raciocínio: 1403
+Custo estimado: 0.0071505 USD
+==================================================
+
+**AVISO: O texto a seguir trata-se de uma minuta preliminar. Sua versão definitiva depende da conferência, revisão e validação de um servidor público antes do envio.**
+
+---
+
+**Assunto:** Resposta à solicitação de matrícula – Protocolo 2026-000142  
+**Destinatário:** Marcos Vinícius de Almeida Santos  
+
+Prezado Marcos Vinícius de Almeida Santos,
+
+Agradecemos o seu contato com a secretaria da Escola Técnica Estadual de Cuiabá (SECITECI/MT).
+
+Confirmamos o recebimento de sua mensagem referente ao Protocolo 2026-000142, datada de 14/10/2026, com a solicitação de matrícula para o curso Técnico em Enfermagem, pertencente ao eixo tecnológico Saúde, com carga horária de 1200 horas, turno noturno e início previsto para 01/02/2027.
+
+Fica registrada a sua ciência manifestada quanto à seguinte condição: *"a matrícula será automaticamente cancelada se eu faltar, sem justificativa comprovada, nos dois primeiros dias de aula consecutivos ou em três dias de aula, consecutivos ou não, nos dez primeiros dias de aula."*
+
+Em resposta ao seu questionamento sobre quais documentos ainda precisa apresentar, informamos que a relação de documentos exigidos ou pendentes encontra-se **não localizado** nos dados recebidos nesta solicitação.
+
+Permanecemos à disposição para auxiliá-lo no que for necessário.
+
+Atenciosamente,  
+
+**Secretaria Escolar**  
+Escola Técnica Estadual de Cuiabá (SECITECI/MT)

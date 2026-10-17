@@ -1,0 +1,54 @@
+=== PROMPT A (ZERO-SHOT CURTO) ===
+Timestamp: 2026-10-16T17:17:05.300942
+Latência: 28988.1 ms | Tokens Prompt: 310 | Tokens Resposta: 801
+Custo Estimado: $0.000264
+==================================================
+
+**Assunto:** Resposta ao Protocolo nº 2026-000142 – Solicitação de Matrícula no Curso Técnico em Enfermagem
+
+---
+
+Prezado Marcos Vinícius de Almeida Santos,
+
+Acusamos o recebimento de sua solicitação de matrícula, registrada sob o **Protocolo nº 2026-000142** em 14 de outubro de 2026, para o curso **Técnico em Enfermagem** (Eixo Tecnológico: Saúde).
+
+Confirmamos os dados preliminares informados para a abertura de seu processo acadêmico:
+* **Curso:** Técnico em Enfermagem
+* **Carga Horária:** 1.200 horas
+* **Turno:** Noturno
+* **Previsão de Início das Aulas:** 01/02/2027
+* **Data da Solicitação:** 14/10/2026
+
+Registramos, igualmente, a sua ciência formal em relação às normas institucionais de frequência inicial, em especial a regra de **cancelamento automático da matrícula** caso ocorram faltas sem justificativa legal comprovada nos **2 (dois) primeiros dias letivos consecutivos** ou em **3 (três) dias alternados dentro dos primeiros 10 (dez) dias de aula**.
+
+---
+
+### **Documentação Pendente para Efetivação da Matrícula**
+
+Para a formalização definitiva do seu vínculo acadêmico, solicitamos a apresentação (ou envio em formato digital, caso o procedimento seja eletrônico) da cópia simples acompanhada dos originais para conferência dos seguintes documentos:
+
+1. **Documento Oficial de Identidade (RG)** e **CPF** (já identificados, mas sujeitos à validação documental);
+2. **Certidão de Nascimento** ou **Casamento**;
+3. **Histórico Escolar e Certificado de Conclusão do Ensino Médio** (ou declaração oficial de conclusão emitida pela instituição de ensino);
+4. **Comprovante de Quitação Eleitoral** (disponível no portal do TSE, obrigatório para maiores de 18 anos);
+5. **Comprovante de Quitação com o Serviço Militar** (Certificado de Alistamento/Reservista, para o público masculino maior de 18 anos);
+6. **Comprovante de Residência atualizado** (água, luz ou telefone, emitido nos últimos 90 dias);
+7. **1 (uma) foto 3x4 recente**;
+8. **Carteira de Vacinação atualizada** (item obrigatório para cursos da área da Saúde, contendo imunização para Hepatite B, Tétano e demais exigências sanitárias).
+
+---
+
+### **Orientações Gerais**
+
+* **Prazo para entrega:** Os documentos deverão ser protocolados na Secretaria Escolar / Acadêmica até o prazo estipulado no calendário institucional de matrículas (ou respondidos em anexo a este e-mail em formato PDF único).
+* Por se tratar de vaga para curso com início em 01/02/2027, a validação final da matrícula está condicionada à integridade e conformidade de todos os documentos exigidos.
+
+Colocamo-nos à disposição para esclarecer eventuais dúvidas por este canal ou presencialmente na Secretaria Acadêmica.
+
+Atenciosamente,
+
+**Secretaria de Registros Acadêmicos**  
+Setor de Admissão e Matrículas  
+[Nome da Instituição de Ensino]  
+Telefone: (XX) XXXX-XXXX  
+Horário de atendimento: Segunda a sexta-feira, das 08h às 21h

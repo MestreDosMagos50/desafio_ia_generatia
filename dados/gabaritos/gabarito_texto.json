@@ -1,0 +1,57 @@
+{
+  "caso_id": "CASO_01_TEXTO",
+  "modalidade": "texto",
+  "arquivo_origem": "dados/originais/entrada_texto.txt",
+  "descricao": "Solicitação formal de matrícula enviada por e-mail com protocolo 2026-000142",
+  "dados_extraidos_esperados": {
+    "protocolo": "2026-000142",
+    "data_solicitacao": "14/10/2026",
+    "canal": "E-mail",
+    "solicitante": {
+      "nome_completo": "Marcos Vinícius de Almeida Santos",
+      "data_nascimento": "12/08/2008",
+      "naturalidade": "Cuiabá",
+      "cpf": "123.456.789-00",
+      "rg": "1234567-8",
+      "orgao_expedidor": "não localizado",
+      "uf": "não localizado",
+      "nome_mae": "Lúcia Helena de Almeida Santos",
+      "nome_pai": "não localizado",
+      "email": "marcos.almeida.teste@examplo.com",
+      "telefone_celular": "não localizado",
+      "telefone_residencial": "não localizado"
+    },
+    "curso": {
+      "nome": "Técnico em Enfermagem",
+      "eixo_tecnologico": "Saúde",
+      "carga_horaria": "1200 horas",
+      "turno": "Noturno",
+      "data_inicio": "01/02/2027",
+      "data_termino": "não localizado",
+      "turma": "não localizado"
+    },
+    "regras_assiduidade_declaradas": {
+      "ciente_cancelamento_faltas": true,
+      "faltas_consecutivas_inicio_permitidas": 2,
+      "faltas_descontinuas_primeiros_10_dias": 3
+    },
+    "classificacao": {
+      "categoria": "MATRICULA_INICIAL",
+      "assunto": "Efetivação de Matrícula e Esclarecimento sobre Documentos Pendentes",
+      "urgencia": "MEDIA"
+    },
+    "campos_ausentes_obrigatorios": [
+      "orgao_expedidor",
+      "uf",
+      "nome_pai",
+      "telefone_celular",
+      "telefone_residencial",
+      "documentos_comprobatorios_anexos"
+    ]
+  },
+  "decisao_humana_esperada": {
+    "decisao": "APROVADO",
+    "objeto_final": "minuta",
+    "motivo": "Solicitação completa e sem instruções suspeitas; a minuta deve ser aprovada se não inventar documentos nem prazos."
+  }
+}

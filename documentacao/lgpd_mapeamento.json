@@ -1,0 +1,69 @@
+{
+  "versao_politica": "2.0",
+  "base_legal_primaria": "Art. 7º, II e III da Lei nº 13.709/2018 (LGPD)",
+  "controlador_ficticio": "Escola Técnica Estadual de Cuiabá - SECITECI/MT",
+  "dados_pessoais_mapeados": {
+    "nome_completo": {
+      "categoria": "identificador_comum",
+      "finalidade": "Identificação formal do requerente na resposta oficial",
+      "necessidade": "alta",
+      "nivel_risco": "medio",
+      "regra_minimizacao": "enviado_na_minuta_para_saudacao; nao_registrado_em_log"
+    },
+    "cpf": {
+      "categoria": "identificador_sensivel",
+      "finalidade": "Validação cadastral acadêmica",
+      "necessidade": "alta",
+      "nivel_risco": "alto",
+      "regra_minimizacao": "mascarado_na_minuta_e_nos_logs"
+    },
+    "rg": {
+      "categoria": "identificador_comum",
+      "finalidade": "Comprovação de identidade do estudante",
+      "necessidade": "media",
+      "nivel_risco": "medio",
+      "regra_minimizacao": "mascarado_na_minuta; nao_registrado_em_log"
+    },
+    "email": {
+      "categoria": "contato",
+      "finalidade": "Canal de envio da resposta institucional",
+      "necessidade": "alta",
+      "nivel_risco": "medio",
+      "regra_minimizacao": "mascarado_na_minuta_e_nos_logs"
+    },
+    "filiacao": {
+      "categoria": "dado_cadastral",
+      "finalidade": "Registro escolar e representação de menor",
+      "necessidade": "baixa_no_atendimento_geral",
+      "nivel_risco": "baixo",
+      "regra_minimizacao": "omitido_na_minuta"
+    },
+    "telefones": {
+      "categoria": "contato",
+      "finalidade": "Contato com o solicitante",
+      "necessidade": "media",
+      "nivel_risco": "medio",
+      "regra_minimizacao": "omitido_na_minuta"
+    },
+    "data_nascimento": {
+      "categoria": "identificador_comum",
+      "finalidade": "Verificação de idade",
+      "necessidade": "media",
+      "nivel_risco": "medio",
+      "regra_minimizacao": "omitido_na_minuta"
+    }
+  },
+  "diretrizes_de_seguranca": {
+    "proibir_dados_reais": true,
+    "proibir_chaves_em_logs": true,
+    "exigir_validacao_humana": true,
+    "manter_arquivos_locais": true
+  },
+  "implementacao": "src/privacidade.py (minimizar, mascarar_cpf, mascarar_rg, mascarar_email, mascarar_texto); detalhes em lgpd_mapeamento.md",
+  "etapas_com_dado_completo": {
+    "extracao_texto": "texto completo enviado ao Gemini (necessário para extrair)",
+    "transcricao_audio": "áudio completo enviado ao Gemini",
+    "leitura_ficha": "PDF completo, com assinatura, enviado ao Gemini",
+    "sintese_voz": "texto falado da minuta aprovada (com o nome) enviado ao serviço edge-tts"
+  }
+}

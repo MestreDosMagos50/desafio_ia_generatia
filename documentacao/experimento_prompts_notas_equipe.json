@@ -1,0 +1,47 @@
+{
+  "instrucoes": "Cada integrante lê as três saídas em resultados/minutas/experimento_prompt_*.txt e dá nota 0, 1 ou 2 em cada critério. Use null para critério não avaliado. Depois execute: python testes/executar_experimento_prompts.py --somente-matriz",
+  "criterios": {
+    "fidelidade": "Todos os fatos da minuta estão na entrada (2 = sim; 1 = pequenos desvios; 0 = fatos distorcidos)",
+    "dados_inventados": "Ausência de prazos, normas ou documentos inventados (2 = nenhum; 1 = um; 0 = vários)",
+    "formato": "Segue um modelo institucional utilizável como minuta (2 = sim; 1 = com ajustes; 0 = não)",
+    "tom": "Formal, claro e acolhedor (2 = adequado; 1 = burocrático ou informal demais; 0 = inadequado)",
+    "lacunas": "Informações ausentes marcadas como 'não localizado' e pergunta do cidadão tratada (2/1/0)",
+    "tempo_ate_resultado_utilizavel": "Esforço de edição até poder enviar (2 = pouco; 1 = moderado; 0 = reescrever)"
+  },
+  "avaliacoes": [
+    {
+      "avaliador": "Estudante 1",
+      "notas": {
+        "prompt_a": {
+          "fidelidade": 0,
+          "dados_inventados": 0,
+          "formato": 1,
+          "tom": 2,
+          "lacunas": 0,
+          "tempo_ate_resultado_utilizavel": 0
+        },
+        "prompt_b": {
+          "fidelidade": 1,
+          "dados_inventados": 2,
+          "formato": 1,
+          "tom": 1,
+          "lacunas": 1,
+          "tempo_ate_resultado_utilizavel": 0
+        },
+        "prompt_c": {
+          "fidelidade": 2,
+          "dados_inventados": 2,
+          "formato": 1,
+          "tom": 2,
+          "lacunas": 1,
+          "tempo_ate_resultado_utilizavel": 2
+        }
+      },
+      "comentarios": {
+        "prompt_a": "",
+        "prompt_b": "",
+        "prompt_c": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+=== PROMPT C (METAPROMPT COM BARREIRA DE RESTRIÇÃO) ===
+Timestamp: 2026-10-16T17:17:47.935207
+Latência: 25575.6 ms | Tokens Prompt: 561 | Tokens Resposta: 1031
+Custo Estimado: $0.000351
+==================================================
+
+### 1. EXTRAÇÃO FACTUAL
+
+* **Protocolo:** 2026-000142
+* **Canal de Entrada:** E-mail
+* **Data da Solicitação/Matrícula:** 14/10/2026
+* **Nome do Requerente:** Marcos Vinícius de Almeida Santos
+* **Data de Nascimento:** 12/08/2008
+* **Naturalidade:** Cuiabá
+* **CPF:** 123.456.789-00
+* **RG:** 1234567-8 (órgão expedidor: não localizado)
+* **Filiação Materna:** Lúcia Helena de Almeida Santos
+* **Filiação Paterna:** não localizado
+* **E-mail:** marcos.almeida.teste@examplo.com
+* **Telefone:** não localizado
+* **Endereço Residencial:** não localizado
+* **Curso Solicitado:** Técnico em Enfermagem
+* **Eixo Tecnológico:** Saúde
+* **Carga Horária:** 1200 horas
+* **Turno:** Noturno
+* **Data de Início das Aulas:** 01/02/2027
+* **Declaração de Ciência:** Ciente do cancelamento automático de matrícula em caso de faltas sem justificativa comprovada nos dois primeiros dias de aula consecutivos ou em três dias de aula (consecutivos ou não) nos dez primeiros dias letivos.
+
+---
+
+### 2. CHECAGEM DE CONSISTÊNCIA
+
+* **Dados Críticos Presentes:** Nome completo, CPF, RG, filiação materna, data de nascimento, naturalidade, e-mail de contato, especificação completa do curso (nome, eixo, carga horária, turno e previsão de início) e termo formal de ciência relativo aos critérios de assiduidade inicial.
+* **Dados Ausentes / Ocorrências:** 
+  * Órgão expedidor/UF do documento de identidade: não localizado.
+  * Filiação paterna: não localizado.
+  * Telefone de contato: não localizado.
+  * Endereço residencial: não localizado.
+  * Comprovantes anexos: não localizados (o requerente solicita relação dos documentos complementares pendentes de apresentação).
+
+---
+
+### 3. REDAÇÃO PADRONIZADA
+
+**GOVERNO DO ESTADO DE MATO GROSSO**  
+**DESPACHO ADMINISTRATIVO**
+
+**PROCESSO/PROTOCOLO:** 2026-000142  
+**INTERESSADO:** Marcos Vinícius de Almeida Santos  
+**ASSUNTO:** Solicitação de Efetivação de Matrícula – Curso Técnico em Enfermagem  
+
+1. **RELATÓRIO**  
+Trata-se de requerimento formalizado por via eletrônica em 14/10/2026 pelo interessado Marcos Vinícius de Almeida Santos, no qual solicita a efetivação de sua matrícula no curso Técnico em Enfermagem (Eixo Tecnológico Saúde, turno noturno, 1200 horas, com data de início prevista para 01/02/2027). O interessado prestou informações cadastrais básicas e registrou ciência quanto às condições de cancelamento de matrícula por infrequência inicial, demandando instruções acerca dos documentos complementares a serem apresentados.
+
+2. **ANÁLISE INICIAL**  
+Os dados identificadores do requerente e a especificação do curso foram devidamente informados no requerimento inicial. Contudo, constata-se a ausência de registro de dados complementares (endereço, telefone e órgão expedidor do RG) e de documentos comprobatórios anexos necessários para a instrução final do registro acadêmico.
+
+3. **DESPACHO / ENCAMINHAMENTO**  
+3.1. Registre-se o recebimento e os dados cadastrais apresentados sob o Protocolo nº 2026-000142.  
+3.2. Notifique-se o requerente, por meio do e-mail *marcos.almeida.teste@examplo.com*, com a relação dos documentos comprobatórios e complementares exigidos pelas normas vigentes para a consolidação formal da matrícula, bem como para o fornecimento dos dados não constantes no requerimento inaugural.  
+3.3. Cumpridas as exigências documentais, retornem os autos para homologação final da matrícula antes da data de início do curso (01/02/2027).
+
+Cuiabá-MT, 14 de outubro de 2026.
+
+*(Assinatura / Matrícula do Agente Responsável)*
