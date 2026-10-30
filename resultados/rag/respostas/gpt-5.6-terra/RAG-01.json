@@ -1,0 +1,284 @@
+{
+  "id_caso": "RAG-01",
+  "pergunta": "Não consegui ir à escola até o dia 20 de outubro. Ainda dá tempo de fazer a matrícula da primeira chamada?",
+  "status": "FUNDAMENTADA",
+  "resposta": "Sim. O período de matrícula da 1ª chamada vai de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar. (DOC-02, v1.0, p. 1, Art. 1º) Portanto, ainda é possível realizar a matrícula se o comparecimento ocorrer dentro desse período e horário. (DOC-02, v1.0, p. 1, Art. 1º)",
+  "codigo_motivo": "FUNDAMENTADA",
+  "motivo": "Resposta sustentada pelos trechos citados; o operador confere e aprova.",
+  "encaminhamento": "REVISAO_HUMANA_PRIORITARIA",
+  "fontes": [
+    {
+      "n": 1,
+      "rotulo": "DOC-02, v1.0, p. 1, Art. 1º",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-02::A::p1::t002",
+      "doc_id": "DOC-02",
+      "titulo": "Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "Art. 1º",
+      "similaridade_cosseno": 0.5615,
+      "retifica": "DOC-01",
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "Art. 1º. O item 3.3 do Edital Fictício nº 010/2026 passa a vigorar com a seguinte redação:\nOnde se lê: \"3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 20/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\"\nLeia-se: \"3.3."
+    },
+    {
+      "n": 2,
+      "rotulo": "DOC-02, v1.0, p. 1, Art. 1º",
+      "citado": true,
+      "origem": "busca",
+      "chunk_id": "DOC-02::A::p1::t003",
+      "doc_id": "DOC-02",
+      "titulo": "Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "Art. 1º",
+      "similaridade_cosseno": 0.6192,
+      "retifica": "DOC-01",
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "13h às 21h, na Secretaria Escolar.\"\nLeia-se: \"3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\""
+    },
+    {
+      "n": 3,
+      "rotulo": "DOC-03, v1.0, seção 4",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-03::A::txt::t007",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+      "similaridade_cosseno": 0.5788,
+      "retifica": null,
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS\n4.1. A vaga liberada por cancelamento de matrícula é oferecida ao próximo candidato da lista de classificação do curso, na ordem do sorteio.\n4.2. O candidato convocado tem 2 (dois) dias úteis para comparecer à Secretaria Escolar com os documentos exigidos no edital.\n4.3."
+    },
+    {
+      "n": 4,
+      "rotulo": "DOC-03, v1.0, seção 4",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-03::A::txt::t008",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+      "similaridade_cosseno": 0.5734,
+      "retifica": null,
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "Escolar com os documentos exigidos no edital.\n4.3. Não há convocação de vagas remanescentes depois do 15º (décimo quinto) dia letivo."
+    },
+    {
+      "n": 5,
+      "rotulo": "DOC-01, v1.0, p. 1, seção 3",
+      "citado": false,
+      "origem": "vigencia",
+      "chunk_id": "DOC-01::A::p1::t007",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "3. DO CRONOGRAMA",
+      "similaridade_cosseno": 0.5501,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "3. DO CRONOGRAMA\n3.1. As inscrições ocorrem de 08/09/2026 a 22/09/2026, exclusivamente pelo formulário eletrônico da unidade.\n3.2. O sorteio público será realizado em 25/09/2026.\n3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 20/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\n3.4."
+    },
+    {
+      "n": 6,
+      "rotulo": "DOC-01, v1.0, p. 1, seção 3",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-01::A::p1::t008",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "3. DO CRONOGRAMA",
+      "similaridade_cosseno": null,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "das 13h às 21h, na Secretaria Escolar.\n3.4. As aulas terão início em 01/02/2027 para todos os cursos."
+    },
+    {
+      "n": 7,
+      "rotulo": "DOC-01, v1.0, p. 2, seção 5",
+      "citado": false,
+      "origem": "vigencia",
+      "chunk_id": "DOC-01::A::p2::t013",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 2,
+      "secao": "5. DAS CHAMADAS E DAS VAGAS REMANESCENTES",
+      "similaridade_cosseno": 0.541,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "5. DAS CHAMADAS E DAS VAGAS REMANESCENTES\n5.1. As vagas não ocupadas na 1ª chamada serão oferecidas em 2ª chamada, publicada em 23/10/2026, com matrícula em 26/10/2026 e 27/10/2026.\n5.2. Persistindo vagas, a Secretaria Escolar publicará a chamada de vagas remanescentes no mural da unidade, obedecendo à ordem do sorteio.\n5.3."
+    },
+    {
+      "n": 8,
+      "rotulo": "DOC-01, v1.0, p. 2, seção 5",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-01::A::p2::t014",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 2,
+      "secao": "5. DAS CHAMADAS E DAS VAGAS REMANESCENTES",
+      "similaridade_cosseno": null,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "da unidade, obedecendo à ordem do sorteio.\n5.3. O candidato convocado que não comparecer no período indicado perde o direito à vaga."
+    }
+  ],
+  "afirmacoes": [
+    {
+      "texto": "O período de matrícula da 1ª chamada vai de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.",
+      "trechos": [
+        2
+      ],
+      "citacoes": [
+        {
+          "rotulo": "DOC-02, v1.0, p. 1, Art. 1º",
+          "chunk_id": "DOC-02::A::p1::t003",
+          "doc_id": "DOC-02",
+          "versao": "1.0",
+          "pagina": 1,
+          "secao": "Art. 1º",
+          "trecho": "13h às 21h, na Secretaria Escolar.\"\nLeia-se: \"3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\""
+        }
+      ],
+      "numeros_fora_do_trecho_citado": []
+    },
+    {
+      "texto": "Ainda é possível realizar a matrícula se o comparecimento ocorrer dentro desse período e horário.",
+      "trechos": [
+        2
+      ],
+      "citacoes": [
+        {
+          "rotulo": "DOC-02, v1.0, p. 1, Art. 1º",
+          "chunk_id": "DOC-02::A::p1::t003",
+          "doc_id": "DOC-02",
+          "versao": "1.0",
+          "pagina": 1,
+          "secao": "Art. 1º",
+          "trecho": "13h às 21h, na Secretaria Escolar.\"\nLeia-se: \"3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\""
+        }
+      ],
+      "numeros_fora_do_trecho_citado": []
+    }
+  ],
+  "divergencias": [],
+  "alertas": [
+    "CITACAO_DE_VIGENCIA_INCOMPLETA: a resposta cita o DOC-02, que retifica o DOC-01, sem citar o trecho do DOC-01 que está no contexto."
+  ],
+  "guardas": {
+    "1_limiar": {
+      "decisao": "SEGUE",
+      "detalhe": "top-1 0.6192 >= limiar 0.45"
+    },
+    "camada2_conteudo_recuperado": {
+      "decisao": "PERMITIR",
+      "detalhe": "Nenhum trecho suspeito."
+    },
+    "2_contrato": {
+      "decisao": "SEGUE",
+      "detalhe": "status FUNDAMENTADA com citações válidas"
+    },
+    "camada3_saida": {
+      "decisao": "PERMITIR",
+      "detalhe": "Saída sem achados."
+    },
+    "3_ancoragem": {
+      "decisao": "SEGUE",
+      "detalhe": "todos os números constam dos trechos ou da mensagem"
+    }
+  },
+  "recuperacao": {
+    "top_k": 4,
+    "limiar": 0.45,
+    "explicacao": "Similaridade de cosseno entre o vetor da pergunta e o do trecho (1 - distância de cosseno do Chroma): perto de 1, sentidos próximos; perto de 0, sem relação. Mede proximidade de sentido, não veracidade nem vigência do trecho.",
+    "similaridade_top1": 0.6192,
+    "similaridade_topk": 0.5615,
+    "margem_top1_topk": 0.0577,
+    "margem_minima": 0.02,
+    "margem_estreita": false,
+    "ids_top_k": [
+      "DOC-02::A::p1::t003",
+      "DOC-03::A::txt::t007",
+      "DOC-03::A::txt::t008",
+      "DOC-02::A::p1::t002"
+    ],
+    "duracao_total_ms": 3204.6
+  },
+  "saida_modelo": {
+    "status": "FUNDAMENTADA",
+    "resposta": "Sim. O período de matrícula da 1ª chamada vai de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar. [2] Portanto, ainda é possível realizar a matrícula se o comparecimento ocorrer dentro desse período e horário. [2]",
+    "afirmacoes": [
+      {
+        "texto": "O período de matrícula da 1ª chamada vai de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.",
+        "trechos": [
+          2
+        ]
+      },
+      {
+        "texto": "Ainda é possível realizar a matrícula se o comparecimento ocorrer dentro desse período e horário.",
+        "trechos": [
+          2
+        ]
+      }
+    ],
+    "divergencias": [],
+    "alerta": null
+  },
+  "provedor": "openai",
+  "modelo": "gpt-5.6-terra",
+  "prompt": {
+    "id": "PROMPT_RAG",
+    "versao": "1.0"
+  },
+  "versao_esquema": "1.0.0",
+  "versao_indice": "1.0.0",
+  "colecao": "acervo_principal",
+  "configuracao_chunking": "A",
+  "chamadas": [
+    {
+      "etapa": "rag_geracao",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-terra",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 3189.7,
+      "tokens_total": 3379,
+      "custo_estimado_usd": 0.008657999999999999
+    }
+  ],
+  "minuta": "MINUTA PARA REVISÃO HUMANA - envio automático bloqueado\nStatus: FUNDAMENTADA\nEncaminhamento: REVISAO_HUMANA_PRIORITARIA\n\nResposta proposta:\nSim. O período de matrícula da 1ª chamada vai de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar. (DOC-02, v1.0, p. 1, Art. 1º) Portanto, ainda é possível realizar a matrícula se o comparecimento ocorrer dentro desse período e horário. (DOC-02, v1.0, p. 1, Art. 1º)\n\nAlertas para o operador:\n- CITACAO_DE_VIGENCIA_INCOMPLETA: a resposta cita o DOC-02, que retifica o DOC-01, sem citar o trecho do DOC-01 que está no contexto.\n\nTrechos consultados:\n[1] (DOC-02, v1.0, p. 1, Art. 1º) Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026 | não citado | origem: busca\n[2] (DOC-02, v1.0, p. 1, Art. 1º) Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026 | citado | origem: busca\n[3] (DOC-03, v1.0, seção 4) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | não citado | origem: busca\n[4] (DOC-03, v1.0, seção 4) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | não citado | origem: busca\n[5] (DOC-01, v1.0, p. 1, seção 3) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vigencia\n[6] (DOC-01, v1.0, p. 1, seção 3) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vizinho\n[7] (DOC-01, v1.0, p. 2, seção 5) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vigencia\n[8] (DOC-01, v1.0, p. 2, seção 5) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vizinho\n\nConteúdo gerado com apoio de IA (openai/gpt-5.6-terra; PROMPT_RAG v1.0). Confira cada citação na passagem original antes de aprovar.",
+  "id_execucao": "EXEC-D422851F",
+  "status_revisao": "PENDENTE_REVISAO_HUMANA",
+  "envio_automatico_bloqueado": true,
+  "registrado_em": "2026-10-30T13:12:29"
+}

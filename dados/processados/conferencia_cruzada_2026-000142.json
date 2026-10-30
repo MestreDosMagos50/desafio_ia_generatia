@@ -1,0 +1,96 @@
+{
+  "fontes": [
+    "texto"
+  ],
+  "campos": [
+    {
+      "campo": "protocolo",
+      "valores": {
+        "texto": "2026-000142"
+      },
+      "status": "FONTE_UNICA",
+      "valor_sugerido": "2026-000142"
+    },
+    {
+      "campo": "data_solicitacao",
+      "valores": {
+        "texto": "14/10/2026"
+      },
+      "status": "FONTE_UNICA",
+      "valor_sugerido": "14/10/2026"
+    },
+    {
+      "campo": "nome_completo",
+      "valores": {
+        "texto": "Marcos Vinícius de Almeida Santos"
+      },
+      "status": "FONTE_UNICA",
+      "valor_sugerido": "Marcos Vinícius de Almeida Santos"
+    },
+    {
+      "campo": "data_nascimento",
+      "valores": {
+        "texto": "12/08/2008"
+      },
+      "status": "FONTE_UNICA",
+      "valor_sugerido": "12/08/2008"
+    },
+    {
+      "campo": "cpf",
+      "valores": {
+        "texto": "123.456.789-00"
+      },
+      "status": "FONTE_UNICA",
+      "valor_sugerido": "123.456.789-00"
+    },
+    {
+      "campo": "rg",
+      "valores": {
+        "texto": "1234567-8"
+      },
+      "status": "FONTE_UNICA",
+      "valor_sugerido": "1234567-8"
+    },
+    {
+      "campo": "email",
+      "valores": {
+        "texto": "marcos.almeida.teste@examplo.com"
+      },
+      "status": "FONTE_UNICA",
+      "valor_sugerido": "marcos.almeida.teste@examplo.com"
+    },
+    {
+      "campo": "nome_mae",
+      "valores": {
+        "texto": "Lúcia Helena de Almeida Santos"
+      },
+      "status": "FONTE_UNICA",
+      "valor_sugerido": "Lúcia Helena de Almeida Santos"
+    },
+    {
+      "campo": "curso",
+      "valores": {
+        "texto": "Técnico em Enfermagem"
+      },
+      "status": "FONTE_UNICA",
+      "valor_sugerido": "Técnico em Enfermagem"
+    },
+    {
+      "campo": "turno",
+      "valores": {
+        "texto": "noturno"
+      },
+      "status": "FONTE_UNICA",
+      "valor_sugerido": "noturno"
+    },
+    {
+      "campo": "data_inicio",
+      "valores": {
+        "texto": "01/02/2027"
+      },
+      "status": "FONTE_UNICA",
+      "valor_sugerido": "01/02/2027"
+    }
+  ],
+  "pontos_atencao": []
+}

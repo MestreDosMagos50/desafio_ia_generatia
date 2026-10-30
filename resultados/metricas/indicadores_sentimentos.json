@@ -1,0 +1,541 @@
+{
+  "gerado_em": "2026-10-30T12:50:54",
+  "provedor": "openai",
+  "modelo": "gpt-5.6-luna",
+  "prompt_versao": "1.0",
+  "versao_esquema": "1.0.0",
+  "chamadas": 12,
+  "custo_total_usd": 0.0035272,
+  "arquivo_rotulos": "resultados/sentimentos/rotulos_sentimentos_20261030-125054.csv",
+  "filtros": {},
+  "ficha_tecnica": {
+    "n_avaliacoes": 12,
+    "n_atendimentos_avaliados": 12,
+    "atendimentos_no_periodo": null,
+    "taxa_de_resposta": null,
+    "natureza": "censo do lote fictício avaliado",
+    "e_amostra": false,
+    "intervalo_de_confianca": "não se aplica (sem margem amostral no censo)",
+    "periodo": {
+      "inicio": "2026-10-05",
+      "fim": "2026-10-21"
+    },
+    "modelos": [
+      "gpt-5.6-luna"
+    ],
+    "classificado_em": {
+      "inicio": "2026-10-30T12:50:28",
+      "fim": "2026-10-30T12:50:54"
+    },
+    "duplicatas_removidas": 0,
+    "sem_rotulo_valido": {
+      "n": 0,
+      "denominador": 12,
+      "percentual": 0.0
+    },
+    "limitrofes": {
+      "n": 5,
+      "denominador": 12,
+      "percentual": 41.7
+    },
+    "para_revisao": {
+      "n": 6,
+      "denominador": 12,
+      "percentual": 50.0
+    },
+    "acuracia_polaridade_contra_gabarito": {
+      "numerador": 11,
+      "denominador": 12
+    },
+    "minimo_para_percentual": 10,
+    "nota_etica": "Os rótulos descrevem o texto de cada avaliação, não o autor: não se infere personalidade, estado emocional, diagnóstico ou característica sensível. A ambiguidade é autodeclarada pelo modelo, uma estimativa não calibrada que orienta a revisão e não é probabilidade de acerto. O percentual descreve quem avaliou, não todos os atendidos (viés de resposta)."
+  },
+  "polaridade": {
+    "coluna": "polaridade",
+    "denominador": 12,
+    "minimo_para_percentual": 10,
+    "percentual_exibido": true,
+    "motivo_sem_percentual": null,
+    "categorias": [
+      {
+        "categoria": "positiva",
+        "n": 4,
+        "denominador": 12,
+        "percentual": 33.3
+      },
+      {
+        "categoria": "negativa",
+        "n": 3,
+        "denominador": 12,
+        "percentual": 25.0
+      },
+      {
+        "categoria": "neutra",
+        "n": 3,
+        "denominador": 12,
+        "percentual": 25.0
+      },
+      {
+        "categoria": "indeterminada",
+        "n": 2,
+        "denominador": 12,
+        "percentual": 16.7
+      }
+    ]
+  },
+  "tema": {
+    "coluna": "tema",
+    "denominador": 12,
+    "minimo_para_percentual": 10,
+    "percentual_exibido": true,
+    "motivo_sem_percentual": null,
+    "categorias": [
+      {
+        "categoria": "informacao_e_orientacao",
+        "n": 4,
+        "denominador": 12,
+        "percentual": 33.3
+      },
+      {
+        "categoria": "documentacao",
+        "n": 3,
+        "denominador": 12,
+        "percentual": 25.0
+      },
+      {
+        "categoria": "prazo_e_demora",
+        "n": 2,
+        "denominador": 12,
+        "percentual": 16.7
+      },
+      {
+        "categoria": "atendimento",
+        "n": 2,
+        "denominador": 12,
+        "percentual": 16.7
+      },
+      {
+        "categoria": "sistema_e_tecnologia",
+        "n": 1,
+        "denominador": 12,
+        "percentual": 8.3
+      }
+    ]
+  },
+  "por_canal": [
+    {
+      "grupo": "aplicativo",
+      "n": 2,
+      "coluna": "polaridade",
+      "denominador": 2,
+      "minimo_para_percentual": 10,
+      "percentual_exibido": false,
+      "motivo_sem_percentual": "base de 2 avaliação(ões), abaixo do mínimo de 10 para percentual",
+      "categorias": [
+        {
+          "categoria": "positiva",
+          "n": 1,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "negativa",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "neutra",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "indeterminada",
+          "n": 1,
+          "denominador": 2,
+          "percentual": null
+        }
+      ]
+    },
+    {
+      "grupo": "e-mail",
+      "n": 2,
+      "coluna": "polaridade",
+      "denominador": 2,
+      "minimo_para_percentual": 10,
+      "percentual_exibido": false,
+      "motivo_sem_percentual": "base de 2 avaliação(ões), abaixo do mínimo de 10 para percentual",
+      "categorias": [
+        {
+          "categoria": "positiva",
+          "n": 1,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "negativa",
+          "n": 1,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "neutra",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "indeterminada",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        }
+      ]
+    },
+    {
+      "grupo": "formulario_site",
+      "n": 2,
+      "coluna": "polaridade",
+      "denominador": 2,
+      "minimo_para_percentual": 10,
+      "percentual_exibido": false,
+      "motivo_sem_percentual": "base de 2 avaliação(ões), abaixo do mínimo de 10 para percentual",
+      "categorias": [
+        {
+          "categoria": "positiva",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "negativa",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "neutra",
+          "n": 2,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "indeterminada",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        }
+      ]
+    },
+    {
+      "grupo": "presencial",
+      "n": 5,
+      "coluna": "polaridade",
+      "denominador": 5,
+      "minimo_para_percentual": 10,
+      "percentual_exibido": false,
+      "motivo_sem_percentual": "base de 5 avaliação(ões), abaixo do mínimo de 10 para percentual",
+      "categorias": [
+        {
+          "categoria": "positiva",
+          "n": 2,
+          "denominador": 5,
+          "percentual": null
+        },
+        {
+          "categoria": "negativa",
+          "n": 1,
+          "denominador": 5,
+          "percentual": null
+        },
+        {
+          "categoria": "neutra",
+          "n": 1,
+          "denominador": 5,
+          "percentual": null
+        },
+        {
+          "categoria": "indeterminada",
+          "n": 1,
+          "denominador": 5,
+          "percentual": null
+        }
+      ]
+    },
+    {
+      "grupo": "telefone",
+      "n": 1,
+      "coluna": "polaridade",
+      "denominador": 1,
+      "minimo_para_percentual": 10,
+      "percentual_exibido": false,
+      "motivo_sem_percentual": "base de 1 avaliação(ões), abaixo do mínimo de 10 para percentual",
+      "categorias": [
+        {
+          "categoria": "positiva",
+          "n": 0,
+          "denominador": 1,
+          "percentual": null
+        },
+        {
+          "categoria": "negativa",
+          "n": 1,
+          "denominador": 1,
+          "percentual": null
+        },
+        {
+          "categoria": "neutra",
+          "n": 0,
+          "denominador": 1,
+          "percentual": null
+        },
+        {
+          "categoria": "indeterminada",
+          "n": 0,
+          "denominador": 1,
+          "percentual": null
+        }
+      ]
+    }
+  ],
+  "por_tema": [
+    {
+      "grupo": "atendimento",
+      "n": 2,
+      "coluna": "polaridade",
+      "denominador": 2,
+      "minimo_para_percentual": 10,
+      "percentual_exibido": false,
+      "motivo_sem_percentual": "base de 2 avaliação(ões), abaixo do mínimo de 10 para percentual",
+      "categorias": [
+        {
+          "categoria": "positiva",
+          "n": 1,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "negativa",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "neutra",
+          "n": 1,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "indeterminada",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        }
+      ]
+    },
+    {
+      "grupo": "documentacao",
+      "n": 3,
+      "coluna": "polaridade",
+      "denominador": 3,
+      "minimo_para_percentual": 10,
+      "percentual_exibido": false,
+      "motivo_sem_percentual": "base de 3 avaliação(ões), abaixo do mínimo de 10 para percentual",
+      "categorias": [
+        {
+          "categoria": "positiva",
+          "n": 1,
+          "denominador": 3,
+          "percentual": null
+        },
+        {
+          "categoria": "negativa",
+          "n": 0,
+          "denominador": 3,
+          "percentual": null
+        },
+        {
+          "categoria": "neutra",
+          "n": 1,
+          "denominador": 3,
+          "percentual": null
+        },
+        {
+          "categoria": "indeterminada",
+          "n": 1,
+          "denominador": 3,
+          "percentual": null
+        }
+      ]
+    },
+    {
+      "grupo": "informacao_e_orientacao",
+      "n": 4,
+      "coluna": "polaridade",
+      "denominador": 4,
+      "minimo_para_percentual": 10,
+      "percentual_exibido": false,
+      "motivo_sem_percentual": "base de 4 avaliação(ões), abaixo do mínimo de 10 para percentual",
+      "categorias": [
+        {
+          "categoria": "positiva",
+          "n": 2,
+          "denominador": 4,
+          "percentual": null
+        },
+        {
+          "categoria": "negativa",
+          "n": 1,
+          "denominador": 4,
+          "percentual": null
+        },
+        {
+          "categoria": "neutra",
+          "n": 1,
+          "denominador": 4,
+          "percentual": null
+        },
+        {
+          "categoria": "indeterminada",
+          "n": 0,
+          "denominador": 4,
+          "percentual": null
+        }
+      ]
+    },
+    {
+      "grupo": "prazo_e_demora",
+      "n": 2,
+      "coluna": "polaridade",
+      "denominador": 2,
+      "minimo_para_percentual": 10,
+      "percentual_exibido": false,
+      "motivo_sem_percentual": "base de 2 avaliação(ões), abaixo do mínimo de 10 para percentual",
+      "categorias": [
+        {
+          "categoria": "positiva",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "negativa",
+          "n": 2,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "neutra",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        },
+        {
+          "categoria": "indeterminada",
+          "n": 0,
+          "denominador": 2,
+          "percentual": null
+        }
+      ]
+    },
+    {
+      "grupo": "sistema_e_tecnologia",
+      "n": 1,
+      "coluna": "polaridade",
+      "denominador": 1,
+      "minimo_para_percentual": 10,
+      "percentual_exibido": false,
+      "motivo_sem_percentual": "base de 1 avaliação(ões), abaixo do mínimo de 10 para percentual",
+      "categorias": [
+        {
+          "categoria": "positiva",
+          "n": 0,
+          "denominador": 1,
+          "percentual": null
+        },
+        {
+          "categoria": "negativa",
+          "n": 0,
+          "denominador": 1,
+          "percentual": null
+        },
+        {
+          "categoria": "neutra",
+          "n": 0,
+          "denominador": 1,
+          "percentual": null
+        },
+        {
+          "categoria": "indeterminada",
+          "n": 1,
+          "denominador": 1,
+          "percentual": null
+        }
+      ]
+    }
+  ],
+  "fila_de_revisao": [
+    {
+      "id": "AV-01",
+      "canal": "presencial",
+      "polaridade": "positiva",
+      "ambiguidade": "clara",
+      "tema": "informacao_e_orientacao",
+      "trecho_determinante": "A atendente explicou com calma todos os documentos da matrícula e resolveu tudo em poucos minutos.",
+      "justificativa_curta": "O texto elogia a clareza das explicações, a rapidez da solução e o atendimento realizado.",
+      "alertas": "TRECHO_ACIMA_DE_15_PALAVRAS: 16 palavras"
+    },
+    {
+      "id": "AV-04",
+      "canal": "presencial",
+      "polaridade": "negativa",
+      "ambiguidade": "limitrofe",
+      "tema": "prazo_e_demora",
+      "trecho_determinante": "Fiquei mais de duas horas na fila e no fim disseram que o sistema estava fora do ar.",
+      "justificativa_curta": "O texto relata espera superior a duas horas e indisponibilidade do sistema, classificando o atendimento como descaso.",
+      "alertas": "TRECHO_ACIMA_DE_15_PALAVRAS: 18 palavras"
+    },
+    {
+      "id": "AV-05",
+      "canal": "telefone",
+      "polaridade": "negativa",
+      "ambiguidade": "limitrofe",
+      "tema": "informacao_e_orientacao",
+      "trecho_determinante": "A informação passada por telefone estava errada e por isso perdi o prazo",
+      "justificativa_curta": "O texto relata que uma informação incorreta por telefone resultou na perda do prazo para entregar o termo do estágio.",
+      "alertas": ""
+    },
+    {
+      "id": "AV-06",
+      "canal": "e-mail",
+      "polaridade": "negativa",
+      "ambiguidade": "limitrofe",
+      "tema": "prazo_e_demora",
+      "trecho_determinante": "pedido de histórico escolar que fiz há 20 dias e que ainda não foi entregue",
+      "justificativa_curta": "O texto relata demora de 20 dias na entrega do histórico escolar e solicita retorno.",
+      "alertas": ""
+    },
+    {
+      "id": "AV-10",
+      "canal": "aplicativo",
+      "polaridade": "indeterminada",
+      "ambiguidade": "limitrofe",
+      "tema": "documentacao",
+      "trecho_determinante": "só precisei voltar quatro vezes para entregar o mesmo documento",
+      "justificativa_curta": "A mensagem usa elogio aparente, mas relata repetidas idas para entregar o mesmo documento, sugerindo crítica ao atendimento.",
+      "alertas": ""
+    },
+    {
+      "id": "AV-11",
+      "canal": "presencial",
+      "polaridade": "indeterminada",
+      "ambiguidade": "limitrofe",
+      "tema": "sistema_e_tecnologia",
+      "trecho_determinante": "foi muito atenciosa e resolveu minha dúvida, mas o sistema caiu duas vezes",
+      "justificativa_curta": "O texto elogia a atenção e a resolução da dúvida, mas relata quedas do sistema e perda de tempo.",
+      "alertas": ""
+    }
+  ]
+}

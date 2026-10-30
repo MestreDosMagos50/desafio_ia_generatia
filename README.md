@@ -1,60 +1,69 @@
 # Central Inteligente de Atendimento e Comunicação Institucional
 **Programa FIC_DEV — Programador de Sistemas com IA**
-*Desafio Prático 1: Inteligência Artificial Generativa (Aulas 01 a 07)*
-*Cenário fictício: Escola Técnica Estadual de Cuiabá / SECITECI — Governo de Mato Grosso*
+*Desafio Prático 2: Inteligência Artificial Generativa (Aulas 08 a 14), evolução do Desafio Prático 1 (Aulas 01 a 07)*
+*Cenário fictício: Secretaria Escolar da ETEC Cuiabá / SECITECI — Governo de Mato Grosso. Todos os dados do Desafio 02 são fictícios.*
 
 ---
 
 ## 1. O que o sistema faz
 
-Protótipo que recebe uma solicitação de matrícula por três canais — **texto (e-mail), mensagem de voz e ficha
-manuscrita digitalizada** — e produz uma **minuta de resposta** para um servidor revisar. Nada é enviado
-automaticamente.
+A central recebe a solicitação do cidadão e entrega ao servidor uma **minuta revisável**, sempre com as fontes à
+vista. **Nada é enviado automaticamente.**
 
-1. **Extração (RF05):** o modelo converte cada canal em JSON validado por esquema; campos ausentes ficam
-   `"não localizado"`. A transcrição do áudio (RF06) e a leitura da ficha (RF08) preservam a versão bruta e marcam
-   trechos incertos.
-2. **Revisão humana (RF13):** o revisor aprova a transcrição, confirma a leitura da ficha e decide os campos
-   divergentes entre canais (conferência cruzada) **antes** da minuta.
-3. **Minuta (RF09):** redigida com o Prompt B v2 a partir dos dados confirmados e minimizados (RF12), montada no
-   modelo institucional (`.txt` e `.docx` com brasão) e validada automaticamente (CPF, e-mail, normas, prazos ou
-   documentos que não constam nas fontes).
-4. **Decisão:** aprovar, rejeitar (justificativa obrigatória), corrigir um campo (a minuta é gerada de novo) ou
-   pedir nova geração. Só a minuta aprovada vira áudio acessível (RF07).
-5. **Peça visual (RF10):** ilustração gerada por IA, sem texto, editada com brasão, textos conferidos e tarja de
-   proveniência; também passa por revisão humana.
-6. **Auditoria (RF11):** cada chamada fica em `resultados/logs/auditoria.jsonl` com modelo, parâmetros, versão e
-   hash do prompt, tokens, custo, duração e erros — sem chaves de API e com CPF/e-mail mascarados.
+1. **Proteção da entrada (RF16):** a entrada passa pelas camadas 1a e 1b:
+   - **1a:** limites de arquivo e texto e regras locais contra ofuscação;
+   - **1b:** moderação (`omni-moderation-latest`) e um classificador de política numerada e versionada.
+
+   Entrada bloqueada não gera minuta e vai para o operador.
+2. **Compreensão (RF14, RF15):** contrato de dados v2.0.0 por Structured Outputs. Ausência é `null` e aparece como
+   "não localizado". Regras de negócio em código conferem data real, formato e ancoragem no texto original. A ficha
+   traz resumo (até 100 palavras), categoria e entidades literais separadas das inferidas.
+3. **Acervo e RAG (RF17–RF19):**
+   - *Acervo:* 7 documentos fictícios em Chroma persistente (cosseno, `text-embedding-3-small`).
+   - *Contexto:* top-4, mais os vizinhos da mesma seção e o documento retificador.
+   - *Três guardas:* limiar calibrado, contrato do prompt com recusa fixa e ancoragem numérica.
+   - *Citações:* escritas pelo código a partir do índice.
+   - *Conflito:* fontes divergentes sem regra escrita viram `CONFLITO_DE_FONTES`.
+4. **Revisão humana (RF20, RF24):** cada minuta entra na fila do operador e recebe uma decisão: `PENDENTE`,
+   `APROVADA`, `REJEITADA` ou `REVISAR`, com justificativa. Aprovar só libera o envio manual.
+5. **Sentimentos (RF22):** as 12 avaliações são classificadas uma por chamada, com rótulos fechados e sem confiança
+   numérica. Toda conta é feita em pandas, com denominador, e o percentual só aparece com base de pelo menos 10.
+6. **Auditoria (RF21):** cada chamada fica em `resultados/logs/auditoria.jsonl` com:
+   - versões do esquema, do prompt e do índice;
+   - consulta mascarada e IDs recuperados;
+   - tokens, custo e erros;
+   - vínculo com a decisão humana.
+7. **Desafio 01 preservado:** texto, ficha, minuta, voz e cartaz continuam funcionando (`--modo texto|visao|...`). A
+   regressão T15 reexecuta o texto e o OCR da ficha.
 
 ---
 
 ## 2. Requisitos e versões
 
-- **Python 3.12** (testado com 3.12.10 no Windows 11)
-- **Bibliotecas** (versões fixadas em `requirements.txt`):
+- **Python 3.12** (testado com 3.12.10 no Windows 11). Versões fixadas em `requirements.txt`:
 
 | Biblioteca | Versão | Uso |
 | :--- | :--- | :--- |
-| `google-genai` | 2.31.0 | Chamadas ao Gemini (texto, áudio, PDF e imagem) |
-| `httpx` | 0.28.1 | Transporte HTTP; timeout; chamada ao Hugging Face |
-| `python-dotenv` | 1.2.3 | Leitura do `.env` |
-| `pydantic` | 2.14.1 | Esquemas JSON da extração e da minuta |
-| `mutagen` | 1.48.1 | Metadados do áudio |
-| `edge-tts` | 7.3.1 | Síntese de voz pt-BR |
-| `pillow` | 12.3.0 | Edição do cartaz |
-| `gradio_client` | 2.7.2 | Chamada ao Space do modelo aberto de imagem |
-| `pypdf` | 6.21.0 | Leitura do PDF |
-| `python-docx` | 1.2.0 | Minuta `.docx` com brasão |
+| `openai` | 3.41.0 | Geração, embeddings e moderação (Desafio 02) |
+| `chromadb` | 1.5.9 | Índice vetorial persistente |
+| `pymupdf` | 2.0 | Leitura de PDF por página; PDF → PNG para a visão |
+| `streamlit` | 1.62.0 | Interface do assistente |
+| `pandas` | 3.1.0 | Agregação determinística |
+| `pydantic` | 2.14.1 | Contratos e esquemas |
+| `python-dotenv`, `httpx` | 1.2.3, 0.28.1 | `.env` e transporte HTTP |
+| `google-genai`, `edge-tts`, `mutagen`, `pillow`, `gradio_client`, `pypdf`, `python-docx` | ver arquivo | Desafio 01 (Gemini legado, voz, cartaz, minuta `.docx`) |
 | `pytest` | 9.1.1 | Testes |
 
-- **Modelos usados de fato** (confira em `documentacao/resumo_execucoes.md`, gerado a partir do log):
+- **Modelos** (`config.json`, bloco `llm.openai`; consumo real em `documentacao/resumo_execucoes.md`):
 
-| Etapa | Provedor / modelo | Observação |
+| Configuração | Modelo | Preço por 1M tokens (entrada / saída) |
 | :--- | :--- | :--- |
-| Extração, transcrição, leitura da ficha, minuta, experimento RF02 | Google `gemini-3.8-flash` | `config.json` ou `GEMINI_MODEL`; temperatura 0.2 |
-| Alternativos (429/503 no principal) | Google `gemini-3.5-flash`, depois `gemini-3.1-flash-lite` | Mesma chave, cota própria por modelo; o log registra o modelo que respondeu. Não usados no experimento RF02 |
-| Ilustração do cartaz | Google `gemini-3.1-flash-image` → alternativa aberta `black-forest-labs/FLUX.1-schnell` no Space oficial do Hugging Face (`gradio_client`) | O nível gratuito do Gemini não inclui imagem (HTTP 429 com cota zero); a API paga do HF exige créditos (402); o Space usa a cota gratuita de GPU. A troca fica registrada nos metadados |
-| Voz da minuta | Microsoft `edge-tts`, voz `pt-BR-FranciscaNeural` | Velocidade −5% |
+| Principal | `gpt-5.6-luna` | US$ 0,20 / 1,20 |
+| 2ª configuração real (RF21) | `gpt-5.6-terra` | US$ 2,00 / 12,00 |
+| Embeddings | `text-embedding-3-small` (1536 dimensões) | US$ 0,02 |
+| Moderação | `omni-moderation-latest` | gratuita |
+| Simulado | local, sem rede | sem tokens nem custo; **sem equivalência de qualidade** |
+| Legado do Desafio 01 | Gemini (`LLM_PROVIDER=google`) | só para `--modo audio` e cartaz |
 
 ---
 
@@ -68,167 +77,184 @@ pip install -r requirements.txt
 copy .env.example .env           # Linux/macOS: cp .env.example .env
 ```
 
-Preencha o `.env`:
+No `.env`, preencha só a chave (`LLM_PROVIDER=openai` já é o padrão):
 ```env
-GEMINI_API_KEY=sua_chave          # https://aistudio.google.com/
-GEMINI_MODEL=gemini-3.8-flash
-HF_TOKEN=hf_...                   # opcional: só para gerar o cartaz (huggingface.co/settings/tokens, tipo "Read")
+OPENAI_API_KEY=sua_chave          # https://platform.openai.com/api-keys
 ```
-O `.env` está no `.gitignore` e é excluído do pacote de entrega.
+O `.env` está no `.gitignore` e fica fora do pacote. Nunca cole a chave em código, chat ou log.
 
-Verifique o ambiente (RF01):
 ```bash
-python -m src.main --check-env
+python -m src.main --check-env        # ambiente, arquivos e situação do índice, sem rede
+python -m src.main --testar-conexao   # confere a chave com 5 chamadas mínimas (frações de centavo)
 ```
 
 ---
 
-## 4. Como executar
+## 4. Índice vetorial: criar, reutilizar e excluir
 
-Cada modo pede as decisões do revisor no terminal. O número de chamadas ao Gemini importa no nível gratuito:
+```bash
+python -m src.main --modo indexar                # cria o índice; na 2ª vez reutiliza sem novo embedding (T06)
+python -m src.main --modo buscar --consulta "Até quando posso fazer a matrícula?"
+python -m src.main --modo experimento-chunking   # compara as configurações A (350/50) e B (800/160) (T07)
+python -m src.main --modo demonstrar-exclusao    # exclui o DOC-99 e mostra que deixa de ser recuperado (T14)
+```
+- **O que vai no pacote:** `indice/chroma/` não é versionado nem empacotado; `indice/manifesto_indice.json` é.
+- **Instalação nova:** `--modo indexar` recria o índice por menos de US$ 0,001. O que o manifesto registra continua
+  valendo: o DOC-99 excluído não volta.
+- **Quando reindexar:** mudar o modelo de embedding, a dimensão, o chunking ou `indice.versao_indice` exige
+  reindexação completa. Documento com o mesmo hash é reutilizado.
+- **Acervo:** é gerado de forma determinística por `python scripts/gerar_acervo_ficticio.py`.
 
+---
+
+## 5. Como executar
+
+### 5.1. Interface (RF20)
+```bash
+streamlit run src/app.py
+```
+| Aba | O que faz |
+| :--- | :--- |
+| Acervo e índice | Situação de cada documento (aviso de índice desatualizado), reindexação, inclusão de `.txt`/`.pdf` (apenas fictícios; o temporário é apagado), busca top-k com a similaridade explicada e exclusão auditada |
+| Atendimento e revisão | Solicitação de teste ou digitada → guardrails → contrato → ficha → minuta com os trechos consultados (também na recusa); fila de minutas com decisão e justificativa |
+| Painel de sentimentos | Ficha técnica no topo, filtros, contagens com denominador e fila de revisão; sem chamada de API |
+| Provedor e auditoria | Configuração em uso (troca na barra lateral: luna, terra, simulado ou simulado com falha), índice preservado, uso por modelo, log sanitizado e relatórios |
+
+Cada consulta é independente: não há memória de conversa (Aula 15 fora do escopo).
+
+### 5.2. Linha de comando (Desafio 02)
 | Comando | O que faz | Chamadas (aprox.) |
 | :--- | :--- | :---: |
-| `python -m src.main --modo texto` | Extração, conferência, minuta, revisão e áudio | 3 |
-| `python -m src.main --modo audio` | Transcrição bruta e revisada, extração, conferência, minuta, revisão e áudio | 5 |
-| `python -m src.main --modo visao` | Leitura da ficha e confirmação humana | 1 |
-| `python -m src.main --modo cartaz` | Ilustração + edição do cartaz e revisão (usa o último registro confirmado) | 1 de imagem |
-| `python -m src.main --modo completo` | Os três canais com conferência cruzada, minuta e cartaz | ~8 |
-| `python -m src.main --modo texto --entrada-texto dados/originais/entrada_texto_injection.txt` | Caso de prompt injection (RF03) | 2 |
-| `python -m src.main --modo experimento-prompts` | Experimento RF02 (A, B v1 e C) | 3 |
+| `--modo avaliar-nlp` | Contrato, regras de negócio e ficha das 6 solicitações contra o gabarito (T01–T03) | 16 |
+| `--modo avaliar-guardrails` | Ataques, variantes, fora de escopo, limites e filtro de saída (T04, T05) | ~30 |
+| `--modo calibrar-limiar` | Similaridade top-1 das perguntas e limiar sugerido pela regra registrada | 1 embedding |
+| `--modo avaliar-rag` | 8 perguntas e controle do T14 contra o gabarito (T08–T10) | 9 |
+| `--modo responder --consulta "..."` | Guardrails de entrada e resposta com fontes | ~4 |
+| `--modo sentimentos` | 12 avaliações, conferência com o gabarito e indicadores (RF22) | 12 |
+| `--modo comparar-geracao` | 8 perguntas no `gpt-5.6-terra` sobre o mesmo índice e falha simulada (RF21, T12) | 9 (≈ US$ 0,08) |
+| `--modo regressao` | Texto e OCR do Desafio 01 até minuta e revisão (T15); revisão do texto no terminal | ~9 |
+| `--modo avaliacao-integrada` | Matriz T01–T15 e métricas do RF23 a partir das evidências; `--reexecutar` refaz tudo antes | 0 |
 
-Cada correção ou nova geração da minuta custa mais 1 chamada; a verificação do áudio (`audio.verificar_tts` no
-`config.json`) custa 1 e pode ser desligada.
+Com `--demo-avaliacao-humana`, as decisões de revisão do Desafio 01 (inclusive na regressão) são **simuladas**:
+ficam em `resultados/logs/decisoes_simuladas.json`, fora da taxa de aprovação.
 
-**`--demo-avaliacao-humana`**: executa sem perguntas, com decisões **simuladas** gravadas em
-`resultados/logs/decisoes_simuladas.json`, fora da taxa de aprovação. Na demonstração a minuta não é liberada e a voz
-não é sintetizada (o áudio afirmaria uma aprovação humana que não ocorreu); a validação da minuta registra `simulada: true`.
+### 5.3. Desafio 01 (preservado)
+| Comando | O que faz |
+| :--- | :--- |
+| `python -m src.main --modo texto` | Extração, conferência, minuta, revisão no terminal e voz |
+| `python -m src.main --modo visao` | Leitura da ficha manuscrita e confirmação humana dos campos críticos |
+| `python -m src.main --modo audio` / `--modo cartaz` | Exigem o Gemini legado (`LLM_PROVIDER=google`) |
+| `python -m src.main --modo texto --entrada-texto dados/originais/entrada_texto_injection.txt` | Caso de prompt injection (RF03) |
+| `python -m src.main --modo experimento-prompts` | Experimento RF02 |
 
-**Arquivos versionados:** minutas, áudios e cartazes são gravados com data e hora no nome
-(ex.: `minuta_institucional_2026-000142_20261017-153012.txt`). Uma nova geração cria arquivos novos e preserva os
-anteriores. Os intermediários de `dados/processados` (extrações, transcrições, conferência, registro confirmado) são
-regravados a cada execução, mas o log aponta para uma cópia imutável em `dados/processados/versoes/`; assim todo hash
-registrado corresponde a um arquivo existente.
-
-**Correções do revisor:** ao corrigir um campo na conferência, as menções ao valor antigo no assunto e no pedido são
-trocadas por `[novo valor — corrigido pelo revisor]` e a lista de correções vai ao modelo; o texto original do cidadão
-fica preservado e não é enviado.
-
-**Execução incompleta:** se uma etapa obrigatória falhar (extração, transcrição, leitura da ficha, minuta, voz ou cartaz),
-o comando termina com `EXECUÇÃO INCOMPLETA`, lista as pendências e retorna código de erro.
-
-### 4.1. Revisão humana no terminal
-- Os menus não têm opção padrão: resposta vazia repete a pergunta.
-- O revisor se identifica uma vez por execução (ou pela variável `REVISOR`), sem dados pessoais reais
-  (ex.: `Estudante 1 - revisor`).
-- Decisões registradas em `resultados/logs/decisoes_humanas.json`, por objeto: `transcricao_audio`, `ficha`,
-  `conferencia_cruzada`, `minuta` e `cartaz`. O relatório `documentacao/relatorio_avaliacao_qualidade.md` é refeito
-  a cada decisão: taxa de aprovação pela última decisão de cada caso e esperado × obtido (gabaritos).
-
-### 4.2. Experimento de prompts (RF02)
-```bash
-python testes/executar_experimento_prompts.py --gerar-prompt-c   # metaprompt -> Prompt C (1 chamada)
-python testes/executar_experimento_prompts.py                    # A, B v1 e C com mesma seed (3 chamadas)
-python testes/executar_experimento_prompts.py --somente-matriz   # refaz a matriz com as notas da equipe (0 chamadas)
-```
-O script mede latência, tokens, custo, exposição de dados pessoais, uso de "não localizado", "alternados" e
-documentos citados fora da entrada. Os critérios subjetivos (0 a 2) são da equipe, em
-`documentacao/experimento_prompts_notas_equipe.json`.
+A revisão no terminal não tem opção padrão. As decisões do Desafio 01 ficam em `resultados/logs/decisoes_humanas.json`
+e alimentam `documentacao/relatorio_avaliacao_qualidade.md`.
 
 ---
 
-## 5. Testes
+## 6. Testes
 
 ```bash
-pytest                                             # testes offline (mocks e pastas temporárias), sem consumir cota
-$env:RODAR_TESTES_INTEGRACAO="1"; pytest           # PowerShell: inclui o teste com o modelo real (2 chamadas)
-RODAR_TESTES_INTEGRACAO=1 pytest                   # Linux/macOS
+pytest                                             # offline: adaptador simulado, SDK e embeddings falsos, pastas temporárias
+$env:RODAR_TESTES_INTEGRACAO="1"; pytest           # PowerShell: inclui o teste com o modelo real
 ```
-Cobrem: chave ausente, 401/400, 429 com nova tentativa, 503, timeout, resposta vazia, JSON fora do esquema,
-sanitização de chaves e dados pessoais nos logs, extração com lacunas, leitura da ficha × gabarito, texto falado,
-cartaz (medição de textos, glifos, substituição de modelo), menus de revisão, relatório de qualidade e minimização.
+Resultado atual: **291 testes passando e 1 pulado** (o de integração).
+
+**O que a suíte cobre:**
+- *Contratos e guardrails:* contrato e T01/T02; ficha e avaliação contra o gabarito; guardrails por camada; limites e
+  orçamento.
+- *Índice:* reuso, exclusão e instalação nova.
+- *RAG:* guardas, citações, vigência e conflito.
+- *Sentimentos e agregação:* regras e T13.
+- *Fluxo e interface:* fluxo integrado; T11 pela própria interface (`AppTest`); T12; campos do RF21 no log.
+- *Integração e legado:* matriz T01–T15 e os 60 testes do Desafio 01.
 
 ---
 
-## 6. Estrutura
+## 7. Estrutura
 
 ```
 desafio_ia_generativa/
 ├── config.json, requirements.txt, .env.example, pytest.ini, AGENTS.md
 ├── src/
-│   ├── main.py              # Ponto de entrada e orquestração (python -m src.main)
-│   ├── llm_client.py        # Cliente Gemini: timeout, novas tentativas, erros, telemetria, imagem
-│   ├── prompts.py           # Prompts versionados (A, B v1, B v2, extração, áudio, ficha, ilustração)
-│   ├── parsers.py           # Esquemas, extração (RF05) e minuta (RF09)
-│   ├── audio.py             # Transcrição (RF06) e voz (RF07)
-│   ├── vision.py            # Leitura da ficha (RF08)
-│   ├── conferencia.py       # Gabaritos, WER, conferência cruzada, injeção (sem IA)
-│   ├── revisao_humana.py    # Menus de revisão (RF13)
-│   ├── image_generation.py  # Cartaz (RF10)
-│   ├── privacidade.py       # Minimização e máscaras (RF12)
-│   └── audit.py             # Log JSONL, decisões e relatório de qualidade (RF11, RF13)
-├── prompts/                 # A, B v1, B v2, metaprompt e C gerado (+ origem)
-├── dados/originais/         # Entradas (não alteradas) | dados/gabaritos/ | dados/processados/
-├── resultados/              # minutas/, audios/, imagens/, logs/
-├── testes/                  # pytest + script do experimento RF02
-├── documentacao/            # Relatórios, matriz, LGPD, uso de IA, roteiros, evidências
-├── resumir_auditoria.py     # Gera documentacao/resumo_execucoes.md a partir do log
-├── limpar_resultados.py     # Limpa resultados antes da execução final (preserva o RF02)
-├── verificar_entrega.py     # Checa entregáveis, decisões humanas e vazamento de chaves
-└── empacotar_entrega.py     # Gera o .zip sem .env e caches
+│   ├── main.py            # Ponto de entrada (python -m src.main), modos do Desafio 01 e 02
+│   ├── adaptadores.py     # OpenAI e simulado (RF21)        ├── llm_client.py  # timeout, repetição, orçamento, Gemini legado
+│   ├── schemas.py         # Contratos versionados          ├── prompts.py     # Prompts versionados
+│   ├── nlp.py             # Contrato, regras e ficha       ├── guardrails.py  # Camadas 1a, 1b, 2 e 3
+│   ├── ingestion.py       # Leitura e chunking             ├── embeddings.py  # Índice, manifesto e exclusão
+│   ├── rag.py             # RAG fundamentado               ├── sentiment.py   # Sentimentos
+│   ├── metrics.py         # Agregação em pandas            ├── atendimento.py # Fluxo integrado e serviços
+│   ├── app.py             # Interface Streamlit            ├── avaliacao.py   # Matriz, T15 e RF21
+│   ├── audit.py           # Log, decisões e relatório      └── (Desafio 01) parsers, audio, vision, conferencia,
+│   │                                                         revisao_humana, image_generation, privacidade
+├── prompts/               # Prompts do Desafio 01 e política de escopo v1.0 e v1.1
+├── dados/                 # originais/ (Desafio 01), acervo/, solicitacoes/, avaliacoes/, adversariais/, gabaritos/
+├── indice/                # manifesto_indice.json (versionado) e chroma/ (local)
+├── resultados/            # nlp/, metricas/ (com historico/), guardrails/, indice/, rag/, sentimentos/,
+│                          # atendimentos/, regressao/, logs/, minutas/
+├── scripts/               # gerar_acervo_ficticio.py
+├── testes/                # pytest
+├── documentacao/          # matriz T01–T15, relatórios técnicos, uso de IA, roteiros
+├── resumir_auditoria.py   # documentacao/resumo_execucoes.md a partir do log
+├── limpar_resultados.py   # limpa o pipeline do Desafio 01 e preserva o Desafio 02
+├── verificar_entrega.py   # entregáveis, matriz, pendências humanas e vazamento de chaves
+└── empacotar_entrega.py   # .zip sem .env, .streamlit, contexto/ e caches
 ```
 
 ---
 
-## 7. Execução final e entrega
+## 8. Avaliação final e entrega
 
-O passo a passo detalhado está em `documentacao/roteiro_testes_manuais.md`. Resumo:
-1. `python limpar_resultados.py`
-2. Rodar, revisando de verdade: `--modo audio` (corrigir o e-mail), caso de injection (rejeitar), `--modo visao`,
-   `--modo texto` (aprovar) e `--modo cartaz`.
-3. Preencher as notas do experimento e rodar `--somente-matriz`.
-4. `python resumir_auditoria.py`, `pytest` e `python verificar_entrega.py`.
-5. `python empacotar_entrega.py`, descompactar em pasta nova, criar venv novo, instalar e rodar `--check-env` e `pytest`.
-6. Enviar o `.zip` para ficdev00@gmail.com (assunto `Desafio01-FICDEV-IAGenerativa`) até 18/10/2026 23:59.
-
----
-
-## 8. Custos
-
-Preço do `gemini-3.8-flash` no nível pago (consultado em 16/10/2026, <https://ai.google.dev/gemini-api/docs/pricing>):
-US$ 0,75 por 1M de tokens de entrada e US$ 3,75 por 1M de saída; tokens de raciocínio são cobrados como saída.
-No nível gratuito o custo efetivo é zero. Valores medidos no log em 17/10/2026 (custo estimado no nível pago):
-
-| Etapa | Latência | Tokens entrada / saída / raciocínio | Custo (USD) |
-| :--- | :---: | :---: | :---: |
-| Extração do texto | 12,5 s | 661 / 416 / 1.132 | 0,0063 |
-| Minuta (Prompt B v2) | 51,4 s | 1.276 / 321 / 1.028 | 0,0060 |
-| Leitura da ficha | 37,8 s | 1.488 / 1.585 / 3.593 | 0,0205 |
-| Verificação do áudio sintetizado | 8,4 s | 2.964 / 413 / 589 | 0,0060 |
-
-Os tokens de raciocínio respondem pela maior parte do custo. Um atendimento por texto (extração, minuta e
-verificação do áudio) custou cerca de US$ 0,018. Os números da execução final ficam em
-`documentacao/resumo_execucoes.md` (`python resumir_auditoria.py`).
+1. **Etapas humanas** (o `verificar_entrega.py` mostra as que faltam):
+   - revisar os 4 gabaritos do Desafio 02 (`revisao_humana` em `dados/gabaritos/`) e a política de escopo v1.1;
+   - preencher `resultados/nlp/conferencia_humana_rf15.json` e `resultados/metricas/conferencia_sustentacao_rag.json`
+     (campo `sustentada` de cada afirmação);
+   - na interface, aprovar ao menos uma minuta e rejeitar ou mandar para revisão outra (RF24, T11);
+   - opcional: `python -m src.main --modo regressao` no terminal, para a decisão humana da revisão do texto do T15.
+2. **Matriz:** `python -m src.main --modo avaliacao-integrada` (refaz a matriz e as métricas do RF23).
+3. **Conferências:** `python resumir_auditoria.py`, `pytest` e `python verificar_entrega.py`.
+4. **Empacotamento:** `python empacotar_entrega.py`. Depois, descompactar em pasta nova, instalar e rodar
+   `--check-env`, `--modo indexar` e `pytest`.
+5. **Envio:** o `.zip` vai para ficdev00@gmail.com com o assunto `Desafio02-FICDEV-IAGenerativa`, no prazo do
+   comunicado oficial.
 
 ---
 
-## 9. Limitações conhecidas
+## 9. Custos medidos
 
-1. **Leitura de manuscrito:** em teste real o modelo leu "2024" no código, "14/01/2026" na data e "MARCUS" no nome;
-   parte foi marcada como incerta, parte não. Por isso a leitura da ficha só entra na conferência após confirmação humana.
-2. **Variação entre execuções:** o mesmo prompt produziu "3 dias alternados" em 16/10 e não em 17/10. Uma saída
-   isolada não prova a qualidade de um prompt.
-3. **Cartaz depende do `HF_TOKEN` e da cota gratuita de GPU do Hugging Face:** sem cota de imagem no Gemini e sem
-   token (ou com a cota do Space esgotada), o cartaz não é gerado (falha registrada, sem imagem substituta).
-4. **Dados completos no provedor:** extração, transcrição e leitura da ficha enviam o documento inteiro ao Gemini; a
-   minimização vale a partir da minuta (ver `documentacao/lgpd_mapeamento.md`).
-5. **Voz:** `edge-tts` usa um serviço on-line não oficial; sem internet o áudio não é gerado.
-6. **Versões da minuta:** uma nova geração sobrescreve o arquivo da minuta; as versões anteriores ficam rastreáveis
-   pelo hash e pelo `id_execucao_anterior` no log, não pelo conteúdo.
-7. **Latência:** o modelo usa raciocínio; cada chamada leva de 8 a 50 s.
-8. **Cota:** o nível gratuito tem poucas chamadas por dia. Com 429 ou 503 no modelo principal, o sistema usa os
-   modelos alternativos do `config.json`; as respostas podem variar de qualidade entre modelos, e o custo dessas chamadas
-   não é estimado. Os testes de integração só rodam quando pedidos.
-9. **IA local (melhoria futura):** um modelo local (ex.: via Ollama) eliminaria a dependência de cota e manteria os
-   dados na instituição, mas exigiria transcrição local (Whisper), conversão do PDF e um modelo de visão capaz de ler
-   manuscrito; não foi adotado por custo de instalação e qualidade da leitura.
+Cifras estimadas pelo adaptador com os preços do `config.json` e somadas do log (`documentacao/resumo_execucoes.md`):
+
+| Operação | Custo aproximado |
+| :--- | :--- |
+| Resposta do RAG (`gpt-5.6-luna`) | US$ 0,0009 e 4,0 s |
+| Resposta do RAG (`gpt-5.6-terra`) | US$ 0,008 e 2,9 s |
+| Atendimento completo (6 chamadas) | US$ 0,002 |
+| 12 avaliações de sentimento | US$ 0,0035 |
+| Indexação do acervo (59 vetores) | US$ 0,0002 |
+| Todo o desenvolvimento do Desafio 02 (com repetições) | cerca de US$ 0,13 |
+
+---
+
+## 10. Limitações conhecidas
+
+1. **Corpus pequeno e sintético:** 6 solicitações, 7 documentos, 8 perguntas e 12 avaliações, escritos pela mesma
+   equipe dos gabaritos. Os resultados não preveem o desempenho em material real.
+2. **Variação entre execuções:** a extração do texto do Desafio 01 deu 25/26 e 24/26 no mesmo dia. Uma execução
+   isolada não mede estabilidade.
+3. **RAG-01:**
+   - *Falha:* a retificação é aplicada, mas a resposta cita só o DOC-02, no luna e no terra.
+   - *Hoje:* o alerta `CITACAO_DE_VIGENCIA_INCOMPLETA` manda a minuta à revisão prioritária.
+   - *Melhoria futura:* nova versão do prompt.
+4. **Limiar 0,45:** calibrado em 9 perguntas, com só 0,035 entre os grupos; a abstenção depende do prompt.
+5. **Conferências automáticas indicativas:** marcadores, trechos literais e ancoragem numérica apontam problemas. A
+   ancoragem acha número inventado, não número verdadeiro do documento errado. A sustentação final é humana.
+6. **Sentimentos:** a AV-12 sem contexto foi rotulada como positiva e ficou fora da fila de revisão. A ambiguidade
+   autodeclarada não delimita a revisão.
+7. **OCR de manuscrito:** erra sem marcar incerteza (código "2024-000142"). Toda entrada de OCR recebe alerta e
+   revisão prioritária, e a conferência na imagem é humana.
+8. **Moderação:** não detectou nenhum dos ataques de injeção (0/6). A proteção vem das regras locais e do
+   classificador de política.
+9. **Legado e serviços externos:** `--modo audio` e o cartaz dependem do Gemini legado e de cota externa; a voz
+   (`edge-tts`) depende de internet.
+10. **Upload pela interface:** o documento entra no índice principal e também na avaliação do RAG. A lista de
+    documentos do índice fica registrada em cada avaliação, e a exclusão o retira.

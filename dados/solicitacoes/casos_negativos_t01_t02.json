@@ -1,0 +1,138 @@
+{
+  "versao": "1.0.0",
+  "descricao": "Entradas de teste negativo do RF14: T01 (JSON válido que não respeita o contrato) e T02 (regras de negócio). Elaboradas antes da execução; o contrato alvo está em dados/gabaritos/gabarito_solicitacoes_rf14_rf15.json.",
+  "codigos_de_erro": {
+    "CHAVE_EXTRA": "chave que não existe no contrato",
+    "TIPO_INCORRETO": "valor com tipo diferente do declarado no contrato",
+    "CAMPO_OBRIGATORIO_AUSENTE": "chave do contrato que não veio no JSON",
+    "DATA_INVALIDA": "data que não existe no calendário ou fora do formato DD/MM/AAAA",
+    "NAO_ANCORADO": "valor extraído que não aparece no texto original"
+  },
+  "registro_obrigatorio": "Em todo bloqueio, preservar a entrada, o erro e a decisão (critério de aceite do RF14).",
+  "t01_payloads": [
+    {
+      "id": "T01-A",
+      "descricao": "JSON válido com uma chave extra",
+      "payload": {
+        "protocolo": "2026-000142",
+        "data_solicitacao": "14/10/2026",
+        "solicitante_ficticio": "Marcos Vinícius de Almeida Santos",
+        "curso": "Técnico em Enfermagem",
+        "assunto": "Efetivação de matrícula no curso Técnico em Enfermagem e documentos pendentes",
+        "pedido": "Efetivar a matrícula e informar quais documentos ainda precisa apresentar",
+        "categoria": "MATRICULA_INICIAL",
+        "entidades": {
+          "pessoas_ficticias": ["Marcos Vinícius de Almeida Santos"],
+          "orgaos": [],
+          "locais": ["Cuiabá"],
+          "datas": ["14/10/2026"],
+          "protocolos": ["2026-000142"]
+        },
+        "campos_ausentes": [],
+        "necessita_revisao": false,
+        "prioridade": "ALTA"
+      },
+      "erros_esperados": ["CHAVE_EXTRA"],
+      "decisao_esperada": "REJEITAR_SAIDA_SEM_MINUTA"
+    },
+    {
+      "id": "T01-B",
+      "descricao": "JSON válido com tipos incorretos (texto no lugar de booleano e de lista)",
+      "payload": {
+        "protocolo": "2026-000142",
+        "data_solicitacao": "14/10/2026",
+        "solicitante_ficticio": "Marcos Vinícius de Almeida Santos",
+        "curso": "Técnico em Enfermagem",
+        "assunto": "Efetivação de matrícula no curso Técnico em Enfermagem e documentos pendentes",
+        "pedido": "Efetivar a matrícula e informar quais documentos ainda precisa apresentar",
+        "categoria": "MATRICULA_INICIAL",
+        "entidades": {
+          "pessoas_ficticias": ["Marcos Vinícius de Almeida Santos"],
+          "orgaos": [],
+          "locais": ["Cuiabá"],
+          "datas": "14/10/2026",
+          "protocolos": ["2026-000142"]
+        },
+        "campos_ausentes": [],
+        "necessita_revisao": "nao"
+      },
+      "erros_esperados": ["TIPO_INCORRETO"],
+      "decisao_esperada": "REJEITAR_SAIDA_SEM_MINUTA"
+    },
+    {
+      "id": "T01-C",
+      "descricao": "JSON válido sem um campo obrigatório (categoria)",
+      "payload": {
+        "protocolo": "2026-000142",
+        "data_solicitacao": "14/10/2026",
+        "solicitante_ficticio": "Marcos Vinícius de Almeida Santos",
+        "curso": "Técnico em Enfermagem",
+        "assunto": "Efetivação de matrícula no curso Técnico em Enfermagem e documentos pendentes",
+        "pedido": "Efetivar a matrícula e informar quais documentos ainda precisa apresentar",
+        "entidades": {
+          "pessoas_ficticias": ["Marcos Vinícius de Almeida Santos"],
+          "orgaos": [],
+          "locais": ["Cuiabá"],
+          "datas": ["14/10/2026"],
+          "protocolos": ["2026-000142"]
+        },
+        "campos_ausentes": [],
+        "necessita_revisao": false
+      },
+      "erros_esperados": ["CAMPO_OBRIGATORIO_AUSENTE"],
+      "decisao_esperada": "REJEITAR_SAIDA_SEM_MINUTA"
+    },
+    {
+      "id": "T01-D",
+      "descricao": "JSON apenas sintático, com a estrutura escolhida pelo modelo (o que o json_object permite)",
+      "payload": {
+        "nome": "Marcos Vinícius de Almeida Santos",
+        "curso": "Técnico em Enfermagem",
+        "documentos_faltantes": ["RG"]
+      },
+      "erros_esperados": ["CHAVE_EXTRA", "CAMPO_OBRIGATORIO_AUSENTE"],
+      "decisao_esperada": "REJEITAR_SAIDA_SEM_MINUTA"
+    }
+  ],
+  "t01_comparativo_real": {
+    "caso": "SOL-01",
+    "descricao": "O mesmo caso é executado com response_format json_object (JSON apenas sintático) e com o contrato ContratoSolicitacaoV2 (esquema estrito); as chaves extras, os tipos incorretos e os campos ausentes de cada saída são registrados."
+  },
+  "t02_casos": [
+    {
+      "id": "T02-A",
+      "descricao": "Data impossível no calendário",
+      "arquivo": "dados/solicitacoes/T02-A_data_impossivel.txt",
+      "campo": "data_solicitacao",
+      "valor_problematico": "31/02/2026",
+      "alertas_esperados": ["DATA_INVALIDA"],
+      "decisao_esperada": "BLOQUEAR_MINUTA_E_REVISAR"
+    },
+    {
+      "id": "T02-B",
+      "descricao": "Extração com valores que não estão no texto original",
+      "texto_original": "dados/solicitacoes/SOL-04_auxilio_transporte.txt",
+      "extracao_candidata": {
+        "protocolo": "2026-000999",
+        "data_solicitacao": "22/10/2026",
+        "solicitante_ficticio": "Rafael Nogueira Prado Teste",
+        "curso": "Técnico em Enfermagem",
+        "assunto": "Solicitação de auxílio-transporte",
+        "pedido": "Solicitar o auxílio-transporte e saber quais documentos levar para fazer o pedido",
+        "categoria": "ASSISTENCIA_ESTUDANTIL",
+        "entidades": {
+          "pessoas_ficticias": ["Rafael Nogueira Prado Teste"],
+          "orgaos": [],
+          "locais": ["Várzea Grande"],
+          "datas": ["22/10/2026"],
+          "protocolos": ["2026-000999"]
+        },
+        "campos_ausentes": [],
+        "necessita_revisao": false
+      },
+      "campos_nao_ancorados": ["protocolo", "curso"],
+      "alertas_esperados": ["NAO_ANCORADO"],
+      "decisao_esperada": "BLOQUEAR_MINUTA_E_REVISAR"
+    }
+  ]
+}

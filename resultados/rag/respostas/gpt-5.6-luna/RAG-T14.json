@@ -1,0 +1,257 @@
+{
+  "id_caso": "RAG-T14",
+  "pergunta": "Vai ter recesso no fim do ano? De quando até quando as aulas param?",
+  "status": "SEM_EVIDENCIA_SUFICIENTE",
+  "resposta": "SEM_EVIDENCIA_SUFICIENTE: Não foram encontradas evidências suficientes no acervo institucional indexado para fundamentar a resposta. Solicitação encaminhada para revisão humana.",
+  "codigo_motivo": "MODELO_DECLAROU_SEM_EVIDENCIA",
+  "motivo": "O modelo declarou que os trechos não sustentam a resposta.",
+  "encaminhamento": "REVISAO_HUMANA_PRIORITARIA",
+  "fontes": [
+    {
+      "n": 1,
+      "rotulo": "DOC-02, v1.0, p. 1, Art. 1º",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-02::A::p1::t002",
+      "doc_id": "DOC-02",
+      "titulo": "Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "Art. 1º",
+      "similaridade_cosseno": null,
+      "retifica": "DOC-01",
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "Art. 1º. O item 3.3 do Edital Fictício nº 010/2026 passa a vigorar com a seguinte redação:\nOnde se lê: \"3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 20/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\"\nLeia-se: \"3.3."
+    },
+    {
+      "n": 2,
+      "rotulo": "DOC-02, v1.0, p. 1, Art. 1º",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-02::A::p1::t003",
+      "doc_id": "DOC-02",
+      "titulo": "Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "Art. 1º",
+      "similaridade_cosseno": 0.4677,
+      "retifica": "DOC-01",
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "13h às 21h, na Secretaria Escolar.\"\nLeia-se: \"3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\""
+    },
+    {
+      "n": 3,
+      "rotulo": "DOC-03, v1.0, seção 2",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-03::A::txt::t002",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+      "similaridade_cosseno": null,
+      "retifica": null,
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS\n2.1. A matrícula será cancelada automaticamente quando o estudante faltar, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos.\n2.2."
+    },
+    {
+      "n": 4,
+      "rotulo": "DOC-03, v1.0, seção 2",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-03::A::txt::t003",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+      "similaridade_cosseno": 0.4549,
+      "retifica": null,
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "2 (dois) primeiros dias letivos consecutivos.\n2.2. A matrícula também será cancelada quando o estudante acumular 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos.\n2.3."
+    },
+    {
+      "n": 5,
+      "rotulo": "DOC-03, v1.0, seção 2",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-03::A::txt::t004",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+      "similaridade_cosseno": 0.4551,
+      "retifica": null,
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "ou não, nos 10 (dez) primeiros dias letivos.\n2.3. As faltas são registradas diariamente pelo professor no diário de classe e conferidas pela Secretaria Escolar ao final do décimo dia letivo."
+    },
+    {
+      "n": 6,
+      "rotulo": "DOC-03, v1.0, seção 4",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-03::A::txt::t007",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+      "similaridade_cosseno": 0.4598,
+      "retifica": null,
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS\n4.1. A vaga liberada por cancelamento de matrícula é oferecida ao próximo candidato da lista de classificação do curso, na ordem do sorteio.\n4.2. O candidato convocado tem 2 (dois) dias úteis para comparecer à Secretaria Escolar com os documentos exigidos no edital.\n4.3."
+    },
+    {
+      "n": 7,
+      "rotulo": "DOC-03, v1.0, seção 4",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-03::A::txt::t008",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+      "similaridade_cosseno": null,
+      "retifica": null,
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "Escolar com os documentos exigidos no edital.\n4.3. Não há convocação de vagas remanescentes depois do 15º (décimo quinto) dia letivo."
+    },
+    {
+      "n": 8,
+      "rotulo": "DOC-01, v1.0, p. 1, seção 3",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-01::A::p1::t007",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "3. DO CRONOGRAMA",
+      "similaridade_cosseno": null,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "3. DO CRONOGRAMA\n3.1. As inscrições ocorrem de 08/09/2026 a 22/09/2026, exclusivamente pelo formulário eletrônico da unidade.\n3.2. O sorteio público será realizado em 25/09/2026.\n3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 20/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\n3.4."
+    },
+    {
+      "n": 9,
+      "rotulo": "DOC-01, v1.0, p. 1, seção 3",
+      "citado": false,
+      "origem": "vigencia",
+      "chunk_id": "DOC-01::A::p1::t008",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "3. DO CRONOGRAMA",
+      "similaridade_cosseno": 0.423,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "das 13h às 21h, na Secretaria Escolar.\n3.4. As aulas terão início em 01/02/2027 para todos os cursos."
+    },
+    {
+      "n": 10,
+      "rotulo": "DOC-01, v1.0, p. 3, seção 6",
+      "citado": false,
+      "origem": "vigencia",
+      "chunk_id": "DOC-01::A::p3::t015",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 3,
+      "secao": "6. DA FREQUÊNCIA NO INÍCIO DO CURSO",
+      "similaridade_cosseno": 0.4044,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "6. DA FREQUÊNCIA NO INÍCIO DO CURSO\n6.1. O estudante matriculado deve observar as regras de frequência dos primeiros dias letivos definidas no Manual da Secretaria Escolar."
+    }
+  ],
+  "afirmacoes": [],
+  "divergencias": [],
+  "alertas": [
+    "MARGEM_ESTREITA: o 1º e o último trecho do top-4 têm similaridade quase igual (margem 0.0128 < 0.02); confira se a fonte é a certa."
+  ],
+  "guardas": {
+    "1_limiar": {
+      "decisao": "SEGUE",
+      "detalhe": "top-1 0.4677 >= limiar 0.45"
+    },
+    "camada2_conteudo_recuperado": {
+      "decisao": "PERMITIR",
+      "detalhe": "Nenhum trecho suspeito."
+    },
+    "2_contrato": {
+      "decisao": "RECUSA",
+      "detalhe": "O modelo declarou que os trechos não sustentam a resposta."
+    }
+  },
+  "recuperacao": {
+    "top_k": 4,
+    "limiar": 0.45,
+    "explicacao": "Similaridade de cosseno entre o vetor da pergunta e o do trecho (1 - distância de cosseno do Chroma): perto de 1, sentidos próximos; perto de 0, sem relação. Mede proximidade de sentido, não veracidade nem vigência do trecho.",
+    "similaridade_top1": 0.4677,
+    "similaridade_topk": 0.4549,
+    "margem_top1_topk": 0.0128,
+    "margem_minima": 0.02,
+    "margem_estreita": true,
+    "ids_top_k": [
+      "DOC-02::A::p1::t003",
+      "DOC-03::A::txt::t007",
+      "DOC-03::A::txt::t004",
+      "DOC-03::A::txt::t003"
+    ],
+    "duracao_total_ms": 2970.2
+  },
+  "saida_modelo": {
+    "status": "SEM_EVIDENCIA_SUFICIENTE",
+    "resposta": "SEM_EVIDENCIA_SUFICIENTE: Não foram encontradas evidências suficientes no acervo institucional indexado para fundamentar a resposta. Solicitação encaminhada para revisão humana.",
+    "afirmacoes": [],
+    "divergencias": [],
+    "alerta": null
+  },
+  "provedor": "openai",
+  "modelo": "gpt-5.6-luna",
+  "prompt": {
+    "id": "PROMPT_RAG",
+    "versao": "1.0"
+  },
+  "versao_esquema": "1.0.0",
+  "versao_indice": "1.0.0",
+  "colecao": "acervo_principal",
+  "configuracao_chunking": "A",
+  "chamadas": [
+    {
+      "etapa": "rag_geracao",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2959.7,
+      "tokens_total": 3504,
+      "custo_estimado_usd": 0.0007798000000000001
+    }
+  ],
+  "minuta": "MINUTA PARA REVISÃO HUMANA - envio automático bloqueado\nStatus: SEM_EVIDENCIA_SUFICIENTE\nEncaminhamento: REVISAO_HUMANA_PRIORITARIA\n\nResposta proposta:\nSEM_EVIDENCIA_SUFICIENTE: Não foram encontradas evidências suficientes no acervo institucional indexado para fundamentar a resposta. Solicitação encaminhada para revisão humana.\n\nAlertas para o operador:\n- MARGEM_ESTREITA: o 1º e o último trecho do top-4 têm similaridade quase igual (margem 0.0128 < 0.02); confira se a fonte é a certa.\n\nTrechos consultados:\n[1] (DOC-02, v1.0, p. 1, Art. 1º) Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026 | não citado | origem: vizinho\n[2] (DOC-02, v1.0, p. 1, Art. 1º) Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026 | não citado | origem: busca\n[3] (DOC-03, v1.0, seção 2) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | não citado | origem: vizinho\n[4] (DOC-03, v1.0, seção 2) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | não citado | origem: busca\n[5] (DOC-03, v1.0, seção 2) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | não citado | origem: busca\n[6] (DOC-03, v1.0, seção 4) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | não citado | origem: busca\n[7] (DOC-03, v1.0, seção 4) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | não citado | origem: vizinho\n[8] (DOC-01, v1.0, p. 1, seção 3) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vizinho\n[9] (DOC-01, v1.0, p. 1, seção 3) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vigencia\n[10] (DOC-01, v1.0, p. 3, seção 6) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vigencia\n\nConteúdo gerado com apoio de IA (openai/gpt-5.6-luna; PROMPT_RAG v1.0). Confira cada citação na passagem original antes de aprovar.",
+  "status_revisao": "PENDENTE_REVISAO_HUMANA",
+  "envio_automatico_bloqueado": true,
+  "registrado_em": "2026-10-30T12:16:20"
+}

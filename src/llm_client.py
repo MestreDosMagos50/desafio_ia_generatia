@@ -3,11 +3,13 @@
 """
 ==============================================================================
 CLIENTE DE INTEGRAÇÃO COM MODELO DE LINGUAGEM (LLM) E TRATAMENTO DE FALHAS
-Atende aos requisitos RF03, RF04 e RF11.
+Atende aos requisitos RF03, RF04, RF11 e RF21.
 ==============================================================================
 Características:
-- Provedor Google GenAI (Gemini), com modelo e parâmetros vindos do
-  config.json / .env;
+- Provedor escolhido por LLM_PROVIDER: openai (padrão do Desafio 02) e
+  simulado ficam isolados em adaptadores (src/adaptadores.py, RF21); google
+  (Gemini, Desafio 01) segue no caminho abaixo, com modelo e parâmetros
+  vindos do config.json / .env;
 - Timeout aplicado a cada requisição e retentativas com espera exponencial;
 - Modelos alternativos (config.json) quando o principal responde 429 ou 5xx;
 - Tratamento explícito de chave ausente, autenticação inválida, limite de
@@ -27,7 +29,7 @@ import logging
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Callable, Dict, Optional, Tuple
 
 import httpx
 
@@ -103,17 +105,54 @@ class LLMResponse:
         }
 
 
+class OrcamentoExecucao:
+    """
+    Teto de chamadas e de tokens de uma execução (RF16 / T05). Antes de cada chamada o LLMClient confere o saldo;
+    depois, registra as tentativas efetivamente feitas (inclusive a repetição por falha transitória) e os tokens.
+    """
+
+    def __init__(self, max_chamadas: int, max_tokens: int):
+        self.max_chamadas = max_chamadas
+        self.max_tokens = max_tokens
+        self.chamadas = 0
+        self.tokens = 0
+        self.bloqueios = 0
+
+    @classmethod
+    def do_config(cls, config: dict) -> "OrcamentoExecucao":
+        guardrails = config.get("guardrails", {})
+        return cls(int(guardrails.get("max_chamadas_por_execucao", 150)), int(guardrails.get("max_tokens_por_execucao", 400000)))
+
+    def motivo_bloqueio(self) -> Optional[Tuple[str, str]]:
+        if self.chamadas >= self.max_chamadas:
+            return ("LIMITE_DE_CHAMADAS", f"Teto de {self.max_chamadas} chamadas por execução atingido; nenhuma nova chamada foi feita.")
+        if self.tokens >= self.max_tokens:
+            return ("LIMITE_DE_TOKENS", f"Teto de {self.max_tokens} tokens por execução atingido; nenhuma nova chamada foi feita.")
+        return None
+
+    def registrar(self, resposta: LLMResponse):
+        self.chamadas += resposta.tentativas
+        self.tokens += resposta.tokens_total or 0
+
+    def resumo(self) -> Dict[str, int]:
+        return {"chamadas": self.chamadas, "max_chamadas": self.max_chamadas, "tokens": self.tokens,
+                "max_tokens": self.max_tokens, "bloqueios": self.bloqueios}
+
+
 class LLMClient:
     """Cliente resiliente para interação com o modelo de linguagem."""
 
     PADRAO_CHAVE_SEGREDO = re.compile(r'(AIza[0-9A-Za-z_-]{20,}|AQ\.[0-9A-Za-z_-]{20,}|sk-[A-Za-z0-9_-]{20,}|hf_[A-Za-z0-9]{20,})')
     PLACEHOLDER_CHAVE = "sua_chave_gemini_aqui"
+    PROVEDORES_ADAPTADOS = ("openai", "simulado")
+    VARIAVEIS_CHAVE = {"openai": "OPENAI_API_KEY", "google": "GEMINI_API_KEY"}
 
-    def __init__(self, config_path: str = "config.json"):
+    def __init__(self, config_path: str = "config.json", provedor: Optional[str] = None, modelo: Optional[str] = None):
+        """`provedor` e `modelo` sobrepõem LLM_PROVIDER e o modelo do .env/config.json (ex.: segunda configuração do RF21)."""
         self.config = self._carregar_config(config_path)
         self.llm_cfg = self.config.get("llm", {})
-        self.provedor = os.getenv("LLM_PROVIDER", self.llm_cfg.get("provider_padrao", "google")).strip().lower()
-        self.modelo = os.getenv("GEMINI_MODEL", self.llm_cfg.get("modelo_padrao", "gemini-3.8-flash")).strip()
+        self.provedor = (provedor or os.getenv("LLM_PROVIDER") or self.llm_cfg.get("provider_padrao", "google")).strip().lower()
+        self.modelo = (modelo or os.getenv("GEMINI_MODEL", self.llm_cfg.get("modelo_padrao", "gemini-3.8-flash"))).strip()
         self.temperatura = float(self.llm_cfg.get("temperatura", 0.2))
         self.timeout = int(self.llm_cfg.get("timeout_segundos", 90))
         self.max_tentativas = max(1, int(self.llm_cfg.get("max_tentativas", 3)))
@@ -129,17 +168,43 @@ class LLMClient:
         self.modelo_precificado = custos.get("modelo", self.llm_cfg.get("modelo_padrao"))
 
         self.gemini_client = None
+        self.orcamento: Optional[OrcamentoExecucao] = None  # teto de chamadas e tokens da execução (RF16)
+        self.adaptador = None  # OpenAIAdapter ou SimulatedAdapter (provedores do Desafio 02)
         self.indisponibilidade: Optional[Tuple[str, str]] = None  # (código, mensagem)
-        self._inicializar_provedor()
+        if self.provedor in self.PROVEDORES_ADAPTADOS:
+            self._inicializar_adaptador(modelo)
+        else:
+            self._inicializar_provedor()
 
     @property
     def disponivel(self) -> bool:
         """Indica se o cliente está pronto para chamar o provedor."""
+        if self.adaptador is not None:
+            return self.adaptador.disponivel
         return self.gemini_client is not None
 
     @property
     def motivo_indisponibilidade(self) -> Optional[str]:
+        if self.adaptador is not None:
+            return self.adaptador.motivo_indisponibilidade
         return self.indisponibilidade[1] if self.indisponibilidade else None
+
+    @property
+    def variavel_chave(self) -> Optional[str]:
+        """Variável de ambiente com a chave do provedor ativo (None no adaptador simulado)."""
+        return self.VARIAVEIS_CHAVE.get(self.provedor)
+
+    def _inicializar_adaptador(self, modelo: Optional[str]):
+        """Provedores do Desafio 02: a chamada fica isolada no adaptador, com parâmetros do config.json (RF21)."""
+        from src.adaptadores import OpenAIAdapter, SimulatedAdapter
+        if self.provedor == "openai":
+            self.adaptador = OpenAIAdapter(self.llm_cfg.get("openai", {}), modelo=modelo)
+        else:
+            self.adaptador = SimulatedAdapter(self.llm_cfg.get("simulado", {}), modelo=modelo)
+        self.modelo = self.adaptador.modelo
+        self.timeout = self.adaptador.timeout
+        self.max_tentativas = self.adaptador.max_tentativas
+        self.modelos_alternativos = []
 
     def _carregar_config(self, caminho_config: str) -> dict:
         caminho = Path(caminho_config)
@@ -161,7 +226,8 @@ class LLMClient:
         if self.provedor != "google":
             self.indisponibilidade = (
                 "PROVEDOR_NAO_SUPORTADO",
-                f"O provedor '{self.provedor}' não é suportado nesta versão. Defina LLM_PROVIDER=google no .env."
+                f"O provedor '{self.provedor}' não é suportado. Defina no .env LLM_PROVIDER=openai (padrão do "
+                "Desafio 02), google (Gemini legado do Desafio 01) ou simulado."
             )
             return
 
@@ -202,6 +268,8 @@ class LLMClient:
         Custo estimado em USD com a tabela do config.json. Tokens de raciocínio são cobrados como saída.
         Retorna None se o modelo usado não for o da tabela (preço desconhecido não é estimado).
         """
+        if self.adaptador is not None:
+            return self.adaptador.calcular_custo(tokens_prompt, tokens_resposta, tokens_raciocinio, modelo)
         if modelo is not None and modelo != self.modelo_precificado:
             return None
         custo_in = (tokens_prompt / 1000.0) * self.custo_input_1k
@@ -215,19 +283,62 @@ class LLMClient:
         temperatura: Optional[float] = None,
         schema: Optional[Any] = None,
         seed: Optional[int] = None,
-        permitir_alternativos: bool = True
+        permitir_alternativos: bool = True,
+        modelo: Optional[str] = None,
+        reasoning_effort: Optional[str] = None,
+        max_completion_tokens: Optional[int] = None,
+        modo_json: bool = False
     ) -> LLMResponse:
         """
         Executa uma chamada textual ao modelo.
         Com `schema` (ex.: modelo Pydantic), solicita saída JSON estruturada.
         `seed` fixa a amostragem quando o provedor suporta (usado no experimento RF02).
         `permitir_alternativos=False` impede a troca de modelo (o experimento exige o mesmo modelo).
+        Nos provedores do Desafio 02 a chamada vai ao adaptador: `modelo` escolhe a configuração
+        (ex.: gpt-5.6-terra), `reasoning_effort` e `max_completion_tokens` seguem a família GPT-5.6 e
+        `modo_json` pede JSON apenas sintático (comparativo do RF14). `temperatura` e `seed` não se aplicam ao GPT-5.6.
         """
-        resposta = self._executar(prompt, system_instruction, temperatura, schema,
-                                  config_extra={"seed": seed} if seed is not None else None,
-                                  permitir_alternativos=permitir_alternativos)
-        if seed is not None:
-            resposta.parametros["seed"] = seed
+        def chamar() -> LLMResponse:
+            if self.adaptador is not None:
+                return self.adaptador.gerar(prompt, system_instruction=system_instruction, schema=schema, modelo=modelo,
+                                            reasoning_effort=reasoning_effort, max_completion_tokens=max_completion_tokens,
+                                            modo_json=modo_json)
+            resposta = self._executar(prompt, system_instruction, temperatura, schema, modelo=modelo,
+                                      config_extra={"seed": seed} if seed is not None else None,
+                                      permitir_alternativos=permitir_alternativos)
+            if seed is not None:
+                resposta.parametros["seed"] = seed
+            return resposta
+        return self._com_orcamento(chamar, modelo)
+
+    def chamar_servico(self, operacao: str, funcao: Callable[[Any], Any], modelo: str) -> Tuple[Any, LLMResponse]:
+        """
+        Chamada auxiliar (moderação, embeddings) pelo adaptador, sob o mesmo orçamento da execução.
+        Retorna (resultado bruto ou None, LLMResponse com a telemetria).
+        """
+        if self.adaptador is None or not hasattr(self.adaptador, "chamar_servico"):
+            return None, self._resposta_falha("NAO_SUPORTADO", f"O provedor '{self.provedor}' não oferece {operacao} nesta versão.",
+                                              time.perf_counter(), 0, {"operacao": operacao}, modelo)
+        resultado: Dict[str, Any] = {}
+
+        def chamar() -> LLMResponse:
+            resultado["valor"], resposta = self.adaptador.chamar_servico(operacao, funcao, modelo)
+            return resposta
+        resposta = self._com_orcamento(chamar, modelo)
+        return resultado.get("valor"), resposta
+
+    def _com_orcamento(self, chamar: Callable[[], LLMResponse], modelo: Optional[str] = None) -> LLMResponse:
+        """Confere o teto de chamadas e tokens antes da chamada e registra o consumo depois (RF16)."""
+        if self.orcamento is not None:
+            bloqueio = self.orcamento.motivo_bloqueio()
+            if bloqueio:
+                self.orcamento.bloqueios += 1
+                logger.warning("[ORÇAMENTO] %s", bloqueio[1])
+                return self._resposta_falha(bloqueio[0], bloqueio[1], time.perf_counter(), 0,
+                                            {"orcamento": self.orcamento.resumo()}, modelo)
+        resposta = chamar()
+        if self.orcamento is not None:
+            self.orcamento.registrar(resposta)
         return resposta
 
     def gerar_multimodal(
@@ -244,20 +355,26 @@ class LLMClient:
         Envia um arquivo (áudio, PDF ou imagem) junto com a instrução textual (RF06, RF08).
         Exemplos de mime_type: 'audio/mp3', 'application/pdf', 'image/png'.
         `resolucao` (ex.: 'MEDIA_RESOLUTION_HIGH') controla o detalhe com que imagens são analisadas.
+        No provedor openai o PDF é convertido em PNG por página; áudio não é suportado (Gemini legado).
         """
-        partes = None
-        if genai_types is not None:
-            dados = Path(arquivo).read_bytes()
-            parte = genai_types.Part.from_bytes(
-                data=dados,
-                mime_type=mime_type,
-                media_resolution=genai_types.PartMediaResolution(level=resolucao) if resolucao else None
-            )
-            partes = [parte, instrucao]
-        resposta = self._executar(partes, system_instruction, temperatura, schema)
-        if resolucao:
-            resposta.parametros["resolucao_midia"] = resolucao
-        return resposta
+        def chamar() -> LLMResponse:
+            if self.adaptador is not None:
+                return self.adaptador.gerar_multimodal(arquivo, mime_type, instrucao, system_instruction=system_instruction,
+                                                       schema=schema, resolucao=resolucao)
+            partes = None
+            if genai_types is not None:
+                dados = Path(arquivo).read_bytes()
+                parte = genai_types.Part.from_bytes(
+                    data=dados,
+                    mime_type=mime_type,
+                    media_resolution=genai_types.PartMediaResolution(level=resolucao) if resolucao else None
+                )
+                partes = [parte, instrucao]
+            resposta = self._executar(partes, system_instruction, temperatura, schema)
+            if resolucao:
+                resposta.parametros["resolucao_midia"] = resolucao
+            return resposta
+        return self._com_orcamento(chamar)
 
     def gerar_imagem(
         self,
@@ -271,6 +388,8 @@ class LLMClient:
         Gera uma imagem com um modelo de imagem do provedor (RF10).
         A imagem volta em `dados_binarios`; o custo não é estimado (o preço por imagem difere do de texto).
         """
+        if self.adaptador is not None:
+            return self.adaptador.gerar_imagem(prompt, modelo)
         config_extra: Dict[str, Any] = {"response_modalities": ["IMAGE"], "seed": seed}
         if genai_types is not None:
             config_extra["image_config"] = genai_types.ImageConfig(aspect_ratio=proporcao)

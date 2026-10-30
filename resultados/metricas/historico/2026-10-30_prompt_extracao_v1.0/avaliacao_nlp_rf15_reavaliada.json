@@ -1,0 +1,335 @@
+{
+  "gerado_em": "2026-10-30T01:01:11",
+  "provedor": "openai",
+  "modelo": "gpt-5.6-luna",
+  "revisao_gabarito": "PENDENTE",
+  "custo_total_usd": 0.0070676,
+  "observacao": "Saídas da execução com PROMPT_EXTRACAO_V2 1.0 reavaliadas offline com a métrica de presença de assunto/pedido.",
+  "versao_gabarito": "1.1.0",
+  "versao_esquema": "2.0.0",
+  "agregados": {
+    "acuracia_categoria": {
+      "numerador": 6,
+      "denominador": 6,
+      "valor": 1.0
+    },
+    "contratos_validos": {
+      "numerador": 6,
+      "denominador": 6,
+      "valor": 1.0
+    },
+    "campos_exatos_corretos": {
+      "numerador": 41,
+      "denominador": 42,
+      "valor": 0.9762
+    },
+    "assunto_e_pedido_com_presenca_correta": {
+      "numerador": 11,
+      "denominador": 12,
+      "valor": 0.9167
+    },
+    "entidades_omitidas": {
+      "numerador": 0,
+      "denominador": 36,
+      "valor": 0.0
+    },
+    "entidades_sem_suporte": 0,
+    "entidades_nao_esperadas": 1,
+    "resumos_no_limite_de_100_palavras": {
+      "numerador": 6,
+      "denominador": 6,
+      "valor": 1.0
+    },
+    "fatos_essenciais_preservados": {
+      "numerador": 22,
+      "denominador": 22,
+      "valor": 1.0
+    },
+    "resumos_com_termo_proibido": 0,
+    "resumos_com_numero_sem_lastro": 0,
+    "decisoes_corretas": {
+      "numerador": 6,
+      "denominador": 6,
+      "valor": 1.0
+    }
+  },
+  "casos": [
+    {
+      "id": "SOL-01",
+      "tipo_caso": "completa",
+      "contrato_valido": true,
+      "decisao_esperada": "GERAR_MINUTA_PARA_REVISAO",
+      "decisao_obtida": "GERAR_MINUTA_PARA_REVISAO",
+      "decisao_correta": true,
+      "categoria_esperada": "MATRICULA_INICIAL",
+      "categoria_obtida": "MATRICULA_INICIAL",
+      "categoria_correta": true,
+      "campos_divergentes": [],
+      "nulidade_divergente": [],
+      "entidades_esperadas": 7,
+      "entidades_omitidas": [],
+      "entidades_sem_suporte": [],
+      "entidades_nao_esperadas": [],
+      "resumo": {
+        "texto": "Marcos Vinícius de Almeida Santos solicita a efetivação de sua matrícula no curso Técnico em Enfermagem, eixo tecnológico Saúde, com 1200 horas, no turno noturno, com início em 01/02/2027 e matrícula em 14/10/2026. Informa seus dados pessoais e declara ciência das condições de cancelamento por faltas nos primeiros dias de aula. Solicita informação sobre quais documentos ainda precisa apresentar. Protocolo 2026-000142, recebido por e-mail em 14/10/2026.",
+        "palavras": 66,
+        "dentro_do_limite": true,
+        "fatos": [
+          {
+            "fato": "Pede a efetivação da matrícula no curso Técnico em Enfermagem, turno noturno.",
+            "preservado": true
+          },
+          {
+            "fato": "Pergunta quais documentos ainda precisa apresentar.",
+            "preservado": true
+          },
+          {
+            "fato": "Declara ciência da regra de cancelamento da matrícula por faltas nos primeiros dias de aula.",
+            "preservado": true
+          },
+          {
+            "fato": "Protocolo 2026-000142, de 14/10/2026.",
+            "preservado": true
+          }
+        ],
+        "termos_proibidos_encontrados": [],
+        "numeros_sem_lastro": [],
+        "informacoes_inferidas": [],
+        "alertas": []
+      }
+    },
+    {
+      "id": "SOL-02",
+      "tipo_caso": "completa",
+      "contrato_valido": true,
+      "decisao_esperada": "GERAR_MINUTA_PARA_REVISAO",
+      "decisao_obtida": "GERAR_MINUTA_PARA_REVISAO",
+      "decisao_correta": true,
+      "categoria_esperada": "MATRICULA_INICIAL",
+      "categoria_obtida": "MATRICULA_INICIAL",
+      "categoria_correta": true,
+      "campos_divergentes": [],
+      "nulidade_divergente": [],
+      "entidades_esperadas": 6,
+      "entidades_omitidas": [],
+      "entidades_sem_suporte": [],
+      "entidades_nao_esperadas": [],
+      "resumo": {
+        "texto": "Marcos Vinícius de Almeida Santos solicita a efetivação de sua matrícula no curso Técnico em Enfermagem, do eixo tecnológico Saúde, com carga horária de 1200 horas, no turno noturno. Informa o protocolo 2026-000142, de 14 de outubro de 2026, e declara ciência das condições de cancelamento automático por faltas nos primeiros dez dias de aula. Solicita informação sobre quais documentos ainda precisa apresentar.",
+        "palavras": 63,
+        "dentro_do_limite": true,
+        "fatos": [
+          {
+            "fato": "Pede a efetivação da matrícula no curso Técnico em Enfermagem, turno noturno.",
+            "preservado": true
+          },
+          {
+            "fato": "Pergunta quais documentos ainda precisa apresentar.",
+            "preservado": true
+          },
+          {
+            "fato": "Declara ciência da regra de cancelamento da matrícula por faltas nos primeiros dias de aula.",
+            "preservado": true
+          },
+          {
+            "fato": "Protocolo 2026-000142, de 14 de outubro de 2026.",
+            "preservado": true
+          }
+        ],
+        "termos_proibidos_encontrados": [],
+        "numeros_sem_lastro": [],
+        "informacoes_inferidas": [
+          {
+            "informacao": "Trata-se de um pedido de matrícula escolar.",
+            "base": "quero pedir a efetivação da minha matrícula no curso Técnico em Enfermagem"
+          }
+        ],
+        "alertas": []
+      }
+    },
+    {
+      "id": "SOL-03",
+      "tipo_caso": "completa",
+      "contrato_valido": true,
+      "decisao_esperada": "GERAR_MINUTA_PARA_REVISAO",
+      "decisao_obtida": "GERAR_MINUTA_PARA_REVISAO",
+      "decisao_correta": true,
+      "categoria_esperada": "ESTAGIO_SUPERVISIONADO",
+      "categoria_obtida": "ESTAGIO_SUPERVISIONADO",
+      "categoria_correta": true,
+      "campos_divergentes": [],
+      "nulidade_divergente": [],
+      "entidades_esperadas": 6,
+      "entidades_omitidas": [],
+      "entidades_sem_suporte": [],
+      "entidades_nao_esperadas": [],
+      "resumo": {
+        "texto": "Beatriz Camargo Lima Teste, estudante do segundo módulo do curso Técnico em Enfermagem, turno noturno, solicita informação sobre quantos dias de antecedência deve entregar o termo de compromisso de estágio assinado e se pode cumprir o estágio no período noturno, pois trabalha durante o dia. Informa que foi escalada para iniciar o estágio supervisionado no Hospital Municipal Fictício São Bento em 16/11/2026. Protocolo 2026-000215, de 21/10/2026, enviado por e-mail.",
+        "palavras": 69,
+        "dentro_do_limite": true,
+        "fatos": [
+          {
+            "fato": "Estudante do segundo módulo do curso Técnico em Enfermagem, turno noturno.",
+            "preservado": true
+          },
+          {
+            "fato": "Início do estágio no Hospital Municipal Fictício São Bento em 16/11/2026.",
+            "preservado": true
+          },
+          {
+            "fato": "Pergunta com quantos dias de antecedência entregar o termo de compromisso assinado.",
+            "preservado": true
+          },
+          {
+            "fato": "Pergunta se pode cumprir o estágio à noite porque trabalha durante o dia.",
+            "preservado": true
+          }
+        ],
+        "termos_proibidos_encontrados": [],
+        "numeros_sem_lastro": [],
+        "informacoes_inferidas": [],
+        "alertas": []
+      }
+    },
+    {
+      "id": "SOL-04",
+      "tipo_caso": "completa",
+      "contrato_valido": true,
+      "decisao_esperada": "GERAR_MINUTA_PARA_REVISAO",
+      "decisao_obtida": "GERAR_MINUTA_PARA_REVISAO",
+      "decisao_correta": true,
+      "categoria_esperada": "ASSISTENCIA_ESTUDANTIL",
+      "categoria_obtida": "ASSISTENCIA_ESTUDANTIL",
+      "categoria_correta": true,
+      "campos_divergentes": [],
+      "nulidade_divergente": [],
+      "entidades_esperadas": 4,
+      "entidades_omitidas": [],
+      "entidades_sem_suporte": [],
+      "entidades_nao_esperadas": [],
+      "resumo": {
+        "texto": "Rafael Nogueira Prado Teste, matriculado no curso Técnico em Recursos Humanos, turno noturno, solicita o auxílio-transporte e informações sobre os documentos necessários para fazer o pedido. Informa que mora em Várzea Grande, a cerca de 12 km da escola. Solicitação enviada pelo formulário do site, sob o protocolo 2026-000231, em 22/10/2026.",
+        "palavras": 51,
+        "dentro_do_limite": true,
+        "fatos": [
+          {
+            "fato": "Matriculado no curso Técnico em Recursos Humanos, turno noturno.",
+            "preservado": true
+          },
+          {
+            "fato": "Mora em Várzea Grande, a cerca de 12 km da escola.",
+            "preservado": true
+          },
+          {
+            "fato": "Quer solicitar o auxílio-transporte e saber quais documentos levar.",
+            "preservado": true
+          }
+        ],
+        "termos_proibidos_encontrados": [],
+        "numeros_sem_lastro": [],
+        "informacoes_inferidas": [],
+        "alertas": []
+      }
+    },
+    {
+      "id": "SOL-05",
+      "tipo_caso": "incompleta",
+      "contrato_valido": true,
+      "decisao_esperada": "ENCAMINHAR_REVISAO_HUMANA",
+      "decisao_obtida": "ENCAMINHAR_REVISAO_HUMANA",
+      "decisao_correta": true,
+      "categoria_esperada": "MATRICULA_INICIAL",
+      "categoria_obtida": "MATRICULA_INICIAL",
+      "categoria_correta": true,
+      "campos_divergentes": [
+        {
+          "campo": "campos_ausentes",
+          "esperado": [
+            "pedido"
+          ],
+          "obtido": []
+        }
+      ],
+      "nulidade_divergente": [
+        {
+          "campo": "pedido",
+          "esperado": null,
+          "obtido": "Efetivação da matrícula no curso Técnico em Enfermagem."
+        }
+      ],
+      "entidades_esperadas": 10,
+      "entidades_omitidas": [],
+      "entidades_sem_suporte": [],
+      "entidades_nao_esperadas": [
+        "orgaos: SECRETARIA ESCOLAR"
+      ],
+      "resumo": {
+        "texto": "MARCOS VINÍCIUS DE ALMEIDA SANTOS consta em ficha de matrícula da Escola Técnica Estadual de Cuiabá para o curso Técnico em Enfermagem, com carga horária de 1200 horas, no eixo Saúde, turno noturno, com início em 01/02/2027 e matrícula em 14/10/2026. O código 2026-000142 e o CPF estão incertos. Órgão expedidor, UF, nome do pai, turma, município, término do curso e telefones estão em branco. A declaração de ciência de faltas está marcada, a assinatura do aluno ou responsável está presente e a da secretaria escolar está ausente.",
+        "palavras": 88,
+        "dentro_do_limite": true,
+        "fatos": [
+          {
+            "fato": "Ficha de matrícula de Marcos Vinícius de Almeida Santos no curso Técnico em Enfermagem, turno noturno, com início em 01/02/2027.",
+            "preservado": true
+          },
+          {
+            "fato": "Código 2026-000142 e CPF lidos com incerteza.",
+            "preservado": true
+          },
+          {
+            "fato": "Campos em branco: órgão expedidor, UF, nome do pai, turma, município, término do curso e telefones; falta a assinatura da secretaria escolar.",
+            "preservado": true
+          },
+          {
+            "fato": "Declaração de ciência das faltas marcada e assinatura do aluno presente.",
+            "preservado": true
+          }
+        ],
+        "termos_proibidos_encontrados": [],
+        "numeros_sem_lastro": [],
+        "informacoes_inferidas": [],
+        "alertas": []
+      }
+    },
+    {
+      "id": "SOL-06",
+      "tipo_caso": "ambigua",
+      "contrato_valido": true,
+      "decisao_esperada": "ENCAMINHAR_REVISAO_HUMANA",
+      "decisao_obtida": "ENCAMINHAR_REVISAO_HUMANA",
+      "decisao_correta": true,
+      "categoria_esperada": "REVISAO",
+      "categoria_obtida": "REVISAO",
+      "categoria_correta": true,
+      "campos_divergentes": [],
+      "nulidade_divergente": [],
+      "entidades_esperadas": 3,
+      "entidades_omitidas": [],
+      "entidades_sem_suporte": [],
+      "entidades_nao_esperadas": [],
+      "resumo": {
+        "texto": "Ana Paula Ribeiro Teste relata que esta é a terceira vez que comparece à Secretaria, mas a encontra fechada no horário informado para abertura. Ela considera interromper o curso ou afastar-se do estágio temporariamente, mas ainda não sabe qual opção é melhor e pergunta o que fazer. Protocolo: 2026-000248. Data: 23/10/2026. Canal: aplicativo de mensagens.",
+        "palavras": 55,
+        "dentro_do_limite": true,
+        "fatos": [
+          {
+            "fato": "Relata ter encontrado a secretaria fechada pela terceira vez no horário divulgado.",
+            "preservado": true
+          },
+          {
+            "fato": "Considera parar o curso ou se afastar do estágio por um tempo, sem ter decidido.",
+            "preservado": true
+          },
+          {
+            "fato": "Pede orientação sobre o que fazer.",
+            "preservado": true
+          }
+        ],
+        "termos_proibidos_encontrados": [],
+        "numeros_sem_lastro": [],
+        "informacoes_inferidas": [],
+        "alertas": []
+      }
+    }
+  ]
+}

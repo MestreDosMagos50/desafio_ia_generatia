@@ -4,6 +4,16 @@
 *.key
 *.pem
 
+# Documentos reais de referência (editais da SECITECI com nomes, contatos e exemplo de CPF)
+# e apostilas: servem só de inspiração para o acervo fictício e nunca vão para o repositório
+contexto/
+
+# Configuração local do Streamlit (pode conter secrets.toml)
+.streamlit/
+
+# Banco vetorial binário: recriado com python -m src.main --modo indexar (o manifesto indice/manifesto_indice.json é versionado)
+indice/chroma/
+
 # Python bytecode e caches
 __pycache__/
 *.py[cod]

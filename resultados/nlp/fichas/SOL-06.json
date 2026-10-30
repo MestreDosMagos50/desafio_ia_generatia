@@ -1,0 +1,43 @@
+{
+  "id_caso": "SOL-06",
+  "versao_esquema": "2.0.0",
+  "resumo": "Ana Paula Ribeiro Teste relata que já foi três vezes à secretaria e a encontrou fechada no horário informado de atendimento. Ela considera interromper o curso ou afastar-se do estágio temporariamente, mas ainda não sabe qual opção é melhor em seu caso, e pergunta o que deve fazer. Protocolo: 2026-000248. Data: 23/10/2026. Canal: Aplicativo de mensagens.",
+  "palavras_resumo": 56,
+  "categoria": "REVISAO",
+  "entidades_literais": {
+    "pessoas_ficticias": [
+      "Ana Paula Ribeiro Teste"
+    ],
+    "orgaos": [
+      "secretaria"
+    ],
+    "locais": [],
+    "datas": [
+      "23/10/2026"
+    ],
+    "protocolos": [
+      "2026-000248"
+    ]
+  },
+  "entidades_sem_apoio": {},
+  "informacoes_inferidas": [
+    {
+      "informacao": "A pessoa solicita orientação à Secretaria Escolar.",
+      "base": "O que eu faço?"
+    }
+  ],
+  "alertas": [],
+  "chamadas": [
+    {
+      "etapa": "ficha_nlp",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2124.4,
+      "tokens_total": 686,
+      "custo_estimado_usd": 0.0002622
+    }
+  ]
+}

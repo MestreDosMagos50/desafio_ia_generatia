@@ -1,0 +1,567 @@
+{
+  "versao_gabarito": "1.1.0",
+  "historico_versoes": [
+    {
+      "versao": "1.0.0",
+      "data": "2026-10-29",
+      "alteracao": "Versão inicial."
+    },
+    {
+      "versao": "1.1.0",
+      "data": "2026-10-30",
+      "alteracao": "Marcadores verificáveis por fato essencial e termos proibidos no resumo, definidos antes da primeira execução do modelo."
+    }
+  ],
+  "elaborado_em": "2026-10-29",
+  "elaborado_antes_da_execucao": true,
+  "requisitos": [
+    "RF14",
+    "RF15"
+  ],
+  "testes": [
+    "T01",
+    "T02",
+    "T03"
+  ],
+  "revisao_humana": {
+    "status": "PENDENTE",
+    "revisado_por": null,
+    "data": null,
+    "observacoes": "Rótulos propostos com apoio de IA; a equipe confere e assume os valores esperados antes da primeira execução."
+  },
+  "contrato_alvo": {
+    "nome": "ContratoSolicitacaoV2",
+    "versao_esquema": "2.0.0",
+    "arquivo_previsto": "src/schemas.py",
+    "campos": {
+      "protocolo": "string | null",
+      "data_solicitacao": "string | null (DD/MM/AAAA)",
+      "solicitante_ficticio": "string | null",
+      "curso": "string | null",
+      "assunto": "string | null",
+      "pedido": "string | null",
+      "categoria": "enum (classificacao.categorias_desafio02 do config.json)",
+      "entidades": "objeto com listas pessoas_ficticias, orgaos, locais, datas, protocolos",
+      "campos_ausentes": "lista com os nomes dos campos acima que ficaram null",
+      "necessita_revisao": "boolean"
+    },
+    "regras": [
+      "Todos os campos são obrigatórios no JSON e sem chaves extras; ausência é null, nunca texto inventado.",
+      "Na interface e na minuta, todo null aparece como 'não localizado'.",
+      "necessita_revisao = true quando há campo crítico ausente ou incerto, mais de um assunto sem predominância, conteúdo suspeito ou dado que não pode ser conferido. Independentemente dele, toda minuta exige aprovação humana (RF24)."
+    ]
+  },
+  "regras_de_comparacao": {
+    "normalizacao": "Comparações sem diferenciar maiúsculas/minúsculas, acentos e espaços repetidos.",
+    "campos_exatos": [
+      "protocolo",
+      "data_solicitacao",
+      "solicitante_ficticio",
+      "curso",
+      "categoria",
+      "campos_ausentes",
+      "necessita_revisao"
+    ],
+    "campos_semanticos": [
+      "assunto",
+      "pedido"
+    ],
+    "observacao_semanticos": "assunto e pedido são redigidos pelo modelo; o avaliador confere se preservam o sentido do esperado sem acrescentar fatos.",
+    "entidades": "Cada entidade esperada deve ser extraída (ausência conta como omissão). Entidade extraída que não aparece no texto original conta como fato sem suporte. Entidade presente no texto mas não esperada só é aceita se constar em entidades_aceitas_opcionais.",
+    "resumo": "Resumo de até 100 palavras (contadas em código). Um fato essencial conta como preservado quando todos os seus marcadores aparecem no resumo normalizado; '|' separa alternativas. Termo proibido no resumo indica dado inventado. A cobertura por marcadores é indicativa e a equipe confirma cada resumo no registro de conferência humana (Aula 09, §5.3).",
+    "acuracia_categoria": "acertos / 6"
+  },
+  "casos": [
+    {
+      "id": "SOL-01",
+      "tipo_caso": "completa",
+      "esperado": {
+        "protocolo": "2026-000142",
+        "data_solicitacao": "14/10/2026",
+        "solicitante_ficticio": "Marcos Vinícius de Almeida Santos",
+        "curso": "Técnico em Enfermagem",
+        "assunto": "Efetivação de matrícula no curso Técnico em Enfermagem e documentos pendentes",
+        "pedido": "Efetivar a matrícula no curso Técnico em Enfermagem e informar quais documentos ainda precisa apresentar",
+        "categoria": "MATRICULA_INICIAL",
+        "entidades": {
+          "pessoas_ficticias": [
+            "Marcos Vinícius de Almeida Santos",
+            "Lúcia Helena de Almeida Santos"
+          ],
+          "orgaos": [],
+          "locais": [
+            "Cuiabá"
+          ],
+          "datas": [
+            "14/10/2026",
+            "12/08/2008",
+            "01/02/2027"
+          ],
+          "protocolos": [
+            "2026-000142"
+          ]
+        },
+        "campos_ausentes": [],
+        "necessita_revisao": false
+      },
+      "entidades_aceitas_opcionais": {},
+      "fatos_essenciais": [
+        {
+          "fato": "Pede a efetivação da matrícula no curso Técnico em Enfermagem, turno noturno.",
+          "marcadores": [
+            "matricula",
+            "enfermagem"
+          ]
+        },
+        {
+          "fato": "Pergunta quais documentos ainda precisa apresentar.",
+          "marcadores": [
+            "document"
+          ]
+        },
+        {
+          "fato": "Declara ciência da regra de cancelamento da matrícula por faltas nos primeiros dias de aula.",
+          "marcadores": [
+            "falt",
+            "cancel"
+          ]
+        },
+        {
+          "fato": "Protocolo 2026-000142, de 14/10/2026.",
+          "marcadores": [
+            "2026-000142",
+            "14/10/2026|14 de outubro de 2026"
+          ]
+        }
+      ],
+      "nao_pode_constar": [
+        "documentos que já teriam sido entregues (o texto não informa)",
+        "nome do pai, telefone ou órgão expedidor do RG",
+        "aprovação ou efetivação da matrícula como fato consumado"
+      ],
+      "informacoes_inferidas_admissiveis": [
+        "categoria MATRICULA_INICIAL"
+      ],
+      "decisao_esperada": "GERAR_MINUTA_PARA_REVISAO",
+      "justificativa": "Solicitação completa e sem instruções suspeitas; a minuta deve listar os documentos exigidos pelo acervo (DOC-01, itens 4.1 e 4.2) e seguir para aprovação humana.",
+      "termos_proibidos_resumo": [
+        "aprovad",
+        "deferid"
+      ]
+    },
+    {
+      "id": "SOL-02",
+      "tipo_caso": "completa",
+      "esperado": {
+        "protocolo": "2026-000142",
+        "data_solicitacao": "14/10/2026",
+        "solicitante_ficticio": "Marcos Vinícius de Almeida Santos",
+        "curso": "Técnico em Enfermagem",
+        "assunto": "Efetivação de matrícula no curso Técnico em Enfermagem e documentos pendentes",
+        "pedido": "Efetivar a matrícula no curso Técnico em Enfermagem e informar quais documentos ainda precisa apresentar",
+        "categoria": "MATRICULA_INICIAL",
+        "entidades": {
+          "pessoas_ficticias": [
+            "Marcos Vinícius de Almeida Santos",
+            "Lúcia Helena de Almeida Santos"
+          ],
+          "orgaos": [],
+          "locais": [
+            "Cuiabá"
+          ],
+          "datas": [
+            "14 de outubro de 2026",
+            "12 de agosto de 2008"
+          ],
+          "protocolos": [
+            "2026-000142"
+          ]
+        },
+        "campos_ausentes": [],
+        "necessita_revisao": false
+      },
+      "entidades_aceitas_opcionais": {},
+      "normalizacoes_admitidas": {
+        "data_solicitacao": "'14 de outubro de 2026' na fala vira 14/10/2026 no contrato; nas entidades a data fica como foi dita."
+      },
+      "fatos_essenciais": [
+        {
+          "fato": "Pede a efetivação da matrícula no curso Técnico em Enfermagem, turno noturno.",
+          "marcadores": [
+            "matricula",
+            "enfermagem"
+          ]
+        },
+        {
+          "fato": "Pergunta quais documentos ainda precisa apresentar.",
+          "marcadores": [
+            "document"
+          ]
+        },
+        {
+          "fato": "Declara ciência da regra de cancelamento da matrícula por faltas nos primeiros dias de aula.",
+          "marcadores": [
+            "falt",
+            "cancel"
+          ]
+        },
+        {
+          "fato": "Protocolo 2026-000142, de 14 de outubro de 2026.",
+          "marcadores": [
+            "2026-000142",
+            "14/10/2026|14 de outubro de 2026"
+          ]
+        }
+      ],
+      "nao_pode_constar": [
+        "data de início do curso (01/02/2027 não é dita no áudio)",
+        "nome do pai, telefone ou órgão expedidor do RG",
+        "aprovação ou efetivação da matrícula como fato consumado"
+      ],
+      "informacoes_inferidas_admissiveis": [
+        "categoria MATRICULA_INICIAL",
+        "data_solicitacao no formato DD/MM/AAAA"
+      ],
+      "decisao_esperada": "GERAR_MINUTA_PARA_REVISAO",
+      "justificativa": "Mesmo caso do SOL-01 recebido por voz. Serve para verificar que a extração não completa o áudio com fatos que só existem no e-mail (ex.: data de início do curso).",
+      "termos_proibidos_resumo": [
+        "01/02/2027",
+        "aprovad",
+        "deferid"
+      ]
+    },
+    {
+      "id": "SOL-03",
+      "tipo_caso": "completa",
+      "esperado": {
+        "protocolo": "2026-000215",
+        "data_solicitacao": "21/10/2026",
+        "solicitante_ficticio": "Beatriz Camargo Lima Teste",
+        "curso": "Técnico em Enfermagem",
+        "assunto": "Prazo de entrega do termo de compromisso e turno do estágio supervisionado",
+        "pedido": "Saber com quantos dias de antecedência entregar o termo de compromisso de estágio assinado e se pode cumprir o estágio no período noturno",
+        "categoria": "ESTAGIO_SUPERVISIONADO",
+        "entidades": {
+          "pessoas_ficticias": [
+            "Beatriz Camargo Lima Teste"
+          ],
+          "orgaos": [
+            "Coordenação de Estágio",
+            "Hospital Municipal Fictício São Bento"
+          ],
+          "locais": [],
+          "datas": [
+            "21/10/2026",
+            "16/11/2026"
+          ],
+          "protocolos": [
+            "2026-000215"
+          ]
+        },
+        "campos_ausentes": [],
+        "necessita_revisao": false
+      },
+      "entidades_aceitas_opcionais": {
+        "locais": [
+          "Hospital Municipal Fictício São Bento"
+        ]
+      },
+      "fatos_essenciais": [
+        {
+          "fato": "Estudante do segundo módulo do curso Técnico em Enfermagem, turno noturno.",
+          "marcadores": [
+            "enfermagem"
+          ]
+        },
+        {
+          "fato": "Início do estágio no Hospital Municipal Fictício São Bento em 16/11/2026.",
+          "marcadores": [
+            "16/11/2026|16 de novembro",
+            "hospital"
+          ]
+        },
+        {
+          "fato": "Pergunta com quantos dias de antecedência entregar o termo de compromisso assinado.",
+          "marcadores": [
+            "termo de compromisso",
+            "antecedencia"
+          ]
+        },
+        {
+          "fato": "Pergunta se pode cumprir o estágio à noite porque trabalha durante o dia.",
+          "marcadores": [
+            "noturno|noite",
+            "trabalh"
+          ]
+        }
+      ],
+      "nao_pode_constar": [
+        "prazo de entrega do termo como fato da solicitação (a estudante pergunta, não informa)",
+        "garantia de vaga de estágio no turno noturno"
+      ],
+      "informacoes_inferidas_admissiveis": [
+        "categoria ESTAGIO_SUPERVISIONADO"
+      ],
+      "decisao_esperada": "GERAR_MINUTA_PARA_REVISAO",
+      "justificativa": "Solicitação completa. A antecedência do termo tem fontes contraditórias no acervo (DOC-04: 5 dias úteis; DOC-05: 15 dias corridos): a minuta deve apresentar a divergência sem escolher um prazo e seguir para revisão (ver RAG-08).",
+      "termos_proibidos_resumo": [
+        "dias uteis",
+        "dias corridos",
+        "cinco dias",
+        "quinze dias",
+        "5 dias",
+        "15 dias"
+      ]
+    },
+    {
+      "id": "SOL-04",
+      "tipo_caso": "completa",
+      "esperado": {
+        "protocolo": "2026-000231",
+        "data_solicitacao": "22/10/2026",
+        "solicitante_ficticio": "Rafael Nogueira Prado Teste",
+        "curso": "Técnico em Recursos Humanos",
+        "assunto": "Solicitação de auxílio-transporte",
+        "pedido": "Solicitar o auxílio-transporte e saber quais documentos levar para fazer o pedido",
+        "categoria": "ASSISTENCIA_ESTUDANTIL",
+        "entidades": {
+          "pessoas_ficticias": [
+            "Rafael Nogueira Prado Teste"
+          ],
+          "orgaos": [],
+          "locais": [
+            "Várzea Grande"
+          ],
+          "datas": [
+            "22/10/2026"
+          ],
+          "protocolos": [
+            "2026-000231"
+          ]
+        },
+        "campos_ausentes": [],
+        "necessita_revisao": false
+      },
+      "entidades_aceitas_opcionais": {},
+      "fatos_essenciais": [
+        {
+          "fato": "Matriculado no curso Técnico em Recursos Humanos, turno noturno.",
+          "marcadores": [
+            "recursos humanos"
+          ]
+        },
+        {
+          "fato": "Mora em Várzea Grande, a cerca de 12 km da escola.",
+          "marcadores": [
+            "varzea grande",
+            "12 km|12 quilometros"
+          ]
+        },
+        {
+          "fato": "Quer solicitar o auxílio-transporte e saber quais documentos levar.",
+          "marcadores": [
+            "auxilio-transporte|auxilio transporte",
+            "document"
+          ]
+        }
+      ],
+      "nao_pode_constar": [
+        "renda familiar (não informada)",
+        "concessão do auxílio como fato consumado"
+      ],
+      "informacoes_inferidas_admissiveis": [
+        "categoria ASSISTENCIA_ESTUDANTIL"
+      ],
+      "decisao_esperada": "GERAR_MINUTA_PARA_REVISAO",
+      "justificativa": "Solicitação completa. A minuta deve informar critérios e documentos do pedido (DOC-06) sem afirmar que o estudante tem direito, porque a renda não foi informada.",
+      "termos_proibidos_resumo": [
+        "deferid",
+        "concedid",
+        "aprovad"
+      ]
+    },
+    {
+      "id": "SOL-05",
+      "tipo_caso": "incompleta",
+      "esperado": {
+        "protocolo": "2026-000142",
+        "data_solicitacao": "14/10/2026",
+        "solicitante_ficticio": "MARCOS VINÍCIUS DE ALMEIDA SANTOS",
+        "curso": "TÉCNICO EM ENFERMAGEM",
+        "assunto": "Ficha de matrícula no curso Técnico em Enfermagem",
+        "pedido": null,
+        "categoria": "MATRICULA_INICIAL",
+        "entidades": {
+          "pessoas_ficticias": [
+            "MARCOS VINÍCIUS DE ALMEIDA SANTOS",
+            "LÚCIA HELENA DE ALMEIDA SANTOS"
+          ],
+          "orgaos": [
+            "GOVERNO DE MATO GROSSO",
+            "SECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO - SECITECI/MT",
+            "ESCOLA TÉCNICA ESTADUAL DE CUIABÁ"
+          ],
+          "locais": [
+            "CUIABÁ"
+          ],
+          "datas": [
+            "12/08/2008",
+            "01/02/2027",
+            "14/10/2026"
+          ],
+          "protocolos": [
+            "2026-000142"
+          ]
+        },
+        "campos_ausentes": [
+          "pedido"
+        ],
+        "necessita_revisao": true
+      },
+      "entidades_aceitas_opcionais": {
+        "locais": [
+          "MATO GROSSO"
+        ],
+        "orgaos": [
+          "SECITECI/MT"
+        ]
+      },
+      "lacunas_do_documento": [
+        "órgão expedidor",
+        "UF",
+        "nome do pai",
+        "turma",
+        "município",
+        "término do curso",
+        "telefone celular",
+        "telefone residencial",
+        "assinatura da secretaria escolar"
+      ],
+      "campos_incertos": [
+        "código (protocolo)",
+        "CPF"
+      ],
+      "fatos_essenciais": [
+        {
+          "fato": "Ficha de matrícula de Marcos Vinícius de Almeida Santos no curso Técnico em Enfermagem, turno noturno, com início em 01/02/2027.",
+          "marcadores": [
+            "ficha",
+            "enfermagem"
+          ]
+        },
+        {
+          "fato": "Código 2026-000142 e CPF lidos com incerteza.",
+          "marcadores": [
+            "incert",
+            "cpf"
+          ]
+        },
+        {
+          "fato": "Campos em branco: órgão expedidor, UF, nome do pai, turma, município, término do curso e telefones; falta a assinatura da secretaria escolar.",
+          "marcadores": [
+            "em branco|nao preenchid|ausen|vazi"
+          ]
+        },
+        {
+          "fato": "Declaração de ciência das faltas marcada e assinatura do aluno presente.",
+          "marcadores": [
+            "falt"
+          ]
+        }
+      ],
+      "nao_pode_constar": [
+        "valores para os campos em branco",
+        "pedido diferente da matrícula registrada na ficha"
+      ],
+      "informacoes_inferidas_admissiveis": [
+        "categoria MATRICULA_INICIAL pelo tipo de documento (ficha de matrícula)",
+        "assunto redigido a partir do cabeçalho da ficha"
+      ],
+      "decisao_esperada": "ENCAMINHAR_REVISAO_HUMANA",
+      "justificativa": "A ficha não contém pedido escrito, tem campos em branco e dois campos lidos com incerteza: a central registra as lacunas como 'não localizado' e encaminha ao servidor sem gerar minuta automática.",
+      "termos_proibidos_resumo": [
+        "aprovad",
+        "deferid"
+      ]
+    },
+    {
+      "id": "SOL-06",
+      "tipo_caso": "ambigua",
+      "esperado": {
+        "protocolo": "2026-000248",
+        "data_solicitacao": "23/10/2026",
+        "solicitante_ficticio": "Ana Paula Ribeiro Teste",
+        "curso": null,
+        "assunto": "Reclamação sobre o horário da secretaria e dúvida entre parar o curso ou se afastar do estágio",
+        "pedido": "Orientação sobre o que fazer: parar o curso ou se afastar do estágio por um tempo",
+        "categoria": "REVISAO",
+        "entidades": {
+          "pessoas_ficticias": [
+            "Ana Paula Ribeiro Teste"
+          ],
+          "orgaos": [],
+          "locais": [],
+          "datas": [
+            "23/10/2026"
+          ],
+          "protocolos": [
+            "2026-000248"
+          ]
+        },
+        "campos_ausentes": [
+          "curso"
+        ],
+        "necessita_revisao": true
+      },
+      "entidades_aceitas_opcionais": {
+        "orgaos": [
+          "secretaria"
+        ]
+      },
+      "categorias_concorrentes": [
+        "CANCELAMENTO_MATRICULA",
+        "ESTAGIO_SUPERVISIONADO",
+        "INFORMACAO_GERAL"
+      ],
+      "fatos_essenciais": [
+        {
+          "fato": "Relata ter encontrado a secretaria fechada pela terceira vez no horário divulgado.",
+          "marcadores": [
+            "secretaria",
+            "fechad"
+          ]
+        },
+        {
+          "fato": "Considera parar o curso ou se afastar do estágio por um tempo, sem ter decidido.",
+          "marcadores": [
+            "curso",
+            "estagio"
+          ]
+        },
+        {
+          "fato": "Pede orientação sobre o que fazer.",
+          "marcadores": [
+            "o que eu faco|orient|o que fazer"
+          ]
+        }
+      ],
+      "nao_pode_constar": [
+        "pedido formal de trancamento ou cancelamento (a estudante ainda não decidiu)",
+        "nome do curso",
+        "motivos pessoais não informados"
+      ],
+      "informacoes_inferidas_admissiveis": [
+        "categoria REVISAO"
+      ],
+      "decisao_esperada": "ENCAMINHAR_REVISAO_HUMANA",
+      "justificativa": "A mensagem mistura reclamação de horário com um pedido indefinido entre trancar o curso e se afastar do estágio; nenhuma categoria predomina. Regra documentada: sem assunto predominante, a categoria é REVISAO e a triagem é humana antes de qualquer minuta.",
+      "termos_proibidos_resumo": [
+        "solicita o trancamento",
+        "solicita o cancelamento",
+        "pede o trancamento",
+        "pede o cancelamento",
+        "requer o trancamento"
+      ]
+    }
+  ]
+}

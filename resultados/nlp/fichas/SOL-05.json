@@ -1,0 +1,46 @@
+{
+  "id_caso": "SOL-05",
+  "versao_esquema": "2.0.0",
+  "resumo": "A ficha de matrícula registra Marcos Vinícius de Almeida Santos no curso Técnico em Enfermagem, com 1.200 horas, eixo tecnológico Saúde, turno noturno e início em 01/02/2027. A data de matrícula é 14/10/2026. O código 2026-000142 e o CPF estão incertos; há campos em branco para órgão expedidor, UF, nome do pai, turma, município, término, telefones e outros dados. A declaração de ciência de faltas está marcada e a assinatura do aluno ou responsável está presente. A assinatura da Secretaria Escolar está ausente.",
+  "palavras_resumo": 83,
+  "categoria": "MATRICULA_INICIAL",
+  "entidades_literais": {
+    "pessoas_ficticias": [
+      "MARCOS VINÍCIUS DE ALMEIDA SANTOS",
+      "LÚCIA HELENA DE ALMEIDA SANTOS"
+    ],
+    "orgaos": [
+      "GOVERNO DE MATO GROSSO",
+      "SECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO - SECITECI/MT",
+      "ESCOLA TÉCNICA ESTADUAL DE CUIABÁ",
+      "SECRETARIA ESCOLAR"
+    ],
+    "locais": [
+      "CUIABÁ"
+    ],
+    "datas": [
+      "12/08/2008",
+      "01/02/2027",
+      "14/10/2026"
+    ],
+    "protocolos": [
+      "2026-000142"
+    ]
+  },
+  "entidades_sem_apoio": {},
+  "informacoes_inferidas": [],
+  "alertas": [],
+  "chamadas": [
+    {
+      "etapa": "ficha_nlp",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 3723.8,
+      "tokens_total": 1259,
+      "custo_estimado_usd": 0.0004898
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "instituicao": "GOVERNO DO MATO GROSSO\nSECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO - SECITECI/MT\nESCOLA TÉCNICA ESTADUAL DE CUIABÁ\nFICHA DE MATRÍCULA",
+  "codigo_matricula": "2024-000142",
+  "solicitante": {
+    "nome_completo": "MARCOS VINITCIUS DE ALMEIDA SANTOS",
+    "data_nascimento": "12/09/2008",
+    "cpf": "123.456.789-00",
+    "rg": "12.456.789-8",
+    "orgao_expedidor": "não localizado",
+    "naturalidade": "Cuiabá",
+    "uf": "não localizado",
+    "nome_mae": "LUCIA HELENA DE ALMEIDA SANTOS",
+    "nome_pai": "não localizado",
+    "telefone_celular": "não localizado",
+    "telefone_residencial": "não localizado",
+    "email": "MARCOS.ALMEIDA.TESTE@EXEMPLO.COM"
+  },
+  "curso": {
+    "nome": "Técnico em Enfermagem",
+    "carga_horaria": "1200 horas",
+    "eixo_tecnologico": "Saúde",
+    "turma": "não localizado",
+    "municipio": "não localizado",
+    "turno": "Noturno",
+    "inicio_curso": "01/02/2027",
+    "termino_curso": "não localizado"
+  },
+  "data_matricula": "14/10/2026",
+  "conformidade_e_assinaturas": {
+    "termo_ciencia_faltas_assinado": true,
+    "assinatura_aluno_presente": true,
+    "assinatura_secretaria_escolar": "não localizado"
+  },
+  "campos_em_branco_detectados": [
+    "orgao_expedidor",
+    "uf",
+    "nome_pai",
+    "turma",
+    "municipio",
+    "termino_curso",
+    "telefone_celular",
+    "telefone_residencial",
+    "assinatura_secretaria_escolar"
+  ],
+  "trechos_incertos": [
+    {
+      "campo": "nome",
+      "rotulo": "NOME",
+      "valor_lido": "MARCOS VINITCIUS DE ALMEIDA SANTOS",
+      "situacao": "INCERTO",
+      "observacao": "O trecho do nome entre “V” e “CIUS” pode ser lido como “VINITCIUS” ou “VINICIUS”."
+    },
+    {
+      "campo": "data_nascimento",
+      "rotulo": "DATA DE NASCIMENTO",
+      "valor_lido": "12/09/2008",
+      "situacao": "INCERTO",
+      "observacao": "O segundo algarismo do mês pode ser 9 ou 0."
+    }
+  ]
+}

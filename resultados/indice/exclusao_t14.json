@@ -1,0 +1,87 @@
+{
+  "pergunta": "Vai ter recesso no fim do ano? De quando até quando as aulas param?",
+  "doc_id": "DOC-99",
+  "antes": {
+    "recuperou_o_documento": true,
+    "top_k": [
+      {
+        "posicao": 1,
+        "chunk_id": "DOC-99::A::txt::t001",
+        "doc_id": "DOC-99",
+        "similaridade_cosseno": 0.6623
+      },
+      {
+        "posicao": 2,
+        "chunk_id": "DOC-99::A::txt::t002",
+        "doc_id": "DOC-99",
+        "similaridade_cosseno": 0.5767
+      },
+      {
+        "posicao": 3,
+        "chunk_id": "DOC-02::A::p1::t003",
+        "doc_id": "DOC-02",
+        "similaridade_cosseno": 0.4677
+      },
+      {
+        "posicao": 4,
+        "chunk_id": "DOC-99::A::txt::t003",
+        "doc_id": "DOC-99",
+        "similaridade_cosseno": 0.4652
+      }
+    ]
+  },
+  "exclusao": {
+    "doc_id": "DOC-99",
+    "motivo": "Demonstração do RF24/T14: informativo temporário retirado do acervo",
+    "excluido_em": "2026-10-30T10:43:16",
+    "vetores_removidos_por_colecao": {
+      "experimento_chunking_A": 0,
+      "experimento_chunking_B": 0,
+      "acervo_principal": 4
+    },
+    "vetores_restantes": 0
+  },
+  "depois": {
+    "trechos_do_documento_no_top_k": 0,
+    "top_k": [
+      {
+        "posicao": 1,
+        "chunk_id": "DOC-02::A::p1::t003",
+        "doc_id": "DOC-02",
+        "similaridade_cosseno": 0.4677
+      },
+      {
+        "posicao": 2,
+        "chunk_id": "DOC-03::A::txt::t007",
+        "doc_id": "DOC-03",
+        "similaridade_cosseno": 0.4598
+      },
+      {
+        "posicao": 3,
+        "chunk_id": "DOC-03::A::txt::t004",
+        "doc_id": "DOC-03",
+        "similaridade_cosseno": 0.4552
+      },
+      {
+        "posicao": 4,
+        "chunk_id": "DOC-03::A::txt::t003",
+        "doc_id": "DOC-03",
+        "similaridade_cosseno": 0.455
+      }
+    ]
+  },
+  "reindexacao_automatica": {
+    "ignorados_por_exclusao": [
+      "DOC-99"
+    ],
+    "vetores_na_colecao": 59
+  },
+  "politica_de_retencao": [
+    "Vetores e entrada do manifesto do documento excluído são apagados de todas as coleções do índice.",
+    "A exclusão fica registrada no manifesto e na auditoria (data, motivo, vetores removidos).",
+    "O documento não volta ao índice numa reindexação automática; só por reinclusão explícita.",
+    "Resultados derivados que citem o documento (respostas e minutas do RAG) devem ser apagados ou marcados no mesmo ato; até o Bloco 5 não há resultado derivado gravado por documento.",
+    "O arquivo-fonte do acervo fictício continua versionado porque é recriado pelo gerador; num acervo real, o arquivo de origem seria removido no mesmo ato, conforme a tabela de temporalidade do órgão."
+  ],
+  "confere": true
+}

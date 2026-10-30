@@ -4,8 +4,11 @@
 ==============================================================================
 EMPACOTADOR AUTOMATIZADO DO PROJETO PARA ENTREGA (.ZIP)
 ==============================================================================
-Gera o pacote final 'Desafio01-FICDEV-IAGenerativa.zip' excluindo estritamente:
-- Arquivos de credenciais (.env);
+Gera o pacote final 'Desafio02-FICDEV-IAGenerativa.zip' excluindo estritamente:
+- Arquivos de credenciais (.env) e configuração local do Streamlit (.streamlit);
+- Documentos reais de referência (contexto/): não podem ir junto ao índice;
+- Banco local do índice (indice/chroma/): recriado com python -m src.main --modo indexar
+  (o manifesto vai no pacote e mantém as exclusões registradas);
 - Diretórios de cache (__pycache__, .pytest_cache);
 - Ambientes virtuais (venv, .venv);
 - Repositório local (.git).
@@ -18,10 +21,12 @@ from pathlib import Path
 
 raiz_projeto = Path(__file__).resolve().parent
 dir_workspace = raiz_projeto.parent
-caminho_zip = dir_workspace / "Desafio01-FICDEV-IAGenerativa.zip"
+caminho_zip = dir_workspace / "Desafio02-FICDEV-IAGenerativa.zip"
 
 PADROES_IGNORADOS = [
     ".env",
+    "contexto",
+    ".streamlit",
     "__pycache__",
     ".pytest_cache",
     ".git",
@@ -35,10 +40,12 @@ PADROES_IGNORADOS = [
 
 def deve_ignorar(caminho: Path) -> bool:
     nome = caminho.name
-    partes = caminho.parts
+    partes = caminho.relative_to(raiz_projeto).parts if caminho.is_relative_to(raiz_projeto) else caminho.parts
     if nome == ".env" or nome.endswith(".env"):
         return True
-    if any(p in partes for p in ["__pycache__", ".pytest_cache", ".git", "venv", ".venv"]):
+    if any(p in partes for p in ["contexto", ".streamlit", "__pycache__", ".pytest_cache", ".git", "venv", ".venv"]):
+        return True
+    if "indice" in partes and "chroma" in partes:
         return True
     if nome.endswith(".pyc") or nome in [".DS_Store", "Thumbs.db"]:
         return True
@@ -47,7 +54,7 @@ def deve_ignorar(caminho: Path) -> bool:
 
 def empacotar():
     print("=" * 75)
-    print("  EMPACOTAMENTO DO DESAFIO PRÁTICO 1 (FIC_DEV)")
+    print("  EMPACOTAMENTO DO DESAFIO PRÁTICO 2 (FIC_DEV)")
     print("=" * 75)
     print(f"• Origem: {raiz_projeto}")
     print(f"• Destino do Arquivo Compactado: {caminho_zip}")
@@ -81,9 +88,9 @@ def empacotar():
     print("=" * 75)
     print("INSTRUÇÕES DE ENVIO POR E-MAIL:")
     print("  • Destinatário: ficdev00@gmail.com")
-    print("  • Assunto do E-mail: Desafio01-FICDEV-IAGenerativa")
-    print("  • Anexo: Desafio01-FICDEV-IAGenerativa.zip")
-    print("  • Prazo Limite: até 18/10/2026 às 23:59")
+    print("  • Assunto do E-mail: Desafio02-FICDEV-IAGenerativa")
+    print("  • Anexo: Desafio02-FICDEV-IAGenerativa.zip")
+    print("  • Prazo Limite: conforme o comunicado oficial do Desafio 02 (não informado no enunciado)")
     print("=" * 75)
 
 

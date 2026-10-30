@@ -1,0 +1,38 @@
+{
+  "id_caso": "SOL-06",
+  "versao_esquema": "2.0.0",
+  "resumo": "Ana Paula Ribeiro Teste relata que esta é a terceira vez que comparece à Secretaria, mas a encontra fechada no horário informado para abertura. Ela considera interromper o curso ou afastar-se do estágio temporariamente, mas ainda não sabe qual opção é melhor e pergunta o que fazer. Protocolo: 2026-000248. Data: 23/10/2026. Canal: aplicativo de mensagens.",
+  "palavras_resumo": 55,
+  "categoria": "REVISAO",
+  "entidades_literais": {
+    "pessoas_ficticias": [
+      "Ana Paula Ribeiro Teste"
+    ],
+    "orgaos": [
+      "secretaria"
+    ],
+    "locais": [],
+    "datas": [
+      "23/10/2026"
+    ],
+    "protocolos": [
+      "2026-000248"
+    ]
+  },
+  "entidades_sem_apoio": {},
+  "informacoes_inferidas": [],
+  "alertas": [],
+  "chamadas": [
+    {
+      "etapa": "ficha_nlp",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 1914.3,
+      "tokens_total": 665,
+      "custo_estimado_usd": 0.00023700000000000001
+    }
+  ]
+}

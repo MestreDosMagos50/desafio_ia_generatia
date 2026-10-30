@@ -22,3 +22,14 @@ python-docx==1.2.0
 
 # Testes automatizados
 pytest==9.1.1
+
+# --- Desafio 02 ---
+# Provedor OpenAI: geração, embeddings e moderação (RF14–RF22)
+openai==3.41.0
+# Índice vetorial persistente (RF17; Aula 11 fixa a 1.5.9)
+chromadb==1.5.9
+# Leitura de PDF por página (RF17) e PDF -> PNG para a visão do gpt-5.6-luna (T15)
+pymupdf==2.0
+# Interface do assistente (RF20) e agregação determinística (RF22, RF23)
+streamlit==1.62.0
+pandas==3.1.0

@@ -1,0 +1,185 @@
+{
+  "total_campos": 26,
+  "acertos": 24,
+  "taxa_acerto_pct": 92.31,
+  "inventados": [],
+  "omitidos": [
+    "classificacao.urgencia"
+  ],
+  "divergentes": [
+    "classificacao.categoria"
+  ],
+  "itens": [
+    {
+      "campo": "protocolo",
+      "esperado": "2026-000142",
+      "obtido": "2026-000142",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "data_solicitacao",
+      "esperado": "14/10/2026",
+      "obtido": "14/10/2026",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "canal",
+      "esperado": "E-mail",
+      "obtido": "E-mail",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.nome_completo",
+      "esperado": "Marcos Vinícius de Almeida Santos",
+      "obtido": "Marcos Vinícius de Almeida Santos",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.data_nascimento",
+      "esperado": "12/08/2008",
+      "obtido": "12/08/2008",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.naturalidade",
+      "esperado": "Cuiabá",
+      "obtido": "Cuiabá",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.cpf",
+      "esperado": "123.456.789-00",
+      "obtido": "123.456.789-00",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.rg",
+      "esperado": "1234567-8",
+      "obtido": "1234567-8",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.orgao_expedidor",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.uf",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.nome_mae",
+      "esperado": "Lúcia Helena de Almeida Santos",
+      "obtido": "Lúcia Helena de Almeida Santos",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.nome_pai",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.email",
+      "esperado": "marcos.almeida.teste@examplo.com",
+      "obtido": "marcos.almeida.teste@examplo.com",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.telefone_celular",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.telefone_residencial",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.nome",
+      "esperado": "Técnico em Enfermagem",
+      "obtido": "Técnico em Enfermagem",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.eixo_tecnologico",
+      "esperado": "Saúde",
+      "obtido": "Saúde",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.carga_horaria",
+      "esperado": "1200 horas",
+      "obtido": "1200 horas",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.turno",
+      "esperado": "Noturno",
+      "obtido": "noturno",
+      "status": "EQUIVALENTE"
+    },
+    {
+      "campo": "curso.data_inicio",
+      "esperado": "01/02/2027",
+      "obtido": "01/02/2027",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.data_termino",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.turma",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "regras_assiduidade_declaradas.ciente_cancelamento_faltas",
+      "esperado": true,
+      "obtido": true,
+      "status": "CORRETO"
+    },
+    {
+      "campo": "classificacao.categoria",
+      "esperado": "MATRICULA_INICIAL",
+      "obtido": "DOCUMENTACAO_PENDENTE",
+      "status": "DIVERGENTE"
+    },
+    {
+      "campo": "classificacao.urgencia",
+      "esperado": "MEDIA",
+      "obtido": "não localizado",
+      "status": "OMITIDO"
+    },
+    {
+      "campo": "campos_ausentes_obrigatorios",
+      "esperado": [
+        "orgao_expedidor",
+        "uf",
+        "nome_pai",
+        "telefone_celular",
+        "telefone_residencial",
+        "documentos_comprobatorios_anexos"
+      ],
+      "obtido": [
+        "orgao_expedidor",
+        "uf",
+        "nome_pai",
+        "telefone_celular",
+        "telefone_residencial",
+        "documentos_comprobatorios_anexos"
+      ],
+      "status": "CORRETO"
+    }
+  ],
+  "caso_id": "CASO_01_TEXTO"
+}

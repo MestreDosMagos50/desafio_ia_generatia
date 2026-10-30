@@ -1,0 +1,47 @@
+{
+  "protocolo": "2026-000142",
+  "gerada_em": "2026-10-30T13:15:55.225238",
+  "alertas_validacao_automatica": [],
+  "dados_enviados_ao_modelo": {
+    "data_solicitacao": "14/10/2026",
+    "canal_origem": "E-mail",
+    "nome_solicitante": "Marcos Vinícius de Almeida Santos",
+    "cpf_mascarado": "***.456.789-**",
+    "rg_mascarado": "****567-8",
+    "email_mascarado": "m***@examplo.com",
+    "curso": {
+      "nome": "Técnico em Enfermagem",
+      "eixo_tecnologico": "Saúde",
+      "carga_horaria": "1200 horas",
+      "turno": "noturno",
+      "data_inicio": "01/02/2027",
+      "data_termino": "não localizado",
+      "turma": "não localizado"
+    },
+    "assunto": "Efetivação de matrícula e informação sobre documentos pendentes",
+    "pedido_detalhado": "Solicita a efetivação da matrícula no curso Técnico em Enfermagem e pede informações sobre quais documentos ainda precisa apresentar.",
+    "declarou_ciencia_faltas": true,
+    "texto_ciencia_faltas": "Declaro estar ciente de que a matrícula será automaticamente cancelada se eu faltar, sem justificativa comprovada, nos dois primeiros dias de aula consecutivos ou em três dias de aula, consecutivos ou não, nos dez primeiros dias de aula.",
+    "documentos_anexados": [],
+    "campos_ausentes": [
+      "Órgão expedidor do RG",
+      "UF de expedição do RG",
+      "Nome do pai",
+      "Telefone celular",
+      "Telefone residencial",
+      "Documentos comprobatórios anexados"
+    ],
+    "suspeita_prompt_injection": false,
+    "trechos_suspeitos": [],
+    "correcoes_do_revisor": []
+  },
+  "decisao_humana": {
+    "decisao": "APROVADO",
+    "revisor": "SIMULADO - demonstração automatizada (sem revisão humana)",
+    "id_execucao": "EXEC-1D725D50",
+    "simulada": true,
+    "justificativa": "Política simulada: aprovação sem alertas bloqueantes.",
+    "data": "2026-10-30T13:15:55"
+  },
+  "observacao": "Decisão SIMULADA (--demo-avaliacao-humana): não houve revisão humana."
+}

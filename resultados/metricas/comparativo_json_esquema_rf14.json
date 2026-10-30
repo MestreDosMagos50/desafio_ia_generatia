@@ -1,0 +1,230 @@
+{
+  "caso": "SOL-01",
+  "versao_esquema": "2.0.0",
+  "variantes": [
+    {
+      "variante": "json_object_instrucao_generica",
+      "garantia_da_api": "apenas sintaxe JSON",
+      "sucesso_chamada": true,
+      "codigo_erro_chamada": null,
+      "json_sintaticamente_valido": true,
+      "chaves_devolvidas": [
+        "canal",
+        "data_solicitacao",
+        "declaracao_frequencia",
+        "pendencia_solicitada",
+        "protocolo",
+        "solicitacao",
+        "solicitante"
+      ],
+      "valido_no_contrato": false,
+      "erros_por_codigo": {
+        "CAMPO_OBRIGATORIO_AUSENTE": 8,
+        "CHAVE_EXTRA": 5
+      },
+      "erros": [
+        {
+          "codigo": "CHAVE_EXTRA",
+          "campo": "canal",
+          "detalhe": "Extra inputs are not permitted"
+        },
+        {
+          "codigo": "CHAVE_EXTRA",
+          "campo": "solicitante",
+          "detalhe": "Extra inputs are not permitted"
+        },
+        {
+          "codigo": "CHAVE_EXTRA",
+          "campo": "solicitacao",
+          "detalhe": "Extra inputs are not permitted"
+        },
+        {
+          "codigo": "CHAVE_EXTRA",
+          "campo": "declaracao_frequencia",
+          "detalhe": "Extra inputs are not permitted"
+        },
+        {
+          "codigo": "CHAVE_EXTRA",
+          "campo": "pendencia_solicitada",
+          "detalhe": "Extra inputs are not permitted"
+        },
+        {
+          "codigo": "CAMPO_OBRIGATORIO_AUSENTE",
+          "campo": "solicitante_ficticio",
+          "detalhe": "Field required"
+        },
+        {
+          "codigo": "CAMPO_OBRIGATORIO_AUSENTE",
+          "campo": "curso",
+          "detalhe": "Field required"
+        },
+        {
+          "codigo": "CAMPO_OBRIGATORIO_AUSENTE",
+          "campo": "assunto",
+          "detalhe": "Field required"
+        },
+        {
+          "codigo": "CAMPO_OBRIGATORIO_AUSENTE",
+          "campo": "pedido",
+          "detalhe": "Field required"
+        },
+        {
+          "codigo": "CAMPO_OBRIGATORIO_AUSENTE",
+          "campo": "categoria",
+          "detalhe": "Field required"
+        },
+        {
+          "codigo": "CAMPO_OBRIGATORIO_AUSENTE",
+          "campo": "entidades",
+          "detalhe": "Field required"
+        },
+        {
+          "codigo": "CAMPO_OBRIGATORIO_AUSENTE",
+          "campo": "campos_ausentes",
+          "detalhe": "Field required"
+        },
+        {
+          "codigo": "CAMPO_OBRIGATORIO_AUSENTE",
+          "campo": "necessita_revisao",
+          "detalhe": "Field required"
+        }
+      ],
+      "saida": "{\n  \"canal\": \"E-mail\",\n  \"protocolo\": \"2026-000142\",\n  \"data_solicitacao\": \"14/10/2026\",\n  \"solicitante\": {\n    \"nome\": \"Marcos Vinícius de Almeida Santos\",\n    \"data_nascimento\": \"12/08/2008\",\n    \"local_nascimento\": \"Cuiabá\",\n    \"cpf\": \"123.456.789-00\",\n    \"rg\": \"1234567-8\",\n    \"nome_mae\": \"Lúcia Helena de Almeida Santos\",\n    \"email\": \"marcos.almeida.teste@examplo.com\"\n  },\n  \"solicitacao\": {\n    \"tipo\": \"Efetivação de matrícula\",\n    \"curso\": \"Técnico em Enfermagem\",\n    \"eixo_tecnologico\": \"Saúde\",\n    \"carga_horaria\": \"1200 horas\",\n    \"turno\": \"Noturno\",\n    \"inicio_curso\": \"01/02/2027\",\n    \"data_matricula\": \"14/10/2026\"\n  },\n  \"declaracao_frequencia\": \"A matrícula será automaticamente cancelada se o aluno faltar, sem justificativa comprovada, nos dois primeiros dias de aula consecutivos ou em três dias de aula, consecutivos ou não, nos dez primeiros dias de aula.\",\n  \"pendencia_solicitada\": \"Informar quais documentos ainda precisam ser apresentados.\"\n}",
+      "chamada": {
+        "etapa": "json_object_instrucao_generica",
+        "provedor": "openai",
+        "modelo": "gpt-5.6-luna",
+        "sucesso": true,
+        "codigo_erro": null,
+        "tentativas": 1,
+        "latencia_ms": 3370.9,
+        "tokens_total": 610,
+        "custo_estimado_usd": 0.000441
+      }
+    },
+    {
+      "variante": "json_object_instrucoes_do_contrato",
+      "garantia_da_api": "apenas sintaxe JSON",
+      "sucesso_chamada": true,
+      "codigo_erro_chamada": null,
+      "json_sintaticamente_valido": true,
+      "chaves_devolvidas": [
+        "assunto",
+        "campos_ausentes",
+        "categoria",
+        "curso",
+        "data_solicitacao",
+        "entidades",
+        "necessita_revisao",
+        "pedido",
+        "protocolo",
+        "solicitante_ficticio"
+      ],
+      "valido_no_contrato": false,
+      "erros_por_codigo": {
+        "TIPO_INCORRETO": 1
+      },
+      "erros": [
+        {
+          "codigo": "TIPO_INCORRETO",
+          "campo": "entidades",
+          "detalhe": "Input should be an object"
+        }
+      ],
+      "saida": "{\"protocolo\":\"2026-000142\",\"data_solicitacao\":\"14/10/2026\",\"solicitante_ficticio\":\"Marcos Vinícius de Almeida Santos\",\"curso\":\"Técnico em Enfermagem\",\"assunto\":\"Efetivação da matrícula e informação sobre documentos pendentes\",\"pedido\":\"Solicito a efetivação da minha matrícula e que me informem quais documentos ainda preciso apresentar.\",\"categoria\":\"MATRICULA_INICIAL\",\"entidades\":[\"2026-000142\",\"Marcos Vinícius de Almeida Santos\",\"12/08/2008\",\"Cuiabá\",\"Técnico em Enfermagem\",\"Saúde\",\"1200 horas\",\"01/02/2027\",\"14/10/2026\",\"123.456.789-00\",\"1234567-8\",\"Lúcia Helena de Almeida Santos\",\"marcos.almeida.teste@examplo.com\"],\"campos_ausentes\":[],\"necessita_revisao\":false}",
+      "chamada": {
+        "etapa": "json_object_instrucoes_do_contrato",
+        "provedor": "openai",
+        "modelo": "gpt-5.6-luna",
+        "sucesso": true,
+        "codigo_erro": null,
+        "tentativas": 1,
+        "latencia_ms": 2804.8,
+        "tokens_total": 1119,
+        "custo_estimado_usd": 0.00043479999999999994
+      }
+    },
+    {
+      "variante": "structured_outputs_contrato",
+      "garantia_da_api": "esquema (sintaxe, tipos e estrutura)",
+      "sucesso_chamada": true,
+      "codigo_erro_chamada": null,
+      "json_sintaticamente_valido": true,
+      "chaves_devolvidas": [
+        "assunto",
+        "campos_ausentes",
+        "categoria",
+        "curso",
+        "data_solicitacao",
+        "entidades",
+        "necessita_revisao",
+        "pedido",
+        "protocolo",
+        "solicitante_ficticio"
+      ],
+      "valido_no_contrato": true,
+      "erros_por_codigo": {},
+      "erros": [],
+      "saida": "{\"protocolo\":\"2026-000142\",\"data_solicitacao\":\"14/10/2026\",\"solicitante_ficticio\":\"Marcos Vinícius de Almeida Santos\",\"curso\":\"Técnico em Enfermagem\",\"assunto\":\"Efetivação da matrícula e informações sobre documentos pendentes\",\"pedido\":\"Solicito a efetivação da minha matrícula e que me informem quais documentos ainda preciso apresentar.\",\"categoria\":\"MATRICULA_INICIAL\",\"entidades\":{\"pessoas_ficticias\":[\"Marcos Vinícius de Almeida Santos\",\"Lúcia Helena de Almeida Santos\"],\"orgaos\":[],\"locais\":[\"Cuiabá\"],\"datas\":[\"14/10/2026\",\"12/08/2008\",\"01/02/2027\",\"14/10/2026\"],\"protocolos\":[\"2026-000142\"]},\"campos_ausentes\":[],\"necessita_revisao\":true}",
+      "chamada": {
+        "etapa": "structured_outputs_contrato",
+        "provedor": "openai",
+        "modelo": "gpt-5.6-luna",
+        "sucesso": true,
+        "codigo_erro": null,
+        "tentativas": 1,
+        "latencia_ms": 2427.2,
+        "tokens_total": 1882,
+        "custo_estimado_usd": 0.0005804
+      }
+    }
+  ],
+  "payloads_sinteticos": [
+    {
+      "id": "T01-A",
+      "descricao": "JSON válido com uma chave extra",
+      "erros_esperados": [
+        "CHAVE_EXTRA"
+      ],
+      "erros_obtidos": [
+        "CHAVE_EXTRA"
+      ],
+      "confere": true
+    },
+    {
+      "id": "T01-B",
+      "descricao": "JSON válido com tipos incorretos (texto no lugar de booleano e de lista)",
+      "erros_esperados": [
+        "TIPO_INCORRETO"
+      ],
+      "erros_obtidos": [
+        "TIPO_INCORRETO"
+      ],
+      "confere": true
+    },
+    {
+      "id": "T01-C",
+      "descricao": "JSON válido sem um campo obrigatório (categoria)",
+      "erros_esperados": [
+        "CAMPO_OBRIGATORIO_AUSENTE"
+      ],
+      "erros_obtidos": [
+        "CAMPO_OBRIGATORIO_AUSENTE"
+      ],
+      "confere": true
+    },
+    {
+      "id": "T01-D",
+      "descricao": "JSON apenas sintático, com a estrutura escolhida pelo modelo (o que o json_object permite)",
+      "erros_esperados": [
+        "CHAVE_EXTRA",
+        "CAMPO_OBRIGATORIO_AUSENTE"
+      ],
+      "erros_obtidos": [
+        "CAMPO_OBRIGATORIO_AUSENTE",
+        "CHAVE_EXTRA"
+      ],
+      "confere": true
+    }
+  ]
+}

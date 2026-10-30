@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 ==============================================================================
-RESUMO DA AUDITORIA: MODELOS, VERSÕES, TOKENS E CUSTOS REAIS (RF11)
+RESUMO DA AUDITORIA: MODELOS, VERSÕES, TOKENS E CUSTOS REAIS (RF11, RF21)
 ==============================================================================
 Lê resultados/logs/auditoria.jsonl e gera documentacao/resumo_execucoes.md com:
+- chamadas, falhas, tokens e custo por provedor e modelo (Desafio 01 e 02);
 - modelos e provedores efetivamente chamados, por etapa;
 - versões dos prompts usadas;
 - latência, tokens e custo estimado (somados e médios) por etapa;
@@ -92,23 +93,44 @@ def gerar_resumo() -> str:
     linhas_falhas = [f"| {r['timestamp'][:19]} | {r['etapa']} | {r.get('modelo') or '-'} | {r.get('codigo_erro')} | "
                      f"{str(r.get('mensagem_erro') or '')[:90].replace('|', '/')} |" for r in falhas]
 
-    execucoes_minuta = [r for r in registros if r["etapa"] == "geracao_minuta" and r.get("sucesso")]
+    execucoes_minuta = [r for r in registros if r["etapa"] in ("geracao_minuta", "rag_resposta") and r.get("sucesso")]
+
+    por_modelo: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    for r in registros:
+        if r.get("provedor") not in (None, "nenhum"):
+            por_modelo[f"{r['provedor']}/{r.get('modelo') or '-'}"].append(r)
+    linhas_modelos = []
+    for chave, itens in sorted(por_modelo.items()):
+        sucesso = [i for i in itens if i.get("sucesso")]
+        custo = "indisponível (simulado: sem tokens nem custo)" if chave.startswith("simulado/") else _custo(sucesso)
+        linhas_modelos.append(f"| {chave} | {len(itens)} | {len(itens) - len(sucesso)} | "
+                              f"{int(_soma(i.get('tokens_total') for i in sucesso))} | {custo} |")
 
     inicio = min(r["timestamp"] for r in registros)[:19]
     fim = max(r["timestamp"] for r in registros)[:19]
     configuracao = json.loads((RAIZ / "config.json").read_text(encoding="utf-8")).get("llm", {})
     precos = configuracao.get("custo_estimado_por_1k_tokens", {})
     modelo_precificado = precos.get("modelo", configuracao.get("modelo_padrao"))
+    openai = configuracao.get("openai", {})
+    precos_openai = "; ".join(f"`{m}` US$ {p['entrada']} / {p['saida']}" for m, p in openai.get("precos_por_1m_tokens_usd", {}).items())
 
     return f"""# Resumo das Execuções (gerado do log de auditoria)
 *Gerado por `resumir_auditoria.py` em {datetime.now().strftime('%d/%m/%Y %H:%M')} a partir de `resultados/logs/auditoria.jsonl`.*
 
 - Período coberto: {inicio} a {fim}
 - Registros: {len(registros)} | chamadas a modelo de IA com sucesso: {len(chamadas_ia)} | falhas: {len(falhas)}
-- Minutas geradas: {len(execucoes_minuta)}
-- Preço usado no custo estimado (só para `{modelo_precificado}`): US$ {precos.get('input_usd')} (entrada) e
+- Minutas e respostas do RAG geradas: {len(execucoes_minuta)}
+- Desafio 02 (OpenAI): custo estimado pelo próprio adaptador com os preços do `config.json` por 1M de tokens
+  (entrada / saída, raciocínio cobrado como saída): {precos_openai} ({openai.get('fonte_precos')}).
+  O adaptador simulado não mede tokens nem custo: aparece como "indisponível", nunca como zero.
+- Desafio 01 (Gemini, legado): preço só para `{modelo_precificado}`: US$ {precos.get('input_usd')} (entrada) e
   US$ {precos.get('output_usd')} (saída e raciocínio) por 1.000 tokens ({precos.get('fonte')}, consultado em
-  {precos.get('consultado_em')}). Chamadas a outros modelos aparecem como "sem preço configurado". No nível gratuito o custo efetivo é zero.
+  {precos.get('consultado_em')}). No nível gratuito o custo efetivo é zero.
+
+## Por provedor e modelo
+| Provedor/modelo | Registros | Falhas | Tokens | Custo estimado (USD) |
+| :--- | ---: | ---: | ---: | ---: |
+{chr(10).join(linhas_modelos)}
 
 ## Por etapa
 | Etapa | Registros | Provedor/modelo | Prompt (versão) | Latência média | Tokens entrada | Tokens saída | Tokens raciocínio | Custo estimado (USD) |
@@ -119,6 +141,9 @@ def gerar_resumo() -> str:
 {int(_soma(r.get('tokens_total') for r in chamadas_ia))} tokens.
 
 ## Falhas registradas
+Inclui as falhas provocadas de propósito para testar limites e a falha do serviço (T05, T12); cada uma foi tratada
+(bloqueio ou recusa padronizada) e está registrada com código e mensagem.
+
 {('| Data | Etapa | Modelo | Código | Mensagem |' + chr(10) + '| :--- | :--- | :--- | :--- | :--- |' + chr(10) + chr(10).join(linhas_falhas)) if linhas_falhas else 'Nenhuma.'}
 """
 

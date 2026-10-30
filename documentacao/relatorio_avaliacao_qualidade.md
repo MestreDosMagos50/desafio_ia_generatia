@@ -1,7 +1,7 @@
 # Relatório de Avaliação de Qualidade e Revisão Humana (RF13)
 **Central Inteligente de Atendimento e Comunicação Institucional — FIC_DEV**
 
-Gerado automaticamente em 17/10/2026 15:26 a partir de `resultados/logs/decisoes_humanas.json`.
+Gerado automaticamente em 30/10/2026 13:15 a partir de `resultados/logs/decisoes_humanas.json`.
 
 ---
 
@@ -15,7 +15,7 @@ formato institucional, proteção de dados pessoais e ausência de decisão auto
 ## 2. Taxa de aprovação
 Conta apenas a **última decisão de cada caso** (execuções repetidas não se acumulam).
 Decisões simuladas (`--demo-avaliacao-humana`) ficam em `decisoes_simuladas.json` e não entram no cálculo
-(0 registro(s) simulado(s) excluído(s)).
+(6 registro(s) simulado(s) excluído(s)).
 
 - Casos com decisão final: **0**
 - Aprovados sem correção: 0

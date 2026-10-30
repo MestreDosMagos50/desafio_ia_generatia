@@ -1,0 +1,74 @@
+{
+  "id_caso": "T02-A",
+  "canal": "texto (e-mail)",
+  "arquivo_origem": "dados/solicitacoes/T02-A_data_impossivel.txt",
+  "sha256_entrada": "6b18c0741946b4428e8ea933a7592fc46660bafdf9a6623e86593de033e3dd0a",
+  "texto_entrada": "Canal: E-mail\nProtocolo: 2026-000266\nData: 31/02/2026\n\nSou Débora Lins Ferraz Teste e solicito a declaração de matrícula do curso Técnico em Recursos Humanos para apresentar no meu trabalho.\n",
+  "versao_esquema": "2.0.0",
+  "prompt": {
+    "id": "PROMPT_EXTRACAO_V2",
+    "versao": "1.0"
+  },
+  "modo_esquema": "Structured Outputs (esquema nativo)",
+  "contrato": {
+    "protocolo": "2026-000266",
+    "data_solicitacao": "31/02/2026",
+    "solicitante_ficticio": "Débora Lins Ferraz Teste",
+    "curso": "Técnico em Recursos Humanos",
+    "assunto": "Solicitação de declaração de matrícula",
+    "pedido": "Solicito a declaração de matrícula do curso Técnico em Recursos Humanos para apresentar no meu trabalho.",
+    "categoria": "OUTROS",
+    "entidades": {
+      "pessoas_ficticias": [
+        "Débora Lins Ferraz Teste"
+      ],
+      "orgaos": [],
+      "locais": [],
+      "datas": [
+        "31/02/2026"
+      ],
+      "protocolos": [
+        "2026-000266"
+      ]
+    },
+    "campos_ausentes": [],
+    "necessita_revisao": false
+  },
+  "erros_validacao": [],
+  "alertas": [
+    {
+      "codigo": "DATA_INVALIDA",
+      "campo": "texto_original",
+      "mensagem": "O texto original contém data inexistente no calendário: 31/02/2026.",
+      "bloqueia_minuta": true
+    },
+    {
+      "codigo": "DATA_INVALIDA",
+      "campo": "data_solicitacao",
+      "mensagem": "Data inexistente no calendário: 31/02/2026.",
+      "bloqueia_minuta": true
+    },
+    {
+      "codigo": "DATA_INVALIDA",
+      "campo": "entidades.datas",
+      "mensagem": "Data inexistente no calendário: 31/02/2026.",
+      "bloqueia_minuta": true
+    }
+  ],
+  "decisao": "BLOQUEAR_MINUTA_E_REVISAR",
+  "motivo": "O texto original contém data inexistente no calendário: 31/02/2026.; Data inexistente no calendário: 31/02/2026.; Data inexistente no calendário: 31/02/2026.",
+  "chamadas": [
+    {
+      "etapa": "extracao_contrato_v2",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2119.8,
+      "tokens_total": 1621,
+      "custo_estimado_usd": 0.0004832
+    }
+  ],
+  "registrado_em": "2026-10-30T01:01:03"
+}

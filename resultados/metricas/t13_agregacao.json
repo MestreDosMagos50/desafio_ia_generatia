@@ -1,0 +1,31 @@
+{
+  "arquivo_rotulos": "resultados/sentimentos/rotulos_sentimentos_20261030-125054.csv",
+  "geral": {
+    "denominador": 12,
+    "soma": 12,
+    "percentual_exibido": true
+  },
+  "filtro": {
+    "canal": "presencial",
+    "denominador": 5,
+    "esperado": 5,
+    "soma": 5,
+    "percentual_exibido": false,
+    "motivo_sem_percentual": "base de 5 avaliação(ões), abaixo do mínimo de 10 para percentual"
+  },
+  "duplicata": {
+    "duplicatas_removidas": 1,
+    "denominador": 12
+  },
+  "vazio": {
+    "denominador": 0,
+    "percentuais": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "motivo_sem_percentual": "nenhuma avaliação no recorte"
+  },
+  "confere": true
+}

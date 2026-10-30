@@ -1,0 +1,66 @@
+{
+  "id_caso": "SOL-05",
+  "canal": "OCR (ficha de matrícula manuscrita digitalizada)",
+  "arquivo_origem": "dados/solicitacoes/SOL-05_leitura_ficha_ocr_desafio01.txt",
+  "sha256_entrada": "8f21857950ada2d9e4e05727d08359f2412665034e10889ac7c84ddd77a440f3",
+  "texto_entrada": "CABEÇALHO: GOVERNO DE MATO GROSSO | SECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO - SECITECI/MT | ESCOLA TÉCNICA ESTADUAL DE CUIABÁ | FICHA DE MATRÍCULA\nCÓDIGO: 2026-000142  [INCERTO] - Dígitos manuscritos do código com traçado que admite mais de uma leitura\nNOME: MARCOS VINÍCIUS DE ALMEIDA SANTOS  [LEGIVEL]\nDATA DE NASCIMENTO: 12/08/2008  [LEGIVEL]\nCPF: 123.456.789-00  [INCERTO] - Final do CPF ('789-00') com traçado sobreposto/rasurado\nRG: 1234567-8  [LEGIVEL]\nÓRGÃO EXPEDIDOR: [EM BRANCO]  [EM_BRANCO]\nNATURALIDADE: CUIABÁ  [LEGIVEL]\nUF: [EM BRANCO]  [EM_BRANCO]\nNOME DA MÃE: LÚCIA HELENA DE ALMEIDA SANTOS  [LEGIVEL]\nNOME DO PAI: [EM BRANCO]  [EM_BRANCO]\nCURSO: TÉCNICO EM ENFERMAGEM  [LEGIVEL]\nCH (carga horária): 1200 HORAS  [LEGIVEL]\nEIXO TECNOLÓGICO: SAÚDE  [LEGIVEL]\nTURMA: [EM BRANCO]  [EM_BRANCO]\nMUNICÍPIO: [EM BRANCO]  [EM_BRANCO]\nTURNO: NOTURNO  [LEGIVEL]\nINÍCIO DO CURSO: 01/02/2027  [LEGIVEL]\nTÉRMINO DO CURSO: [EM BRANCO]  [EM_BRANCO]\nTEL. CELULAR: [EM BRANCO]  [EM_BRANCO]\nTELEFONE RESIDENCIAL: [EM BRANCO]  [EM_BRANCO]\nE-MAIL: MARCOS.ALMEIDA.TESTE@EXAMPLO.COM  [LEGIVEL]\nDATA MATRÍCULA: 14/10/2026  [LEGIVEL]\nDECLARAÇÃO DE CIÊNCIA DE FALTAS: MARCADA\nASSINATURA DO ALUNO OU RESPONSÁVEL: PRESENTE\nASSINATURA DA SECRETARIA ESCOLAR: AUSENTE\n",
+  "versao_esquema": "2.0.0",
+  "prompt": {
+    "id": "PROMPT_EXTRACAO_V2",
+    "versao": "1.0"
+  },
+  "modo_esquema": "Structured Outputs (esquema nativo)",
+  "contrato": {
+    "protocolo": "2026-000142",
+    "data_solicitacao": "14/10/2026",
+    "solicitante_ficticio": "MARCOS VINÍCIUS DE ALMEIDA SANTOS",
+    "curso": "TÉCNICO EM ENFERMAGEM",
+    "assunto": "Matrícula no curso Técnico em Enfermagem",
+    "pedido": "Efetivação da matrícula no curso Técnico em Enfermagem.",
+    "categoria": "MATRICULA_INICIAL",
+    "entidades": {
+      "pessoas_ficticias": [
+        "MARCOS VINÍCIUS DE ALMEIDA SANTOS",
+        "LÚCIA HELENA DE ALMEIDA SANTOS"
+      ],
+      "orgaos": [
+        "GOVERNO DE MATO GROSSO",
+        "SECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO - SECITECI/MT",
+        "ESCOLA TÉCNICA ESTADUAL DE CUIABÁ",
+        "SECRETARIA ESCOLAR"
+      ],
+      "locais": [
+        "MATO GROSSO",
+        "CUIABÁ"
+      ],
+      "datas": [
+        "12/08/2008",
+        "01/02/2027",
+        "14/10/2026"
+      ],
+      "protocolos": [
+        "2026-000142"
+      ]
+    },
+    "campos_ausentes": [],
+    "necessita_revisao": true
+  },
+  "erros_validacao": [],
+  "alertas": [],
+  "decisao": "ENCAMINHAR_REVISAO_HUMANA",
+  "motivo": "O extrator marcou necessita_revisao.",
+  "chamadas": [
+    {
+      "etapa": "extracao_contrato_v2",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2903.5,
+      "tokens_total": 2234,
+      "custo_estimado_usd": 0.0007158
+    }
+  ],
+  "registrado_em": "2026-10-30T01:00:53"
+}

@@ -1,0 +1,284 @@
+{
+  "id_caso": "RAG-08",
+  "pergunta": "Fui escalada para começar no hospital. Com quantos dias de antecedência tenho que entregar o termo de compromisso assinado?",
+  "status": "CONFLITO_DE_FONTES",
+  "resposta": "Há divergência no acervo sobre a antecedência para entregar o termo de compromisso assinado: um documento informa antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio. (DOC-04, v1.0, seção 2) Outro informa antecedência mínima de 15 (quinze) dias corridos. (DOC-05, v1.0, p. 2, seção 3) Como não há indicação de prevalência entre os documentos, o caso segue para revisão humana.",
+  "codigo_motivo": "CONFLITO_SEM_REGRA_DE_PREVALENCIA",
+  "motivo": "As fontes divergem e nenhuma regra escrita no acervo indica qual prevalece; o operador decide.",
+  "encaminhamento": "REVISAO_HUMANA_PRIORITARIA",
+  "fontes": [
+    {
+      "n": 1,
+      "rotulo": "DOC-04, v1.0, seção 2",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-04::A::txt::t002",
+      "doc_id": "DOC-04",
+      "titulo": "Comunicado Fictício nº 02/2026 da Coordenação de Estágio - Documentação para Início do Estágio Supervisionado",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "2. DOCUMENTOS DO ESTÁGIO",
+      "similaridade_cosseno": 0.4783,
+      "neutralizado": false,
+      "trecho": "2. DOCUMENTOS DO ESTÁGIO\n2.1. O estudante deve providenciar o termo de compromisso de estágio, assinado por ele, pela instituição concedente e pela coordenação de estágio, e o comprovante de seguro contra acidentes pessoais.\n2.2."
+    },
+    {
+      "n": 2,
+      "rotulo": "DOC-04, v1.0, seção 2",
+      "citado": true,
+      "origem": "busca",
+      "chunk_id": "DOC-04::A::txt::t003",
+      "doc_id": "DOC-04",
+      "titulo": "Comunicado Fictício nº 02/2026 da Coordenação de Estágio - Documentação para Início do Estágio Supervisionado",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "2. DOCUMENTOS DO ESTÁGIO",
+      "similaridade_cosseno": 0.5417,
+      "neutralizado": false,
+      "trecho": "de seguro contra acidentes pessoais.\n2.2. O termo de compromisso de estágio assinado deve ser entregue à coordenação de estágio com antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio.\n2.3. Sem a entrega do termo de compromisso, o estudante não poderá iniciar as atividades no campo de estágio.\n2.4."
+    },
+    {
+      "n": 3,
+      "rotulo": "DOC-04, v1.0, seção 2",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-04::A::txt::t004",
+      "doc_id": "DOC-04",
+      "titulo": "Comunicado Fictício nº 02/2026 da Coordenação de Estágio - Documentação para Início do Estágio Supervisionado",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "2. DOCUMENTOS DO ESTÁGIO",
+      "similaridade_cosseno": null,
+      "neutralizado": false,
+      "trecho": "iniciar as atividades no campo de estágio.\n2.4. Este comunicado se aplica a todos os cursos técnicos que possuem estágio supervisionado."
+    },
+    {
+      "n": 4,
+      "rotulo": "DOC-04, v1.0, seção 3",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-04::A::txt::t005",
+      "doc_id": "DOC-04",
+      "titulo": "Comunicado Fictício nº 02/2026 da Coordenação de Estágio - Documentação para Início do Estágio Supervisionado",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "3. ORIENTAÇÕES GERAIS",
+      "similaridade_cosseno": 0.4324,
+      "neutralizado": false,
+      "trecho": "3. ORIENTAÇÕES GERAIS\n3.1. A coordenação de estágio atende às terças e quintas-feiras, das 14h às 20h.\n3.2. Os modelos de termo de compromisso estão disponíveis na coordenação de estágio."
+    },
+    {
+      "n": 5,
+      "rotulo": "DOC-05, v1.0, p. 2, seção 3",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-05::A::p2::t004",
+      "doc_id": "DOC-05",
+      "titulo": "Regulamento Fictício de Estágio Supervisionado dos Cursos Técnicos da Área de Saúde",
+      "versao": "1.0",
+      "pagina": 2,
+      "secao": "3. DOS REQUISITOS PARA INÍCIO DO ESTÁGIO",
+      "similaridade_cosseno": null,
+      "neutralizado": false,
+      "trecho": "3. DOS REQUISITOS PARA INÍCIO DO ESTÁGIO\n3.1. Para iniciar o estágio, o estudante deve apresentar a carteira de vacinação com o esquema completo contra hepatite B, tétano e influenza.\n3.2."
+    },
+    {
+      "n": 6,
+      "rotulo": "DOC-05, v1.0, p. 2, seção 3",
+      "citado": true,
+      "origem": "busca",
+      "chunk_id": "DOC-05::A::p2::t005",
+      "doc_id": "DOC-05",
+      "titulo": "Regulamento Fictício de Estágio Supervisionado dos Cursos Técnicos da Área de Saúde",
+      "versao": "1.0",
+      "pagina": 2,
+      "secao": "3. DOS REQUISITOS PARA INÍCIO DO ESTÁGIO",
+      "similaridade_cosseno": 0.4877,
+      "neutralizado": false,
+      "trecho": "contra hepatite B, tétano e influenza.\n3.2. O termo de compromisso de estágio, assinado pelo estudante, pela instituição concedente e pela coordenação, deve ser entregue com antecedência mínima de 15 (quinze) dias corridos do início das atividades no campo de estágio.\n3.3."
+    },
+    {
+      "n": 7,
+      "rotulo": "DOC-05, v1.0, p. 2, seção 3",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-05::A::p2::t006",
+      "doc_id": "DOC-05",
+      "titulo": "Regulamento Fictício de Estágio Supervisionado dos Cursos Técnicos da Área de Saúde",
+      "versao": "1.0",
+      "pagina": 2,
+      "secao": "3. DOS REQUISITOS PARA INÍCIO DO ESTÁGIO",
+      "similaridade_cosseno": null,
+      "neutralizado": false,
+      "trecho": "do início das atividades no campo de estágio.\n3.3. O estudante deve utilizar uniforme branco e crachá de identificação durante as atividades no campo de estágio."
+    }
+  ],
+  "afirmacoes": [
+    {
+      "texto": "Um documento informa antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio.",
+      "trechos": [
+        2
+      ],
+      "citacoes": [
+        {
+          "rotulo": "DOC-04, v1.0, seção 2",
+          "chunk_id": "DOC-04::A::txt::t003",
+          "doc_id": "DOC-04",
+          "versao": "1.0",
+          "pagina": null,
+          "secao": "2. DOCUMENTOS DO ESTÁGIO",
+          "trecho": "de seguro contra acidentes pessoais.\n2.2. O termo de compromisso de estágio assinado deve ser entregue à coordenação de estágio com antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio.\n2.3. Sem a entrega do termo de compromisso, o estudante não poderá iniciar as atividades no campo de estágio.\n2.4."
+        }
+      ],
+      "numeros_fora_do_trecho_citado": []
+    },
+    {
+      "texto": "Outro documento informa antecedência mínima de 15 (quinze) dias corridos.",
+      "trechos": [
+        6
+      ],
+      "citacoes": [
+        {
+          "rotulo": "DOC-05, v1.0, p. 2, seção 3",
+          "chunk_id": "DOC-05::A::p2::t005",
+          "doc_id": "DOC-05",
+          "versao": "1.0",
+          "pagina": 2,
+          "secao": "3. DOS REQUISITOS PARA INÍCIO DO ESTÁGIO",
+          "trecho": "contra hepatite B, tétano e influenza.\n3.2. O termo de compromisso de estágio, assinado pelo estudante, pela instituição concedente e pela coordenação, deve ser entregue com antecedência mínima de 15 (quinze) dias corridos do início das atividades no campo de estágio.\n3.3."
+        }
+      ],
+      "numeros_fora_do_trecho_citado": []
+    },
+    {
+      "texto": "Não há indicação de prevalência entre os documentos no quadro de vigência apresentado.",
+      "trechos": [],
+      "citacoes": [],
+      "numeros_fora_do_trecho_citado": []
+    }
+  ],
+  "divergencias": [
+    {
+      "assunto": "Antecedência mínima para entrega do termo de compromisso assinado",
+      "trechos": [
+        2,
+        6
+      ],
+      "passagens": [
+        {
+          "rotulo": "DOC-04, v1.0, seção 2",
+          "chunk_id": "DOC-04::A::txt::t003",
+          "doc_id": "DOC-04",
+          "trecho": "de seguro contra acidentes pessoais.\n2.2. O termo de compromisso de estágio assinado deve ser entregue à coordenação de estágio com antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio.\n2.3. Sem a entrega do termo de compromisso, o estudante não poderá iniciar as atividades no campo de estágio.\n2.4."
+        },
+        {
+          "rotulo": "DOC-05, v1.0, p. 2, seção 3",
+          "chunk_id": "DOC-05::A::p2::t005",
+          "doc_id": "DOC-05",
+          "trecho": "contra hepatite B, tétano e influenza.\n3.2. O termo de compromisso de estágio, assinado pelo estudante, pela instituição concedente e pela coordenação, deve ser entregue com antecedência mínima de 15 (quinze) dias corridos do início das atividades no campo de estágio.\n3.3."
+        }
+      ]
+    }
+  ],
+  "alertas": [
+    "AFIRMACAO_SEM_CITACAO: \"Não há indicação de prevalência entre os documentos no quadro de vigência apresentado.\""
+  ],
+  "guardas": {
+    "1_limiar": {
+      "decisao": "SEGUE",
+      "detalhe": "top-1 0.5417 >= limiar 0.45"
+    },
+    "camada2_conteudo_recuperado": {
+      "decisao": "PERMITIR",
+      "detalhe": "Nenhum trecho suspeito."
+    },
+    "2_contrato": {
+      "decisao": "SEGUE",
+      "detalhe": "status CONFLITO_DE_FONTES com citações válidas"
+    },
+    "camada3_saida": {
+      "decisao": "PERMITIR",
+      "detalhe": "Saída sem achados."
+    },
+    "3_ancoragem": {
+      "decisao": "SEGUE",
+      "detalhe": "todos os números constam dos trechos ou da mensagem"
+    }
+  },
+  "recuperacao": {
+    "top_k": 4,
+    "limiar": 0.45,
+    "explicacao": "Similaridade de cosseno entre o vetor da pergunta e o do trecho (1 - distância de cosseno do Chroma): perto de 1, sentidos próximos; perto de 0, sem relação. Mede proximidade de sentido, não veracidade nem vigência do trecho.",
+    "similaridade_top1": 0.5417,
+    "similaridade_topk": 0.4324,
+    "margem_top1_topk": 0.1093,
+    "margem_minima": 0.02,
+    "margem_estreita": false,
+    "ids_top_k": [
+      "DOC-04::A::txt::t003",
+      "DOC-05::A::p2::t005",
+      "DOC-04::A::txt::t002",
+      "DOC-04::A::txt::t005"
+    ],
+    "duracao_total_ms": 5454.0
+  },
+  "saida_modelo": {
+    "status": "CONFLITO_DE_FONTES",
+    "resposta": "Há divergência no acervo sobre a antecedência para entregar o termo de compromisso assinado: um documento informa antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio. [2] Outro informa antecedência mínima de 15 (quinze) dias corridos. [6] Como não há indicação de prevalência entre os documentos, o caso segue para revisão humana.",
+    "afirmacoes": [
+      {
+        "texto": "Um documento informa antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio.",
+        "trechos": [
+          2
+        ]
+      },
+      {
+        "texto": "Outro documento informa antecedência mínima de 15 (quinze) dias corridos.",
+        "trechos": [
+          6
+        ]
+      },
+      {
+        "texto": "Não há indicação de prevalência entre os documentos no quadro de vigência apresentado.",
+        "trechos": []
+      }
+    ],
+    "divergencias": [
+      {
+        "assunto": "Antecedência mínima para entrega do termo de compromisso assinado",
+        "trechos": [
+          2,
+          6
+        ]
+      }
+    ],
+    "alerta": null
+  },
+  "provedor": "openai",
+  "modelo": "gpt-5.6-luna",
+  "prompt": {
+    "id": "PROMPT_RAG",
+    "versao": "1.0"
+  },
+  "versao_esquema": "1.0.0",
+  "versao_indice": "1.0.0",
+  "colecao": "acervo_principal",
+  "configuracao_chunking": "A",
+  "chamadas": [
+    {
+      "etapa": "rag_geracao",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 5446.0,
+      "tokens_total": 2956,
+      "custo_estimado_usd": 0.0008822
+    }
+  ],
+  "minuta": "MINUTA PARA REVISÃO HUMANA - envio automático bloqueado\nStatus: CONFLITO_DE_FONTES\nEncaminhamento: REVISAO_HUMANA_PRIORITARIA\n\nResposta proposta:\nHá divergência no acervo sobre a antecedência para entregar o termo de compromisso assinado: um documento informa antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio. (DOC-04, v1.0, seção 2) Outro informa antecedência mínima de 15 (quinze) dias corridos. (DOC-05, v1.0, p. 2, seção 3) Como não há indicação de prevalência entre os documentos, o caso segue para revisão humana.\n\nDivergência entre as fontes (sem regra escrita de prevalência):\n- Antecedência mínima para entrega do termo de compromisso assinado\n  (DOC-04, v1.0, seção 2) \"de seguro contra acidentes pessoais.\n2.2. O termo de compromisso de estágio assinado deve ser entregue à coordenação de estágio com antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio.\n2.3. Sem a entrega do termo de compromisso, o estudante não poderá iniciar as atividades no campo de estágio.\n2.4.\"\n  (DOC-05, v1.0, p. 2, seção 3) \"contra hepatite B, tétano e influenza.\n3.2. O termo de compromisso de estágio, assinado pelo estudante, pela instituição concedente e pela coordenação, deve ser entregue com antecedência mínima de 15 (quinze) dias corridos do início das atividades no campo de estágio.\n3.3.\"\n\nAlertas para o operador:\n- AFIRMACAO_SEM_CITACAO: \"Não há indicação de prevalência entre os documentos no quadro de vigência apresentado.\"\n\nTrechos consultados:\n[1] (DOC-04, v1.0, seção 2) Comunicado Fictício nº 02/2026 da Coordenação de Estágio - Documentação para Início do Estágio Supervisionado | não citado | origem: busca\n[2] (DOC-04, v1.0, seção 2) Comunicado Fictício nº 02/2026 da Coordenação de Estágio - Documentação para Início do Estágio Supervisionado | citado | origem: busca\n[3] (DOC-04, v1.0, seção 2) Comunicado Fictício nº 02/2026 da Coordenação de Estágio - Documentação para Início do Estágio Supervisionado | não citado | origem: vizinho\n[4] (DOC-04, v1.0, seção 3) Comunicado Fictício nº 02/2026 da Coordenação de Estágio - Documentação para Início do Estágio Supervisionado | não citado | origem: busca\n[5] (DOC-05, v1.0, p. 2, seção 3) Regulamento Fictício de Estágio Supervisionado dos Cursos Técnicos da Área de Saúde | não citado | origem: vizinho\n[6] (DOC-05, v1.0, p. 2, seção 3) Regulamento Fictício de Estágio Supervisionado dos Cursos Técnicos da Área de Saúde | citado | origem: busca\n[7] (DOC-05, v1.0, p. 2, seção 3) Regulamento Fictício de Estágio Supervisionado dos Cursos Técnicos da Área de Saúde | não citado | origem: vizinho\n\nConteúdo gerado com apoio de IA (openai/gpt-5.6-luna; PROMPT_RAG v1.0). Confira cada citação na passagem original antes de aprovar.",
+  "status_revisao": "PENDENTE_REVISAO_HUMANA",
+  "envio_automatico_bloqueado": true,
+  "registrado_em": "2026-10-30T12:13:35"
+}

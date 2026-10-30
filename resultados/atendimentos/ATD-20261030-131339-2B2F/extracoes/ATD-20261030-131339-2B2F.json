@@ -1,0 +1,67 @@
+{
+  "id_caso": "ATD-20261030-131339-2B2F",
+  "canal": "OCR da ficha manuscrita (Desafio 01)",
+  "arquivo_origem": "dados/originais/entrada_pdf-imagem.pdf",
+  "sha256_entrada": "d6f579917aaf956fb848262ff6beda009226598f36a653b7d49326b421a36420",
+  "texto_entrada": "CABEÇALHO: GOVERNO DO MATO GROSSO\nSECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO - SECITECI/MT\nESCOLA TÉCNICA ESTADUAL DE CUIABÁ\nFICHA DE MATRÍCULA\nCÓDIGO: 2024-000142  [LEGIVEL]\nNOME: MARCOS VINITCIUS DE ALMEIDA SANTOS  [INCERTO] - O trecho do nome entre “V” e “CIUS” pode ser lido como “VINITCIUS” ou “VINICIUS”.\nDATA DE NASCIMENTO: 12/09/2008  [INCERTO] - O segundo algarismo do mês pode ser 9 ou 0.\nCPF: 123.456.789-00  [LEGIVEL]\nRG: 12.456.789-8  [LEGIVEL]\nÓRGÃO EXPEDIDOR: [EM BRANCO]  [EM_BRANCO]\nNATURALIDADE: CUIABÁ  [LEGIVEL]\nUF: [EM BRANCO]  [EM_BRANCO]\nNOME DA MÃE: LUCIA HELENA DE ALMEIDA SANTOS  [LEGIVEL]\nNOME DO PAI: [EM BRANCO]  [EM_BRANCO]\nCURSO: TECNICO EM ENFERMAGEM  [LEGIVEL]\nCH (carga horária): 1200 HORAS  [LEGIVEL]\nEIXO TECNOLÓGICO: SAUDE  [LEGIVEL]\nTURMA: [EM BRANCO]  [EM_BRANCO]\nMUNICÍPIO: [EM BRANCO]  [EM_BRANCO]\nTURNO: NOTURNO  [LEGIVEL]\nINÍCIO DO CURSO: 01/02/2027  [LEGIVEL]\nTÉRMINO DO CURSO: [EM BRANCO]  [EM_BRANCO]\nTEL. CELULAR: [EM BRANCO]  [EM_BRANCO]\nTELEFONE RESIDENCIAL: [EM BRANCO]  [EM_BRANCO]\nE-MAIL: MARCOS.ALMEIDA.TESTE@EXEMPLO.COM  [LEGIVEL]\nDATA MATRÍCULA: 14/10/2026  [LEGIVEL]\nDECLARAÇÃO DE CIÊNCIA DE FALTAS: MARCADA\nASSINATURA DO ALUNO OU RESPONSÁVEL: PRESENTE\nASSINATURA DA SECRETARIA ESCOLAR: AUSENTE\n",
+  "versao_esquema": "2.0.0",
+  "prompt": {
+    "id": "PROMPT_EXTRACAO_V2",
+    "versao": "1.1"
+  },
+  "modo_esquema": "Structured Outputs (esquema nativo)",
+  "contrato": {
+    "protocolo": "2024-000142",
+    "data_solicitacao": "14/10/2026",
+    "solicitante_ficticio": "MARCOS VINITCIUS DE ALMEIDA SANTOS",
+    "curso": "TECNICO EM ENFERMAGEM",
+    "assunto": "Ficha de matrícula no curso TECNICO EM ENFERMAGEM",
+    "pedido": null,
+    "categoria": "MATRICULA_INICIAL",
+    "entidades": {
+      "pessoas_ficticias": [
+        "MARCOS VINITCIUS DE ALMEIDA SANTOS",
+        "LUCIA HELENA DE ALMEIDA SANTOS"
+      ],
+      "orgaos": [
+        "GOVERNO DO MATO GROSSO",
+        "SECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO - SECITECI/MT",
+        "ESCOLA TÉCNICA ESTADUAL DE CUIABÁ",
+        "SECRETARIA ESCOLAR"
+      ],
+      "locais": [
+        "CUIABÁ"
+      ],
+      "datas": [
+        "12/09/2008",
+        "01/02/2027",
+        "14/10/2026"
+      ],
+      "protocolos": [
+        "2024-000142"
+      ]
+    },
+    "campos_ausentes": [
+      "pedido"
+    ],
+    "necessita_revisao": true
+  },
+  "erros_validacao": [],
+  "alertas": [],
+  "decisao": "ENCAMINHAR_REVISAO_HUMANA",
+  "motivo": "Nenhum pedido escrito.",
+  "chamadas": [
+    {
+      "etapa": "extracao_contrato_v2",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 3831.3,
+      "tokens_total": 2260,
+      "custo_estimado_usd": 0.000707
+    }
+  ],
+  "registrado_em": "2026-10-30T13:13:45"
+}

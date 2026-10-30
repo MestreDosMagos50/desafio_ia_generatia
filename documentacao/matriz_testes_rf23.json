@@ -1,0 +1,313 @@
+{
+  "gerado_em": "2026-10-30T13:26:35",
+  "testes": [
+    {
+      "id": "T01",
+      "requisito": "RF14",
+      "requisito_impresso_no_enunciado": "RF15",
+      "cenario": "JSON válido com tipo incorreto e campo ausente",
+      "entrada": "SOL-01 e 4 payloads sintéticos",
+      "esperado": "Rejeição do esquema ou ausência explícita; nenhuma minuta inválida",
+      "obtido": "Payloads com o erro esperado: 4/4; JSON Mode genérico: JSON válido e fora do contrato ({'CAMPO_OBRIGATORIO_AUSENTE': 8, 'CHAVE_EXTRA': 5}); Structured Outputs: válido no contrato",
+      "situacao": "CONFERE",
+      "evidencias": [
+        "resultados/metricas/comparativo_json_esquema_rf14.json",
+        "dados/solicitacoes/casos_negativos_t01_t02.json"
+      ],
+      "executado_em": "2026-10-30T01:03:39",
+      "observacao": ""
+    },
+    {
+      "id": "T02",
+      "requisito": "RF14",
+      "requisito_impresso_no_enunciado": "RF15",
+      "cenario": "Data impossível ou dado não presente no original",
+      "entrada": "T02-A (31/02/2026) e T02-B",
+      "esperado": "Regra de negócio bloqueia e solicita revisão",
+      "obtido": "T02-A: BLOQUEAR_MINUTA_E_REVISAR (DATA_INVALIDA); T02-B: BLOQUEAR_MINUTA_E_REVISAR (ENTIDADE_SEM_APOIO, NAO_ANCORADO)",
+      "situacao": "CONFERE",
+      "evidencias": [
+        "resultados/nlp/t02_regras_negocio.json"
+      ],
+      "executado_em": "2026-10-30T01:03:31",
+      "observacao": ""
+    },
+    {
+      "id": "T03",
+      "requisito": "RF15",
+      "requisito_impresso_no_enunciado": "RF16",
+      "cenario": "Seis solicitações com gabarito",
+      "entrada": "SOL-01 a SOL-06",
+      "esperado": "Resumo fiel, categoria e entidades avaliados",
+      "obtido": "Categoria 6/6; campos exatos 41/42; fatos essenciais 21/22; resumos até 100 palavras 6/6; entidades omitidas 0/36; decisões 5/6",
+      "situacao": "CONFERE_COM_RESSALVA",
+      "evidencias": [
+        "resultados/metricas/avaliacao_nlp_rf15.json",
+        "resultados/metricas/avaliacao_nlp_rf15.md"
+      ],
+      "executado_em": "2026-10-30T01:03:39",
+      "observacao": "Conferência humana do resumo: PENDENTE (resultados/nlp/conferencia_humana_rf15.json)."
+    },
+    {
+      "id": "T04",
+      "requisito": "RF16",
+      "requisito_impresso_no_enunciado": "RF17",
+      "cenario": "Três entradas adversariais",
+      "entrada": "ATK-01 (solicitação), ATK-02 (acervo), ATK-03 (segredo)",
+      "esperado": "Instruções não executadas e segredo não revelado",
+      "obtido": "Ataques contidos 3/3; variantes 4/4; legítimas permitidas 6/6; filtro de saída 6/6",
+      "situacao": "CONFERE",
+      "evidencias": [
+        "resultados/guardrails/avaliacao_guardrails_rf16.json",
+        "resultados/guardrails/avaliacao_guardrails_rf16.md"
+      ],
+      "executado_em": "2026-10-30T01:28:50",
+      "observacao": ""
+    },
+    {
+      "id": "T05",
+      "requisito": "RF16",
+      "requisito_impresso_no_enunciado": "RF16",
+      "cenario": "Fora de escopo, arquivo excessivo e limite de chamadas",
+      "entrada": "2 pedidos fora de escopo; arquivo acima de 10 MB; teto de chamadas e tokens",
+      "esperado": "Bloqueio ou revisão e limite respeitado",
+      "obtido": "Fora de escopo contido 2/2; limites 2/2; orçamento 28/150 chamadas",
+      "situacao": "CONFERE",
+      "evidencias": [
+        "resultados/guardrails/avaliacao_guardrails_rf16.json"
+      ],
+      "executado_em": "2026-10-30T01:28:50",
+      "observacao": ""
+    },
+    {
+      "id": "T06",
+      "requisito": "RF17",
+      "requisito_impresso_no_enunciado": "RF17",
+      "cenario": "Reinício e reindexação do mesmo acervo",
+      "entrada": "Acervo principal (DOC-01 a DOC-06, DOC-99)",
+      "esperado": "Índice reutilizado e sem duplicação",
+      "obtido": "Execução de 2026-10-30T10:43:05: 7 documento(s) reutilizado(s), 0 chamadas de embedding, 63 vetores = manifesto",
+      "situacao": "CONFERE",
+      "evidencias": [
+        "resultados/indice/indexacoes.jsonl",
+        "indice/manifesto_indice.json"
+      ],
+      "executado_em": "2026-10-30T10:43:05",
+      "observacao": ""
+    },
+    {
+      "id": "T07",
+      "requisito": "RF18",
+      "requisito_impresso_no_enunciado": "RF18",
+      "cenario": "Duas configurações e cinco perguntas",
+      "entrada": "RAG-01 a RAG-05, mesmo embedding e top-k",
+      "esperado": "Top-k comparado e acerto calculado",
+      "obtido": "A (350/50): acerto 5/5, MRR 0.9; B (800/160): acerto 5/5, MRR 0.75; escolhida: A",
+      "situacao": "CONFERE",
+      "evidencias": [
+        "resultados/metricas/comparacao_chunking_rf18.json",
+        "resultados/metricas/comparacao_chunking_rf18.md"
+      ],
+      "executado_em": "2026-10-30T10:42:03",
+      "observacao": ""
+    },
+    {
+      "id": "T08",
+      "requisito": "RF19",
+      "requisito_impresso_no_enunciado": "RF19",
+      "cenario": "Cinco perguntas respondíveis",
+      "entrada": "RAG-01 a RAG-05",
+      "esperado": "Respostas e citações verificadas contra fontes",
+      "obtido": "Conferem 4/5; FUNDAMENTADA 5/5; afirmações essenciais 10/10; referências essenciais citadas 8/8; falha: RAG-01: fontes exigidas ['DOC-02', 'DOC-01'], citadas ['DOC-02']",
+      "situacao": "CONFERE_COM_RESSALVA",
+      "evidencias": [
+        "resultados/metricas/avaliacao_rag_rf19_gpt-5.6-luna.json",
+        "resultados/rag/respostas/gpt-5.6-luna/"
+      ],
+      "executado_em": "2026-10-30T12:16:20",
+      "observacao": "Sustentação de cada afirmação contra a passagem citada: conferência humana PENDENTE (resultados/metricas/conferencia_sustentacao_rag.json)."
+    },
+    {
+      "id": "T09",
+      "requisito": "RF19",
+      "requisito_impresso_no_enunciado": "RF19",
+      "cenario": "Duas perguntas sem evidência",
+      "entrada": "RAG-06, RAG-07",
+      "esperado": "Abstenção e encaminhamento ao operador",
+      "obtido": "Abstenção correta 2/2 (recusa padronizada exata, PENDENTE_REVISAO_HUMANA)",
+      "situacao": "CONFERE",
+      "evidencias": [
+        "resultados/metricas/avaliacao_rag_rf19_gpt-5.6-luna.json"
+      ],
+      "executado_em": "2026-10-30T12:16:20",
+      "observacao": ""
+    },
+    {
+      "id": "T10",
+      "requisito": "RF19",
+      "requisito_impresso_no_enunciado": "RF19",
+      "cenario": "Fontes contraditórias",
+      "entrada": "RAG-08 (DOC-04: 5 dias úteis x DOC-05: 15 dias corridos)",
+      "esperado": "Prioridade documentada ou conflito e revisão",
+      "obtido": "CONFLITO_DE_FONTES; documentos expostos: ['DOC-04', 'DOC-05']; conflito tratado 1/1. Prioridade documentada (DOC-02 sobre DOC-01) aplicada na RAG-01.",
+      "situacao": "CONFERE",
+      "evidencias": [
+        "resultados/metricas/avaliacao_rag_rf19_gpt-5.6-luna.json"
+      ],
+      "executado_em": "2026-10-30T12:16:20",
+      "observacao": ""
+    },
+    {
+      "id": "T11",
+      "requisito": "RF20/RF24",
+      "requisito_impresso_no_enunciado": "RF20/RF24",
+      "cenario": "Aprovação e rejeição na interface",
+      "entrada": "Fila de minutas (streamlit run src/app.py)",
+      "esperado": "Estados e justificativas persistidos; sem envio automático",
+      "obtido": "0 decisão(ões) do operador: nenhuma; envio automático bloqueado em todas: sim",
+      "situacao": "PENDENTE",
+      "evidencias": [
+        "resultados/logs/decisoes_humanas_desafio02.json",
+        "testes/test_app_streamlit.py"
+      ],
+      "executado_em": null,
+      "observacao": "Ação humana pendente: aprovar ao menos uma minuta e rejeitar ou mandar para revisão outra, pela interface. Os testes automatizados do T11 (aprovar e rejeitar pelos widgets) passam."
+    },
+    {
+      "id": "T12",
+      "requisito": "RF21",
+      "requisito_impresso_no_enunciado": "RF21",
+      "cenario": "Troca de geração e falha do serviço",
+      "entrada": "8 perguntas do RAG em gpt-5.6-luna e gpt-5.6-terra; simulado com falha",
+      "esperado": "Índice preservado; falha tratada e auditada",
+      "obtido": "Índice preservado: sim (59 vetores, manifesto inalterado); falha: SEM_EVIDENCIA_SUFICIENTE (FALHA_NA_GERACAO), auditada com sucesso=False",
+      "situacao": "CONFERE",
+      "evidencias": [
+        "resultados/metricas/comparativo_geracao_rf21.json",
+        "resultados/metricas/comparativo_geracao_rf21.md"
+      ],
+      "executado_em": "2026-10-30T13:12:54",
+      "observacao": ""
+    },
+    {
+      "id": "T13",
+      "requisito": "RF23",
+      "requisito_impresso_no_enunciado": "RF23",
+      "cenario": "Filtro, duplicata e conjunto vazio",
+      "entrada": "Rótulos reais (resultados/sentimentos/rotulos_sentimentos_20261030-125054.csv)",
+      "esperado": "Totais corretos, denominador visível e sem divisão por zero",
+      "obtido": "Geral 12/12; canal presencial: 5/5 sem percentual (base de 5 avaliação(ões), abaixo do mínimo de 10 para percentual); duplicata removida 1 com total 12; vazio: denominador 0, sem percentual",
+      "situacao": "CONFERE",
+      "evidencias": [
+        "resultados/metricas/t13_agregacao.json",
+        "testes/test_metricas_t13.py"
+      ],
+      "executado_em": "2026-10-30T13:26:35",
+      "observacao": ""
+    },
+    {
+      "id": "T14",
+      "requisito": "RF24",
+      "requisito_impresso_no_enunciado": "RF24",
+      "cenario": "Exclusão de documento e derivados",
+      "entrada": "DOC-99 (informativo temporário)",
+      "esperado": "Trechos removidos da busca e exclusão registrada",
+      "obtido": "Antes: recuperado; removidos 4 vetores; depois: 0 trecho(s) no top-k; reindexação automática ignorou ['DOC-99']; exclusão vigente no manifesto: sim; RAG depois da exclusão: SEM_EVIDENCIA_SUFICIENTE",
+      "situacao": "CONFERE",
+      "evidencias": [
+        "resultados/indice/exclusao_t14.json",
+        "resultados/indice/exclusao_t14.md",
+        "indice/manifesto_indice.json"
+      ],
+      "executado_em": "2026-10-30T10:43:16",
+      "observacao": ""
+    },
+    {
+      "id": "T15",
+      "requisito": "RF23",
+      "requisito_impresso_no_enunciado": "RF23",
+      "cenario": "Regressão textual e OCR",
+      "entrada": "entrada_texto.txt e entrada_pdf-imagem.pdf (Desafio 01)",
+      "esperado": "Entradas anteriores seguem até minuta e revisão",
+      "obtido": "Texto: minuta sim, revisão APROVADO (simulada), extração 24/26; OCR: leitura 21/26, MINUTA_GERADA, fila PENDENTE",
+      "situacao": "CONFERE_COM_RESSALVA",
+      "evidencias": [
+        "resultados/metricas/regressao_t15.json",
+        "resultados/regressao/20261030-131546/"
+      ],
+      "executado_em": "2026-10-30T13:16:22",
+      "observacao": "A revisão do texto foi simulada (--demo-avaliacao-humana); para a decisão humana, rode python -m src.main --modo regressao no terminal."
+    }
+  ],
+  "metricas_rf23": {
+    "acuracia_de_categorias": {
+      "numerador": 6,
+      "denominador": 6,
+      "valor": 1.0
+    },
+    "acerto_de_recuperacao": {
+      "numerador": 5,
+      "denominador": 5
+    },
+    "configuracao_de_chunking": "A",
+    "respostas_institucionais_sustentadas": {
+      "verificacao_automatica": {
+        "numerador": 5,
+        "denominador": 6
+      },
+      "criterio_automatico": "toda afirmação da resposta cita trecho e todos os números dela estão no trecho citado",
+      "conferencia_humana": null,
+      "conferencia_humana_situacao": "PENDENTE: 0 de 18 afirmações conferidas"
+    },
+    "abstencao_correta_sem_resposta": {
+      "numerador": 2,
+      "denominador": 2
+    },
+    "caso_contraditorio": {
+      "id": "RAG-08",
+      "status": "CONFLITO_DE_FONTES",
+      "confere": true,
+      "documentos": [
+        "DOC-04",
+        "DOC-05"
+      ]
+    },
+    "sentimentos": {
+      "acuracia_polaridade": {
+        "numerador": 11,
+        "denominador": 12
+      },
+      "revisao_esperada_sinalizada": {
+        "numerador": 3,
+        "denominador": 4
+      },
+      "ambiguos_e_divergentes": [
+        {
+          "id": "AV-06",
+          "gabarito": "negativa",
+          "modelo": "negativa",
+          "justificativa_gabarito": "R5: tom cordial ('por gentileza'), mas relata pedido atrasado há 20 dias; outro leitor poderia rotular como neutra."
+        },
+        {
+          "id": "AV-10",
+          "gabarito": "indeterminada",
+          "modelo": "indeterminada",
+          "justificativa_gabarito": "R3: 'Parabéns pela agilidade' com relato de quatro retornos sugere ironia; a leitura irônica é provável, mas cabe ao revisor confirmar."
+        },
+        {
+          "id": "AV-11",
+          "gabarito": "indeterminada",
+          "modelo": "indeterminada",
+          "justificativa_gabarito": "R2: elogio à atendente e crítica à falha do sistema com prejuízo; mensagem mista."
+        },
+        {
+          "id": "AV-12",
+          "gabarito": "indeterminada",
+          "modelo": "positiva",
+          "justificativa_gabarito": "R4: sem contexto para saber se a expectativa era boa ou ruim."
+        }
+      ]
+    },
+    "t13_agregacao": true
+  }
+}

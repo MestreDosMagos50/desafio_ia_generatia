@@ -1,0 +1,204 @@
+{
+  "total_campos": 26,
+  "acertos": 21,
+  "taxa_acerto_pct": 80.77,
+  "inventados": [],
+  "omitidos": [],
+  "divergentes": [
+    "codigo_matricula",
+    "solicitante.nome_completo",
+    "solicitante.data_nascimento",
+    "solicitante.rg",
+    "solicitante.email"
+  ],
+  "itens": [
+    {
+      "campo": "codigo_matricula",
+      "esperado": "2026-000142",
+      "obtido": "2024-000142",
+      "status": "DIVERGENTE"
+    },
+    {
+      "campo": "data_matricula",
+      "esperado": "14/10/2026",
+      "obtido": "14/10/2026",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.nome_completo",
+      "esperado": "MARCOS VINÍCIUS DE ALMEIDA SANTOS",
+      "obtido": "MARCOS VINTIUS DE ALMEIDA SANTOS",
+      "status": "DIVERGENTE"
+    },
+    {
+      "campo": "solicitante.data_nascimento",
+      "esperado": "12/08/2008",
+      "obtido": "12/09/2008",
+      "status": "DIVERGENTE"
+    },
+    {
+      "campo": "solicitante.naturalidade",
+      "esperado": "CUIABÁ",
+      "obtido": "Cuiabá",
+      "status": "EQUIVALENTE"
+    },
+    {
+      "campo": "solicitante.uf",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.cpf",
+      "esperado": "123.456.789-00",
+      "obtido": "123.456.789-00",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.rg",
+      "esperado": "1234567-8",
+      "obtido": "12.456.7-8",
+      "status": "DIVERGENTE"
+    },
+    {
+      "campo": "solicitante.orgao_expedidor",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.nome_mae",
+      "esperado": "LÚCIA HELENA DE ALMEIDA SANTOS",
+      "obtido": "LUCIA HELENA DE ALMEIDA SANTOS",
+      "status": "EQUIVALENTE"
+    },
+    {
+      "campo": "solicitante.nome_pai",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.telefone_celular",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.telefone_residencial",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "solicitante.email",
+      "esperado": "MARCOS.ALMEIDA.TESTE@EXAMPLO.COM",
+      "obtido": "MARCOS.ALMEIDA.TESTE@EXEMPLO.COM",
+      "status": "DIVERGENTE"
+    },
+    {
+      "campo": "curso.nome",
+      "esperado": "TÉCNICO EM ENFERMAGEM",
+      "obtido": "TÉCNICO EM ENFERMAGEM",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.eixo_tecnologico",
+      "esperado": "SAÚDE",
+      "obtido": "SAÚDE",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.carga_horaria",
+      "esperado": "1200 HORAS",
+      "obtido": "1200 HORAS",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.turno",
+      "esperado": "NOTURNO",
+      "obtido": "NOTURNO",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.turma",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.municipio",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.inicio_curso",
+      "esperado": "01/02/2027",
+      "obtido": "01/02/2027",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "curso.termino_curso",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "conformidade_e_assinaturas.termo_ciencia_faltas_assinado",
+      "esperado": true,
+      "obtido": true,
+      "status": "CORRETO"
+    },
+    {
+      "campo": "conformidade_e_assinaturas.assinatura_aluno_presente",
+      "esperado": true,
+      "obtido": true,
+      "status": "CORRETO"
+    },
+    {
+      "campo": "conformidade_e_assinaturas.assinatura_secretaria_escolar",
+      "esperado": "não localizado",
+      "obtido": "não localizado",
+      "status": "CORRETO"
+    },
+    {
+      "campo": "campos_em_branco_detectados",
+      "esperado": [
+        "orgao_expedidor",
+        "uf",
+        "nome_pai",
+        "turma",
+        "municipio",
+        "termino_curso",
+        "telefone_celular",
+        "telefone_residencial",
+        "assinatura_secretaria_escolar"
+      ],
+      "obtido": [
+        "orgao_expedidor",
+        "uf",
+        "nome_pai",
+        "turma",
+        "municipio",
+        "termino_curso",
+        "telefone_celular",
+        "telefone_residencial",
+        "assinatura_secretaria_escolar"
+      ],
+      "status": "CORRETO"
+    }
+  ],
+  "caso_id": "CASO_02_VISAO_DOCUMENTO",
+  "incertos_esperados": {
+    "sinalizados": [
+      "cpf"
+    ],
+    "nao_sinalizados": [
+      "codigo"
+    ],
+    "sinalizados_fora_do_gabarito": [
+      "rg"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id_caso": "SOL-03",
+  "canal": "texto (e-mail)",
+  "arquivo_origem": "dados/solicitacoes/SOL-03_estagio_enfermagem.txt",
+  "sha256_entrada": "653a7c1e03b771485f35ef5854e93cc7a25a1a34c1a12c97ee668a8caa6b236c",
+  "texto_entrada": "Canal: E-mail\nProtocolo: 2026-000215\nData: 21/10/2026\n\nPrezada Coordenação de Estágio,\n\nSou Beatriz Camargo Lima Teste, estudante do segundo módulo do curso Técnico em Enfermagem, turno noturno. Fui escalada para iniciar o estágio supervisionado no Hospital Municipal Fictício São Bento em 16/11/2026.\n\nGostaria de saber com quantos dias de antecedência preciso entregar o termo de compromisso de estágio assinado e se posso cumprir o estágio no período noturno, já que trabalho durante o dia.\n\nAtenciosamente,\nBeatriz Camargo Lima Teste\n",
+  "versao_esquema": "2.0.0",
+  "prompt": {
+    "id": "PROMPT_EXTRACAO_V2",
+    "versao": "1.1"
+  },
+  "modo_esquema": "Structured Outputs (esquema nativo)",
+  "contrato": {
+    "protocolo": "2026-000215",
+    "data_solicitacao": "21/10/2026",
+    "solicitante_ficticio": "Beatriz Camargo Lima Teste",
+    "curso": "Técnico em Enfermagem",
+    "assunto": "Prazo para entrega do termo de compromisso e possibilidade de estágio noturno",
+    "pedido": "Solicita informação sobre a antecedência para entregar o termo de compromisso de estágio assinado e sobre a possibilidade de cumprir o estágio no período noturno.",
+    "categoria": "ESTAGIO_SUPERVISIONADO",
+    "entidades": {
+      "pessoas_ficticias": [
+        "Beatriz Camargo Lima Teste"
+      ],
+      "orgaos": [
+        "Coordenação de Estágio",
+        "Hospital Municipal Fictício São Bento"
+      ],
+      "locais": [],
+      "datas": [
+        "21/10/2026",
+        "16/11/2026"
+      ],
+      "protocolos": [
+        "2026-000215"
+      ]
+    },
+    "campos_ausentes": [],
+    "necessita_revisao": false
+  },
+  "erros_validacao": [],
+  "alertas": [],
+  "decisao": "GERAR_MINUTA_PARA_REVISAO",
+  "motivo": "Contrato válido e coerente com o texto original; a minuta segue para aprovação humana.",
+  "chamadas": [
+    {
+      "etapa": "extracao_contrato_v2",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2436.4,
+      "tokens_total": 1775,
+      "custo_estimado_usd": 0.000557
+    }
+  ],
+  "registrado_em": "2026-10-30T01:03:12"
+}

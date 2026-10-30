@@ -1,0 +1,191 @@
+{
+  "versao_manifesto": "1.0",
+  "colecoes": {
+    "experimento_chunking_A": {
+      "assinatura": {
+        "modelo_embedding": "text-embedding-3-small",
+        "dimensao": 1536,
+        "distancia": "cosine",
+        "versao_indice": "1.0.0",
+        "chunking": {
+          "unidade": "caracteres",
+          "rotulo": "A",
+          "tamanho": 350,
+          "sobreposicao": 50
+        }
+      },
+      "criada_em": "2026-10-30T10:41:49",
+      "documentos": {
+        "DOC-01": {
+          "hash_sha256": "f66362f71adea064872dc562e16e2eec9a474815e70f72a9f301db16dc3e6ce4",
+          "trechos": 18,
+          "arquivo": "dados/acervo/DOC-01_edital_ficticio_010_2026.pdf",
+          "indexado_em": "2026-10-30T10:41:49"
+        },
+        "DOC-02": {
+          "hash_sha256": "40352f048f5f38e2a3972baca40f156b633f04806cbdf6a430c9caa2e885ae32",
+          "trechos": 9,
+          "arquivo": "dados/acervo/DOC-02_edital_retificador_ficticio_01.pdf",
+          "indexado_em": "2026-10-30T10:41:49"
+        },
+        "DOC-03": {
+          "hash_sha256": "6403e43eec2bfdab1522b5f2e311f2f81a32e1c32cdc40ab88f5da7e79aa8bd6",
+          "trechos": 10,
+          "arquivo": "dados/acervo/DOC-03_manual_secretaria_frequencia.txt",
+          "indexado_em": "2026-10-30T10:41:49"
+        },
+        "DOC-04": {
+          "hash_sha256": "20b9e4d6534395ec6b566afdbbc231c630506d4f76d130f823f059a438826797",
+          "trechos": 6,
+          "arquivo": "dados/acervo/DOC-04_comunicado_coordenacao_estagio_02_2026.txt",
+          "indexado_em": "2026-10-30T10:41:49"
+        },
+        "DOC-05": {
+          "hash_sha256": "4fa6df1cf12ecf5579b630ff0e77174eeba0fd608a72cbb9a885c5ba1982da76",
+          "trechos": 8,
+          "arquivo": "dados/acervo/DOC-05_regulamento_estagio_saude.pdf",
+          "indexado_em": "2026-10-30T10:41:49"
+        },
+        "DOC-06": {
+          "hash_sha256": "a0bb052d2cea937db7e9a0ed27319bed3430adf99b92a28cb204de2c09bf1d5c",
+          "trechos": 8,
+          "arquivo": "dados/acervo/DOC-06_faq_assistencia_estudantil.txt",
+          "indexado_em": "2026-10-30T10:41:49"
+        }
+      },
+      "exclusoes": [
+        {
+          "doc_id": "DOC-99",
+          "em": "2026-10-30T10:43:16",
+          "vetores_removidos": 0,
+          "motivo": "Demonstração do RF24/T14: informativo temporário retirado do acervo"
+        }
+      ],
+      "atualizada_em": "2026-10-30T10:41:49"
+    },
+    "experimento_chunking_B": {
+      "assinatura": {
+        "modelo_embedding": "text-embedding-3-small",
+        "dimensao": 1536,
+        "distancia": "cosine",
+        "versao_indice": "1.0.0",
+        "chunking": {
+          "unidade": "caracteres",
+          "rotulo": "B",
+          "tamanho": 800,
+          "sobreposicao": 160
+        }
+      },
+      "criada_em": "2026-10-30T10:41:57",
+      "documentos": {
+        "DOC-01": {
+          "hash_sha256": "f66362f71adea064872dc562e16e2eec9a474815e70f72a9f301db16dc3e6ce4",
+          "trechos": 9,
+          "arquivo": "dados/acervo/DOC-01_edital_ficticio_010_2026.pdf",
+          "indexado_em": "2026-10-30T10:41:57"
+        },
+        "DOC-02": {
+          "hash_sha256": "40352f048f5f38e2a3972baca40f156b633f04806cbdf6a430c9caa2e885ae32",
+          "trechos": 6,
+          "arquivo": "dados/acervo/DOC-02_edital_retificador_ficticio_01.pdf",
+          "indexado_em": "2026-10-30T10:41:57"
+        },
+        "DOC-03": {
+          "hash_sha256": "6403e43eec2bfdab1522b5f2e311f2f81a32e1c32cdc40ab88f5da7e79aa8bd6",
+          "trechos": 6,
+          "arquivo": "dados/acervo/DOC-03_manual_secretaria_frequencia.txt",
+          "indexado_em": "2026-10-30T10:41:57"
+        },
+        "DOC-04": {
+          "hash_sha256": "20b9e4d6534395ec6b566afdbbc231c630506d4f76d130f823f059a438826797",
+          "trechos": 4,
+          "arquivo": "dados/acervo/DOC-04_comunicado_coordenacao_estagio_02_2026.txt",
+          "indexado_em": "2026-10-30T10:41:57"
+        },
+        "DOC-05": {
+          "hash_sha256": "4fa6df1cf12ecf5579b630ff0e77174eeba0fd608a72cbb9a885c5ba1982da76",
+          "trechos": 5,
+          "arquivo": "dados/acervo/DOC-05_regulamento_estagio_saude.pdf",
+          "indexado_em": "2026-10-30T10:41:57"
+        },
+        "DOC-06": {
+          "hash_sha256": "a0bb052d2cea937db7e9a0ed27319bed3430adf99b92a28cb204de2c09bf1d5c",
+          "trechos": 5,
+          "arquivo": "dados/acervo/DOC-06_faq_assistencia_estudantil.txt",
+          "indexado_em": "2026-10-30T10:41:57"
+        }
+      },
+      "exclusoes": [
+        {
+          "doc_id": "DOC-99",
+          "em": "2026-10-30T10:43:16",
+          "vetores_removidos": 0,
+          "motivo": "Demonstração do RF24/T14: informativo temporário retirado do acervo"
+        }
+      ],
+      "atualizada_em": "2026-10-30T10:41:57"
+    },
+    "acervo_principal": {
+      "assinatura": {
+        "modelo_embedding": "text-embedding-3-small",
+        "dimensao": 1536,
+        "distancia": "cosine",
+        "versao_indice": "1.0.0",
+        "chunking": {
+          "unidade": "caracteres",
+          "rotulo": "A",
+          "tamanho": 350,
+          "sobreposicao": 50
+        }
+      },
+      "criada_em": "2026-10-30T10:42:55",
+      "documentos": {
+        "DOC-01": {
+          "hash_sha256": "f66362f71adea064872dc562e16e2eec9a474815e70f72a9f301db16dc3e6ce4",
+          "trechos": 18,
+          "arquivo": "dados/acervo/DOC-01_edital_ficticio_010_2026.pdf",
+          "indexado_em": "2026-10-30T10:42:55"
+        },
+        "DOC-02": {
+          "hash_sha256": "40352f048f5f38e2a3972baca40f156b633f04806cbdf6a430c9caa2e885ae32",
+          "trechos": 9,
+          "arquivo": "dados/acervo/DOC-02_edital_retificador_ficticio_01.pdf",
+          "indexado_em": "2026-10-30T10:42:55"
+        },
+        "DOC-03": {
+          "hash_sha256": "6403e43eec2bfdab1522b5f2e311f2f81a32e1c32cdc40ab88f5da7e79aa8bd6",
+          "trechos": 10,
+          "arquivo": "dados/acervo/DOC-03_manual_secretaria_frequencia.txt",
+          "indexado_em": "2026-10-30T10:42:55"
+        },
+        "DOC-04": {
+          "hash_sha256": "20b9e4d6534395ec6b566afdbbc231c630506d4f76d130f823f059a438826797",
+          "trechos": 6,
+          "arquivo": "dados/acervo/DOC-04_comunicado_coordenacao_estagio_02_2026.txt",
+          "indexado_em": "2026-10-30T10:42:55"
+        },
+        "DOC-05": {
+          "hash_sha256": "4fa6df1cf12ecf5579b630ff0e77174eeba0fd608a72cbb9a885c5ba1982da76",
+          "trechos": 8,
+          "arquivo": "dados/acervo/DOC-05_regulamento_estagio_saude.pdf",
+          "indexado_em": "2026-10-30T10:42:55"
+        },
+        "DOC-06": {
+          "hash_sha256": "a0bb052d2cea937db7e9a0ed27319bed3430adf99b92a28cb204de2c09bf1d5c",
+          "trechos": 8,
+          "arquivo": "dados/acervo/DOC-06_faq_assistencia_estudantil.txt",
+          "indexado_em": "2026-10-30T10:42:55"
+        }
+      },
+      "exclusoes": [
+        {
+          "doc_id": "DOC-99",
+          "em": "2026-10-30T10:43:16",
+          "vetores_removidos": 4,
+          "motivo": "Demonstração do RF24/T14: informativo temporário retirado do acervo"
+        }
+      ],
+      "atualizada_em": "2026-10-30T10:43:16"
+    }
+  }
+}

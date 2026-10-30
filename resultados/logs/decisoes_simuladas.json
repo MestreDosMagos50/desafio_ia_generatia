@@ -1,0 +1,80 @@
+[
+  {
+    "id_registro": "DEC-CC6E04FB",
+    "id_execucao_referencia": "EXEC-6D86DD57",
+    "caso_id": "CASO_01_TEXTO",
+    "objeto_revisado": "conferencia_cruzada",
+    "timestamp_decisao": "2026-10-30T13:03:36.191260",
+    "operador_responsavel": "SIMULADO - demonstração automatizada (sem revisão humana)",
+    "simulada": true,
+    "decisao": "APROVADO",
+    "justificativa": "Política simulada: valores sugeridos (maioria entre os canais) aceitos automaticamente.",
+    "alteracoes": [],
+    "gravidade_erros": "NENHUMA"
+  },
+  {
+    "id_registro": "DEC-2DA9F5E2",
+    "id_execucao_referencia": "EXEC-D78D168B",
+    "caso_id": "CASO_01_TEXTO",
+    "objeto_revisado": "minuta",
+    "timestamp_decisao": "2026-10-30T13:03:40.208972",
+    "operador_responsavel": "SIMULADO - demonstração automatizada (sem revisão humana)",
+    "simulada": true,
+    "decisao": "APROVADO",
+    "justificativa": "Política simulada: aprovação sem alertas bloqueantes.",
+    "alteracoes": [],
+    "gravidade_erros": "NENHUMA"
+  },
+  {
+    "id_registro": "DEC-5DA412ED",
+    "id_execucao_referencia": "EXEC-ADD4B4C3",
+    "caso_id": "CASO_01_TEXTO",
+    "objeto_revisado": "conferencia_cruzada",
+    "timestamp_decisao": "2026-10-30T13:13:20.832755",
+    "operador_responsavel": "SIMULADO - demonstração automatizada (sem revisão humana)",
+    "simulada": true,
+    "decisao": "APROVADO",
+    "justificativa": "Política simulada: valores sugeridos (maioria entre os canais) aceitos automaticamente.",
+    "alteracoes": [],
+    "gravidade_erros": "NENHUMA"
+  },
+  {
+    "id_registro": "DEC-8CA7615A",
+    "id_execucao_referencia": "EXEC-93161431",
+    "caso_id": "CASO_01_TEXTO",
+    "objeto_revisado": "minuta",
+    "timestamp_decisao": "2026-10-30T13:13:24.279404",
+    "operador_responsavel": "SIMULADO - demonstração automatizada (sem revisão humana)",
+    "simulada": true,
+    "decisao": "APROVADO",
+    "justificativa": "Política simulada: aprovação sem alertas bloqueantes.",
+    "alteracoes": [],
+    "gravidade_erros": "NENHUMA"
+  },
+  {
+    "id_registro": "DEC-2899CEEB",
+    "id_execucao_referencia": "EXEC-209DAC3D",
+    "caso_id": "CASO_01_TEXTO",
+    "objeto_revisado": "conferencia_cruzada",
+    "timestamp_decisao": "2026-10-30T13:15:51.987304",
+    "operador_responsavel": "SIMULADO - demonstração automatizada (sem revisão humana)",
+    "simulada": true,
+    "decisao": "APROVADO",
+    "justificativa": "Política simulada: valores sugeridos (maioria entre os canais) aceitos automaticamente.",
+    "alteracoes": [],
+    "gravidade_erros": "NENHUMA"
+  },
+  {
+    "id_registro": "DEC-AEA38EE3",
+    "id_execucao_referencia": "EXEC-1D725D50",
+    "caso_id": "CASO_01_TEXTO",
+    "objeto_revisado": "minuta",
+    "timestamp_decisao": "2026-10-30T13:15:55.227238",
+    "operador_responsavel": "SIMULADO - demonstração automatizada (sem revisão humana)",
+    "simulada": true,
+    "decisao": "APROVADO",
+    "justificativa": "Política simulada: aprovação sem alertas bloqueantes.",
+    "alteracoes": [],
+    "gravidade_erros": "NENHUMA"
+  }
+]

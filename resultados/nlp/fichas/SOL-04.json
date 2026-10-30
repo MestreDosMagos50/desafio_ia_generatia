@@ -1,0 +1,38 @@
+{
+  "id_caso": "SOL-04",
+  "versao_esquema": "2.0.0",
+  "resumo": "Rafael Nogueira Prado Teste, matriculado no curso Técnico em Recursos Humanos, turno noturno, residente em Várzea Grande, a cerca de 12 km da escola, solicita o auxílio-transporte e informações sobre os documentos necessários para fazer o pedido. Protocolo 2026-000231, de 22/10/2026.",
+  "palavras_resumo": 41,
+  "categoria": "ASSISTENCIA_ESTUDANTIL",
+  "entidades_literais": {
+    "pessoas_ficticias": [
+      "Rafael Nogueira Prado Teste"
+    ],
+    "orgaos": [],
+    "locais": [
+      "Várzea Grande"
+    ],
+    "datas": [
+      "22/10/2026"
+    ],
+    "protocolos": [
+      "2026-000231"
+    ]
+  },
+  "entidades_sem_apoio": {},
+  "informacoes_inferidas": [],
+  "alertas": [],
+  "chamadas": [
+    {
+      "etapa": "ficha_nlp",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 1605.6,
+      "tokens_total": 650,
+      "custo_estimado_usd": 0.000222
+    }
+  ]
+}

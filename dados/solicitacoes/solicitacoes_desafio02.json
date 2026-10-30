@@ -1,0 +1,56 @@
+{
+  "versao": "1.0.0",
+  "descricao": "Seis solicitações fictícias do Desafio 02 (Seção 6): quatro completas, uma incompleta e uma ambígua, incluindo saídas reaproveitadas dos canais de áudio e OCR do Desafio 01. O resultado esperado de cada uma está em dados/gabaritos/gabarito_solicitacoes_rf14_rf15.json.",
+  "solicitacoes": [
+    {
+      "id": "SOL-01",
+      "tipo_caso": "completa",
+      "canal": "texto (e-mail)",
+      "arquivo": "dados/originais/entrada_texto.txt",
+      "reaproveitada_desafio01": true,
+      "origem": "Entrada original do Desafio 01, usada sem alteração."
+    },
+    {
+      "id": "SOL-02",
+      "tipo_caso": "completa",
+      "canal": "áudio (mensagem de voz)",
+      "arquivo": "dados/solicitacoes/SOL-02_transcricao_audio_desafio01.txt",
+      "reaproveitada_desafio01": true,
+      "arquivo_fonte": "dados/originais/entrada_audio.mp3",
+      "origem": "Transcrição revisada do áudio do Desafio 01 (campo transcricao_referencia de dados/gabaritos/gabarito_audio.json), gerada por scripts/gerar_acervo_ficticio.py. Usa-se a versão conferida pelo servidor para que o caso seja reprodutível sem nova chamada ao Gemini; o modo de áudio exige o provedor legado."
+    },
+    {
+      "id": "SOL-03",
+      "tipo_caso": "completa",
+      "canal": "texto (e-mail)",
+      "arquivo": "dados/solicitacoes/SOL-03_estagio_enfermagem.txt",
+      "reaproveitada_desafio01": false,
+      "origem": "Solicitação fictícia criada para o Desafio 02 (tema estágio supervisionado)."
+    },
+    {
+      "id": "SOL-04",
+      "tipo_caso": "completa",
+      "canal": "texto (formulário do site)",
+      "arquivo": "dados/solicitacoes/SOL-04_auxilio_transporte.txt",
+      "reaproveitada_desafio01": false,
+      "origem": "Solicitação fictícia criada para o Desafio 02 (tema assistência estudantil)."
+    },
+    {
+      "id": "SOL-05",
+      "tipo_caso": "incompleta",
+      "canal": "OCR (ficha de matrícula manuscrita digitalizada)",
+      "arquivo": "dados/solicitacoes/SOL-05_leitura_ficha_ocr_desafio01.txt",
+      "reaproveitada_desafio01": true,
+      "arquivo_fonte": "dados/originais/entrada_pdf-imagem.pdf",
+      "origem": "Leitura de referência da ficha digitalizada do Desafio 01, no formato de texto bruto do VisionProcessor, montada por scripts/gerar_acervo_ficticio.py a partir de dados/gabaritos/gabarito_visao.json. A leitura real da imagem pelo gpt-5.6-luna é exercitada na regressão T15."
+    },
+    {
+      "id": "SOL-06",
+      "tipo_caso": "ambigua",
+      "canal": "texto (aplicativo de mensagens)",
+      "arquivo": "dados/solicitacoes/SOL-06_mensagem_ambigua.txt",
+      "reaproveitada_desafio01": false,
+      "origem": "Solicitação fictícia criada para o Desafio 02: mistura reclamação de horário com pedido indefinido entre trancar o curso e se afastar do estágio."
+    }
+  ]
+}

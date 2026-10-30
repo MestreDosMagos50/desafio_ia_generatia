@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "Central Inteligente de Atendimento e Comunicação Institucional",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "institution": "Escola Técnica Estadual de Cuiabá - SECITECI / Governo de Mato Grosso",
     "description": "Solução multimodal de atendimento com inteligência artificial generativa, governança e human-in-the-loop."
   },
@@ -15,7 +15,29 @@
     "resultados_logs": "resultados/logs",
     "prompts": "prompts",
     "testes": "testes",
-    "documentacao": "documentacao"
+    "documentacao": "documentacao",
+    "dados_acervo": "dados/acervo",
+    "dados_solicitacoes": "dados/solicitacoes",
+    "dados_avaliacoes": "dados/avaliacoes",
+    "dados_adversariais": "dados/adversariais",
+    "scripts": "scripts",
+    "resultados_nlp": "resultados/nlp",
+    "resultados_metricas": "resultados/metricas",
+    "resultados_guardrails": "resultados/guardrails",
+    "resultados_indice": "resultados/indice"
+  },
+  "desafio02": {
+    "manifesto_acervo": "dados/acervo/manifesto_acervo.json",
+    "solicitacoes": "dados/solicitacoes/solicitacoes_desafio02.json",
+    "casos_negativos_t01_t02": "dados/solicitacoes/casos_negativos_t01_t02.json",
+    "avaliacoes": "dados/avaliacoes/avaliacoes_atendimento.json",
+    "ataques": "dados/adversariais/ataques_rf16.json",
+    "gabarito_solicitacoes": "dados/gabaritos/gabarito_solicitacoes_rf14_rf15.json",
+    "gabarito_rag": "dados/gabaritos/perguntas_rag_rf18_rf19.json",
+    "gabarito_sentimentos": "dados/gabaritos/gabarito_sentimentos_rf22.json",
+    "gabarito_ataques": "dados/gabaritos/gabarito_ataques_rf16.json",
+    "gerador_acervo": "scripts/gerar_acervo_ficticio.py",
+    "observacao": "Todos os dados do Desafio 02 são fictícios e os gabaritos foram elaborados antes de qualquer chamada ao modelo (Seção 6). Para recriar o acervo: python scripts/gerar_acervo_ficticio.py"
   },
   "arquivos_originais": {
     "texto": "dados/originais/entrada_texto.txt",
@@ -30,7 +52,37 @@
     "dados/originais/entrada_pdf-imagem.pdf": "dados/gabaritos/gabarito_visao.json"
   },
   "llm": {
-    "provider_padrao": "google",
+    "provider_padrao": "openai",
+    "observacao_provedores": "openai é o provedor do Desafio 02 (bloco llm.openai). simulado é o adaptador local sem rede e sem equivalência de qualidade (RF21/T12). google é o Gemini legado do Desafio 01: as chaves abaixo até custo_estimado_por_1k_tokens valem só para ele.",
+    "openai": {
+      "modelo_padrao": "gpt-5.6-luna",
+      "modelo_alternativo": "gpt-5.6-terra",
+      "observacao_modelos": "luna: geração, extração, NLP, RAG e sentimentos. terra: segunda configuração real de geração (RF21), usada só nas 8 perguntas do RAG para conter custo.",
+      "modelo_embedding": "text-embedding-3-small",
+      "dimensao_embedding": 1536,
+      "modelo_moderacao": "omni-moderation-latest",
+      "reasoning_effort_padrao": "low",
+      "max_completion_tokens_padrao": 4000,
+      "observacao_parametros": "Família GPT-5.6 (Aula 08 §3): max_completion_tokens no lugar de max_tokens; temperature e top_p não ajustáveis; reasoning_effort em none|low|medium|high|xhigh. Os tokens de raciocínio saem do mesmo limite da resposta.",
+      "timeout_segundos": 60,
+      "max_tentativas": 2,
+      "espera_inicial_segundos": 2,
+      "observacao_tentativas": "RF16: 1 chamada + no máximo 1 repetição por falha transitória (429 de limite de taxa, 5xx, timeout, rede). O SDK é criado com max_retries=0.",
+      "visao_dpi": 150,
+      "visao_max_paginas": 5,
+      "precos_por_1m_tokens_usd": {
+        "gpt-5.6-luna": {"entrada": 0.20, "saida": 1.20},
+        "gpt-5.6-terra": {"entrada": 2.00, "saida": 12.00},
+        "text-embedding-3-small": {"entrada": 0.02, "saida": 0.0},
+        "omni-moderation-latest": {"entrada": 0.0, "saida": 0.0}
+      },
+      "fonte_precos": "https://developers.openai.com/api/docs/pricing (valores de ago/2026 reproduzidos nas apostilas FIC_DEV, Aulas 08, 09 e 11)",
+      "observacao_precos": "Faixa de contexto curto. A faixa de contexto longo cobra cerca do dobro (luna: US$ 0,40 / US$ 1,80) e não é estimada aqui. Tokens de raciocínio são cobrados como saída. A moderação é gratuita. Conferir a página oficial antes de dimensionar custos."
+    },
+    "simulado": {
+      "modelo": "simulado-deterministico",
+      "observacao": "Adaptador local para testes offline e para a falha controlada do T12. Não chama rede, não mede tokens nem custo e não tem equivalência de qualidade com um modelo real."
+    },
     "modelo_padrao": "gemini-3.8-flash",
     "modelos_alternativos": [
       "gemini-3.5-flash",
@@ -99,7 +151,79 @@
       "CANCELAMENTO_MATRICULA",
       "INFORMACAO_GERAL",
       "OUTROS"
-    ]
+    ],
+    "observacao_categorias_validas": "Lista do Desafio 01 (src/parsers.py). O Desafio 02 usa categorias_desafio02.",
+    "categorias_desafio02": {
+      "MATRICULA_INICIAL": "Pedido de efetivação de matrícula ou dúvida sobre documentos e prazos de matrícula.",
+      "DOCUMENTACAO_PENDENTE": "Entrega ou complementação de documentos de uma matrícula já iniciada.",
+      "CANCELAMENTO_MATRICULA": "Pedido definido de cancelamento, trancamento ou desistência do curso.",
+      "ESTAGIO_SUPERVISIONADO": "Documentação, prazos, turnos e campos do estágio supervisionado.",
+      "ASSISTENCIA_ESTUDANTIL": "Auxílio-transporte, alimentação escolar e outros benefícios ao estudante.",
+      "INFORMACAO_GERAL": "Horários, canais e orientações gerais, sem pedido específico das categorias acima.",
+      "OUTROS": "Pedido claro, mas fora de todas as categorias anteriores.",
+      "REVISAO": "Mais de um assunto sem predominância, pedido indefinido ou conteúdo que exige triagem humana antes de classificar."
+    }
+  },
+  "chunking": {
+    "unidade": "caracteres",
+    "observacao_unidade": "Tamanho e sobreposição em caracteres do conteúdo do trecho; o cabeçalho contextual [documento | título | versão | seção | página] é prefixado depois e não entra na conta. Trechos não cruzam páginas nem seções.",
+    "configuracoes": {
+      "A": {"tamanho": 350, "sobreposicao": 50},
+      "B": {"tamanho": 800, "sobreposicao": 160}
+    },
+    "configuracao_principal": "A",
+    "observacao_escolha": "Escolhida em 30/10/2026 pelo experimento do RF18 (resultados/metricas/comparacao_chunking_rf18.md): as duas acertaram 5/5, mas na pergunta sobre o prazo retificado (RAG-01) a A trouxe o DOC-02 em 1º lugar e a B não trouxe o DOC-02 no top-4, só a redação revogada do DOC-01; a A também teve MRR maior (0,90 x 0,75) e contexto menor (~404 x ~575 tokens). Limitação registrada: na RAG-02 a A dividiu a seção 4 e o início da lista de documentos (item 4.1) ficou fora do top-4.",
+    "top_k": 4
+  },
+  "indice": {
+    "diretorio_base": "indice",
+    "colecao_principal": "acervo_principal",
+    "versao_indice": "1.0.0",
+    "tamanho_lote_embeddings": 128,
+    "limite_tokens_por_texto": 8192,
+    "observacao": "Chroma persistente em indice/chroma (cosseno) e manifesto em indice/manifesto_indice.json. Mudar modelo de embedding, dimensão, chunking ou versao_indice exige reindexação completa. Recriar: python -m src.main --modo indexar."
+  },
+  "rag": {
+    "versao_pipeline": "1.0",
+    "top_k": 4,
+    "vizinhos_por_trecho": 1,
+    "observacao_vizinhos": "Cada trecho do top-k leva junto o anterior e o seguinte da mesma seção (sem cruzar seção nem documento). Corrige a limitação registrada no RF18: na RAG-02 a configuração A partiu a seção 4 e o início do item 4.1 ficou fora do top-4.",
+    "trechos_de_vigencia_por_documento": 2,
+    "observacao_vigencia": "Se o contexto traz trecho de documento retificado (ou de retificador), busca-se com o mesmo vetor da pergunta, sem nova chamada de embedding, até 2 trechos do documento relacionado, para que a redação vigente e a original sejam lidas juntas.",
+    "max_trechos_contexto": 12,
+    "limiar_similaridade": 0.45,
+    "observacao_limiar": "Calibrado em 30/10/2026 (resultados/metricas/calibracao_limiar_rag.md): top-1 com resposta de 0,5315 (RAG-05) a 0,6515; sem resposta de 0,4677 a 0,4961. A regra deu 0,45, que não corta nenhuma das 9 perguntas: um corte em 0,50 separaria os grupos neste conjunto, mas a distância entre eles é de só 0,035 e a RAG-05 ficaria a 0,03 do corte; a abstenção nas perguntas sem resposta é tarefa da guarda 2.",
+    "regra_calibracao_limiar": "O limiar é a rede grosseira da guarda 1 (Aula 12 §4.4) e não pode cortar pergunta com resposta. Valor = maior ponto da grade de 0,05 em 0,05 que fique pelo menos 0,05 abaixo da menor similaridade top-1 entre as perguntas respondíveis e a contraditória. A abstenção fina fica com o contrato do prompt (guarda 2) e com a ancoragem numérica (guarda 3).",
+    "folga_calibracao": 0.05,
+    "margem_minima_top1_topk": 0.02,
+    "observacao_margem": "Diferença entre a similaridade do 1º e do último trecho do top-k abaixo de 0,02 indica candidatos igualmente parecidos (o exemplo da Aula 12 §4.1 errou com margem 0,017): a minuta recebe alerta de revisão humana adicional.",
+    "reasoning_effort": "low",
+    "max_completion_tokens": 3000,
+    "max_palavras_resposta": 150
+  },
+  "guardrails": {
+    "arquivo_politica": "prompts/politica_escopo_e_seguranca_v1.1.txt",
+    "versao_politica": "1.1",
+    "historico_politica": "v1.0 em prompts/politica_escopo_e_seguranca_v1.0.txt (bloqueou a ficha SOL-05 por ler a regra 3 como 'conter dados pessoais'); execução em resultados/guardrails/historico/2026-10-30_politica_v1.0/",
+    "extensoes_permitidas": [".txt", ".pdf", ".mp3", ".png", ".jpg", ".jpeg"],
+    "tamanho_maximo_arquivo_mb": 10,
+    "tamanho_maximo_texto_caracteres": 6000,
+    "max_chamadas_por_execucao": 150,
+    "max_tokens_por_execucao": 400000,
+    "reasoning_effort_classificador": "low",
+    "observacao": "Camadas em ordem de custo (Aula 10 §8): limites e regras locais, moderação (omni-moderation-latest, gratuita), classificador de política (gpt-5.6-luna), conteúdo recuperado e saída. Camada que não pôde executar encaminha à revisão humana; teto de chamadas ou tokens interrompe a execução. Timeout e 1 repetição por falha transitória ficam em llm.openai."
+  },
+  "sentimentos": {
+    "polaridades": ["positiva", "negativa", "neutra", "indeterminada"],
+    "intensidades": ["leve", "moderada", "forte"],
+    "ambiguidades": ["clara", "limitrofe"],
+    "temas": ["atendimento", "prazo_e_demora", "informacao_e_orientacao", "documentacao", "sistema_e_tecnologia", "infraestrutura", "outro"],
+    "minimo_para_percentual": 10,
+    "e_amostra": false,
+    "reasoning_effort": "low",
+    "max_completion_tokens": 2000,
+    "observacao_confianca": "O esquema não pede confiança numérica nem nota decimal: a ambiguidade (clara/limitrofe) é a autodeclaração de incerteza do modelo, tratada como estimativa não calibrada que só orienta a revisão.",
+    "observacao": "Regras de rotulagem em dados/gabaritos/gabarito_sentimentos_rf22.json. O modelo classifica cada avaliação; contagens e percentuais são calculados em código (Aula 14)."
   },
   "extracao": {
     "campos_obrigatorios": [

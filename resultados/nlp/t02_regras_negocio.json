@@ -1,0 +1,51 @@
+[
+  {
+    "id": "T02-A",
+    "decisao_esperada": "BLOQUEAR_MINUTA_E_REVISAR",
+    "decisao_obtida": "BLOQUEAR_MINUTA_E_REVISAR",
+    "alertas_esperados": [
+      "DATA_INVALIDA"
+    ],
+    "alertas_obtidos": [
+      "DATA_INVALIDA"
+    ],
+    "motivo": "O texto original contém data inexistente no calendário: 31/02/2026.; Data inexistente no calendário: 31/02/2026.; Data inexistente no calendário: 31/02/2026.",
+    "registro": "resultados/nlp/extracoes/T02-A.json",
+    "confere": true
+  },
+  {
+    "id": "T02-B",
+    "decisao_esperada": "BLOQUEAR_MINUTA_E_REVISAR",
+    "decisao_obtida": "BLOQUEAR_MINUTA_E_REVISAR",
+    "alertas_esperados": [
+      "NAO_ANCORADO"
+    ],
+    "alertas_obtidos": [
+      "ENTIDADE_SEM_APOIO",
+      "NAO_ANCORADO"
+    ],
+    "motivo": "'2026-000999' não aparece no texto original.; 'Técnico em Enfermagem' não aparece no texto original.",
+    "alertas": [
+      {
+        "codigo": "NAO_ANCORADO",
+        "campo": "protocolo",
+        "mensagem": "'2026-000999' não aparece no texto original.",
+        "bloqueia_minuta": true
+      },
+      {
+        "codigo": "NAO_ANCORADO",
+        "campo": "curso",
+        "mensagem": "'Técnico em Enfermagem' não aparece no texto original.",
+        "bloqueia_minuta": true
+      },
+      {
+        "codigo": "ENTIDADE_SEM_APOIO",
+        "campo": "entidades.protocolos",
+        "mensagem": "Entidades que não aparecem no texto original: 2026-000999.",
+        "bloqueia_minuta": false
+      }
+    ],
+    "observacao": "Regras aplicadas sobre a extração candidata do gabarito; sem chamada ao modelo.",
+    "confere": true
+  }
+]

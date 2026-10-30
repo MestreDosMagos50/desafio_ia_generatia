@@ -1,0 +1,30 @@
+{
+  "versao": "1.0.0",
+  "descricao": "Doze avaliações fictícias de atendimentos da Secretaria Escolar (Seção 6 e RF22). Os textos não identificam servidores nem cidadãos reais. O rótulo esperado de cada uma está em dados/gabaritos/gabarito_sentimentos_rf22.json.",
+  "avaliacoes": [
+    {"id": "AV-01", "atendimento_id": "ATD-2026-0301", "data": "2026-10-05", "canal": "presencial",
+     "texto": "A atendente explicou com calma todos os documentos da matrícula e resolveu tudo em poucos minutos. Excelente atendimento!"},
+    {"id": "AV-02", "atendimento_id": "ATD-2026-0302", "data": "2026-10-06", "canal": "e-mail",
+     "texto": "Pedi a declaração de matrícula pelo e-mail e recebi no mesmo dia. Muito prático."},
+    {"id": "AV-03", "atendimento_id": "ATD-2026-0303", "data": "2026-10-07", "canal": "presencial",
+     "texto": "Gostei do atendimento na secretaria, fui bem orientado sobre o auxílio-transporte."},
+    {"id": "AV-04", "atendimento_id": "ATD-2026-0304", "data": "2026-10-08", "canal": "presencial",
+     "texto": "Fiquei mais de duas horas na fila e no fim disseram que o sistema estava fora do ar. Um descaso com quem trabalha."},
+    {"id": "AV-05", "atendimento_id": "ATD-2026-0305", "data": "2026-10-09", "canal": "telefone",
+     "texto": "A informação passada por telefone estava errada e por isso perdi o prazo para entregar o termo do estágio."},
+    {"id": "AV-06", "atendimento_id": "ATD-2026-0306", "data": "2026-10-13", "canal": "e-mail",
+     "texto": "Solicito, por gentileza, um retorno sobre o pedido de histórico escolar que fiz há 20 dias e que ainda não foi entregue."},
+    {"id": "AV-07", "atendimento_id": "ATD-2026-0307", "data": "2026-10-14", "canal": "formulario_site",
+     "texto": "Gostaria de saber se a declaração de matrícula também pode ser retirada por um familiar."},
+    {"id": "AV-08", "atendimento_id": "ATD-2026-0308", "data": "2026-10-15", "canal": "formulario_site",
+     "texto": "Sugiro colocar na entrada do bloco um aviso com o horário de funcionamento da secretaria."},
+    {"id": "AV-09", "atendimento_id": "ATD-2026-0309", "data": "2026-10-16", "canal": "presencial",
+     "texto": "Fui atendido no guichê 2 e recebi o número de protocolo do pedido."},
+    {"id": "AV-10", "atendimento_id": "ATD-2026-0310", "data": "2026-10-19", "canal": "aplicativo",
+     "texto": "Parabéns pela agilidade: só precisei voltar quatro vezes para entregar o mesmo documento."},
+    {"id": "AV-11", "atendimento_id": "ATD-2026-0311", "data": "2026-10-20", "canal": "presencial",
+     "texto": "A atendente foi muito atenciosa e resolveu minha dúvida, mas o sistema caiu duas vezes e perdi a manhã inteira."},
+    {"id": "AV-12", "atendimento_id": "ATD-2026-0312", "data": "2026-10-21", "canal": "aplicativo",
+     "texto": "Foi como eu esperava."}
+  ]
+}

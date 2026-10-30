@@ -3,10 +3,10 @@
 """
 ==============================================================================
 CENTRAL INTELIGENTE DE ATENDIMENTO E COMUNICAÇÃO INSTITUCIONAL
-FIC_DEV - Programa Programador de Sistemas com IA - Desafio Prático 1
+FIC_DEV - Programa Programador de Sistemas com IA - Desafios Práticos 1 e 2
 ==============================================================================
 Ponto de entrada unificado da aplicação (executável via: python -m src.main)
-Atende aos requisitos RF01, RF05, RF06, RF07, RF08, RF09, RF10, RF11 e RF13.
+Atende aos requisitos RF01, RF05, RF06, RF07, RF08, RF09, RF10, RF11, RF13 e RF21.
 ==============================================================================
 """
 
@@ -44,6 +44,11 @@ BIBLIOTECAS_PRINCIPAIS = [
     "pypdf",
     "python-docx",
     "pytest",
+    "openai",
+    "chromadb",
+    "pymupdf",
+    "streamlit",
+    "pandas",
 ]
 
 
@@ -129,11 +134,23 @@ def verificar_ambiente(config: dict) -> bool:
         print(f"  - Provedor: {cliente.provedor} | Modelo: {cliente.modelo} | Timeout: {cliente.timeout} s")
         if cliente.disponivel:
             provedor_ok = True
-            print("  - GEMINI_API_KEY: configurada (valor não exibido; a validade é confirmada na primeira chamada)")
+            if cliente.variavel_chave:
+                print(f"  - {cliente.variavel_chave}: configurada (valor não exibido; a validade é confirmada "
+                      "na primeira chamada ou com --testar-conexao)")
+            else:
+                print("  - Adaptador simulado: sem chave e sem rede (sem equivalência de qualidade)")
         else:
             print(f"  - INDISPONÍVEL: {cliente.motivo_indisponibilidade}")
     except ImportError as e:
         print(f"  - Não foi possível carregar o cliente de IA: {e}")
+    try:
+        from src.embeddings import diagnosticar_indice
+        situacao, detalhe = diagnosticar_indice(config)
+        print(f"  - Índice vetorial (RF17): {situacao} - {detalhe}")
+        if situacao in ("INCONSISTENTE", "INCOMPATIVEL", "AUSENTE"):
+            print("    Recrie com: python -m src.main --modo indexar (as exclusões registradas no manifesto continuam valendo)")
+    except Exception as e:  # diagnóstico informativo: não interrompe a checagem
+        print(f"  - Índice vetorial (RF17): não verificado ({type(e).__name__})")
 
     print("\n" + "=" * 70)
     sucesso = todos_diretorios_ok and todos_arquivos_ok and todas_bibliotecas_ok
@@ -153,10 +170,101 @@ def exibir_info(config: dict):
     print(f"  Versão: {app.get('version')} | {app.get('institution')}")
     print("=" * 70)
     print(f"Descrição: {app.get('description')}")
-    print(f"Provedor LLM: {llm.get('provider_padrao')} | Modelo: {os.getenv('GEMINI_MODEL', llm.get('modelo_padrao'))}")
+    from src.llm_client import LLMClient
+    cliente = LLMClient()
+    print(f"Provedor LLM: {cliente.provedor} | Modelo: {cliente.modelo}")
+    if cliente.provedor == "openai":
+        openai_cfg = llm.get("openai", {})
+        print(f"Segunda configuração (RF21): {cliente.adaptador.modelo_alternativo} | "
+              f"Embeddings: {cliente.adaptador.modelo_embedding} | Moderação: {cliente.adaptador.modelo_moderacao}")
+        print(f"Repetições por falha transitória: {openai_cfg.get('max_tentativas', 2) - 1} | Timeout: {cliente.timeout} s")
     print(f"Voz TTS Padrão: {config.get('audio', {}).get('tts_voz_padrao')}")
     print(f"Categorias: {', '.join(config.get('classificacao', {}).get('categorias_validas', []))}")
     print("=" * 70)
+
+
+def testar_conexao() -> bool:
+    """
+    Confere a chave da OpenAI com chamadas mínimas (frações de centavo de dólar): geração no modelo
+    principal, saída estruturada, segunda configuração (RF21), embeddings e moderação. A chave nunca é exibida.
+    """
+    from typing import Literal
+    from pydantic import BaseModel, ConfigDict, ValidationError
+    from src.llm_client import LLMClient
+
+    print("=" * 70)
+    print("  TESTE DE CONEXÃO COM O PROVEDOR DE IA")
+    print("=" * 70)
+    cliente = LLMClient()
+    print(f"• Provedor: {cliente.provedor} | Modelo principal: {cliente.modelo}")
+    if cliente.provedor != "openai":
+        print(f"  O teste de conexão vale para LLM_PROVIDER=openai (provedor ativo: {cliente.provedor}).")
+        return False
+    if not cliente.disponivel:
+        print(f"  [INDISPONÍVEL] {cliente.motivo_indisponibilidade}")
+        return False
+    adaptador = cliente.adaptador
+
+    class Eco(BaseModel):
+        model_config = ConfigDict(extra="forbid")
+        status: Literal["OK"]
+
+    def relatar(indice: int, nome: str, resposta, detalhe: str = "", ok: bool = True) -> bool:
+        if resposta.sucesso and ok:
+            tokens = (f" | tokens: {resposta.tokens_prompt} entrada, {resposta.tokens_resposta} saída, "
+                      f"{resposta.tokens_raciocinio} raciocínio" if resposta.tokens_prompt is not None else "")
+            custo = f" | US$ {resposta.custo_estimado_usd:.6f}" if resposta.custo_estimado_usd is not None else ""
+            print(f"[{indice}/5] {nome}: OK ({resposta.latencia_ms:.0f} ms{tokens}{custo}){detalhe}")
+            return True
+        motivo = f"{resposta.codigo_erro}: {resposta.erro}" if not resposta.sucesso else detalhe
+        print(f"[{indice}/5] {nome}: FALHA — {motivo}")
+        return False
+
+    resultados = []
+    pedido = "Teste de conexão da Central de Atendimento. Responda apenas: OK"
+    r1 = cliente.gerar(pedido, reasoning_effort="none", max_completion_tokens=200)
+    resultados.append(relatar(1, f"Geração ({cliente.modelo})", r1, f" | resposta: {r1.conteudo.strip()[:40]!r}"))
+
+    r2 = cliente.gerar("Teste de conexão. Preencha o campo status com OK.", schema=Eco,
+                       reasoning_effort="none", max_completion_tokens=200)
+    estruturada_ok = False
+    if r2.sucesso:
+        try:
+            estruturada_ok = Eco.model_validate_json(r2.conteudo).status == "OK"
+        except ValidationError:
+            pass
+    resultados.append(relatar(2, "Saída estruturada (esquema estrito)", r2,
+                              "" if estruturada_ok else "a resposta não seguiu o esquema", ok=estruturada_ok))
+
+    r3 = cliente.gerar(pedido, modelo=adaptador.modelo_alternativo, reasoning_effort="none", max_completion_tokens=200)
+    resultados.append(relatar(3, f"Segunda configuração ({adaptador.modelo_alternativo})", r3,
+                              f" | resposta: {r3.conteudo.strip()[:40]!r}"))
+
+    dimensao = cliente.llm_cfg.get("openai", {}).get("dimensao_embedding", 1536)
+    vetores, r4 = adaptador.chamar_servico(
+        "embeddings",
+        lambda c: c.embeddings.create(model=adaptador.modelo_embedding, input=["Teste de conexão da Central de Atendimento."]),
+        adaptador.modelo_embedding
+    )
+    obtida = len(vetores.data[0].embedding) if vetores is not None else None
+    resultados.append(relatar(4, f"Embeddings ({adaptador.modelo_embedding})", r4,
+                              f" | dimensão {obtida}" if obtida == dimensao else f"dimensão {obtida}, esperada {dimensao}",
+                              ok=obtida == dimensao))
+
+    moderacao, r5 = adaptador.chamar_servico(
+        "moderacao",
+        lambda c: c.moderations.create(model=adaptador.modelo_moderacao, input="Qual o horário de atendimento da secretaria?"),
+        adaptador.modelo_moderacao
+    )
+    sinalizada = moderacao.results[0].flagged if moderacao is not None else None
+    resultados.append(relatar(5, f"Moderação ({adaptador.modelo_moderacao})", r5, f" | pergunta legítima sinalizada: {sinalizada}"))
+
+    custo_total = sum(r.custo_estimado_usd or 0.0 for r in (r1, r2, r3, r4, r5))
+    print("\n" + "=" * 70)
+    print(f"  RESULTADO: {sum(resultados)}/5 verificações OK | custo estimado total: US$ {custo_total:.6f}")
+    print("  A chave não foi exibida nem gravada em log.")
+    print("=" * 70)
+    return all(resultados)
 
 
 def _ms(inicio: float) -> float:
@@ -560,12 +668,17 @@ def _encerrar(pendencias: List[str], auto_demo: bool) -> bool:
 def parse_arguments():
     """Configura argumentos da linha de comando."""
     parser = argparse.ArgumentParser(
-        description="Central Inteligente de Atendimento e Comunicação Institucional (FIC_DEV - Desafio 1)"
+        description="Central Inteligente de Atendimento e Comunicação Institucional (FIC_DEV - Desafios 1 e 2)"
     )
     parser.add_argument(
         "--check-env",
         action="store_true",
         help="Executa diagnóstico completo da estrutura, arquivos originais e dependências (RF01)"
+    )
+    parser.add_argument(
+        "--testar-conexao",
+        action="store_true",
+        help="Confere a chave da OpenAI com 5 chamadas mínimas: geração, esquema estrito, 2ª configuração, embeddings e moderação"
     )
     parser.add_argument(
         "--info",
@@ -574,9 +687,33 @@ def parse_arguments():
     )
     parser.add_argument(
         "--modo",
-        choices=["texto", "audio", "visao", "cartaz", "completo", "experimento-prompts"],
+        choices=["texto", "audio", "visao", "cartaz", "completo", "experimento-prompts", "avaliar-nlp", "avaliar-guardrails",
+                 "indexar", "experimento-chunking", "buscar", "demonstrar-exclusao", "calibrar-limiar", "avaliar-rag",
+                 "responder", "sentimentos", "comparar-geracao", "regressao", "avaliacao-integrada"],
         default="completo",
-        help="Etapas: texto, audio, visao, cartaz (peça visual, RF10), completo (todas + cartaz) ou experimento-prompts (RF02)"
+        help="Etapas: texto, audio, visao, cartaz (peça visual, RF10), completo (todas + cartaz), experimento-prompts (RF02), "
+             "avaliar-nlp (RF14, RF15), avaliar-guardrails (RF16), indexar (índice vetorial persistente; RF17, T06), "
+             "experimento-chunking (RF18, T07), buscar (busca exploratória com --consulta), demonstrar-exclusao (RF24, T14), "
+             "calibrar-limiar (limiar de similaridade do RAG), avaliar-rag (RF19: T08, T09, T10), responder "
+             "(RAG com fontes para --consulta), sentimentos (RF22: 12 avaliações), comparar-geracao (RF21, T12: terra no mesmo "
+             "índice), regressao (T15: texto e OCR do Desafio 01) ou avaliacao-integrada (matriz T01-T15 e métricas do RF23). "
+             "Interface: streamlit run src/app.py"
+    )
+    parser.add_argument(
+        "--consulta",
+        metavar="TEXTO",
+        help="Pergunta para --modo buscar ou --modo responder"
+    )
+    parser.add_argument(
+        "--top-k",
+        type=int,
+        metavar="N",
+        help="Quantidade de trechos em --modo buscar (padrão: chunking.top_k do config.json)"
+    )
+    parser.add_argument(
+        "--reexecutar",
+        action="store_true",
+        help="Com --modo avaliacao-integrada: roda de novo os modos de avaliação (cerca de 120 chamadas) antes de consolidar"
     )
     parser.add_argument(
         "--entrada-texto",
@@ -598,7 +735,7 @@ def configurar_logging():
         nivel = logging.WARNING
     logging.basicConfig(level=nivel, format="%(levelname)s [%(name)s] %(message)s")
     # Bibliotecas de rede registram cada requisição em INFO; mantidas em WARNING
-    for nome in ("httpx", "httpcore", "google_genai"):
+    for nome in ("httpx", "httpx2", "httpcore", "google_genai", "openai"):
         logging.getLogger(nome).setLevel(logging.WARNING)
 
 
@@ -616,6 +753,9 @@ def main():
         sucesso = verificar_ambiente(config)
         sys.exit(0 if sucesso else 1)
 
+    if args.testar_conexao:
+        sys.exit(0 if testar_conexao() else 1)
+
     if args.info:
         exibir_info(config)
         sys.exit(0)
@@ -623,6 +763,52 @@ def main():
     if args.modo == "experimento-prompts":
         from testes.executar_experimento_prompts import executar_experimento
         sys.exit(0 if executar_experimento() else 1)
+
+    if args.modo == "avaliar-nlp":
+        from src.nlp import executar_avaliacao_nlp
+        sys.exit(0 if executar_avaliacao_nlp(config) else 1)
+
+    if args.modo == "avaliar-guardrails":
+        from src.guardrails import executar_avaliacao_guardrails
+        sys.exit(0 if executar_avaliacao_guardrails(config) else 1)
+
+    if args.modo in ("indexar", "experimento-chunking", "buscar", "demonstrar-exclusao"):
+        from src import embeddings
+        if args.modo == "buscar" and not args.consulta:
+            print("[ERRO] Informe a pergunta com --consulta \"texto\".", file=sys.stderr)
+            sys.exit(1)
+        executar = {
+            "indexar": lambda: embeddings.executar_indexacao(config),
+            "experimento-chunking": lambda: embeddings.executar_experimento_chunking(config),
+            "buscar": lambda: embeddings.executar_busca(config, args.consulta, args.top_k),
+            "demonstrar-exclusao": lambda: embeddings.demonstrar_exclusao(config),
+        }[args.modo]
+        sys.exit(0 if executar() else 1)
+
+    if args.modo in ("comparar-geracao", "regressao", "avaliacao-integrada"):
+        from src import avaliacao
+        executar = {
+            "comparar-geracao": lambda: avaliacao.executar_comparativo_geracao(config),
+            "regressao": lambda: avaliacao.executar_regressao(config, auto_demo=args.demo_avaliacao_humana),
+            "avaliacao-integrada": lambda: avaliacao.executar_avaliacao_integrada(config, reexecutar=args.reexecutar),
+        }[args.modo]
+        sys.exit(0 if executar() else 1)
+
+    if args.modo == "sentimentos":
+        from src.sentiment import executar_classificacao_sentimentos
+        sys.exit(0 if executar_classificacao_sentimentos(config) else 1)
+
+    if args.modo in ("calibrar-limiar", "avaliar-rag", "responder"):
+        from src import rag
+        if args.modo == "responder" and not args.consulta:
+            print("[ERRO] Informe a pergunta com --consulta \"texto\".", file=sys.stderr)
+            sys.exit(1)
+        executar = {
+            "calibrar-limiar": lambda: rag.executar_calibracao_limiar(config),
+            "avaliar-rag": lambda: rag.executar_avaliacao_rag(config),
+            "responder": lambda: rag.executar_consulta_rag(config, args.consulta),
+        }[args.modo]
+        sys.exit(0 if executar() else 1)
 
     if args.entrada_texto and not (RAIZ_PROJETO / args.entrada_texto).is_file():
         print(f"[ERRO] Arquivo de entrada não encontrado: {args.entrada_texto}", file=sys.stderr)

@@ -1,0 +1,138 @@
+{
+  "cabecalho": "GOVERNO DO MATO GROSSO\nSECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO - SECITECI/MT\nESCOLA TÉCNICA ESTADUAL DE CUIABÁ\nFICHA DE MATRÍCULA",
+  "codigo": {
+    "valor_lido": "2024-000142",
+    "valor_corrigido": "2024-000142",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "nome": {
+    "valor_lido": "MARCOS VINTIUS DE ALMEIDA SANTOS",
+    "valor_corrigido": "MARCOS VINTIUS DE ALMEIDA SANTOS",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "data_nascimento": {
+    "valor_lido": "12/09/2008",
+    "valor_corrigido": "12/09/2008",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "cpf": {
+    "valor_lido": "123.456.789-00",
+    "valor_corrigido": "123.456.789-00",
+    "situacao": "INCERTO",
+    "observacao": "A sequência final após 789 parece conter um hífen e dois zeros, mas a escrita está sobreposta e pode aparentar outros dígitos."
+  },
+  "rg": {
+    "valor_lido": "12.456.7-8",
+    "valor_corrigido": "12.456.7-8",
+    "situacao": "INCERTO",
+    "observacao": "O último trecho do número está pouco definido; pode ser lido como 7-8."
+  },
+  "orgao_expedidor": {
+    "valor_lido": "",
+    "valor_corrigido": "não localizado",
+    "situacao": "EM_BRANCO",
+    "observacao": ""
+  },
+  "naturalidade": {
+    "valor_lido": "CUIABÁ",
+    "valor_corrigido": "Cuiabá",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "uf": {
+    "valor_lido": "",
+    "valor_corrigido": "não localizado",
+    "situacao": "EM_BRANCO",
+    "observacao": ""
+  },
+  "nome_mae": {
+    "valor_lido": "LUCIA HELENA DE ALMEIDA SANTOS",
+    "valor_corrigido": "LUCIA HELENA DE ALMEIDA SANTOS",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "nome_pai": {
+    "valor_lido": "",
+    "valor_corrigido": "não localizado",
+    "situacao": "EM_BRANCO",
+    "observacao": ""
+  },
+  "curso": {
+    "valor_lido": "TECNICO EM ENFERMAGEM",
+    "valor_corrigido": "TÉCNICO EM ENFERMAGEM",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "carga_horaria": {
+    "valor_lido": "1200 HORAS",
+    "valor_corrigido": "1200 HORAS",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "eixo_tecnologico": {
+    "valor_lido": "SAUDE",
+    "valor_corrigido": "SAÚDE",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "turma": {
+    "valor_lido": "",
+    "valor_corrigido": "não localizado",
+    "situacao": "EM_BRANCO",
+    "observacao": ""
+  },
+  "municipio": {
+    "valor_lido": "",
+    "valor_corrigido": "não localizado",
+    "situacao": "EM_BRANCO",
+    "observacao": ""
+  },
+  "turno": {
+    "valor_lido": "NOTURNO",
+    "valor_corrigido": "NOTURNO",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "inicio_curso": {
+    "valor_lido": "01/02/2027",
+    "valor_corrigido": "01/02/2027",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "termino_curso": {
+    "valor_lido": "",
+    "valor_corrigido": "não localizado",
+    "situacao": "EM_BRANCO",
+    "observacao": ""
+  },
+  "telefone_celular": {
+    "valor_lido": "",
+    "valor_corrigido": "não localizado",
+    "situacao": "EM_BRANCO",
+    "observacao": ""
+  },
+  "telefone_residencial": {
+    "valor_lido": "",
+    "valor_corrigido": "não localizado",
+    "situacao": "EM_BRANCO",
+    "observacao": ""
+  },
+  "email": {
+    "valor_lido": "MARCOS.ALMEIDA.TESTE@EXEMPLO.COM",
+    "valor_corrigido": "MARCOS.ALMEIDA.TESTE@EXEMPLO.COM",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "data_matricula": {
+    "valor_lido": "14/10/2026",
+    "valor_corrigido": "14/10/2026",
+    "situacao": "LEGIVEL",
+    "observacao": ""
+  },
+  "termo_ciencia_faltas_marcado": true,
+  "assinatura_aluno_presente": true,
+  "assinatura_secretaria_presente": false
+}

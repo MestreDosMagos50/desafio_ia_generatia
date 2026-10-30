@@ -1,0 +1,21 @@
+MINUTA PARA REVISÃO HUMANA - envio automático bloqueado
+Status: SEM_EVIDENCIA_SUFICIENTE
+Encaminhamento: REVISAO_HUMANA_PRIORITARIA
+
+Resposta proposta:
+SEM_EVIDENCIA_SUFICIENTE: Não foram encontradas evidências suficientes no acervo institucional indexado para fundamentar a resposta. Solicitação encaminhada para revisão humana.
+
+Alertas para o operador:
+- DECISAO_DA_EXTRACAO: ENCAMINHAR_REVISAO_HUMANA (Nenhum pedido escrito.)
+
+Trechos consultados:
+[1] (DOC-01, v1.0, p. 1, seção 2) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: busca
+[2] (DOC-01, v1.0, p. 1, seção 2) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vizinho
+[3] (DOC-01, v1.0, p. 2, seção 4) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: busca
+[4] (DOC-01, v1.0, p. 2, seção 4) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vizinho
+[5] (DOC-01, v1.0, p. 2, seção 4) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: busca
+[6] (DOC-01, v1.0, p. 2, seção 4) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: busca
+[7] (DOC-02, v1.0, p. 1, Art. 1º) Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026 | não citado | origem: vigencia
+[8] (DOC-02, v1.0, p. 1, Art. 1º) Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026 | não citado | origem: vigencia
+
+Conteúdo gerado com apoio de IA (openai/gpt-5.6-luna; PROMPT_RAG v1.0). Confira cada citação na passagem original antes de aprovar.

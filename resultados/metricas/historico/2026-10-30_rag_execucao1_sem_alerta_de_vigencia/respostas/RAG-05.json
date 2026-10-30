@@ -1,0 +1,221 @@
+{
+  "id_caso": "RAG-05",
+  "pergunta": "Moro em Várzea Grande, longe da escola. Tenho direito a alguma ajuda para pagar o ônibus?",
+  "status": "FUNDAMENTADA",
+  "resposta": "Sim, estudantes de outros municípios podem pedir o auxílio-transporte; o critério é a distância entre a residência e a unidade escolar, não o município de residência. (DOC-06, v1.0, seção 1) Para ter direito, é necessário estar regularmente matriculado, residir a mais de 3 (três) quilômetros da escola e ter renda familiar per capita de até 1,5 (um e meio) salário mínimo. (DOC-06, v1.0, seção 1) O auxílio corresponde a R$ 150,00 (cento e cinquenta reais) mensais, pagos durante os meses letivos. (DOC-06, v1.0, seção 1)",
+  "codigo_motivo": "FUNDAMENTADA",
+  "motivo": "Resposta sustentada pelos trechos citados; o operador confere e aprova.",
+  "encaminhamento": "CONFERENCIA_E_APROVACAO_HUMANA",
+  "fontes": [
+    {
+      "n": 1,
+      "rotulo": "DOC-06, v1.0, seção 1",
+      "citado": true,
+      "origem": "busca",
+      "chunk_id": "DOC-06::A::txt::t001",
+      "doc_id": "DOC-06",
+      "titulo": "Perguntas Frequentes Fictícias - Assistência Estudantil e Declarações",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "1. AUXÍLIO-TRANSPORTE",
+      "similaridade_cosseno": 0.5314,
+      "neutralizado": false,
+      "trecho": "1. AUXÍLIO-TRANSPORTE\n1.1. Quem pode pedir o auxílio-transporte?\nPode pedir o auxílio-transporte o estudante regularmente matriculado que resida a mais de 3 (três) quilômetros da unidade escolar e tenha renda familiar per capita de até 1,5 (um e meio) salário mínimo.\n1.2. Qual é o valor do auxílio-transporte?"
+    },
+    {
+      "n": 2,
+      "rotulo": "DOC-06, v1.0, seção 1",
+      "citado": true,
+      "origem": "busca",
+      "chunk_id": "DOC-06::A::txt::t002",
+      "doc_id": "DOC-06",
+      "titulo": "Perguntas Frequentes Fictícias - Assistência Estudantil e Declarações",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "1. AUXÍLIO-TRANSPORTE",
+      "similaridade_cosseno": 0.5083,
+      "neutralizado": false,
+      "trecho": "1.2. Qual é o valor do auxílio-transporte?\nO auxílio-transporte corresponde a R$ 150,00 (cento e cinquenta reais) mensais, pagos durante os meses letivos.\n1.3. Como faço o pedido?"
+    },
+    {
+      "n": 3,
+      "rotulo": "DOC-06, v1.0, seção 1",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-06::A::txt::t003",
+      "doc_id": "DOC-06",
+      "titulo": "Perguntas Frequentes Fictícias - Assistência Estudantil e Declarações",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "1. AUXÍLIO-TRANSPORTE",
+      "similaridade_cosseno": 0.5096,
+      "neutralizado": false,
+      "trecho": "os meses letivos.\n1.3. Como faço o pedido?\nO pedido é feito na Secretaria Escolar, com o formulário de solicitação, o comprovante de residência e a declaração de renda familiar, nos primeiros 30 (trinta) dias de cada semestre letivo.\n1.4. Estudantes de outros municípios podem pedir o auxílio?\nSim."
+    },
+    {
+      "n": 4,
+      "rotulo": "DOC-06, v1.0, seção 1",
+      "citado": true,
+      "origem": "busca",
+      "chunk_id": "DOC-06::A::txt::t004",
+      "doc_id": "DOC-06",
+      "titulo": "Perguntas Frequentes Fictícias - Assistência Estudantil e Declarações",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "1. AUXÍLIO-TRANSPORTE",
+      "similaridade_cosseno": 0.5306,
+      "neutralizado": false,
+      "trecho": "de outros municípios podem pedir o auxílio?\nSim. O critério é a distância entre a residência e a unidade escolar, e não o município de residência."
+    }
+  ],
+  "afirmacoes": [
+    {
+      "texto": "Estudantes de outros municípios podem pedir o auxílio-transporte, considerando-se a distância entre a residência e a unidade escolar, e não o município de residência.",
+      "trechos": [
+        4
+      ],
+      "citacoes": [
+        {
+          "rotulo": "DOC-06, v1.0, seção 1",
+          "chunk_id": "DOC-06::A::txt::t004",
+          "doc_id": "DOC-06",
+          "versao": "1.0",
+          "pagina": null,
+          "secao": "1. AUXÍLIO-TRANSPORTE",
+          "trecho": "de outros municípios podem pedir o auxílio?\nSim. O critério é a distância entre a residência e a unidade escolar, e não o município de residência."
+        }
+      ],
+      "numeros_fora_do_trecho_citado": []
+    },
+    {
+      "texto": "É necessário estar regularmente matriculado, residir a mais de 3 (três) quilômetros da unidade escolar e ter renda familiar per capita de até 1,5 (um e meio) salário mínimo.",
+      "trechos": [
+        1
+      ],
+      "citacoes": [
+        {
+          "rotulo": "DOC-06, v1.0, seção 1",
+          "chunk_id": "DOC-06::A::txt::t001",
+          "doc_id": "DOC-06",
+          "versao": "1.0",
+          "pagina": null,
+          "secao": "1. AUXÍLIO-TRANSPORTE",
+          "trecho": "1. AUXÍLIO-TRANSPORTE\n1.1. Quem pode pedir o auxílio-transporte?\nPode pedir o auxílio-transporte o estudante regularmente matriculado que resida a mais de 3 (três) quilômetros da unidade escolar e tenha renda familiar per capita de até 1,5 (um e meio) salário mínimo.\n1.2. Qual é o valor do auxílio-transporte?"
+        }
+      ],
+      "numeros_fora_do_trecho_citado": []
+    },
+    {
+      "texto": "O auxílio-transporte corresponde a R$ 150,00 (cento e cinquenta reais) mensais, pagos durante os meses letivos.",
+      "trechos": [
+        2
+      ],
+      "citacoes": [
+        {
+          "rotulo": "DOC-06, v1.0, seção 1",
+          "chunk_id": "DOC-06::A::txt::t002",
+          "doc_id": "DOC-06",
+          "versao": "1.0",
+          "pagina": null,
+          "secao": "1. AUXÍLIO-TRANSPORTE",
+          "trecho": "1.2. Qual é o valor do auxílio-transporte?\nO auxílio-transporte corresponde a R$ 150,00 (cento e cinquenta reais) mensais, pagos durante os meses letivos.\n1.3. Como faço o pedido?"
+        }
+      ],
+      "numeros_fora_do_trecho_citado": []
+    }
+  ],
+  "divergencias": [],
+  "alertas": [],
+  "guardas": {
+    "1_limiar": {
+      "decisao": "SEGUE",
+      "detalhe": "top-1 0.5314 >= limiar 0.45"
+    },
+    "camada2_conteudo_recuperado": {
+      "decisao": "PERMITIR",
+      "detalhe": "Nenhum trecho suspeito."
+    },
+    "2_contrato": {
+      "decisao": "SEGUE",
+      "detalhe": "status FUNDAMENTADA com citações válidas"
+    },
+    "camada3_saida": {
+      "decisao": "PERMITIR",
+      "detalhe": "Saída sem achados."
+    },
+    "3_ancoragem": {
+      "decisao": "SEGUE",
+      "detalhe": "todos os números constam dos trechos ou da mensagem"
+    }
+  },
+  "recuperacao": {
+    "top_k": 4,
+    "limiar": 0.45,
+    "explicacao": "Similaridade de cosseno entre o vetor da pergunta e o do trecho (1 - distância de cosseno do Chroma): perto de 1, sentidos próximos; perto de 0, sem relação. Mede proximidade de sentido, não veracidade nem vigência do trecho.",
+    "similaridade_top1": 0.5314,
+    "similaridade_topk": 0.5083,
+    "margem_top1_topk": 0.0231,
+    "margem_minima": 0.02,
+    "margem_estreita": false,
+    "ids_top_k": [
+      "DOC-06::A::txt::t001",
+      "DOC-06::A::txt::t004",
+      "DOC-06::A::txt::t003",
+      "DOC-06::A::txt::t002"
+    ],
+    "duracao_total_ms": 5987.8
+  },
+  "saida_modelo": {
+    "status": "FUNDAMENTADA",
+    "resposta": "Sim, estudantes de outros municípios podem pedir o auxílio-transporte; o critério é a distância entre a residência e a unidade escolar, não o município de residência. [4] Para ter direito, é necessário estar regularmente matriculado, residir a mais de 3 (três) quilômetros da escola e ter renda familiar per capita de até 1,5 (um e meio) salário mínimo. [1] O auxílio corresponde a R$ 150,00 (cento e cinquenta reais) mensais, pagos durante os meses letivos. [2]",
+    "afirmacoes": [
+      {
+        "texto": "Estudantes de outros municípios podem pedir o auxílio-transporte, considerando-se a distância entre a residência e a unidade escolar, e não o município de residência.",
+        "trechos": [
+          4
+        ]
+      },
+      {
+        "texto": "É necessário estar regularmente matriculado, residir a mais de 3 (três) quilômetros da unidade escolar e ter renda familiar per capita de até 1,5 (um e meio) salário mínimo.",
+        "trechos": [
+          1
+        ]
+      },
+      {
+        "texto": "O auxílio-transporte corresponde a R$ 150,00 (cento e cinquenta reais) mensais, pagos durante os meses letivos.",
+        "trechos": [
+          2
+        ]
+      }
+    ],
+    "divergencias": [],
+    "alerta": null
+  },
+  "provedor": "openai",
+  "modelo": "gpt-5.6-luna",
+  "prompt": {
+    "id": "PROMPT_RAG",
+    "versao": "1.0"
+  },
+  "versao_esquema": "1.0.0",
+  "versao_indice": "1.0.0",
+  "colecao": "acervo_principal",
+  "configuracao_chunking": "A",
+  "chamadas": [
+    {
+      "etapa": "rag_geracao",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 5980.9,
+      "tokens_total": 2374,
+      "custo_estimado_usd": 0.0007558
+    }
+  ],
+  "minuta": "MINUTA PARA REVISÃO HUMANA - envio automático bloqueado\nStatus: FUNDAMENTADA\nEncaminhamento: CONFERENCIA_E_APROVACAO_HUMANA\n\nResposta proposta:\nSim, estudantes de outros municípios podem pedir o auxílio-transporte; o critério é a distância entre a residência e a unidade escolar, não o município de residência. (DOC-06, v1.0, seção 1) Para ter direito, é necessário estar regularmente matriculado, residir a mais de 3 (três) quilômetros da escola e ter renda familiar per capita de até 1,5 (um e meio) salário mínimo. (DOC-06, v1.0, seção 1) O auxílio corresponde a R$ 150,00 (cento e cinquenta reais) mensais, pagos durante os meses letivos. (DOC-06, v1.0, seção 1)\n\nTrechos consultados:\n[1] (DOC-06, v1.0, seção 1) Perguntas Frequentes Fictícias - Assistência Estudantil e Declarações | citado | origem: busca\n[2] (DOC-06, v1.0, seção 1) Perguntas Frequentes Fictícias - Assistência Estudantil e Declarações | citado | origem: busca\n[3] (DOC-06, v1.0, seção 1) Perguntas Frequentes Fictícias - Assistência Estudantil e Declarações | não citado | origem: busca\n[4] (DOC-06, v1.0, seção 1) Perguntas Frequentes Fictícias - Assistência Estudantil e Declarações | citado | origem: busca\n\nConteúdo gerado com apoio de IA (openai/gpt-5.6-luna; PROMPT_RAG v1.0). Confira cada citação na passagem original antes de aprovar.",
+  "status_revisao": "PENDENTE_REVISAO_HUMANA",
+  "envio_automatico_bloqueado": true,
+  "registrado_em": "2026-10-30T12:13:25"
+}

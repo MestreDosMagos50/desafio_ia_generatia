@@ -1,0 +1,778 @@
+{
+  "gerado_em": "2026-10-30T10:42:03",
+  "modelo_embedding": "text-embedding-3-small",
+  "top_k": 4,
+  "perguntas_respondiveis": 5,
+  "criterio_de_escolha": "1) maior acerto de recuperação; 2) mais referências essenciais no top-k; 3) maior MRR; 4) mais cláusulas inteiras; 5) menor contexto enviado ao modelo (custo)",
+  "configuracao_recomendada": "A",
+  "configuracoes": {
+    "A": {
+      "parametros": {
+        "unidade": "caracteres",
+        "tamanho": 350,
+        "sobreposicao": 50
+      },
+      "trechos": 59,
+      "tamanho_medio_caracteres": 236.0,
+      "maior_trecho_caracteres": 347,
+      "acerto_recuperacao": {
+        "numerador": 5,
+        "denominador": 5
+      },
+      "mrr": 0.9,
+      "referencias_essenciais_recuperadas": {
+        "numerador": 7,
+        "denominador": 8
+      },
+      "clausulas_inteiras": {
+        "numerador": 103,
+        "denominador": 103
+      },
+      "tokens_contexto_medio_estimado": 404.2,
+      "similaridade_top1_media_respondiveis": 0.598,
+      "similaridade_top1_media_sem_resposta": 0.4937,
+      "falhas": [],
+      "indexacao": {
+        "situacao_inicial": "AUSENTE",
+        "reutilizados": [],
+        "indexados": [
+          "DOC-01",
+          "DOC-02",
+          "DOC-03",
+          "DOC-04",
+          "DOC-05",
+          "DOC-06"
+        ],
+        "vetores_na_colecao": 59,
+        "chamadas_de_embedding": 6
+      },
+      "perguntas": [
+        {
+          "id": "RAG-01",
+          "tipo": "respondivel",
+          "similaridade_top1": 0.6192,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-02::A::p1::t003",
+              "doc_id": "DOC-02",
+              "pagina": 1,
+              "secao": "Art. 1º",
+              "similaridade_cosseno": 0.6192
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-03::A::txt::t007",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+              "similaridade_cosseno": 0.5788
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-03::A::txt::t008",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+              "similaridade_cosseno": 0.5734
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-02::A::p1::t002",
+              "doc_id": "DOC-02",
+              "pagina": 1,
+              "secao": "Art. 1º",
+              "similaridade_cosseno": 0.5615
+            }
+          ],
+          "tokens_contexto_estimados": 373,
+          "acerto": true,
+          "posicao_primeiro_acerto": 1,
+          "essenciais_recuperados": 1,
+          "essenciais_total": 1
+        },
+        {
+          "id": "RAG-02",
+          "tipo": "respondivel",
+          "similaridade_top1": 0.6515,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-01::A::p2::t011",
+              "doc_id": "DOC-01",
+              "pagina": 2,
+              "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS",
+              "similaridade_cosseno": 0.6515
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-01::A::p1::t004",
+              "doc_id": "DOC-01",
+              "pagina": 1,
+              "secao": "2. DOS CURSOS E DAS VAGAS",
+              "similaridade_cosseno": 0.5929
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-01::A::p1::t003",
+              "doc_id": "DOC-01",
+              "pagina": 1,
+              "secao": "1. DISPOSIÇÕES PRELIMINARES",
+              "similaridade_cosseno": 0.5902
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-01::A::p2::t010",
+              "doc_id": "DOC-01",
+              "pagina": 2,
+              "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS",
+              "similaridade_cosseno": 0.5714
+            }
+          ],
+          "tokens_contexto_estimados": 462,
+          "acerto": true,
+          "posicao_primeiro_acerto": 1,
+          "essenciais_recuperados": 1,
+          "essenciais_total": 2
+        },
+        {
+          "id": "RAG-03",
+          "tipo": "respondivel",
+          "similaridade_top1": 0.602,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-03::A::txt::t007",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+              "similaridade_cosseno": 0.602
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-03::A::txt::t002",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+              "similaridade_cosseno": 0.5822
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-03::A::txt::t008",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+              "similaridade_cosseno": 0.5436
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-03::A::txt::t003",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+              "similaridade_cosseno": 0.5344
+            }
+          ],
+          "tokens_contexto_estimados": 406,
+          "acerto": true,
+          "posicao_primeiro_acerto": 2,
+          "essenciais_recuperados": 2,
+          "essenciais_total": 2
+        },
+        {
+          "id": "RAG-04",
+          "tipo": "respondivel",
+          "similaridade_top1": 0.5856,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-05::A::p1::t002",
+              "doc_id": "DOC-05",
+              "pagina": 1,
+              "secao": "2. DOS TURNOS E DOS CAMPOS DE ESTÁGIO",
+              "similaridade_cosseno": 0.5856
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-05::A::p1::t001",
+              "doc_id": "DOC-05",
+              "pagina": 1,
+              "secao": "1. DA NATUREZA DO ESTÁGIO",
+              "similaridade_cosseno": 0.5717
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-05::A::p1::t003",
+              "doc_id": "DOC-05",
+              "pagina": 1,
+              "secao": "2. DOS TURNOS E DOS CAMPOS DE ESTÁGIO",
+              "similaridade_cosseno": 0.5554
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-01::A::p1::t004",
+              "doc_id": "DOC-01",
+              "pagina": 1,
+              "secao": "2. DOS CURSOS E DAS VAGAS",
+              "similaridade_cosseno": 0.5018
+            }
+          ],
+          "tokens_contexto_estimados": 428,
+          "acerto": true,
+          "posicao_primeiro_acerto": 1,
+          "essenciais_recuperados": 2,
+          "essenciais_total": 2
+        },
+        {
+          "id": "RAG-05",
+          "tipo": "respondivel",
+          "similaridade_top1": 0.5315,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-06::A::txt::t001",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.5315
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-06::A::txt::t004",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.5306
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-06::A::txt::t003",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.5096
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-06::A::txt::t002",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.5083
+            }
+          ],
+          "tokens_contexto_estimados": 352,
+          "acerto": true,
+          "posicao_primeiro_acerto": 1,
+          "essenciais_recuperados": 1,
+          "essenciais_total": 1
+        },
+        {
+          "id": "RAG-06",
+          "tipo": "sem_resposta",
+          "similaridade_top1": 0.4961,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-06::A::txt::t003",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.4961
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-06::A::txt::t005",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "2. ALIMENTAÇÃO ESCOLAR",
+              "similaridade_cosseno": 0.4508
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-06::A::txt::t006",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "3. DECLARAÇÕES E DOCUMENTOS ESCOLARES",
+              "similaridade_cosseno": 0.4378
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-06::A::txt::t004",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.4256
+            }
+          ],
+          "tokens_contexto_estimados": 390
+        },
+        {
+          "id": "RAG-07",
+          "tipo": "sem_resposta",
+          "similaridade_top1": 0.4912,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-06::A::txt::t002",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.4912
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-06::A::txt::t001",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.4719
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-06::A::txt::t003",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.4108
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-06::A::txt::t005",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "2. ALIMENTAÇÃO ESCOLAR",
+              "similaridade_cosseno": 0.391
+            }
+          ],
+          "tokens_contexto_estimados": 385
+        },
+        {
+          "id": "RAG-08",
+          "tipo": "contraditoria",
+          "similaridade_top1": 0.5418,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-04::A::txt::t003",
+              "doc_id": "DOC-04",
+              "pagina": null,
+              "secao": "2. DOCUMENTOS DO ESTÁGIO",
+              "similaridade_cosseno": 0.5418
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-05::A::p2::t005",
+              "doc_id": "DOC-05",
+              "pagina": 2,
+              "secao": "3. DOS REQUISITOS PARA INÍCIO DO ESTÁGIO",
+              "similaridade_cosseno": 0.4877
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-04::A::txt::t002",
+              "doc_id": "DOC-04",
+              "pagina": null,
+              "secao": "2. DOCUMENTOS DO ESTÁGIO",
+              "similaridade_cosseno": 0.4783
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-04::A::txt::t005",
+              "doc_id": "DOC-04",
+              "pagina": null,
+              "secao": "3. ORIENTAÇÕES GERAIS",
+              "similaridade_cosseno": 0.4325
+            }
+          ],
+          "tokens_contexto_estimados": 418
+        }
+      ]
+    },
+    "B": {
+      "parametros": {
+        "unidade": "caracteres",
+        "tamanho": 800,
+        "sobreposicao": 160
+      },
+      "trechos": 35,
+      "tamanho_medio_caracteres": 372.1,
+      "maior_trecho_caracteres": 761,
+      "acerto_recuperacao": {
+        "numerador": 5,
+        "denominador": 5
+      },
+      "mrr": 0.75,
+      "referencias_essenciais_recuperadas": {
+        "numerador": 7,
+        "denominador": 8
+      },
+      "clausulas_inteiras": {
+        "numerador": 103,
+        "denominador": 103
+      },
+      "tokens_contexto_medio_estimado": 575.4,
+      "similaridade_top1_media_respondiveis": 0.5921,
+      "similaridade_top1_media_sem_resposta": 0.4729,
+      "falhas": [],
+      "indexacao": {
+        "situacao_inicial": "AUSENTE",
+        "reutilizados": [],
+        "indexados": [
+          "DOC-01",
+          "DOC-02",
+          "DOC-03",
+          "DOC-04",
+          "DOC-05",
+          "DOC-06"
+        ],
+        "vetores_na_colecao": 35,
+        "chamadas_de_embedding": 6
+      },
+      "perguntas": [
+        {
+          "id": "RAG-01",
+          "tipo": "respondivel",
+          "similaridade_top1": 0.5849,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-03::B::txt::t004",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+              "similaridade_cosseno": 0.5849
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-01::B::p2::t006",
+              "doc_id": "DOC-01",
+              "pagina": 2,
+              "secao": "5. DAS CHAMADAS E DAS VAGAS REMANESCENTES",
+              "similaridade_cosseno": 0.5513
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-03::B::txt::t002",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+              "similaridade_cosseno": 0.5506
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-01::B::p1::t003",
+              "doc_id": "DOC-01",
+              "pagina": 1,
+              "secao": "3. DO CRONOGRAMA",
+              "similaridade_cosseno": 0.5431
+            }
+          ],
+          "tokens_contexto_estimados": 599,
+          "acerto": true,
+          "posicao_primeiro_acerto": 4,
+          "essenciais_recuperados": 0,
+          "essenciais_total": 1
+        },
+        {
+          "id": "RAG-02",
+          "tipo": "respondivel",
+          "similaridade_top1": 0.6474,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-01::B::p2::t004",
+              "doc_id": "DOC-01",
+              "pagina": 2,
+              "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS",
+              "similaridade_cosseno": 0.6474
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-01::B::p2::t005",
+              "doc_id": "DOC-01",
+              "pagina": 2,
+              "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS",
+              "similaridade_cosseno": 0.5955
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-01::B::p1::t002",
+              "doc_id": "DOC-01",
+              "pagina": 1,
+              "secao": "2. DOS CURSOS E DAS VAGAS",
+              "similaridade_cosseno": 0.5826
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-03::B::txt::t005",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "5. ATENDIMENTO",
+              "similaridade_cosseno": 0.5621
+            }
+          ],
+          "tokens_contexto_estimados": 662,
+          "acerto": true,
+          "posicao_primeiro_acerto": 1,
+          "essenciais_recuperados": 2,
+          "essenciais_total": 2
+        },
+        {
+          "id": "RAG-03",
+          "tipo": "respondivel",
+          "similaridade_top1": 0.5948,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-03::B::txt::t004",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+              "similaridade_cosseno": 0.5948
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-03::B::txt::t002",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+              "similaridade_cosseno": 0.5613
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-03::B::txt::t003",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "3. JUSTIFICATIVA DE FALTAS",
+              "similaridade_cosseno": 0.5115
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-01::B::p3::t007",
+              "doc_id": "DOC-01",
+              "pagina": 3,
+              "secao": "6. DA FREQUÊNCIA NO INÍCIO DO CURSO",
+              "similaridade_cosseno": 0.5079
+            }
+          ],
+          "tokens_contexto_estimados": 559,
+          "acerto": true,
+          "posicao_primeiro_acerto": 2,
+          "essenciais_recuperados": 2,
+          "essenciais_total": 2
+        },
+        {
+          "id": "RAG-04",
+          "tipo": "respondivel",
+          "similaridade_top1": 0.59,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-05::B::p1::t002",
+              "doc_id": "DOC-05",
+              "pagina": 1,
+              "secao": "2. DOS TURNOS E DOS CAMPOS DE ESTÁGIO",
+              "similaridade_cosseno": 0.59
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-05::B::p1::t001",
+              "doc_id": "DOC-05",
+              "pagina": 1,
+              "secao": "1. DA NATUREZA DO ESTÁGIO",
+              "similaridade_cosseno": 0.5715
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-01::B::p1::t002",
+              "doc_id": "DOC-01",
+              "pagina": 1,
+              "secao": "2. DOS CURSOS E DAS VAGAS",
+              "similaridade_cosseno": 0.489
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-05::B::p2::t004",
+              "doc_id": "DOC-05",
+              "pagina": 2,
+              "secao": "4. DA AVALIAÇÃO",
+              "similaridade_cosseno": 0.4829
+            }
+          ],
+          "tokens_contexto_estimados": 587,
+          "acerto": true,
+          "posicao_primeiro_acerto": 1,
+          "essenciais_recuperados": 2,
+          "essenciais_total": 2
+        },
+        {
+          "id": "RAG-05",
+          "tipo": "respondivel",
+          "similaridade_top1": 0.5436,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-06::B::txt::t001",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.5436
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-06::B::txt::t002",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.4894
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-03::B::txt::t005",
+              "doc_id": "DOC-03",
+              "pagina": null,
+              "secao": "5. ATENDIMENTO",
+              "similaridade_cosseno": 0.4467
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-06::B::txt::t003",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "2. ALIMENTAÇÃO ESCOLAR",
+              "similaridade_cosseno": 0.4276
+            }
+          ],
+          "tokens_contexto_estimados": 470,
+          "acerto": true,
+          "posicao_primeiro_acerto": 1,
+          "essenciais_recuperados": 1,
+          "essenciais_total": 1
+        },
+        {
+          "id": "RAG-06",
+          "tipo": "sem_resposta",
+          "similaridade_top1": 0.4795,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-06::B::txt::t002",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.4795
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-06::B::txt::t003",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "2. ALIMENTAÇÃO ESCOLAR",
+              "similaridade_cosseno": 0.4508
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-06::B::txt::t001",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.4474
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-06::B::txt::t004",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "3. DECLARAÇÕES E DOCUMENTOS ESCOLARES",
+              "similaridade_cosseno": 0.4242
+            }
+          ],
+          "tokens_contexto_estimados": 550
+        },
+        {
+          "id": "RAG-07",
+          "tipo": "sem_resposta",
+          "similaridade_top1": 0.4663,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-06::B::txt::t001",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.4663
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-06::B::txt::t002",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "1. AUXÍLIO-TRANSPORTE",
+              "similaridade_cosseno": 0.3931
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-06::B::txt::t003",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "2. ALIMENTAÇÃO ESCOLAR",
+              "similaridade_cosseno": 0.391
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-06::B::txt::t004",
+              "doc_id": "DOC-06",
+              "pagina": null,
+              "secao": "3. DECLARAÇÕES E DOCUMENTOS ESCOLARES",
+              "similaridade_cosseno": 0.3866
+            }
+          ],
+          "tokens_contexto_estimados": 550
+        },
+        {
+          "id": "RAG-08",
+          "tipo": "contraditoria",
+          "similaridade_top1": 0.4703,
+          "recuperados": [
+            {
+              "posicao": 1,
+              "chunk_id": "DOC-04::B::txt::t002",
+              "doc_id": "DOC-04",
+              "pagina": null,
+              "secao": "2. DOCUMENTOS DO ESTÁGIO",
+              "similaridade_cosseno": 0.4703
+            },
+            {
+              "posicao": 2,
+              "chunk_id": "DOC-05::B::p2::t003",
+              "doc_id": "DOC-05",
+              "pagina": 2,
+              "secao": "3. DOS REQUISITOS PARA INÍCIO DO ESTÁGIO",
+              "similaridade_cosseno": 0.4547
+            },
+            {
+              "posicao": 3,
+              "chunk_id": "DOC-04::B::txt::t003",
+              "doc_id": "DOC-04",
+              "pagina": null,
+              "secao": "3. ORIENTAÇÕES GERAIS",
+              "similaridade_cosseno": 0.4324
+            },
+            {
+              "posicao": 4,
+              "chunk_id": "DOC-05::B::p1::t002",
+              "doc_id": "DOC-05",
+              "pagina": 1,
+              "secao": "2. DOS TURNOS E DOS CAMPOS DE ESTÁGIO",
+              "similaridade_cosseno": 0.3988
+            }
+          ],
+          "tokens_contexto_estimados": 600
+        }
+      ]
+    }
+  },
+  "tokens_embedding": 14839,
+  "custo_estimado_usd": 0.00029678
+}

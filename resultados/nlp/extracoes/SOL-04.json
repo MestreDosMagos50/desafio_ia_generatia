@@ -1,0 +1,57 @@
+{
+  "id_caso": "SOL-04",
+  "canal": "texto (formulário do site)",
+  "arquivo_origem": "dados/solicitacoes/SOL-04_auxilio_transporte.txt",
+  "sha256_entrada": "deb53afa436e26beb8d3bb2b4d7b50b4f7cad5c76c89bd7fc9f15a7b22309a0c",
+  "texto_entrada": "Canal: Formulário do site\nProtocolo: 2026-000231\nData: 22/10/2026\n\nMeu nome é Rafael Nogueira Prado Teste, estou matriculado no curso Técnico em Recursos Humanos, turno noturno, e moro em Várzea Grande, a cerca de 12 km da escola. Quero solicitar o auxílio-transporte e saber quais documentos devo levar para fazer o pedido.\n",
+  "versao_esquema": "2.0.0",
+  "prompt": {
+    "id": "PROMPT_EXTRACAO_V2",
+    "versao": "1.1"
+  },
+  "modo_esquema": "Structured Outputs (esquema nativo)",
+  "contrato": {
+    "protocolo": "2026-000231",
+    "data_solicitacao": "22/10/2026",
+    "solicitante_ficticio": "Rafael Nogueira Prado Teste",
+    "curso": "Técnico em Recursos Humanos",
+    "assunto": "Solicitação de auxílio-transporte e informação sobre documentos",
+    "pedido": "Solicita o auxílio-transporte e informações sobre quais documentos deve levar para fazer o pedido.",
+    "categoria": "ASSISTENCIA_ESTUDANTIL",
+    "entidades": {
+      "pessoas_ficticias": [
+        "Rafael Nogueira Prado Teste"
+      ],
+      "orgaos": [],
+      "locais": [
+        "Várzea Grande"
+      ],
+      "datas": [
+        "22/10/2026"
+      ],
+      "protocolos": [
+        "2026-000231"
+      ]
+    },
+    "campos_ausentes": [],
+    "necessita_revisao": false
+  },
+  "erros_validacao": [],
+  "alertas": [],
+  "decisao": "GERAR_MINUTA_PARA_REVISAO",
+  "motivo": "Contrato válido e coerente com o texto original; a minuta segue para aprovação humana.",
+  "chamadas": [
+    {
+      "etapa": "extracao_contrato_v2",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2272.2,
+      "tokens_total": 1698,
+      "custo_estimado_usd": 0.0005105999999999999
+    }
+  ],
+  "registrado_em": "2026-10-30T01:03:16"
+}

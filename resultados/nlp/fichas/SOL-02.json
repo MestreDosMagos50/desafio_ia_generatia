@@ -1,0 +1,45 @@
+{
+  "id_caso": "SOL-02",
+  "versao_esquema": "2.0.0",
+  "resumo": "Marcos Vinícius de Almeida Santos solicita a efetivação de sua matrícula no curso Técnico em Enfermagem, do eixo tecnológico Saúde, com carga horária de 1200 horas, no turno noturno. Informa o protocolo 2026-000142, de 14 de outubro de 2026, e declara ciência das condições de cancelamento automático por faltas não justificadas nos primeiros dias de aula. Solicita que informem quais documentos ainda precisa apresentar.",
+  "palavras_resumo": 64,
+  "categoria": "MATRICULA_INICIAL",
+  "entidades_literais": {
+    "pessoas_ficticias": [
+      "Marcos Vinícius de Almeida Santos",
+      "Lúcia Helena de Almeida Santos"
+    ],
+    "orgaos": [],
+    "locais": [
+      "Cuiabá"
+    ],
+    "datas": [
+      "14 de outubro de 2026",
+      "12 de agosto de 2008"
+    ],
+    "protocolos": [
+      "2026-000142"
+    ]
+  },
+  "entidades_sem_apoio": {},
+  "informacoes_inferidas": [
+    {
+      "informacao": "Trata-se de um pedido de matrícula escolar.",
+      "base": "quero pedir a efetivação da minha matrícula no curso Técnico em Enfermagem"
+    }
+  ],
+  "alertas": [],
+  "chamadas": [
+    {
+      "etapa": "ficha_nlp",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2348.4,
+      "tokens_total": 815,
+      "custo_estimado_usd": 0.000313
+    }
+  ]
+}

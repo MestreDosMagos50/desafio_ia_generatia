@@ -1,0 +1,284 @@
+{
+  "id_caso": "ATD-20261030-131610-4222",
+  "pergunta": "Assunto: Ficha de matrícula\nPedido: não localizado\nCurso: TECNICO EM ENFERMAGEM\nData da solicitação: 14/10/2026",
+  "status": "SEM_EVIDENCIA_SUFICIENTE",
+  "resposta": "SEM_EVIDENCIA_SUFICIENTE: Não foram encontradas evidências suficientes no acervo institucional indexado para fundamentar a resposta. Solicitação encaminhada para revisão humana.",
+  "codigo_motivo": "MODELO_DECLAROU_SEM_EVIDENCIA",
+  "motivo": "O modelo declarou que os trechos não sustentam a resposta.",
+  "encaminhamento": "REVISAO_HUMANA_PRIORITARIA",
+  "fontes": [
+    {
+      "n": 1,
+      "rotulo": "DOC-01, v1.0, p. 1, seção 2",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-01::A::p1::t004",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "2. DOS CURSOS E DAS VAGAS",
+      "similaridade_cosseno": 0.6393,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "2. DOS CURSOS E DAS VAGAS\n2.1. São ofertadas vagas nos seguintes cursos:\na) Técnico em Enfermagem - eixo tecnológico Saúde - 1200 horas - turno noturno - 40 vagas - sede da ETEC Cuiabá;\nb) Técnico em Recursos Humanos - eixo tecnológico Gestão e Negócios - 800 horas - turno noturno - 40 vagas - sede da ETEC Cuiabá;"
+    },
+    {
+      "n": 2,
+      "rotulo": "DOC-01, v1.0, p. 1, seção 2",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-01::A::p1::t005",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "2. DOS CURSOS E DAS VAGAS",
+      "similaridade_cosseno": null,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "- turno noturno - 40 vagas - sede da ETEC Cuiabá;\nc) Técnico em Informática - eixo tecnológico Informação e Comunicação - 1000 horas - turno vespertino - 40 vagas - sede da ETEC Cuiabá;\nd) Técnico em Agropecuária - eixo tecnológico Recursos Naturais - 1200 horas - turno noturno - 40 vagas - Polo Distrito de Vale Verde.\n2.2."
+    },
+    {
+      "n": 3,
+      "rotulo": "DOC-01, v1.0, p. 2, seção 4",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-01::A::p2::t009",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 2,
+      "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS",
+      "similaridade_cosseno": 0.6076,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS\n4.1. A matrícula é presencial e somente será efetivada com a entrega de cópia simples e a apresentação do original dos seguintes documentos:\na) documento oficial de identificação com foto;\nb) CPF;\nc) certidão de nascimento ou de casamento;"
+    },
+    {
+      "n": 4,
+      "rotulo": "DOC-01, v1.0, p. 2, seção 4",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-01::A::p2::t010",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 2,
+      "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS",
+      "similaridade_cosseno": null,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "CPF;\nc) certidão de nascimento ou de casamento;\nd) histórico escolar e certificado de conclusão do ensino médio, ou declaração de matrícula na terceira série do ensino médio;\ne) comprovante de residência emitido nos últimos 3 (três) meses;\nf) 1 (uma) foto 3x4 recente;\ng) comprovante de quitação eleitoral, para maiores de 18 anos.\n4.2."
+    },
+    {
+      "n": 5,
+      "rotulo": "DOC-01, v1.0, p. 2, seção 4",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-01::A::p2::t011",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 2,
+      "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS",
+      "similaridade_cosseno": 0.7018,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "quitação eleitoral, para maiores de 18 anos.\n4.2. Para o Curso Técnico em Enfermagem, além dos documentos do item 4.1, é obrigatória a apresentação da carteira de vacinação atualizada, com registro das doses contra hepatite B e tétano.\n4.3. O candidato menor de 18 anos deve estar acompanhado do responsável legal no ato da matrícula.\n4.4."
+    },
+    {
+      "n": 6,
+      "rotulo": "DOC-01, v1.0, p. 2, seção 4",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-01::A::p2::t012",
+      "doc_id": "DOC-01",
+      "titulo": "Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1",
+      "versao": "1.0",
+      "pagina": 2,
+      "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS",
+      "similaridade_cosseno": null,
+      "retifica": null,
+      "retificado_por": [
+        "DOC-02"
+      ],
+      "neutralizado": false,
+      "trecho": "do responsável legal no ato da matrícula.\n4.4. A falta de qualquer documento exigido impede a efetivação da matrícula, e o candidato perde a vaga se não regularizar a pendência dentro do período de matrícula."
+    },
+    {
+      "n": 7,
+      "rotulo": "DOC-05, v1.0, p. 2, seção 4",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-05::A::p2::t007",
+      "doc_id": "DOC-05",
+      "titulo": "Regulamento Fictício de Estágio Supervisionado dos Cursos Técnicos da Área de Saúde",
+      "versao": "1.0",
+      "pagina": 2,
+      "secao": "4. DA AVALIAÇÃO",
+      "similaridade_cosseno": 0.6091,
+      "retifica": null,
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "4. DA AVALIAÇÃO\n4.1. O estudante é avaliado pelo supervisor do campo de estágio e pelo professor orientador, com registro em ficha própria.\n4.2. A aprovação no estágio exige frequência integral, admitida a reposição de faltas justificadas.\nCuiabá, 20 de agosto de 2026.\nCoordenação do Curso Técnico em Enfermagem (assinatura fictícia)"
+    },
+    {
+      "n": 8,
+      "rotulo": "DOC-02, v1.0, p. 1, preâmbulo",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-02::A::p1::t000",
+      "doc_id": "DOC-02",
+      "titulo": "Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "Preâmbulo",
+      "similaridade_cosseno": null,
+      "retifica": "DOC-01",
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "DOCUMENTO FICTÍCIO - elaborado exclusivamente para o Desafio Prático 02 (FIC_DEV); sem validade administrativa.\nIdentificador: DOC-02 | Versão: 1.0 | Publicação: 10/10/2026 | Retifica: DOC-01\nEDITAL RETIFICADOR FICTÍCIO Nº 01 AO EDITAL FICTÍCIO Nº 010/2026 - ETEC CUIABÁ"
+    },
+    {
+      "n": 9,
+      "rotulo": "DOC-02, v1.0, p. 1, preâmbulo",
+      "citado": false,
+      "origem": "vigencia",
+      "chunk_id": "DOC-02::A::p1::t001",
+      "doc_id": "DOC-02",
+      "titulo": "Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "Preâmbulo",
+      "similaridade_cosseno": 0.4703,
+      "retifica": "DOC-01",
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "01 AO EDITAL FICTÍCIO Nº 010/2026 - ETEC CUIABÁ\nA Direção da Escola Técnica Estadual de Cuiabá (ETEC Cuiabá) torna pública a retificação do Edital Fictício nº 010/2026, nos termos abaixo."
+    },
+    {
+      "n": 10,
+      "rotulo": "DOC-02, v1.0, p. 1, Art. 1º",
+      "citado": false,
+      "origem": "vigencia",
+      "chunk_id": "DOC-02::A::p1::t002",
+      "doc_id": "DOC-02",
+      "titulo": "Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "Art. 1º",
+      "similaridade_cosseno": 0.4681,
+      "retifica": "DOC-01",
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "Art. 1º. O item 3.3 do Edital Fictício nº 010/2026 passa a vigorar com a seguinte redação:\nOnde se lê: \"3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 20/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\"\nLeia-se: \"3.3."
+    },
+    {
+      "n": 11,
+      "rotulo": "DOC-02, v1.0, p. 1, Art. 1º",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-02::A::p1::t003",
+      "doc_id": "DOC-02",
+      "titulo": "Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026",
+      "versao": "1.0",
+      "pagina": 1,
+      "secao": "Art. 1º",
+      "similaridade_cosseno": null,
+      "retifica": "DOC-01",
+      "retificado_por": [],
+      "neutralizado": false,
+      "trecho": "13h às 21h, na Secretaria Escolar.\"\nLeia-se: \"3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\""
+    }
+  ],
+  "afirmacoes": [],
+  "divergencias": [],
+  "alertas": [
+    "ENTRADA_OCR_SEM_CONFIRMACAO_HUMANA: leitura de manuscrito ainda não conferida na imagem. Confira código, documentos e datas antes de qualquer uso; a leitura pode errar sem marcar o campo como incerto (no Desafio 01 a ficha só entra depois da confirmação humana dos campos críticos).",
+    "CAMPO_INCERTO_NA_LEITURA: CPF (INCERTO)",
+    "CAMPO_INCERTO_NA_LEITURA: RG (INCERTO)",
+    "DECISAO_DA_EXTRACAO: ENCAMINHAR_REVISAO_HUMANA (Nenhum pedido escrito.)"
+  ],
+  "guardas": {
+    "1_limiar": {
+      "decisao": "SEGUE",
+      "detalhe": "top-1 0.7018 >= limiar 0.45"
+    },
+    "camada2_conteudo_recuperado": {
+      "decisao": "PERMITIR",
+      "detalhe": "Nenhum trecho suspeito."
+    },
+    "2_contrato": {
+      "decisao": "RECUSA",
+      "detalhe": "O modelo declarou que os trechos não sustentam a resposta."
+    }
+  },
+  "recuperacao": {
+    "top_k": 4,
+    "limiar": 0.45,
+    "explicacao": "Similaridade de cosseno entre o vetor da pergunta e o do trecho (1 - distância de cosseno do Chroma): perto de 1, sentidos próximos; perto de 0, sem relação. Mede proximidade de sentido, não veracidade nem vigência do trecho.",
+    "similaridade_top1": 0.7018,
+    "similaridade_topk": 0.6076,
+    "margem_top1_topk": 0.0942,
+    "margem_minima": 0.02,
+    "margem_estreita": false,
+    "ids_top_k": [
+      "DOC-01::A::p2::t011",
+      "DOC-01::A::p1::t004",
+      "DOC-05::A::p2::t007",
+      "DOC-01::A::p2::t009"
+    ],
+    "duracao_total_ms": 3133.7
+  },
+  "saida_modelo": {
+    "status": "SEM_EVIDENCIA_SUFICIENTE",
+    "resposta": "SEM_EVIDENCIA_SUFICIENTE: Não foram encontradas evidências suficientes no acervo institucional indexado para fundamentar a resposta. Solicitação encaminhada para revisão humana.",
+    "afirmacoes": [],
+    "divergencias": [],
+    "alerta": null
+  },
+  "provedor": "openai",
+  "modelo": "gpt-5.6-luna",
+  "prompt": {
+    "id": "PROMPT_RAG",
+    "versao": "1.0"
+  },
+  "versao_esquema": "1.0.0",
+  "versao_indice": "1.0.0",
+  "colecao": "acervo_principal",
+  "configuracao_chunking": "A",
+  "chamadas": [
+    {
+      "etapa": "rag_geracao",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2000.2,
+      "tokens_total": 3865,
+      "custo_estimado_usd": 0.0009000000000000001
+    }
+  ],
+  "minuta": "MINUTA PARA REVISÃO HUMANA - envio automático bloqueado\nStatus: SEM_EVIDENCIA_SUFICIENTE\nEncaminhamento: REVISAO_HUMANA_PRIORITARIA\n\nResposta proposta:\nSEM_EVIDENCIA_SUFICIENTE: Não foram encontradas evidências suficientes no acervo institucional indexado para fundamentar a resposta. Solicitação encaminhada para revisão humana.\n\nAlertas para o operador:\n- ENTRADA_OCR_SEM_CONFIRMACAO_HUMANA: leitura de manuscrito ainda não conferida na imagem. Confira código, documentos e datas antes de qualquer uso; a leitura pode errar sem marcar o campo como incerto (no Desafio 01 a ficha só entra depois da confirmação humana dos campos críticos).\n- CAMPO_INCERTO_NA_LEITURA: CPF (INCERTO)\n- CAMPO_INCERTO_NA_LEITURA: RG (INCERTO)\n- DECISAO_DA_EXTRACAO: ENCAMINHAR_REVISAO_HUMANA (Nenhum pedido escrito.)\n\nTrechos consultados:\n[1] (DOC-01, v1.0, p. 1, seção 2) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: busca\n[2] (DOC-01, v1.0, p. 1, seção 2) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vizinho\n[3] (DOC-01, v1.0, p. 2, seção 4) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: busca\n[4] (DOC-01, v1.0, p. 2, seção 4) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vizinho\n[5] (DOC-01, v1.0, p. 2, seção 4) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: busca\n[6] (DOC-01, v1.0, p. 2, seção 4) Edital Fictício nº 010/2026 - Processo Seletivo e Matrícula dos Cursos Técnicos - Turmas 2027/1 | não citado | origem: vizinho\n[7] (DOC-05, v1.0, p. 2, seção 4) Regulamento Fictício de Estágio Supervisionado dos Cursos Técnicos da Área de Saúde | não citado | origem: busca\n[8] (DOC-02, v1.0, p. 1, preâmbulo) Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026 | não citado | origem: vizinho\n[9] (DOC-02, v1.0, p. 1, preâmbulo) Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026 | não citado | origem: vigencia\n[10] (DOC-02, v1.0, p. 1, Art. 1º) Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026 | não citado | origem: vigencia\n[11] (DOC-02, v1.0, p. 1, Art. 1º) Edital Retificador Fictício nº 01 ao Edital Fictício nº 010/2026 | não citado | origem: vizinho\n\nConteúdo gerado com apoio de IA (openai/gpt-5.6-luna; PROMPT_RAG v1.0). Confira cada citação na passagem original antes de aprovar.",
+  "id_execucao": "EXEC-D10858C8",
+  "status_revisao": "PENDENTE_REVISAO_HUMANA",
+  "envio_automatico_bloqueado": true,
+  "registrado_em": "2026-10-30T13:16:22"
+}

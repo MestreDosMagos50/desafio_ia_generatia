@@ -1,0 +1,74 @@
+{
+  "gerado_em": "2026-10-30T13:13:53",
+  "inicio": "2026-10-30T13:13:16",
+  "provedor": "openai",
+  "modelo": "gpt-5.6-luna",
+  "decisoes_simuladas": true,
+  "pasta_de_evidencias": "resultados/regressao/20261030-131316",
+  "texto": {
+    "entrada": "dados/originais/entrada_texto.txt",
+    "fluxo": "pipeline do Desafio 01 (python -m src.main --modo texto)",
+    "pipeline_concluido": true,
+    "acerto_extracao_gabarito": {
+      "numerador": 24,
+      "denominador": 26,
+      "percentual": 92.31,
+      "inventados": [],
+      "omitidos": [],
+      "divergentes": [
+        "classificacao.categoria",
+        "classificacao.urgencia"
+      ]
+    },
+    "minuta": "resultados/minutas/minuta_institucional_2026-000142_20261030-131324.txt",
+    "sha256_minuta": "07726205b58bed58c6de61caf4125a73ec679b22775d736b1476a727472d6d89",
+    "revisao": {
+      "decisao": "APROVADO",
+      "simulada": true,
+      "operador": "SIMULADO - demonstração automatizada (sem revisão humana)",
+      "arquivo": "resultados/logs/decisoes_simuladas.json"
+    },
+    "chegou_a_minuta": true,
+    "chegou_a_revisao": true
+  },
+  "ocr": {
+    "entrada": "dados/originais/entrada_pdf-imagem.pdf",
+    "fluxo": "leitura da ficha (Desafio 01, src/vision.py) + atendimento integrado (Desafio 02)",
+    "leitura_ok": true,
+    "erro_leitura": null,
+    "acerto_leitura_gabarito": {
+      "numerador": 21,
+      "denominador": 26,
+      "percentual": 80.77,
+      "divergentes": [
+        "codigo_matricula",
+        "solicitante.nome_completo",
+        "solicitante.data_nascimento",
+        "solicitante.rg",
+        "solicitante.email"
+      ]
+    },
+    "incertos_esperados": {
+      "sinalizados": [],
+      "nao_sinalizados": [
+        "codigo",
+        "cpf"
+      ],
+      "sinalizados_fora_do_gabarito": [
+        "data_nascimento",
+        "nome"
+      ]
+    },
+    "id_atendimento": "ATD-20261030-131339-2B2F",
+    "etapa_final": "MINUTA_GERADA",
+    "motivo": "O modelo declarou que os trechos não sustentam a resposta.",
+    "guardrails_entrada": "PERMITIR",
+    "status_minuta": "SEM_EVIDENCIA_SUFICIENTE",
+    "estado_na_fila": "PENDENTE",
+    "registro": "resultados/atendimentos/ATD-20261030-131339-2B2F/atendimento.json",
+    "chegou_a_minuta": true,
+    "chegou_a_revisao": true
+  },
+  "confere": true,
+  "pendencias": []
+}

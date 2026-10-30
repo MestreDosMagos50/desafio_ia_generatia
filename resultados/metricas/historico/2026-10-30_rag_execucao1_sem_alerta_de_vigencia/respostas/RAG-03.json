@@ -1,0 +1,247 @@
+{
+  "id_caso": "RAG-03",
+  "pergunta": "Se eu não aparecer nas aulas logo no começo do curso, posso ficar sem a vaga?",
+  "status": "FUNDAMENTADA",
+  "resposta": "Sim. A matrícula pode ser cancelada automaticamente se você faltar, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos. (DOC-03, v1.0, seção 2) Ela também pode ser cancelada se você acumular 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos. (DOC-03, v1.0, seção 2) Portanto, a manutenção da vaga depende de não se enquadrar nessas situações ou de apresentar justificativa comprovada, quando cabível.",
+  "codigo_motivo": "FUNDAMENTADA",
+  "motivo": "Resposta sustentada pelos trechos citados; o operador confere e aprova.",
+  "encaminhamento": "CONFERENCIA_E_APROVACAO_HUMANA",
+  "fontes": [
+    {
+      "n": 1,
+      "rotulo": "DOC-03, v1.0, seção 2",
+      "citado": true,
+      "origem": "busca",
+      "chunk_id": "DOC-03::A::txt::t002",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+      "similaridade_cosseno": 0.5822,
+      "neutralizado": false,
+      "trecho": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS\n2.1. A matrícula será cancelada automaticamente quando o estudante faltar, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos.\n2.2."
+    },
+    {
+      "n": 2,
+      "rotulo": "DOC-03, v1.0, seção 2",
+      "citado": true,
+      "origem": "busca",
+      "chunk_id": "DOC-03::A::txt::t003",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+      "similaridade_cosseno": 0.5352,
+      "neutralizado": false,
+      "trecho": "2 (dois) primeiros dias letivos consecutivos.\n2.2. A matrícula também será cancelada quando o estudante acumular 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos.\n2.3."
+    },
+    {
+      "n": 3,
+      "rotulo": "DOC-03, v1.0, seção 2",
+      "citado": false,
+      "origem": "vizinho",
+      "chunk_id": "DOC-03::A::txt::t004",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+      "similaridade_cosseno": null,
+      "neutralizado": false,
+      "trecho": "ou não, nos 10 (dez) primeiros dias letivos.\n2.3. As faltas são registradas diariamente pelo professor no diário de classe e conferidas pela Secretaria Escolar ao final do décimo dia letivo."
+    },
+    {
+      "n": 4,
+      "rotulo": "DOC-03, v1.0, seção 4",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-03::A::txt::t007",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+      "similaridade_cosseno": 0.602,
+      "neutralizado": false,
+      "trecho": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS\n4.1. A vaga liberada por cancelamento de matrícula é oferecida ao próximo candidato da lista de classificação do curso, na ordem do sorteio.\n4.2. O candidato convocado tem 2 (dois) dias úteis para comparecer à Secretaria Escolar com os documentos exigidos no edital.\n4.3."
+    },
+    {
+      "n": 5,
+      "rotulo": "DOC-03, v1.0, seção 4",
+      "citado": false,
+      "origem": "busca",
+      "chunk_id": "DOC-03::A::txt::t008",
+      "doc_id": "DOC-03",
+      "titulo": "Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes",
+      "versao": "1.0",
+      "pagina": null,
+      "secao": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS",
+      "similaridade_cosseno": 0.5436,
+      "neutralizado": false,
+      "trecho": "Escolar com os documentos exigidos no edital.\n4.3. Não há convocação de vagas remanescentes depois do 15º (décimo quinto) dia letivo."
+    }
+  ],
+  "afirmacoes": [
+    {
+      "texto": "A matrícula pode ser cancelada automaticamente quando o estudante falta, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos.",
+      "trechos": [
+        1
+      ],
+      "citacoes": [
+        {
+          "rotulo": "DOC-03, v1.0, seção 2",
+          "chunk_id": "DOC-03::A::txt::t002",
+          "doc_id": "DOC-03",
+          "versao": "1.0",
+          "pagina": null,
+          "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+          "trecho": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS\n2.1. A matrícula será cancelada automaticamente quando o estudante faltar, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos.\n2.2."
+        }
+      ],
+      "numeros_fora_do_trecho_citado": []
+    },
+    {
+      "texto": "A matrícula também pode ser cancelada quando o estudante acumula 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos.",
+      "trechos": [
+        2
+      ],
+      "citacoes": [
+        {
+          "rotulo": "DOC-03, v1.0, seção 2",
+          "chunk_id": "DOC-03::A::txt::t003",
+          "doc_id": "DOC-03",
+          "versao": "1.0",
+          "pagina": null,
+          "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+          "trecho": "2 (dois) primeiros dias letivos consecutivos.\n2.2. A matrícula também será cancelada quando o estudante acumular 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos.\n2.3."
+        }
+      ],
+      "numeros_fora_do_trecho_citado": []
+    },
+    {
+      "texto": "A manutenção da vaga depende de não se enquadrar nessas situações ou de apresentar justificativa comprovada, quando cabível.",
+      "trechos": [
+        1,
+        2
+      ],
+      "citacoes": [
+        {
+          "rotulo": "DOC-03, v1.0, seção 2",
+          "chunk_id": "DOC-03::A::txt::t002",
+          "doc_id": "DOC-03",
+          "versao": "1.0",
+          "pagina": null,
+          "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+          "trecho": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS\n2.1. A matrícula será cancelada automaticamente quando o estudante faltar, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos.\n2.2."
+        },
+        {
+          "rotulo": "DOC-03, v1.0, seção 2",
+          "chunk_id": "DOC-03::A::txt::t003",
+          "doc_id": "DOC-03",
+          "versao": "1.0",
+          "pagina": null,
+          "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+          "trecho": "2 (dois) primeiros dias letivos consecutivos.\n2.2. A matrícula também será cancelada quando o estudante acumular 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos.\n2.3."
+        }
+      ],
+      "numeros_fora_do_trecho_citado": []
+    }
+  ],
+  "divergencias": [],
+  "alertas": [],
+  "guardas": {
+    "1_limiar": {
+      "decisao": "SEGUE",
+      "detalhe": "top-1 0.6020 >= limiar 0.45"
+    },
+    "camada2_conteudo_recuperado": {
+      "decisao": "PERMITIR",
+      "detalhe": "Nenhum trecho suspeito."
+    },
+    "2_contrato": {
+      "decisao": "SEGUE",
+      "detalhe": "status FUNDAMENTADA com citações válidas"
+    },
+    "camada3_saida": {
+      "decisao": "PERMITIR",
+      "detalhe": "Saída sem achados."
+    },
+    "3_ancoragem": {
+      "decisao": "SEGUE",
+      "detalhe": "todos os números constam dos trechos ou da mensagem"
+    }
+  },
+  "recuperacao": {
+    "top_k": 4,
+    "limiar": 0.45,
+    "explicacao": "Similaridade de cosseno entre o vetor da pergunta e o do trecho (1 - distância de cosseno do Chroma): perto de 1, sentidos próximos; perto de 0, sem relação. Mede proximidade de sentido, não veracidade nem vigência do trecho.",
+    "similaridade_top1": 0.602,
+    "similaridade_topk": 0.5352,
+    "margem_top1_topk": 0.0668,
+    "margem_minima": 0.02,
+    "margem_estreita": false,
+    "ids_top_k": [
+      "DOC-03::A::txt::t007",
+      "DOC-03::A::txt::t002",
+      "DOC-03::A::txt::t008",
+      "DOC-03::A::txt::t003"
+    ],
+    "duracao_total_ms": 4626.6
+  },
+  "saida_modelo": {
+    "status": "FUNDAMENTADA",
+    "resposta": "Sim. A matrícula pode ser cancelada automaticamente se você faltar, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos. [1] Ela também pode ser cancelada se você acumular 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos. [2] Portanto, a manutenção da vaga depende de não se enquadrar nessas situações ou de apresentar justificativa comprovada, quando cabível.",
+    "afirmacoes": [
+      {
+        "texto": "A matrícula pode ser cancelada automaticamente quando o estudante falta, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos.",
+        "trechos": [
+          1
+        ]
+      },
+      {
+        "texto": "A matrícula também pode ser cancelada quando o estudante acumula 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos.",
+        "trechos": [
+          2
+        ]
+      },
+      {
+        "texto": "A manutenção da vaga depende de não se enquadrar nessas situações ou de apresentar justificativa comprovada, quando cabível.",
+        "trechos": [
+          1,
+          2
+        ]
+      }
+    ],
+    "divergencias": [],
+    "alerta": null
+  },
+  "provedor": "openai",
+  "modelo": "gpt-5.6-luna",
+  "prompt": {
+    "id": "PROMPT_RAG",
+    "versao": "1.0"
+  },
+  "versao_esquema": "1.0.0",
+  "versao_indice": "1.0.0",
+  "colecao": "acervo_principal",
+  "configuracao_chunking": "A",
+  "chamadas": [
+    {
+      "etapa": "rag_geracao",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 4618.6,
+      "tokens_total": 2677,
+      "custo_estimado_usd": 0.0008673999999999999
+    }
+  ],
+  "minuta": "MINUTA PARA REVISÃO HUMANA - envio automático bloqueado\nStatus: FUNDAMENTADA\nEncaminhamento: CONFERENCIA_E_APROVACAO_HUMANA\n\nResposta proposta:\nSim. A matrícula pode ser cancelada automaticamente se você faltar, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos. (DOC-03, v1.0, seção 2) Ela também pode ser cancelada se você acumular 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos. (DOC-03, v1.0, seção 2) Portanto, a manutenção da vaga depende de não se enquadrar nessas situações ou de apresentar justificativa comprovada, quando cabível.\n\nTrechos consultados:\n[1] (DOC-03, v1.0, seção 2) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | citado | origem: busca\n[2] (DOC-03, v1.0, seção 2) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | citado | origem: busca\n[3] (DOC-03, v1.0, seção 2) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | não citado | origem: vizinho\n[4] (DOC-03, v1.0, seção 4) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | não citado | origem: busca\n[5] (DOC-03, v1.0, seção 4) Manual da Secretaria Escolar - Frequência nos Primeiros Dias Letivos, Justificativa de Faltas e Vagas Remanescentes | não citado | origem: busca\n\nConteúdo gerado com apoio de IA (openai/gpt-5.6-luna; PROMPT_RAG v1.0). Confira cada citação na passagem original antes de aprovar.",
+  "status_revisao": "PENDENTE_REVISAO_HUMANA",
+  "envio_automatico_bloqueado": true,
+  "registrado_em": "2026-10-30T12:13:14"
+}

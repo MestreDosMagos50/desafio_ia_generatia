@@ -1,0 +1,59 @@
+{
+  "id_caso": "SOL-06",
+  "canal": "texto (aplicativo de mensagens)",
+  "arquivo_origem": "dados/solicitacoes/SOL-06_mensagem_ambigua.txt",
+  "sha256_entrada": "23e1751ebfdc3fa2411727f6084c68522cce596038499d4dff13e69efb130f38",
+  "texto_entrada": "Canal: Aplicativo de mensagens\nProtocolo: 2026-000248\nData: 23/10/2026\n\nBoa noite. Já é a terceira vez que venho na secretaria e ela está fechada no horário que dizem que abre. Estou pensando em parar o curso ou pelo menos sair do estágio por um tempo, não sei ainda o que é melhor no meu caso. O que eu faço?\nAna Paula Ribeiro Teste\n",
+  "versao_esquema": "2.0.0",
+  "prompt": {
+    "id": "PROMPT_EXTRACAO_V2",
+    "versao": "1.0"
+  },
+  "modo_esquema": "Structured Outputs (esquema nativo)",
+  "contrato": {
+    "protocolo": "2026-000248",
+    "data_solicitacao": "23/10/2026",
+    "solicitante_ficticio": "Ana Paula Ribeiro Teste",
+    "curso": null,
+    "assunto": "Orientação sobre interrupção do curso ou afastamento do estágio",
+    "pedido": "Solicita orientação sobre o que fazer em relação a parar o curso ou sair temporariamente do estágio.",
+    "categoria": "REVISAO",
+    "entidades": {
+      "pessoas_ficticias": [
+        "Ana Paula Ribeiro Teste"
+      ],
+      "orgaos": [
+        "secretaria"
+      ],
+      "locais": [],
+      "datas": [
+        "23/10/2026"
+      ],
+      "protocolos": [
+        "2026-000248"
+      ]
+    },
+    "campos_ausentes": [
+      "curso"
+    ],
+    "necessita_revisao": true
+  },
+  "erros_validacao": [],
+  "alertas": [],
+  "decisao": "ENCAMINHAR_REVISAO_HUMANA",
+  "motivo": "Sem assunto predominante (categoria REVISAO).",
+  "chamadas": [
+    {
+      "etapa": "extracao_contrato_v2",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2942.5,
+      "tokens_total": 1661,
+      "custo_estimado_usd": 0.0004922
+    }
+  ],
+  "registrado_em": "2026-10-30T01:00:59"
+}

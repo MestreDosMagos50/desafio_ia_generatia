@@ -2,15 +2,24 @@
 # -*- coding: utf-8 -*-
 """
 ==============================================================================
-LIMPEZA DOS RESULTADOS ANTES DA EXECUÇÃO FINAL
+LIMPEZA DOS ARTEFATOS DO PIPELINE DO DESAFIO 01 ANTES DE UMA NOVA EXECUÇÃO
 ==============================================================================
-Remove saídas do pipeline (dados processados, minutas, áudios, imagens,
-decisões e o log das execuções) para que a entrega contenha apenas a execução
-final feita pela equipe.
+Remove saídas do pipeline do Desafio 01 (dados processados, minutas, áudios,
+imagens, decisões do Desafio 01 e as linhas do log desses casos) para que a
+execução seguinte do pipeline comece limpa.
 
-Preserva o experimento RF02: resultados/minutas/experimento_prompt_*.txt e as
-linhas do log do caso RF02_EXPERIMENTO_PROMPTS (refazê-lo consome cota).
-Não toca em dados/originais, dados/gabaritos, prompts nem documentacao.
+Preserva:
+- o experimento RF02 (resultados/minutas/experimento_prompt_*.txt e as linhas
+  do caso RF02_EXPERIMENTO_PROMPTS; refazê-lo consome cota);
+- toda a evidência do Desafio 02: resultados/nlp, metricas (com historico),
+  guardrails, indice, rag, sentimentos, atendimentos e regressao, o índice
+  (indice/), as decisões do operador (decisoes_humanas_desafio02.json) e as
+  linhas do log que não são dos casos do pipeline do Desafio 01.
+As linhas removidas são as dos casos CASO_* e RF10_CARTAZ. Rodar depois da
+regressão T15 apaga as linhas e os intermediários dela; o resumo e as cópias
+das evidências ficam em resultados/metricas/regressao_t15.* e
+resultados/regressao/. Não toca em dados/originais, gabaritos, prompts nem
+documentacao.
 
 Uso: python limpar_resultados.py          (pede confirmação)
      python limpar_resultados.py --sim    (sem confirmação)
@@ -22,7 +31,8 @@ import json
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent
-CASO_PRESERVADO = "RF02_EXPERIMENTO_PROMPTS"
+PREFIXOS_DO_PIPELINE_DESAFIO01 = ("CASO_", "RF10_CARTAZ")
+DECISOES_PRESERVADAS = ("decisoes_humanas_desafio02.json",)
 
 
 def arquivos_a_remover():
@@ -31,8 +41,12 @@ def arquivos_a_remover():
     alvos += [p for p in (RAIZ / "resultados" / "minutas").glob("*") if p.is_file() and not p.name.startswith("experimento_")]
     alvos += [p for p in (RAIZ / "resultados" / "audios").glob("*") if p.is_file()]
     alvos += [p for p in (RAIZ / "resultados" / "imagens").glob("*") if p.is_file()]
-    alvos += [p for p in (RAIZ / "resultados" / "logs").glob("decisoes_*.json")]
+    alvos += [p for p in (RAIZ / "resultados" / "logs").glob("decisoes_*.json") if p.name not in DECISOES_PRESERVADAS]
     return [p for p in alvos if not p.name.startswith(".")]
+
+
+def linha_do_pipeline_desafio01(registro: dict) -> bool:
+    return str(registro.get("caso_id") or "").startswith(PREFIXOS_DO_PIPELINE_DESAFIO01)
 
 
 def main() -> int:
@@ -45,13 +59,14 @@ def main() -> int:
             registro = json.loads(linha)
         except json.JSONDecodeError:
             continue
-        if registro.get("caso_id") == CASO_PRESERVADO and "etapa" in registro:
+        if "etapa" in registro and not linha_do_pipeline_desafio01(registro):
             preservadas.append(linha)
 
     print(f"Arquivos a remover: {len(alvos)}")
     for alvo in alvos:
         print(f"  - {alvo.relative_to(RAIZ).as_posix()}")
-    print(f"Log de auditoria: {len(linhas)} linha(s) -> {len(preservadas)} preservada(s) do experimento RF02")
+    print(f"Log de auditoria: {len(linhas)} linha(s) -> {len(preservadas)} preservada(s) "
+          "(experimento RF02 e evidências do Desafio 02)")
     if "--sim" not in sys.argv and input("Confirmar a limpeza? [s/n]: ").strip().lower() != "s":
         print("Nada foi alterado.")
         return 1
@@ -65,7 +80,7 @@ def main() -> int:
     sys.path.insert(0, str(RAIZ))
     from src.audit import AuditManager
     AuditManager().gerar_relatorio_qualidade()
-    print("Limpeza concluída. Execute o fluxo final (README, seção 7) e depois: python resumir_auditoria.py")
+    print("Limpeza concluída. Execute o pipeline do Desafio 01 (README) e depois: python resumir_auditoria.py")
     return 0
 
 

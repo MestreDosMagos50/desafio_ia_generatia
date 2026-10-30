@@ -1,0 +1,59 @@
+{
+  "id_caso": "ATD-20261030-131339-2B2F",
+  "versao_esquema": "2.0.0",
+  "resumo": "A ficha de matrícula registra Marcos Vinitcius de Almeida Santos [INCERTO], com possível leitura alternativa “Vinicius”, para o curso Técnico em Enfermagem, com 1.200 horas, no turno noturno. O início está indicado para 01/02/2027 e a matrícula para 14/10/2026. A data de nascimento é 12/09/2008 [INCERTO], pois o segundo algarismo do mês pode ser 9 ou 0. Há campos em branco, incluindo órgão expedidor, UF, nome do pai, turma, município, término, telefones e assinatura da secretaria.",
+  "palavras_resumo": 76,
+  "categoria": "MATRICULA_INICIAL",
+  "entidades_literais": {
+    "pessoas_ficticias": [
+      "MARCOS VINITCIUS DE ALMEIDA SANTOS",
+      "LUCIA HELENA DE ALMEIDA SANTOS"
+    ],
+    "orgaos": [
+      "GOVERNO DO MATO GROSSO",
+      "SECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO - SECITECI/MT",
+      "ESCOLA TÉCNICA ESTADUAL DE CUIABÁ",
+      "SECRETARIA ESCOLAR"
+    ],
+    "locais": [
+      "CUIABÁ"
+    ],
+    "datas": [
+      "12/09/2008",
+      "01/02/2027",
+      "14/10/2026"
+    ],
+    "protocolos": [
+      "2024-000142"
+    ]
+  },
+  "entidades_sem_apoio": {},
+  "informacoes_inferidas": [
+    {
+      "informacao": "Trata-se de uma solicitação de matrícula ou registro de matrícula escolar.",
+      "base": "FICHA DE MATRÍCULA"
+    },
+    {
+      "informacao": "A carga horária do curso corresponde a 1.200 horas.",
+      "base": "CH (carga horária): 1200 HORAS  [LEGIVEL]"
+    },
+    {
+      "informacao": "O curso ocorrerá no período noturno.",
+      "base": "TURNO: NOTURNO  [LEGIVEL]"
+    }
+  ],
+  "alertas": [],
+  "chamadas": [
+    {
+      "etapa": "ficha_nlp",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 4176.9,
+      "tokens_total": 1279,
+      "custo_estimado_usd": 0.0005028
+    }
+  ]
+}

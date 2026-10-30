@@ -1,0 +1,376 @@
+{
+  "gerado_em": "2026-10-30T13:12:54",
+  "modelos": [
+    "gpt-5.6-luna",
+    "gpt-5.6-terra"
+  ],
+  "indice": {
+    "antes": {
+      "sha256_manifesto": "77c76879b170feaf122e1ee1fe7534154630d2ba7d0ec2e70972f0582e291084",
+      "vetores": 59,
+      "situacao": "COMPATIVEL"
+    },
+    "depois": {
+      "sha256_manifesto": "77c76879b170feaf122e1ee1fe7534154630d2ba7d0ec2e70972f0582e291084",
+      "vetores": 59,
+      "situacao": "COMPATIVEL"
+    },
+    "embeddings_nesta_execucao": [
+      "consulta_rag",
+      "consulta_rag"
+    ],
+    "preservado": true
+  },
+  "agregados": {
+    "gpt-5.6-luna": {
+      "T08_respondiveis_conferem": {
+        "numerador": 4,
+        "denominador": 5
+      },
+      "T08_status_fundamentada": {
+        "numerador": 5,
+        "denominador": 5
+      },
+      "T08_afirmacoes_essenciais_presentes": {
+        "numerador": 10,
+        "denominador": 10
+      },
+      "T08_referencias_essenciais_citadas": {
+        "numerador": 8,
+        "denominador": 8
+      },
+      "T08_referencias_essenciais_no_contexto": {
+        "numerador": 8,
+        "denominador": 8
+      },
+      "T08_referencias_essenciais_no_top_k": {
+        "numerador": 7,
+        "denominador": 8
+      },
+      "T08_fontes_exigidas_citadas": {
+        "numerador": 4,
+        "denominador": 5
+      },
+      "T09_abstencao_correta": {
+        "numerador": 2,
+        "denominador": 2
+      },
+      "T10_conflito_tratado": {
+        "numerador": 1,
+        "denominador": 1
+      },
+      "recusas_indevidas": {
+        "numerador": 0,
+        "denominador": 6
+      },
+      "afirmacoes_do_modelo_com_citacao": {
+        "numerador": 17,
+        "denominador": 18
+      },
+      "afirmacoes_com_numeros_no_trecho_citado": {
+        "numerador": 17,
+        "denominador": 18
+      },
+      "respostas_convertidas_em_recusa_pela_ancoragem": 0
+    },
+    "gpt-5.6-terra": {
+      "T08_respondiveis_conferem": {
+        "numerador": 4,
+        "denominador": 5
+      },
+      "T08_status_fundamentada": {
+        "numerador": 5,
+        "denominador": 5
+      },
+      "T08_afirmacoes_essenciais_presentes": {
+        "numerador": 9,
+        "denominador": 10
+      },
+      "T08_referencias_essenciais_citadas": {
+        "numerador": 8,
+        "denominador": 8
+      },
+      "T08_referencias_essenciais_no_contexto": {
+        "numerador": 8,
+        "denominador": 8
+      },
+      "T08_referencias_essenciais_no_top_k": {
+        "numerador": 7,
+        "denominador": 8
+      },
+      "T08_fontes_exigidas_citadas": {
+        "numerador": 4,
+        "denominador": 5
+      },
+      "T09_abstencao_correta": {
+        "numerador": 2,
+        "denominador": 2
+      },
+      "T10_conflito_tratado": {
+        "numerador": 1,
+        "denominador": 1
+      },
+      "recusas_indevidas": {
+        "numerador": 0,
+        "denominador": 6
+      },
+      "afirmacoes_do_modelo_com_citacao": {
+        "numerador": 17,
+        "denominador": 18
+      },
+      "afirmacoes_com_numeros_no_trecho_citado": {
+        "numerador": 16,
+        "denominador": 18
+      },
+      "respostas_convertidas_em_recusa_pela_ancoragem": 0
+    }
+  },
+  "execucao": {
+    "gpt-5.6-luna": "2026-10-30T12:16:20",
+    "gpt-5.6-terra": "2026-10-30T13:12:53"
+  },
+  "uso": {
+    "gpt-5.6-luna": {
+      "tokens": 27418,
+      "custo_usd": 0.007781,
+      "latencia_media_ms": 4040.0
+    },
+    "gpt-5.6-terra": {
+      "tokens": 27009,
+      "custo_usd": 0.072898,
+      "latencia_media_ms": 2929.3
+    }
+  },
+  "perguntas": [
+    {
+      "id": "RAG-01",
+      "tipo": "respondivel",
+      "esperado": "FUNDAMENTADA",
+      "gpt-5.6-luna": {
+        "status": "FUNDAMENTADA",
+        "confere": false,
+        "citados": [
+          "DOC-02, v1.0, p. 1, Art. 1º"
+        ],
+        "alertas": 1,
+        "latencia_ms": 4688.0,
+        "tokens": 3546,
+        "custo_usd": 0.0010662
+      },
+      "gpt-5.6-terra": {
+        "status": "FUNDAMENTADA",
+        "confere": false,
+        "citados": [
+          "DOC-02, v1.0, p. 1, Art. 1º"
+        ],
+        "alertas": 1,
+        "latencia_ms": 3189.7,
+        "tokens": 3379,
+        "custo_usd": 0.008657999999999999
+      }
+    },
+    {
+      "id": "RAG-02",
+      "tipo": "respondivel",
+      "esperado": "FUNDAMENTADA",
+      "gpt-5.6-luna": {
+        "status": "FUNDAMENTADA",
+        "confere": true,
+        "citados": [
+          "DOC-01, v1.0, p. 2, seção 4"
+        ],
+        "alertas": 1,
+        "latencia_ms": 6173.1,
+        "tokens": 4222,
+        "custo_usd": 0.0012744
+      },
+      "gpt-5.6-terra": {
+        "status": "FUNDAMENTADA",
+        "confere": true,
+        "citados": [
+          "DOC-01, v1.0, p. 2, seção 4"
+        ],
+        "alertas": 1,
+        "latencia_ms": 3884.5,
+        "tokens": 4116,
+        "custo_usd": 0.011472
+      }
+    },
+    {
+      "id": "RAG-03",
+      "tipo": "respondivel",
+      "esperado": "FUNDAMENTADA",
+      "gpt-5.6-luna": {
+        "status": "FUNDAMENTADA",
+        "confere": true,
+        "citados": [
+          "DOC-03, v1.0, seção 2",
+          "DOC-03, v1.0, seção 4"
+        ],
+        "alertas": 0,
+        "latencia_ms": 4771.0,
+        "tokens": 2701,
+        "custo_usd": 0.0008962
+      },
+      "gpt-5.6-terra": {
+        "status": "FUNDAMENTADA",
+        "confere": true,
+        "citados": [
+          "DOC-03, v1.0, seção 2"
+        ],
+        "alertas": 0,
+        "latencia_ms": 2663.3,
+        "tokens": 2540,
+        "custo_usd": 0.00703
+      }
+    },
+    {
+      "id": "RAG-04",
+      "tipo": "respondivel",
+      "esperado": "FUNDAMENTADA",
+      "gpt-5.6-luna": {
+        "status": "FUNDAMENTADA",
+        "confere": true,
+        "citados": [
+          "DOC-05, v1.0, p. 1, seção 1",
+          "DOC-05, v1.0, p. 1, seção 2"
+        ],
+        "alertas": 0,
+        "latencia_ms": 4274.4,
+        "tokens": 3329,
+        "custo_usd": 0.0009718000000000001
+      },
+      "gpt-5.6-terra": {
+        "status": "FUNDAMENTADA",
+        "confere": true,
+        "citados": [
+          "DOC-05, v1.0, p. 1, seção 1",
+          "DOC-05, v1.0, p. 1, seção 2"
+        ],
+        "alertas": 0,
+        "latencia_ms": 3456.5,
+        "tokens": 3273,
+        "custo_usd": 0.009046
+      }
+    },
+    {
+      "id": "RAG-05",
+      "tipo": "respondivel",
+      "esperado": "FUNDAMENTADA",
+      "gpt-5.6-luna": {
+        "status": "FUNDAMENTADA",
+        "confere": true,
+        "citados": [
+          "DOC-06, v1.0, seção 1"
+        ],
+        "alertas": 0,
+        "latencia_ms": 4347.4,
+        "tokens": 2395,
+        "custo_usd": 0.000781
+      },
+      "gpt-5.6-terra": {
+        "status": "FUNDAMENTADA",
+        "confere": true,
+        "citados": [
+          "DOC-06, v1.0, seção 1"
+        ],
+        "alertas": 0,
+        "latencia_ms": 4774.9,
+        "tokens": 2474,
+        "custo_usd": 0.008757999999999998
+      }
+    },
+    {
+      "id": "RAG-06",
+      "tipo": "sem_resposta",
+      "esperado": "SEM_EVIDENCIA_SUFICIENTE",
+      "gpt-5.6-luna": {
+        "status": "SEM_EVIDENCIA_SUFICIENTE",
+        "confere": true,
+        "citados": [],
+        "alertas": 0,
+        "latencia_ms": 2889.0,
+        "tokens": 2438,
+        "custo_usd": 0.0005666
+      },
+      "gpt-5.6-terra": {
+        "status": "SEM_EVIDENCIA_SUFICIENTE",
+        "confere": true,
+        "citados": [],
+        "alertas": 0,
+        "latencia_ms": 1706.8,
+        "tokens": 2438,
+        "custo_usd": 0.005666
+      }
+    },
+    {
+      "id": "RAG-07",
+      "tipo": "sem_resposta",
+      "esperado": "SEM_EVIDENCIA_SUFICIENTE",
+      "gpt-5.6-luna": {
+        "status": "SEM_EVIDENCIA_SUFICIENTE",
+        "confere": true,
+        "citados": [],
+        "alertas": 0,
+        "latencia_ms": 1660.8,
+        "tokens": 2309,
+        "custo_usd": 0.0005408
+      },
+      "gpt-5.6-terra": {
+        "status": "SEM_EVIDENCIA_SUFICIENTE",
+        "confere": true,
+        "citados": [],
+        "alertas": 0,
+        "latencia_ms": 1287.0,
+        "tokens": 2309,
+        "custo_usd": 0.0054080000000000005
+      }
+    },
+    {
+      "id": "RAG-08",
+      "tipo": "contraditoria",
+      "esperado": "CONFLITO_DE_FONTES",
+      "gpt-5.6-luna": {
+        "status": "CONFLITO_DE_FONTES",
+        "confere": true,
+        "citados": [
+          "DOC-04, v1.0, seção 2",
+          "DOC-05, v1.0, p. 2, seção 3"
+        ],
+        "alertas": 1,
+        "latencia_ms": 4596.4,
+        "tokens": 2974,
+        "custo_usd": 0.0009038
+      },
+      "gpt-5.6-terra": {
+        "status": "CONFLITO_DE_FONTES",
+        "confere": true,
+        "citados": [
+          "DOC-04, v1.0, seção 2",
+          "DOC-05, v1.0, p. 2, seção 3"
+        ],
+        "alertas": 2,
+        "latencia_ms": 4146.0,
+        "tokens": 2976,
+        "custo_usd": 0.009062
+      }
+    }
+  ],
+  "falha_simulada": {
+    "id_caso": "T12-FALHA-SIMULADA",
+    "status": "SEM_EVIDENCIA_SUFICIENTE",
+    "codigo_motivo": "FALHA_NA_GERACAO",
+    "resposta_e_a_recusa_padronizada": true,
+    "trechos_visiveis": 8,
+    "id_execucao": "EXEC-86DCC6B4",
+    "auditoria": {
+      "sucesso": false,
+      "codigo_erro": "INDISPONIVEL",
+      "provedor": "simulado",
+      "modelo": "simulado-deterministico",
+      "mensagem_erro": "Falha simulada do serviço de geração (INDISPONIVEL), injetada para o teste de troca de provedor (T12)."
+    },
+    "tratada_e_auditada": true
+  },
+  "confere_t12": true
+}

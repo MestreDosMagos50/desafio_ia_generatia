@@ -1,0 +1,52 @@
+{
+  "protocolo": "2026-000142",
+  "data_solicitacao": "14/10/2026",
+  "canal_origem": "E-mail",
+  "solicitante": {
+    "nome_completo": "Marcos Vinícius de Almeida Santos",
+    "data_nascimento": "12/08/2008",
+    "naturalidade": "Cuiabá",
+    "cpf": "123.456.789-00",
+    "rg": "1234567-8",
+    "orgao_expedidor": "não localizado",
+    "uf": "não localizado",
+    "nome_mae": "Lúcia Helena de Almeida Santos",
+    "nome_pai": "não localizado",
+    "email": "marcos.almeida.teste@examplo.com",
+    "telefone_celular": "não localizado",
+    "telefone_residencial": "não localizado"
+  },
+  "curso": {
+    "nome": "Técnico em Enfermagem",
+    "eixo_tecnologico": "Saúde",
+    "carga_horaria": "1200 horas",
+    "turno": "noturno",
+    "data_inicio": "01/02/2027",
+    "data_termino": "não localizado",
+    "turma": "não localizado"
+  },
+  "assunto": "Solicitação de efetivação de matrícula e informação sobre documentos pendentes",
+  "pedido_detalhado": "Solicita a efetivação da matrícula no curso Técnico em Enfermagem e pede informação sobre quais documentos ainda precisa apresentar.",
+  "declarou_ciencia_faltas": true,
+  "texto_ciencia_faltas": "Declaro estar ciente de que a matrícula será automaticamente cancelada se eu faltar, sem justificativa comprovada, nos dois primeiros dias de aula consecutivos ou em três dias de aula, consecutivos ou não, nos dez primeiros dias de aula.",
+  "documentos_anexados": [],
+  "categoria_tema": "MATRICULA_INICIAL",
+  "urgencia": "não localizado",
+  "nivel_confianca": "ALTO",
+  "suspeita_prompt_injection": false,
+  "trechos_suspeitos": [],
+  "campos_ausentes": [
+    "orgao_expedidor",
+    "uf",
+    "nome_pai",
+    "telefone_celular",
+    "telefone_residencial",
+    "documentos_comprobatorios_anexos"
+  ],
+  "correcoes_revisor": [],
+  "necessita_revisao_humana": true,
+  "alertas": [],
+  "texto_original": "Canal: E-mail\nProtocolo: 2026-000142\nData: 14/10/2026\n\nPrezados,\n\nMeu nome é Marcos Vinícius de Almeida Santos, nasci em 12/08/2008, em Cuiabá, e solicito a efetivação da minha matrícula no curso Técnico em Enfermagem, eixo tecnológico Saúde, com carga horária de 1200 horas, turno noturno. O curso tem início em 01/02/2027 e a data da matrícula é 14/10/2026.\n\nMeus demais dados são: CPF 123.456.789-00; RG 1234567-8; nome da mãe, Lúcia Helena de Almeida Santos; e-mail marcos.almeida.teste@examplo.com.\n\nDeclaro estar ciente de que a matrícula será automaticamente cancelada se eu faltar, sem justificativa comprovada, nos dois primeiros dias de aula consecutivos ou em três dias de aula, consecutivos ou não, nos dez primeiros dias de aula.\n\nPeço que me informem quais documentos ainda preciso apresentar.\n\nAtenciosamente,\nMarcos Vinícius de Almeida Santos\n",
+  "arquivo_origem": "dados/originais/entrada_texto.txt",
+  "hash_origem_sha256": "6f379a28c7c12a4036eb3e213d6ef6734bc1766dda2da76aa65f3e90e86511ac"
+}

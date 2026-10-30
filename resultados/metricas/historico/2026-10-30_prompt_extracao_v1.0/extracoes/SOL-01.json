@@ -1,0 +1,61 @@
+{
+  "id_caso": "SOL-01",
+  "canal": "texto (e-mail)",
+  "arquivo_origem": "dados/originais/entrada_texto.txt",
+  "sha256_entrada": "8bc1318c6b3165a12d9a93b94cbc42ae9ee54d71d8eb55c428c332979a04e1b8",
+  "texto_entrada": "Canal: E-mail\nProtocolo: 2026-000142\nData: 14/10/2026\n\nPrezados,\n\nMeu nome é Marcos Vinícius de Almeida Santos, nasci em 12/08/2008, em Cuiabá, e solicito a efetivação da minha matrícula no curso Técnico em Enfermagem, eixo tecnológico Saúde, com carga horária de 1200 horas, turno noturno. O curso tem início em 01/02/2027 e a data da matrícula é 14/10/2026.\n\nMeus demais dados são: CPF 123.456.789-00; RG 1234567-8; nome da mãe, Lúcia Helena de Almeida Santos; e-mail marcos.almeida.teste@examplo.com.\n\nDeclaro estar ciente de que a matrícula será automaticamente cancelada se eu faltar, sem justificativa comprovada, nos dois primeiros dias de aula consecutivos ou em três dias de aula, consecutivos ou não, nos dez primeiros dias de aula.\n\nPeço que me informem quais documentos ainda preciso apresentar.\n\nAtenciosamente,\nMarcos Vinícius de Almeida Santos\n",
+  "versao_esquema": "2.0.0",
+  "prompt": {
+    "id": "PROMPT_EXTRACAO_V2",
+    "versao": "1.0"
+  },
+  "modo_esquema": "Structured Outputs (esquema nativo)",
+  "contrato": {
+    "protocolo": "2026-000142",
+    "data_solicitacao": "14/10/2026",
+    "solicitante_ficticio": "Marcos Vinícius de Almeida Santos",
+    "curso": "Técnico em Enfermagem",
+    "assunto": "Efetivação da matrícula e informação sobre documentos pendentes",
+    "pedido": "Solicita a efetivação da matrícula e informações sobre quais documentos ainda precisa apresentar.",
+    "categoria": "MATRICULA_INICIAL",
+    "entidades": {
+      "pessoas_ficticias": [
+        "Marcos Vinícius de Almeida Santos",
+        "Lúcia Helena de Almeida Santos"
+      ],
+      "orgaos": [],
+      "locais": [
+        "Cuiabá"
+      ],
+      "datas": [
+        "14/10/2026",
+        "12/08/2008",
+        "01/02/2027",
+        "14/10/2026"
+      ],
+      "protocolos": [
+        "2026-000142"
+      ]
+    },
+    "campos_ausentes": [],
+    "necessita_revisao": false
+  },
+  "erros_validacao": [],
+  "alertas": [],
+  "decisao": "GERAR_MINUTA_PARA_REVISAO",
+  "motivo": "Contrato válido e coerente com o texto original; a minuta segue para aprovação humana.",
+  "chamadas": [
+    {
+      "etapa": "extracao_contrato_v2",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 4391.1,
+      "tokens_total": 1850,
+      "custo_estimado_usd": 0.0005710000000000001
+    }
+  ],
+  "registrado_em": "2026-10-30T01:00:33"
+}

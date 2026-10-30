@@ -1,0 +1,40 @@
+{
+  "id_caso": "SOL-03",
+  "versao_esquema": "2.0.0",
+  "resumo": "Beatriz Camargo Lima Teste, estudante do segundo módulo do curso Técnico em Enfermagem, turno noturno, solicita informação sobre quantos dias de antecedência deve entregar o termo de compromisso de estágio assinado e se pode cumprir o estágio no período noturno, pois trabalha durante o dia. Informa que foi escalada para iniciar o estágio supervisionado no Hospital Municipal Fictício São Bento em 16/11/2026. Protocolo 2026-000215, de 21/10/2026, enviado por e-mail.",
+  "palavras_resumo": 69,
+  "categoria": "ESTAGIO_SUPERVISIONADO",
+  "entidades_literais": {
+    "pessoas_ficticias": [
+      "Beatriz Camargo Lima Teste"
+    ],
+    "orgaos": [
+      "Coordenação de Estágio",
+      "Hospital Municipal Fictício São Bento"
+    ],
+    "locais": [],
+    "datas": [
+      "21/10/2026",
+      "16/11/2026"
+    ],
+    "protocolos": [
+      "2026-000215"
+    ]
+  },
+  "entidades_sem_apoio": {},
+  "informacoes_inferidas": [],
+  "alertas": [],
+  "chamadas": [
+    {
+      "etapa": "ficha_nlp",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2123.4,
+      "tokens_total": 739,
+      "custo_estimado_usd": 0.0002798
+    }
+  ]
+}

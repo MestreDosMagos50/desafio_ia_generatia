@@ -1,0 +1,294 @@
+{
+  "instrucoes": "Para cada afirmação, leia a passagem citada e preencha sustentada (true/false). A proporção de respostas institucionais com todas as afirmações sustentadas (RF23) sai deste registro. Registre também a decisão do operador (aprovada, rejeitada ou revisar) e a justificativa.",
+  "revisado_por": null,
+  "data": null,
+  "casos": [
+    {
+      "id": "RAG-01",
+      "status": "FUNDAMENTADA",
+      "resposta": "Sim. O período de matrícula da 1ª chamada foi retificado e vai de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar. (DOC-02, v1.0, p. 1, Art. 1º) Portanto, você ainda pode realizar a matrícula, desde que compareça dentro desse período e horário. A redação vigente está no DOC-02, que retifica o item 3.3 do DOC-01. (DOC-02, v1.0, p. 1, Art. 1º)",
+      "modelo": "gpt-5.6-luna",
+      "decisao_humana_esperada": "aprovada",
+      "decisao_humana": null,
+      "justificativa": null,
+      "afirmacoes": [
+        {
+          "texto": "O período vigente de matrícula da 1ª chamada vai de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-02, v1.0, p. 1, Art. 1º",
+              "trecho": "13h às 21h, na Secretaria Escolar.\"\nLeia-se: \"3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\""
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "O DOC-02 retifica o item 3.3 do DOC-01, substituindo a redação original pela redação vigente.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-02, v1.0, p. 1, Art. 1º",
+              "trecho": "Art. 1º. O item 3.3 do Edital Fictício nº 010/2026 passa a vigorar com a seguinte redação:\nOnde se lê: \"3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 20/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\"\nLeia-se: \"3.3."
+            },
+            {
+              "rotulo": "DOC-02, v1.0, p. 1, Art. 1º",
+              "trecho": "13h às 21h, na Secretaria Escolar.\"\nLeia-se: \"3.3. O período de matrícula da 1ª chamada será de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.\""
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        }
+      ]
+    },
+    {
+      "id": "RAG-02",
+      "status": "FUNDAMENTADA",
+      "resposta": "Para efetivar sua matrícula em Técnico em Enfermagem, leve à Secretaria Escolar cópia simples e o original de: documento oficial de identificação com foto, CPF, certidão de nascimento ou casamento, histórico escolar e certificado de conclusão do ensino médio ou declaração de matrícula na terceira série, comprovante de residência emitido nos últimos 3 (três) meses, 1 (uma) foto 3x4 recente e, para maiores de 18 anos, comprovante de quitação eleitoral. (DOC-01, v1.0, p. 2, seção 4) Além disso, apresente a carteira de vacinação atualizada, com registro das doses contra hepatite B e tétano. (DOC-01, v1.0, p. 2, seção 4) Se você for menor de 18 anos, deverá estar acompanhado do responsável legal. (DOC-01, v1.0, p. 2, seção 4) A falta de qualquer documento impede a efetivação da matrícula; a vaga será perdida se a pendência não for regularizada dentro do período de matrícula. (DOC-01, v1.0, p. 2, seção 4)",
+      "modelo": "gpt-5.6-luna",
+      "decisao_humana_esperada": "aprovada",
+      "decisao_humana": null,
+      "justificativa": null,
+      "afirmacoes": [
+        {
+          "texto": "A matrícula exige cópia simples e apresentação do original dos documentos listados.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-01, v1.0, p. 2, seção 4",
+              "trecho": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS\n4.1. A matrícula é presencial e somente será efetivada com a entrega de cópia simples e a apresentação do original dos seguintes documentos:\na) documento oficial de identificação com foto;\nb) CPF;\nc) certidão de nascimento ou de casamento;"
+            },
+            {
+              "rotulo": "DOC-01, v1.0, p. 2, seção 4",
+              "trecho": "CPF;\nc) certidão de nascimento ou de casamento;\nd) histórico escolar e certificado de conclusão do ensino médio, ou declaração de matrícula na terceira série do ensino médio;\ne) comprovante de residência emitido nos últimos 3 (três) meses;\nf) 1 (uma) foto 3x4 recente;\ng) comprovante de quitação eleitoral, para maiores de 18 anos.\n4.2."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "Para Técnico em Enfermagem, é obrigatória a carteira de vacinação atualizada com registro das doses contra hepatite B e tétano.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-01, v1.0, p. 2, seção 4",
+              "trecho": "quitação eleitoral, para maiores de 18 anos.\n4.2. Para o Curso Técnico em Enfermagem, além dos documentos do item 4.1, é obrigatória a apresentação da carteira de vacinação atualizada, com registro das doses contra hepatite B e tétano.\n4.3. O candidato menor de 18 anos deve estar acompanhado do responsável legal no ato da matrícula.\n4.4."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "Candidato menor de 18 anos deve estar acompanhado do responsável legal.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-01, v1.0, p. 2, seção 4",
+              "trecho": "quitação eleitoral, para maiores de 18 anos.\n4.2. Para o Curso Técnico em Enfermagem, além dos documentos do item 4.1, é obrigatória a apresentação da carteira de vacinação atualizada, com registro das doses contra hepatite B e tétano.\n4.3. O candidato menor de 18 anos deve estar acompanhado do responsável legal no ato da matrícula.\n4.4."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "A falta de documento impede a efetivação da matrícula e pode levar à perda da vaga se não houver regularização dentro do período de matrícula.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-01, v1.0, p. 2, seção 4",
+              "trecho": "do responsável legal no ato da matrícula.\n4.4. A falta de qualquer documento exigido impede a efetivação da matrícula, e o candidato perde a vaga se não regularizar a pendência dentro do período de matrícula."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        }
+      ]
+    },
+    {
+      "id": "RAG-03",
+      "status": "FUNDAMENTADA",
+      "resposta": "Sim. Sua matrícula poderá ser cancelada se você faltar, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos. (DOC-03, v1.0, seção 2) Ela também poderá ser cancelada se acumular 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos. (DOC-03, v1.0, seção 2) Em caso de cancelamento, a vaga será oferecida ao próximo candidato da lista de classificação do curso, na ordem do sorteio. (DOC-03, v1.0, seção 4)",
+      "modelo": "gpt-5.6-luna",
+      "decisao_humana_esperada": "aprovada",
+      "decisao_humana": null,
+      "justificativa": null,
+      "afirmacoes": [
+        {
+          "texto": "A matrícula poderá ser cancelada quando o estudante faltar, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-03, v1.0, seção 2",
+              "trecho": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS\n2.1. A matrícula será cancelada automaticamente quando o estudante faltar, sem justificativa comprovada, nos 2 (dois) primeiros dias letivos consecutivos.\n2.2."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "A matrícula também poderá ser cancelada quando o estudante acumular 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-03, v1.0, seção 2",
+              "trecho": "2 (dois) primeiros dias letivos consecutivos.\n2.2. A matrícula também será cancelada quando o estudante acumular 3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos.\n2.3."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "A vaga liberada por cancelamento de matrícula é oferecida ao próximo candidato da lista de classificação do curso, na ordem do sorteio.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-03, v1.0, seção 4",
+              "trecho": "4. VAGAS REMANESCENTES APÓS O INÍCIO DAS AULAS\n4.1. A vaga liberada por cancelamento de matrícula é oferecida ao próximo candidato da lista de classificação do curso, na ordem do sorteio.\n4.2. O candidato convocado tem 2 (dois) dias úteis para comparecer à Secretaria Escolar com os documentos exigidos no edital.\n4.3."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        }
+      ]
+    },
+    {
+      "id": "RAG-04",
+      "status": "FUNDAMENTADA",
+      "resposta": "Sim. As atividades práticas obrigatórias do Curso Técnico em Enfermagem podem ocorrer no turno noturno, desde que haja disponibilidade das instituições de saúde conveniadas. (DOC-05, v1.0, p. 1, seção 2) O estágio supervisionado tem carga horária total de 400 (quatrocentas) horas e é cumprido a partir do segundo módulo do curso. (DOC-05, v1.0, p. 1, seção 1) A distribuição dos estudantes é feita pela coordenação do curso, conforme escala publicada com antecedência mínima de 30 (trinta) dias. (DOC-05, v1.0, p. 1, seção 2)",
+      "modelo": "gpt-5.6-luna",
+      "decisao_humana_esperada": "aprovada",
+      "decisao_humana": null,
+      "justificativa": null,
+      "afirmacoes": [
+        {
+          "texto": "As atividades de estágio podem ocorrer no turno noturno, conforme a disponibilidade das instituições de saúde conveniadas.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-05, v1.0, p. 1, seção 2",
+              "trecho": "2. DOS TURNOS E DOS CAMPOS DE ESTÁGIO\n2.1. As atividades de estágio podem ocorrer nos turnos matutino, vespertino ou noturno, conforme a disponibilidade das instituições de saúde conveniadas.\n2.2."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "O estágio supervisionado tem carga horária de 400 (quatrocentas) horas e é cumprido a partir do segundo módulo do curso.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-05, v1.0, p. 1, seção 1",
+              "trecho": "1. DA NATUREZA DO ESTÁGIO\n1.1. O estágio supervisionado é componente obrigatório do Curso Técnico em Enfermagem e integra a carga horária total do curso.\n1.2. O estágio supervisionado do Curso Técnico em Enfermagem tem carga horária de 400 (quatrocentas) horas, cumpridas a partir do segundo módulo do curso."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "A distribuição dos estudantes entre os campos de estágio é feita pela coordenação do curso, que publica a escala com antecedência mínima de 30 (trinta) dias.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-05, v1.0, p. 1, seção 2",
+              "trecho": "das instituições de saúde conveniadas.\n2.2. A distribuição dos estudantes entre os campos de estágio é feita pela coordenação do curso, que publica a escala com antecedência mínima de 30 (trinta) dias.\n2.3. O estudante não pode cumprir mais de 6 (seis) horas diárias de estágio."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        }
+      ]
+    },
+    {
+      "id": "RAG-05",
+      "status": "FUNDAMENTADA",
+      "resposta": "Sim, estudantes de outros municípios podem pedir o auxílio-transporte, pois o critério é a distância entre a residência e a unidade escolar, e não o município de residência. (DOC-06, v1.0, seção 1) Para ter direito, é necessário estar regularmente matriculado, residir a mais de 3 (três) quilômetros da unidade escolar e ter renda familiar per capita de até 1,5 (um e meio) salário mínimo. (DOC-06, v1.0, seção 1) O pedido deve ser feito na Secretaria Escolar, com formulário de solicitação, comprovante de residência e declaração de renda familiar, nos primeiros 30 (trinta) dias de cada semestre letivo. (DOC-06, v1.0, seção 1)",
+      "modelo": "gpt-5.6-luna",
+      "decisao_humana_esperada": "aprovada",
+      "decisao_humana": null,
+      "justificativa": null,
+      "afirmacoes": [
+        {
+          "texto": "Estudantes de outros municípios podem pedir o auxílio-transporte, e o critério é a distância entre a residência e a unidade escolar.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-06, v1.0, seção 1",
+              "trecho": "de outros municípios podem pedir o auxílio?\nSim. O critério é a distância entre a residência e a unidade escolar, e não o município de residência."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "É necessário estar regularmente matriculado, residir a mais de 3 (três) quilômetros da unidade escolar e ter renda familiar per capita de até 1,5 (um e meio) salário mínimo.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-06, v1.0, seção 1",
+              "trecho": "1. AUXÍLIO-TRANSPORTE\n1.1. Quem pode pedir o auxílio-transporte?\nPode pedir o auxílio-transporte o estudante regularmente matriculado que resida a mais de 3 (três) quilômetros da unidade escolar e tenha renda familiar per capita de até 1,5 (um e meio) salário mínimo.\n1.2. Qual é o valor do auxílio-transporte?"
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "O pedido deve ser feito na Secretaria Escolar, com formulário de solicitação, comprovante de residência e declaração de renda familiar, nos primeiros 30 (trinta) dias de cada semestre letivo.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-06, v1.0, seção 1",
+              "trecho": "os meses letivos.\n1.3. Como faço o pedido?\nO pedido é feito na Secretaria Escolar, com o formulário de solicitação, o comprovante de residência e a declaração de renda familiar, nos primeiros 30 (trinta) dias de cada semestre letivo.\n1.4. Estudantes de outros municípios podem pedir o auxílio?\nSim."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        }
+      ]
+    },
+    {
+      "id": "RAG-06",
+      "status": "SEM_EVIDENCIA_SUFICIENTE",
+      "resposta": "SEM_EVIDENCIA_SUFICIENTE: Não foram encontradas evidências suficientes no acervo institucional indexado para fundamentar a resposta. Solicitação encaminhada para revisão humana.",
+      "modelo": "gpt-5.6-luna",
+      "decisao_humana_esperada": "revisar",
+      "decisao_humana": null,
+      "justificativa": null,
+      "afirmacoes": []
+    },
+    {
+      "id": "RAG-07",
+      "status": "SEM_EVIDENCIA_SUFICIENTE",
+      "resposta": "SEM_EVIDENCIA_SUFICIENTE: Não foram encontradas evidências suficientes no acervo institucional indexado para fundamentar a resposta. Solicitação encaminhada para revisão humana.",
+      "modelo": "gpt-5.6-luna",
+      "decisao_humana_esperada": "revisar",
+      "decisao_humana": null,
+      "justificativa": null,
+      "afirmacoes": []
+    },
+    {
+      "id": "RAG-08",
+      "status": "CONFLITO_DE_FONTES",
+      "resposta": "Há divergência no acervo sobre a antecedência para entregar o termo de compromisso assinado: um documento informa antecedência mínima de 5 (cinco) dias úteis antes do início das atividades (DOC-04, v1.0, seção 2), enquanto outro informa antecedência mínima de 15 (quinze) dias corridos (DOC-05, v1.0, p. 2, seção 3). Como não há indicação de qual regra prevalece, o caso será encaminhado para revisão humana.",
+      "modelo": "gpt-5.6-luna",
+      "decisao_humana_esperada": "revisar",
+      "decisao_humana": null,
+      "justificativa": null,
+      "afirmacoes": [
+        {
+          "texto": "Um documento informa antecedência mínima de 5 (cinco) dias úteis antes do início das atividades.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-04, v1.0, seção 2",
+              "trecho": "de seguro contra acidentes pessoais.\n2.2. O termo de compromisso de estágio assinado deve ser entregue à coordenação de estágio com antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio.\n2.3. Sem a entrega do termo de compromisso, o estudante não poderá iniciar as atividades no campo de estágio.\n2.4."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "Outro documento informa antecedência mínima de 15 (quinze) dias corridos.",
+          "citacoes": [
+            {
+              "rotulo": "DOC-05, v1.0, p. 2, seção 3",
+              "trecho": "contra hepatite B, tétano e influenza.\n3.2. O termo de compromisso de estágio, assinado pelo estudante, pela instituição concedente e pela coordenação, deve ser entregue com antecedência mínima de 15 (quinze) dias corridos do início das atividades no campo de estágio.\n3.3."
+            }
+          ],
+          "sustentada": null,
+          "observacao": null
+        },
+        {
+          "texto": "Não há indicação de qual regra prevalece no acervo consultado.",
+          "citacoes": [],
+          "sustentada": null,
+          "observacao": null
+        }
+      ]
+    }
+  ]
+}

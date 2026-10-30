@@ -1,0 +1,59 @@
+{
+  "id_caso": "SOL-02",
+  "canal": "áudio (mensagem de voz)",
+  "arquivo_origem": "dados/solicitacoes/SOL-02_transcricao_audio_desafio01.txt",
+  "sha256_entrada": "bbdde0bc5f7eda254e75a1c0d5114705e804f94312417771dd26f0055327b28a",
+  "texto_entrada": "Bom dia, meu protocolo é 2026-000142 de 14 de outubro de 2026. Meu nome é Marcos Vinícius de Almeida Santos, nasci em 12 de agosto de 2008 em Cuiabá e quero pedir a efetivação da minha matrícula no curso Técnico em Enfermagem do eixo tecnológico Saúde com carga horária de 1200 horas no turno noturno. Meu CPF é 123.456.789-00, meu RG é 1234567-8, o nome da minha mãe é Lúcia Helena de Almeida Santos e o meu e-mail é marcos.almeida.teste@exemplo.com. Declaro estar ciente de que a matrícula será cancelada automaticamente se eu faltar sem justificativa comprovada nos dois primeiros dias de aula consecutivos ou em três dias de aula consecutivos ou não nos dez primeiros dias de aula. Peço que informem quais os documentos ainda preciso apresentar. Muito obrigado.\n",
+  "versao_esquema": "2.0.0",
+  "prompt": {
+    "id": "PROMPT_EXTRACAO_V2",
+    "versao": "1.0"
+  },
+  "modo_esquema": "Structured Outputs (esquema nativo)",
+  "contrato": {
+    "protocolo": "2026-000142",
+    "data_solicitacao": "14/10/2026",
+    "solicitante_ficticio": "Marcos Vinícius de Almeida Santos",
+    "curso": "Técnico em Enfermagem",
+    "assunto": "Efetivação da matrícula e informação sobre documentos pendentes",
+    "pedido": "Pede a efetivação da matrícula e informações sobre quais documentos ainda precisa apresentar.",
+    "categoria": "MATRICULA_INICIAL",
+    "entidades": {
+      "pessoas_ficticias": [
+        "Marcos Vinícius de Almeida Santos",
+        "Lúcia Helena de Almeida Santos"
+      ],
+      "orgaos": [],
+      "locais": [
+        "Cuiabá"
+      ],
+      "datas": [
+        "14 de outubro de 2026",
+        "12 de agosto de 2008"
+      ],
+      "protocolos": [
+        "2026-000142"
+      ]
+    },
+    "campos_ausentes": [],
+    "necessita_revisao": false
+  },
+  "erros_validacao": [],
+  "alertas": [],
+  "decisao": "GERAR_MINUTA_PARA_REVISAO",
+  "motivo": "Contrato válido e coerente com o texto original; a minuta segue para aprovação humana.",
+  "chamadas": [
+    {
+      "etapa": "extracao_contrato_v2",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2451.3,
+      "tokens_total": 1793,
+      "custo_estimado_usd": 0.0005476
+    }
+  ],
+  "registrado_em": "2026-10-30T01:00:38"
+}

@@ -20,7 +20,7 @@ import json
 import uuid
 import shutil
 import hashlib
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, Any, List, Optional, Tuple, Union, TYPE_CHECKING
 
@@ -47,22 +47,26 @@ class AuditManager:
     """Gerenciador de logs de auditoria forense e protocolo de qualidade."""
 
     PADRAO_SEGREDO = re.compile(r'(AIza[0-9A-Za-z_-]{20,}|AQ\.[0-9A-Za-z_-]{20,}|sk-[A-Za-z0-9_-]{20,}|hf_[A-Za-z0-9]{20,})')
+    PADRAO_TELEFONE = re.compile(r"\(?\b\d{2}\)?\s?9?\d{4}[-\s]?\d{4}\b")
     CHAVES_SENSIVEIS = ("api_key", "apikey", "secret", "senha", "password", "authorization", "credential")
 
-    def __init__(self, config_path: str = "config.json"):
+    def __init__(self, config_path: str = "config.json", dir_logs: Optional[Union[str, Path]] = None):
+        """`dir_logs` troca a pasta dos registros (testes offline gravam em pasta temporária)."""
         self.raiz_projeto = Path(__file__).resolve().parent.parent
-        self.dir_logs = self.raiz_projeto / "resultados" / "logs"
+        self.dir_logs = Path(dir_logs) if dir_logs else self.raiz_projeto / "resultados" / "logs"
         self.dir_logs.mkdir(parents=True, exist_ok=True)
         self.arquivo_log_jsonl = self.dir_logs / "auditoria.jsonl"
         self.arquivo_decisoes_json = self.dir_logs / "decisoes_humanas.json"
         # Decisões do modo --demo-avaliacao-humana: separadas e fora da taxa de aprovação
         self.arquivo_decisoes_simuladas = self.dir_logs / "decisoes_simuladas.json"
+        # Desafio 02 (RF20, RF24): estados PENDENTE/APROVADA/REJEITADA/REVISAR, fora da taxa de aprovação do RF13
+        self.arquivo_decisoes_minutas = self.dir_logs / "decisoes_humanas_desafio02.json"
         self.caminho_relatorio = self.raiz_projeto / "documentacao" / "relatorio_avaliacao_qualidade.md"
 
     def _sanitizar(self, obj: Any) -> Any:
         """Sanitização recursiva: remove chaves de API e mascara CPF e e-mail (RF11 / RF12)."""
         if isinstance(obj, str):
-            return mascarar_texto(self.PADRAO_SEGREDO.sub("[REDACTED_SECRET]", obj))
+            return self.PADRAO_TELEFONE.sub("[TELEFONE_REMOVIDO]", mascarar_texto(self.PADRAO_SEGREDO.sub("[REDACTED_SECRET]", obj)))
         if isinstance(obj, dict):
             return {
                 k: self._sanitizar(v) for k, v in obj.items()
@@ -132,7 +136,8 @@ class AuditManager:
         sucesso: bool = True,
         erro: Optional[str] = None,
         observacao: Optional[str] = None,
-        id_execucao_anterior: Optional[str] = None
+        id_execucao_anterior: Optional[str] = None,
+        consulta: Optional[str] = None
     ) -> str:
         """
         Registra uma execução relevante em arquivo estruturado JSONL (RF11).
@@ -142,6 +147,8 @@ class AuditManager:
         - Sem `resposta`, registra etapas sem LLM (ex.: síntese de voz, composição
           local); tokens e custo ficam nulos.
         `id_execucao_anterior` liga uma nova geração (ex.: minuta refeita após correção) à execução que ela substitui.
+        `consulta` (RF21) é gravada mascarada e truncada; versão do esquema, versão do índice e IDs recuperados saem
+        dos parâmetros para o nível principal da linha.
         Retorna o identificador único da execução.
         """
         id_execucao = f"EXEC-{uuid.uuid4().hex[:8].upper()}"
@@ -170,10 +177,13 @@ class AuditManager:
             }
 
         resumo_saida = resumo_saida or ""
+        agora = datetime.now()
+        parametros = parametros or {}
         entrada_log = {
             "id_execucao": id_execucao,
             "id_execucao_anterior": id_execucao_anterior,
-            "timestamp": datetime.now().isoformat(),
+            "timestamp": agora.isoformat(),
+            "inicio": (agora - timedelta(milliseconds=duracao_ms)).isoformat() if duracao_ms is not None else None,
             "caso_id": caso_id,
             "etapa": etapa,
             "modalidade_entrada": modalidade,
@@ -182,8 +192,12 @@ class AuditManager:
             "usou_modelo_ia": resposta is not None or modelo is not None,
             "provedor": provedor or "nenhum",
             "modelo": modelo,
-            "parametros": self._sanitizar(parametros or {}),
+            "parametros": self._sanitizar(parametros),
             "prompt": prompt_info,
+            "versao_esquema": parametros.get("versao_esquema"),
+            "versao_indice": parametros.get("versao_indice"),
+            "ids_recuperados": parametros.get("ids_recuperados"),
+            "consulta": self._sanitizar(consulta[:300] + ("..." if len(consulta) > 300 else "")) if consulta else None,
             "arquivo_saida": saida_rel.as_posix() if saida_rel else None,
             "sha256_saida": self.sha256_arquivo(self.raiz_projeto / saida_rel) if saida_rel else None,
             "resumo_saida": self._sanitizar(resumo_saida[:200] + ("..." if len(resumo_saida) > 200 else "")),
@@ -259,6 +273,56 @@ class AuditManager:
 
         self.gerar_relatorio_qualidade()
         return registro
+
+    def registrar_decisao_minuta(self, caso_id: str, estado: str, operador: str, justificativa: str,
+                                 id_execucao: Optional[str] = None, minuta: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """
+        Decisão do operador sobre uma minuta do Desafio 02 (RF20, RF24, T11). Operador e justificativa são
+        obrigatórios, exceto em PENDENTE, que só registra a entrada na fila. APROVADA libera o envio manual pelo
+        operador; o sistema nunca envia sozinho. A participação da IA (provedor, modelo, prompt) fica no registro.
+        """
+        estado = (estado or "").strip().upper()
+        if estado not in ESTADOS_REVISAO_MINUTA:
+            raise ValueError(f"Estado inválido: {estado!r}; use {', '.join(ESTADOS_REVISAO_MINUTA)}.")
+        if not (operador or "").strip():
+            raise ValueError("Identifique o operador responsável pela decisão.")
+        if estado != "PENDENTE" and not (justificativa or "").strip():
+            raise ValueError("A justificativa é obrigatória para aprovar, rejeitar ou pedir revisão.")
+        minuta = minuta or {}
+        texto_minuta = minuta.get("minuta") or minuta.get("resposta") or ""
+        registro = {
+            "id_registro": f"DEC-{uuid.uuid4().hex[:8].upper()}",
+            "caso_id": caso_id,
+            "id_execucao_referencia": id_execucao,
+            "estado": estado,
+            "operador": self._sanitizar(operador.strip()),
+            "justificativa": self._sanitizar((justificativa or "").strip()),
+            "registrado_em": datetime.now().isoformat(timespec="seconds"),
+            "envio_automatico_bloqueado": True,
+            "liberada_para_envio_manual": estado == "APROVADA",
+            "participacao_ia": {"provedor": minuta.get("provedor"), "modelo": minuta.get("modelo"),
+                                "prompt": minuta.get("prompt"), "status_da_minuta": minuta.get("status")},
+            "sha256_minuta": self.sha256_texto(texto_minuta) if texto_minuta else None,
+        }
+        decisoes = self._ler_lista(self.arquivo_decisoes_minutas)
+        decisoes.append(registro)
+        with open(self.arquivo_decisoes_minutas, "w", encoding="utf-8") as f:
+            json.dump(decisoes, f, indent=2, ensure_ascii=False)
+        self.registrar_execucao(
+            caso_id=caso_id, etapa="decisao_humana_minuta", modalidade="revisao_humana",
+            arquivo_origem=self.arquivo_decisoes_minutas, resumo_saida=f"estado={estado}; id_registro={registro['id_registro']}",
+            observacao=registro["justificativa"], id_execucao_anterior=id_execucao)
+        return registro
+
+    def decisoes_minutas(self) -> List[Dict[str, Any]]:
+        return self._ler_lista(self.arquivo_decisoes_minutas)
+
+    def estado_das_minutas(self) -> Dict[str, Dict[str, Any]]:
+        """Última decisão de cada minuta (caso_id); minuta sem registro está PENDENTE."""
+        ultimas: Dict[str, Dict[str, Any]] = {}
+        for d in sorted(self.decisoes_minutas(), key=lambda d: d.get("registrado_em", "")):
+            ultimas[d["caso_id"]] = d
+        return ultimas
 
     def _decisoes_esperadas(self) -> Dict[str, Dict[str, Any]]:
         """Decisão humana esperada por caso, lida dos gabaritos ({caso_id: {decisao, objeto_final, motivo}})."""
@@ -409,4 +473,5 @@ em alguma etapa). A gravidade é a maior entre as últimas decisões do caso.
             f.write(conteudo)
 
 
+ESTADOS_REVISAO_MINUTA = ("PENDENTE", "APROVADA", "REJEITADA", "REVISAR")
 ORDEM_GRAVIDADE = {"NENHUMA": 0, "BAIXA": 1, "MEDIA": 2, "ALTA": 3, "CRITICA": 4}

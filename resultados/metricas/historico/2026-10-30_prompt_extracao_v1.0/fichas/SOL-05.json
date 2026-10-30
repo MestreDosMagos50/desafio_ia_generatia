@@ -1,0 +1,47 @@
+{
+  "id_caso": "SOL-05",
+  "versao_esquema": "2.0.0",
+  "resumo": "MARCOS VINÍCIUS DE ALMEIDA SANTOS consta em ficha de matrícula da Escola Técnica Estadual de Cuiabá para o curso Técnico em Enfermagem, com carga horária de 1200 horas, no eixo Saúde, turno noturno, com início em 01/02/2027 e matrícula em 14/10/2026. O código 2026-000142 e o CPF estão incertos. Órgão expedidor, UF, nome do pai, turma, município, término do curso e telefones estão em branco. A declaração de ciência de faltas está marcada, a assinatura do aluno ou responsável está presente e a da secretaria escolar está ausente.",
+  "palavras_resumo": 88,
+  "categoria": "MATRICULA_INICIAL",
+  "entidades_literais": {
+    "pessoas_ficticias": [
+      "MARCOS VINÍCIUS DE ALMEIDA SANTOS",
+      "LÚCIA HELENA DE ALMEIDA SANTOS"
+    ],
+    "orgaos": [
+      "GOVERNO DE MATO GROSSO",
+      "SECRETARIA DE ESTADO DE CIÊNCIA, TECNOLOGIA E INOVAÇÃO - SECITECI/MT",
+      "ESCOLA TÉCNICA ESTADUAL DE CUIABÁ",
+      "SECRETARIA ESCOLAR"
+    ],
+    "locais": [
+      "MATO GROSSO",
+      "CUIABÁ"
+    ],
+    "datas": [
+      "12/08/2008",
+      "01/02/2027",
+      "14/10/2026"
+    ],
+    "protocolos": [
+      "2026-000142"
+    ]
+  },
+  "entidades_sem_apoio": {},
+  "informacoes_inferidas": [],
+  "alertas": [],
+  "chamadas": [
+    {
+      "etapa": "ficha_nlp",
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "sucesso": true,
+      "codigo_erro": null,
+      "tentativas": 1,
+      "latencia_ms": 2893.9,
+      "tokens_total": 1183,
+      "custo_estimado_usd": 0.00039860000000000004
+    }
+  ]
+}

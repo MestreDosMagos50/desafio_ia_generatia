@@ -1,0 +1,85 @@
+{
+  "gerado_em": "2026-10-30T13:16:22",
+  "inicio": "2026-10-30T13:15:46",
+  "provedor": "openai",
+  "modelo": "gpt-5.6-luna",
+  "decisoes_simuladas": true,
+  "pasta_de_evidencias": "resultados/regressao/20261030-131546",
+  "texto": {
+    "entrada": "dados/originais/entrada_texto.txt",
+    "fluxo": "pipeline do Desafio 01 (python -m src.main --modo texto)",
+    "pipeline_concluido": true,
+    "acerto_extracao_gabarito": {
+      "numerador": 24,
+      "denominador": 26,
+      "percentual": 92.31,
+      "inventados": [],
+      "omitidos": [
+        "classificacao.urgencia"
+      ],
+      "divergentes": [
+        "classificacao.categoria"
+      ]
+    },
+    "minuta": "resultados/minutas/minuta_institucional_2026-000142_20261030-131555.txt",
+    "sha256_minuta": "724f39efed200849c2cdc74652653c63d35c7bb5514ff23fbc6741730babc361",
+    "revisao": {
+      "decisao": "APROVADO",
+      "simulada": true,
+      "operador": "SIMULADO - demonstração automatizada (sem revisão humana)",
+      "arquivo": "resultados/logs/decisoes_simuladas.json"
+    },
+    "chegou_a_minuta": true,
+    "chegou_a_revisao": true
+  },
+  "ocr": {
+    "entrada": "dados/originais/entrada_pdf-imagem.pdf",
+    "fluxo": "leitura da ficha (Desafio 01, src/vision.py) + atendimento integrado (Desafio 02)",
+    "leitura_ok": true,
+    "erro_leitura": null,
+    "acerto_leitura_gabarito": {
+      "numerador": 21,
+      "denominador": 26,
+      "percentual": 80.77,
+      "divergentes": [
+        "codigo_matricula",
+        "solicitante.nome_completo",
+        "solicitante.data_nascimento",
+        "solicitante.rg",
+        "solicitante.email"
+      ]
+    },
+    "incertos_esperados": {
+      "sinalizados": [
+        "cpf"
+      ],
+      "nao_sinalizados": [
+        "codigo"
+      ],
+      "sinalizados_fora_do_gabarito": [
+        "rg"
+      ]
+    },
+    "campos_marcados_incertos": [
+      "CPF",
+      "RG"
+    ],
+    "id_atendimento": "ATD-20261030-131610-4222",
+    "etapa_final": "MINUTA_GERADA",
+    "motivo": "O modelo declarou que os trechos não sustentam a resposta.",
+    "guardrails_entrada": "PERMITIR",
+    "status_minuta": "SEM_EVIDENCIA_SUFICIENTE",
+    "encaminhamento": "REVISAO_HUMANA_PRIORITARIA",
+    "alertas_da_origem": [
+      "ENTRADA_OCR_SEM_CONFIRMACAO_HUMANA: leitura de manuscrito ainda não conferida na imagem. Confira código, documentos e datas antes de qualquer uso; a leitura pode errar sem marcar o campo como incerto (no Desafio 01 a ficha só entra depois da confirmação humana dos campos críticos).",
+      "CAMPO_INCERTO_NA_LEITURA: CPF (INCERTO)",
+      "CAMPO_INCERTO_NA_LEITURA: RG (INCERTO)"
+    ],
+    "estado_na_fila": "PENDENTE",
+    "registro": "resultados/atendimentos/ATD-20261030-131610-4222/atendimento.json",
+    "chegou_a_minuta": true,
+    "chegou_a_revisao": true
+  },
+  "confere": true,
+  "pendencias": []
+}
