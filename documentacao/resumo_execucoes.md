@@ -1,8 +1,8 @@
 # Resumo das Execuções (gerado do log de auditoria)
-*Gerado por `resumir_auditoria.py` em 30/10/2026 13:26 a partir de `resultados/logs/auditoria.jsonl`.*
+*Gerado por `resumir_auditoria.py` em 01/11/2026 14:42 a partir de `resultados/logs/auditoria.jsonl`.*
 
-- Período coberto: 2026-10-17T10:44:53 a 2026-10-30T13:16:22
-- Registros: 203 | chamadas a modelo de IA com sucesso: 160 | falhas: 1
+- Período coberto: 2026-10-17T10:44:53 a 2026-11-01T14:33:11
+- Registros: 208 | chamadas a modelo de IA com sucesso: 161 | falhas: 1
 - Minutas e respostas do RAG geradas: 34
 - Desafio 02 (OpenAI): custo estimado pelo próprio adaptador com os preços do `config.json` por 1M de tokens
   (entrada / saída, raciocínio cobrado como saída): `gpt-5.6-luna` US$ 0.2 / 1.2; `gpt-5.6-terra` US$ 2.0 / 12.0; `text-embedding-3-small` US$ 0.02 / 0.0; `omni-moderation-latest` US$ 0.0 / 0.0 (https://developers.openai.com/api/docs/pricing (valores de ago/2026 reproduzidos nas apostilas FIC_DEV, Aulas 08, 09 e 11)).
@@ -17,7 +17,7 @@
 | google/gemini-3.8-flash | 4 | 0 | 9714 | US$ 0.029867 |
 | openai/gpt-5.6-luna | 114 | 0 | 200574 | US$ 0.060613 |
 | openai/gpt-5.6-terra | 9 | 0 | 27009 | US$ 0.072898 |
-| openai/text-embedding-3-small | 33 | 0 | 25170 | US$ 0.000503 |
+| openai/text-embedding-3-small | 34 | 0 | 25182 | US$ 0.000503 |
 | simulado/simulado-deterministico | 1 | 1 | 0 | indisponível (simulado: sem tokens nem custo) |
 
 ## Por etapa
@@ -29,9 +29,10 @@
 | comparativo_json_object_instrucoes_do_contrato | 2 (0 falha) | openai/gpt-5.6-luna | PROMPT_EXTRACAO_V2 v1.0, PROMPT_EXTRACAO_V2 v1.1 | 2.5 s | 1787 | 421 | 0 | US$ 0.000863 |
 | comparativo_structured_outputs_contrato | 2 (0 falha) | openai/gpt-5.6-luna | PROMPT_EXTRACAO_V2 v1.0, PROMPT_EXTRACAO_V2 v1.1 | 2.3 s | 3327 | 408 | 0 | US$ 0.001155 |
 | conferencia_cruzada | 3 (0 falha) | sem modelo | - | 0.0 s | 0 | 0 | 0 | US$ 0.000000 |
-| consulta | 1 (0 falha) | openai/text-embedding-3-small | - | 0.4 s | 20 | 0 | 0 | US$ 0.000000 |
+| consulta | 2 (0 falha) | openai/text-embedding-3-small | - | 1.2 s | 32 | 0 | 0 | US$ 0.000000 |
 | consulta_rag | 8 (0 falha) | openai/text-embedding-3-small | - | 1.4 s | 905 | 0 | 0 | US$ 0.000018 |
 | consulta_t14 | 1 (0 falha) | openai/text-embedding-3-small | - | 0.4 s | 19 | 0 | 0 | US$ 0.000000 |
+| decisao_humana_minuta | 4 (0 falha) | sem modelo | - | - | 0 | 0 | 0 | US$ 0.000000 |
 | exclusao_documento | 1 (0 falha) | sem modelo | - | - | 0 | 0 | 0 | US$ 0.000000 |
 | experimento_chunking_perguntas | 1 (0 falha) | openai/text-embedding-3-small | - | 2.6 s | 229 | 0 | 0 | US$ 0.000005 |
 | experimento_prompt_a | 1 (0 falha) | google/gemini-3.8-flash | PROMPT_A_ZERO_SHOT v1.0 | 15.4 s | 310 | 672 | 1187 | US$ 0.007204 |
@@ -51,7 +52,7 @@
 | rag_resposta | 32 (1 falha) | openai/gpt-5.6-luna, openai/gpt-5.6-terra, simulado/simulado-deterministico | PROMPT_RAG v1.0 | 3.8 s | 87388 | 6709 | 908 | US$ 0.092225 |
 
 **Total estimado:** US$ 0.163881 em
-262467 tokens.
+262479 tokens.
 
 ## Falhas registradas
 Inclui as falhas provocadas de propósito para testar limites e a falha do serviço (T05, T12); cada uma foi tratada

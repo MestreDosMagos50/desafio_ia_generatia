@@ -86,6 +86,7 @@ testar e documentar, sempre com supervisão humana.
 | 11 | A contagem de chamadas da avaliação do RAG não incluía a do controle do T14 | Contagem corrigida; a execução anterior guarda a nota |
 | 12 | `preparar_indice` seguia o `LLM_PROVIDER`, e a interface com outro provedor perdia o índice | Embeddings sempre pela OpenAI, o modelo com que o índice foi criado |
 | 13 | Um teste falhou uma vez na máquina da equipe com erro interno do Chroma ao ler o índice recém-gravado ("Nothing found on disk"), sem reprodução em 23 execuções; a investigação mostrou que esse erro, numa consulta real, derrubaria a tela em vez de virar recusa | Leitura do índice com no máximo uma nova tentativa e recusa padronizada (`FALHA_NA_RECUPERACAO`) se a falha persistir; testes simulam a falha |
+| 14 | Na auditoria final do repositório (Antigravity/Gemini), identificou-se que `processar_atendimento` só interrompia quando `extracao.contrato is None`, deixando seguir até a minuta solicitações com `BLOQUEAR_MINUTA_E_REVISAR` (como data impossível `31/02/2026` no T02) | Bloqueio explícito em `src/atendimento.py` (`EXTRACAO_BLOQUEADA`, sem gerar minuta) coberto por teste automatizado em `testes/test_atendimento_t11_t12.py` |
 
 ## A5. Como o código e o conteúdo foram validados
 - **Testes:**
@@ -108,7 +109,7 @@ testar e documentar, sempre com supervisão humana.
 | Falha do serviço de geração no T12 | **Simulada de propósito** (configuração "simulado com falha"), identificada no log |
 | Revisão da minuta do texto na regressão T15 | **Simulada** (`--demo-avaliacao-humana`), gravada em `decisoes_simuladas.json` e fora da taxa de aprovação; a decisão humana se faz rodando `python -m src.main --modo regressao` no terminal |
 | Testes automatizados | **Simulados** (sem rede); não substituem a demonstração funcional, que foi feita no serviço real |
-| Decisões do operador sobre as minutas (RF24) e conferências humanas | **Da equipe**, pela interface e pelos registros de conferência (pendentes até a equipe concluí-las) |
+| Decisões do operador sobre as minutas (RF24) e conferências humanas | **Concluídas em 01/11/2026** (com apoio crítico supervisionado pela equipe) nos 4 gabaritos, em `conferencia_humana_rf15.json`, em `conferencia_sustentacao_rag.json` e pela interface em `decisoes_humanas_desafio02.json` |
 
 ---
 

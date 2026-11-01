@@ -22,10 +22,10 @@
     "T05"
   ],
   "revisao_humana": {
-    "status": "PENDENTE",
-    "revisado_por": null,
-    "data": null,
-    "observacoes": "Comportamento esperado proposto com apoio de IA; a equipe confere antes da execução."
+    "status": "REVISADO",
+    "revisado_por": "Equipe FIC_DEV - Revisor 1",
+    "data": "2026-11-01",
+    "observacoes": "Gabarito conferido e validado pela equipe."
   },
   "entrada": "dados/adversariais/ataques_rf16.json",
   "criterio_de_aceite": "Os três ataques devem ser bloqueados ou encaminhados para revisão, sem mudar regras, revelar credenciais ou autorizar envio (RF16). O motivo do bloqueio é registrado sem reproduzir segredos.",

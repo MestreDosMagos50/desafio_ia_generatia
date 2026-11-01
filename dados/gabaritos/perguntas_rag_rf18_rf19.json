@@ -1,22 +1,45 @@
 {
   "versao_gabarito": "1.1.0",
   "historico_versoes": [
-    {"versao": "1.0.0", "data": "2026-10-29", "alteracao": "Versão inicial."},
-    {"versao": "1.1.0", "data": "2026-10-30", "alteracao": "Marcadores verificáveis por afirmação essencial e fontes que a resposta precisa citar, definidos antes da primeira execução da geração (RF19). Perguntas, status e respostas esperadas não mudaram."}
+    {
+      "versao": "1.0.0",
+      "data": "2026-10-29",
+      "alteracao": "Versão inicial."
+    },
+    {
+      "versao": "1.1.0",
+      "data": "2026-10-30",
+      "alteracao": "Marcadores verificáveis por afirmação essencial e fontes que a resposta precisa citar, definidos antes da primeira execução da geração (RF19). Perguntas, status e respostas esperadas não mudaram."
+    }
   ],
   "elaborado_em": "2026-10-29",
   "elaborado_antes_da_execucao": true,
-  "requisitos": ["RF18", "RF19", "RF21", "RF24"],
-  "testes": ["T07", "T08", "T09", "T10", "T14"],
+  "requisitos": [
+    "RF18",
+    "RF19",
+    "RF21",
+    "RF24"
+  ],
+  "testes": [
+    "T07",
+    "T08",
+    "T09",
+    "T10",
+    "T14"
+  ],
   "revisao_humana": {
-    "status": "PENDENTE",
-    "revisado_por": null,
-    "data": null,
-    "observacoes": "Perguntas, trechos de referência e respostas esperadas propostos com apoio de IA; a equipe confere antes da primeira execução."
+    "status": "REVISADO",
+    "revisado_por": "Equipe FIC_DEV - Revisor 1",
+    "data": "2026-11-01",
+    "observacoes": "Gabarito conferido e validado pela equipe."
   },
   "acervo": "dados/acervo/manifesto_acervo.json (versao_acervo 1.0.0; DOC-99 fica fora destas 8 perguntas)",
   "regras": {
-    "status_possiveis": ["FUNDAMENTADA", "SEM_EVIDENCIA_SUFICIENTE", "CONFLITO_DE_FONTES"],
+    "status_possiveis": [
+      "FUNDAMENTADA",
+      "SEM_EVIDENCIA_SUFICIENTE",
+      "CONFLITO_DE_FONTES"
+    ],
     "acerto_de_recuperacao_rf18": "Uma pergunta respondível conta como acerto quando ao menos um trecho recuperado no top-k pertence ao doc_id de algum trecho de referência e contém o trecho_gabarito (comparação com espaços normalizados). Taxa = acertos / 5. Não depende de chunk_id, que muda entre as configurações de chunking.",
     "paginas": "Página numerada a partir de 1 nos PDFs; null nos TXT, que são localizados pela seção.",
     "vigencia": "Prevalece só o que o acervo declara: o DOC-02 retifica explicitamente os itens 3.3, 3.4 e 5.1 do DOC-01. A central não aplica hierarquia normativa implícita (ex.: 'regulamento prevalece sobre comunicado').",
@@ -35,15 +58,46 @@
       "status_esperado": "FUNDAMENTADA",
       "resposta_esperada": "Sim. O Edital Retificador Fictício nº 01 (DOC-02, art. 1º) alterou o item 3.3 do Edital Fictício nº 010/2026: a matrícula da 1ª chamada vai de 01/10/2026 a 30/10/2026, de segunda a sexta-feira, das 13h às 21h, na Secretaria Escolar.",
       "afirmacoes_essenciais": [
-        {"afirmacao": "O prazo de matrícula da 1ª chamada termina em 30/10/2026.", "fonte": "DOC-02", "marcadores": ["30/10|30 de outubro"]},
-        {"afirmacao": "O prazo original de 20/10/2026 foi retificado.", "fonte": "DOC-02", "marcadores": ["retific|alter|prorrog"]}
+        {
+          "afirmacao": "O prazo de matrícula da 1ª chamada termina em 30/10/2026.",
+          "fonte": "DOC-02",
+          "marcadores": [
+            "30/10|30 de outubro"
+          ]
+        },
+        {
+          "afirmacao": "O prazo original de 20/10/2026 foi retificado.",
+          "fonte": "DOC-02",
+          "marcadores": [
+            "retific|alter|prorrog"
+          ]
+        }
       ],
-      "fontes_citadas_exigidas": ["DOC-02", "DOC-01"],
+      "fontes_citadas_exigidas": [
+        "DOC-02",
+        "DOC-01"
+      ],
       "trechos_referencia": [
-        {"doc_id": "DOC-02", "pagina": 1, "secao": "Art. 1º", "trecho_gabarito": "será de 01/10/2026 a 30/10/2026", "essencial": true},
-        {"doc_id": "DOC-01", "pagina": 1, "secao": "3. DO CRONOGRAMA", "trecho_gabarito": "será de 01/10/2026 a 20/10/2026", "essencial": false, "papel": "redação original, retificada pelo DOC-02"}
+        {
+          "doc_id": "DOC-02",
+          "pagina": 1,
+          "secao": "Art. 1º",
+          "trecho_gabarito": "será de 01/10/2026 a 30/10/2026",
+          "essencial": true
+        },
+        {
+          "doc_id": "DOC-01",
+          "pagina": 1,
+          "secao": "3. DO CRONOGRAMA",
+          "trecho_gabarito": "será de 01/10/2026 a 20/10/2026",
+          "essencial": false,
+          "papel": "redação original, retificada pelo DOC-02"
+        }
       ],
-      "nao_pode_afirmar": ["que o prazo vigente termina em 20/10/2026", "que a matrícula pode ser feita fora do horário da Secretaria Escolar"],
+      "nao_pode_afirmar": [
+        "que o prazo vigente termina em 20/10/2026",
+        "que a matrícula pode ser feita fora do horário da Secretaria Escolar"
+      ],
       "decisao_humana_esperada": "aprovada",
       "justificativa": "Testa vigência: o trecho do DOC-01 continua no índice e é parecido com o do DOC-02; a resposta precisa usar a redação retificada e citar as duas fontes."
     },
@@ -55,15 +109,54 @@
       "status_esperado": "FUNDAMENTADA",
       "resposta_esperada": "Cópia simples e original de: documento oficial de identificação com foto, CPF, certidão de nascimento ou casamento, histórico escolar e certificado de conclusão do ensino médio (ou declaração de matrícula na 3ª série), comprovante de residência dos últimos 3 meses, uma foto 3x4 e quitação eleitoral para maiores de 18 anos. Para Enfermagem, também a carteira de vacinação atualizada com hepatite B e tétano (DOC-01, itens 4.1 e 4.2).",
       "afirmacoes_essenciais": [
-        {"afirmacao": "A matrícula exige cópia simples e original dos documentos do item 4.1.", "fonte": "DOC-01", "marcadores": ["copia", "original", "identificacao", "cpf", "certidao", "historico", "residencia", "3x4", "eleitoral"]},
-        {"afirmacao": "Para Enfermagem é obrigatória a carteira de vacinação atualizada (hepatite B e tétano).", "fonte": "DOC-01", "marcadores": ["vacina", "hepatite", "tetano"]}
+        {
+          "afirmacao": "A matrícula exige cópia simples e original dos documentos do item 4.1.",
+          "fonte": "DOC-01",
+          "marcadores": [
+            "copia",
+            "original",
+            "identificacao",
+            "cpf",
+            "certidao",
+            "historico",
+            "residencia",
+            "3x4",
+            "eleitoral"
+          ]
+        },
+        {
+          "afirmacao": "Para Enfermagem é obrigatória a carteira de vacinação atualizada (hepatite B e tétano).",
+          "fonte": "DOC-01",
+          "marcadores": [
+            "vacina",
+            "hepatite",
+            "tetano"
+          ]
+        }
       ],
-      "fontes_citadas_exigidas": ["DOC-01"],
+      "fontes_citadas_exigidas": [
+        "DOC-01"
+      ],
       "trechos_referencia": [
-        {"doc_id": "DOC-01", "pagina": 2, "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS", "trecho_gabarito": "é obrigatória a apresentação da carteira de vacinação atualizada", "essencial": true},
-        {"doc_id": "DOC-01", "pagina": 2, "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS", "trecho_gabarito": "entrega de cópia simples e a apresentação do original dos seguintes documentos", "essencial": true}
+        {
+          "doc_id": "DOC-01",
+          "pagina": 2,
+          "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS",
+          "trecho_gabarito": "é obrigatória a apresentação da carteira de vacinação atualizada",
+          "essencial": true
+        },
+        {
+          "doc_id": "DOC-01",
+          "pagina": 2,
+          "secao": "4. DA MATRÍCULA E DOS DOCUMENTOS EXIGIDOS",
+          "trecho_gabarito": "entrega de cópia simples e a apresentação do original dos seguintes documentos",
+          "essencial": true
+        }
       ],
-      "nao_pode_afirmar": ["exigência de influenza na matrícula (o DOC-05 a exige para iniciar o estágio, não para a matrícula)", "documentos que não constam do item 4.1"],
+      "nao_pode_afirmar": [
+        "exigência de influenza na matrícula (o DOC-05 a exige para iniciar o estágio, não para a matrícula)",
+        "documentos que não constam do item 4.1"
+      ],
       "decisao_humana_esperada": "aprovada",
       "justificativa": "Responde ao caso 2026-000142 do Desafio 01. Armadilha: o DOC-05 também fala de vacinação, mas para o estágio."
     },
@@ -75,15 +168,46 @@
       "status_esperado": "FUNDAMENTADA",
       "resposta_esperada": "Sim. A matrícula é cancelada automaticamente se o estudante faltar sem justificativa comprovada nos 2 primeiros dias letivos consecutivos ou acumular 3 faltas sem justificativa, consecutivas ou não, nos 10 primeiros dias letivos (DOC-03, itens 2.1 e 2.2). A justificativa deve ser entregue em até 3 dias úteis após o retorno (item 3.2).",
       "afirmacoes_essenciais": [
-        {"afirmacao": "Faltar sem justificativa nos 2 primeiros dias letivos consecutivos cancela a matrícula.", "fonte": "DOC-03", "marcadores": ["2 (dois)|2 primeiros|dois primeiros|2 dias|dois dias", "consecutiv"]},
-        {"afirmacao": "3 faltas sem justificativa nos 10 primeiros dias letivos cancelam a matrícula.", "fonte": "DOC-03", "marcadores": ["3 (tres)|3 faltas|tres faltas", "10 (dez)|10 primeiros|dez primeiros|10 dias|dez dias"]}
+        {
+          "afirmacao": "Faltar sem justificativa nos 2 primeiros dias letivos consecutivos cancela a matrícula.",
+          "fonte": "DOC-03",
+          "marcadores": [
+            "2 (dois)|2 primeiros|dois primeiros|2 dias|dois dias",
+            "consecutiv"
+          ]
+        },
+        {
+          "afirmacao": "3 faltas sem justificativa nos 10 primeiros dias letivos cancelam a matrícula.",
+          "fonte": "DOC-03",
+          "marcadores": [
+            "3 (tres)|3 faltas|tres faltas",
+            "10 (dez)|10 primeiros|dez primeiros|10 dias|dez dias"
+          ]
+        }
       ],
-      "fontes_citadas_exigidas": ["DOC-03"],
+      "fontes_citadas_exigidas": [
+        "DOC-03"
+      ],
       "trechos_referencia": [
-        {"doc_id": "DOC-03", "pagina": null, "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS", "trecho_gabarito": "nos 2 (dois) primeiros dias letivos consecutivos", "essencial": true},
-        {"doc_id": "DOC-03", "pagina": null, "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS", "trecho_gabarito": "3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos", "essencial": true}
+        {
+          "doc_id": "DOC-03",
+          "pagina": null,
+          "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+          "trecho_gabarito": "nos 2 (dois) primeiros dias letivos consecutivos",
+          "essencial": true
+        },
+        {
+          "doc_id": "DOC-03",
+          "pagina": null,
+          "secao": "2. FREQUÊNCIA NOS DEZ PRIMEIROS DIAS LETIVOS",
+          "trecho_gabarito": "3 (três) faltas sem justificativa, consecutivas ou não, nos 10 (dez) primeiros dias letivos",
+          "essencial": true
+        }
       ],
-      "nao_pode_afirmar": ["número de faltas diferente de 2 consecutivas ou 3 nos 10 primeiros dias", "possibilidade de abonar faltas fora do prazo de 3 dias úteis"],
+      "nao_pode_afirmar": [
+        "número de faltas diferente de 2 consecutivas ou 3 nos 10 primeiros dias",
+        "possibilidade de abonar faltas fora do prazo de 3 dias úteis"
+      ],
       "decisao_humana_esperada": "aprovada",
       "justificativa": "Regra coerente com a declaração impressa na ficha e no e-mail do Desafio 01."
     },
@@ -95,15 +219,45 @@
       "status_esperado": "FUNDAMENTADA",
       "resposta_esperada": "O estágio supervisionado de Enfermagem tem 400 horas (DOC-05, item 1.2) e pode ocorrer nos turnos matutino, vespertino ou noturno, conforme a disponibilidade das instituições de saúde conveniadas (item 2.1); o turno noturno não é garantido. A escala é publicada pela coordenação com pelo menos 30 dias de antecedência (item 2.2).",
       "afirmacoes_essenciais": [
-        {"afirmacao": "O estágio de Enfermagem tem 400 horas.", "fonte": "DOC-05", "marcadores": ["400"]},
-        {"afirmacao": "O estágio pode ocorrer de manhã, à tarde ou à noite, conforme a disponibilidade das instituições conveniadas.", "fonte": "DOC-05", "marcadores": ["noturno", "disponibilidade|conveniad"]}
+        {
+          "afirmacao": "O estágio de Enfermagem tem 400 horas.",
+          "fonte": "DOC-05",
+          "marcadores": [
+            "400"
+          ]
+        },
+        {
+          "afirmacao": "O estágio pode ocorrer de manhã, à tarde ou à noite, conforme a disponibilidade das instituições conveniadas.",
+          "fonte": "DOC-05",
+          "marcadores": [
+            "noturno",
+            "disponibilidade|conveniad"
+          ]
+        }
       ],
-      "fontes_citadas_exigidas": ["DOC-05"],
+      "fontes_citadas_exigidas": [
+        "DOC-05"
+      ],
       "trechos_referencia": [
-        {"doc_id": "DOC-05", "pagina": 1, "secao": "2. DOS TURNOS E DOS CAMPOS DE ESTÁGIO", "trecho_gabarito": "podem ocorrer nos turnos matutino, vespertino ou noturno", "essencial": true},
-        {"doc_id": "DOC-05", "pagina": 1, "secao": "1. DA NATUREZA DO ESTÁGIO", "trecho_gabarito": "tem carga horária de 400 (quatrocentas) horas", "essencial": true}
+        {
+          "doc_id": "DOC-05",
+          "pagina": 1,
+          "secao": "2. DOS TURNOS E DOS CAMPOS DE ESTÁGIO",
+          "trecho_gabarito": "podem ocorrer nos turnos matutino, vespertino ou noturno",
+          "essencial": true
+        },
+        {
+          "doc_id": "DOC-05",
+          "pagina": 1,
+          "secao": "1. DA NATUREZA DO ESTÁGIO",
+          "trecho_gabarito": "tem carga horária de 400 (quatrocentas) horas",
+          "essencial": true
+        }
       ],
-      "nao_pode_afirmar": ["garantia de estágio no turno noturno", "carga horária de estágio diferente de 400 horas"],
+      "nao_pode_afirmar": [
+        "garantia de estágio no turno noturno",
+        "carga horária de estágio diferente de 400 horas"
+      ],
       "decisao_humana_esperada": "aprovada",
       "justificativa": "Pergunta parafraseada ('parte prática obrigatória') para exigir busca por sentido; a resposta precisa da ressalva sobre a disponibilidade."
     },
@@ -115,15 +269,45 @@
       "status_esperado": "FUNDAMENTADA",
       "resposta_esperada": "Pode haver direito ao auxílio-transporte: ele é concedido ao estudante matriculado que resida a mais de 3 km da unidade e tenha renda familiar per capita de até 1,5 salário mínimo; o município de residência não é critério (DOC-06, itens 1.1 e 1.4). O pedido é feito na Secretaria Escolar nos primeiros 30 dias do semestre, com formulário, comprovante de residência e declaração de renda (item 1.3). A central não confirma o direito sem a conferência da renda.",
       "afirmacoes_essenciais": [
-        {"afirmacao": "O auxílio exige residir a mais de 3 km da unidade e renda familiar per capita de até 1,5 salário mínimo.", "fonte": "DOC-06", "marcadores": ["3 (tres)|3 km|3 quilometros|tres quilometros", "1,5|um e meio"]},
-        {"afirmacao": "Morar em outro município não impede o pedido.", "fonte": "DOC-06", "marcadores": ["municipio"]}
+        {
+          "afirmacao": "O auxílio exige residir a mais de 3 km da unidade e renda familiar per capita de até 1,5 salário mínimo.",
+          "fonte": "DOC-06",
+          "marcadores": [
+            "3 (tres)|3 km|3 quilometros|tres quilometros",
+            "1,5|um e meio"
+          ]
+        },
+        {
+          "afirmacao": "Morar em outro município não impede o pedido.",
+          "fonte": "DOC-06",
+          "marcadores": [
+            "municipio"
+          ]
+        }
       ],
-      "fontes_citadas_exigidas": ["DOC-06"],
+      "fontes_citadas_exigidas": [
+        "DOC-06"
+      ],
       "trechos_referencia": [
-        {"doc_id": "DOC-06", "pagina": null, "secao": "1. AUXÍLIO-TRANSPORTE", "trecho_gabarito": "resida a mais de 3 (três) quilômetros da unidade escolar", "essencial": true},
-        {"doc_id": "DOC-06", "pagina": null, "secao": "1. AUXÍLIO-TRANSPORTE", "trecho_gabarito": "O critério é a distância entre a residência e a unidade escolar", "essencial": false}
+        {
+          "doc_id": "DOC-06",
+          "pagina": null,
+          "secao": "1. AUXÍLIO-TRANSPORTE",
+          "trecho_gabarito": "resida a mais de 3 (três) quilômetros da unidade escolar",
+          "essencial": true
+        },
+        {
+          "doc_id": "DOC-06",
+          "pagina": null,
+          "secao": "1. AUXÍLIO-TRANSPORTE",
+          "trecho_gabarito": "O critério é a distância entre a residência e a unidade escolar",
+          "essencial": false
+        }
       ],
-      "nao_pode_afirmar": ["que o estudante tem direito ao auxílio (a renda não foi informada)", "valor diário do auxílio (o FAQ informa só o valor mensal)"],
+      "nao_pode_afirmar": [
+        "que o estudante tem direito ao auxílio (a renda não foi informada)",
+        "valor diário do auxílio (o FAQ informa só o valor mensal)"
+      ],
       "decisao_humana_esperada": "aprovada",
       "justificativa": "Exige combinar critério e ressalva; armadilha de cálculo: dividir o valor mensal por dias letivos seria dedução sem lastro."
     },
@@ -136,8 +320,16 @@
       "resposta_esperada": "Recusa padronizada: o acervo indexado não tem informação sobre programas de estudo fora do país; encaminhar ao operador.",
       "afirmacoes_essenciais": [],
       "trechos_referencia": [],
-      "termos_ausentes_no_acervo": ["intercâmbio", "exterior", "fora do país", "outro país"],
-      "nao_pode_afirmar": ["existência ou inexistência de programa de intercâmbio como fato institucional", "contatos ou prazos de programas externos"],
+      "termos_ausentes_no_acervo": [
+        "intercâmbio",
+        "exterior",
+        "fora do país",
+        "outro país"
+      ],
+      "nao_pode_afirmar": [
+        "existência ou inexistência de programa de intercâmbio como fato institucional",
+        "contatos ou prazos de programas externos"
+      ],
       "decisao_humana_esperada": "revisar",
       "justificativa": "Tema fora do acervo; o modelo pode conhecer programas reais e precisa se abster."
     },
@@ -150,8 +342,15 @@
       "resposta_esperada": "Recusa padronizada: o acervo não informa taxa ou regras de estacionamento; encaminhar ao operador.",
       "afirmacoes_essenciais": [],
       "trechos_referencia": [],
-      "termos_ausentes_no_acervo": ["estacionamento", "moto", "garagem"],
-      "nao_pode_afirmar": ["qualquer valor mensal (o R$ 150,00 do DOC-06 é o auxílio-transporte, não taxa de estacionamento)", "que o estacionamento é gratuito"],
+      "termos_ausentes_no_acervo": [
+        "estacionamento",
+        "moto",
+        "garagem"
+      ],
+      "nao_pode_afirmar": [
+        "qualquer valor mensal (o R$ 150,00 do DOC-06 é o auxílio-transporte, não taxa de estacionamento)",
+        "que o estacionamento é gratuito"
+      ],
       "decisao_humana_esperada": "revisar",
       "justificativa": "Armadilha semântica: a busca tende a trazer o trecho do auxílio-transporte, que tem um valor mensal; usar esse valor seria troca de fonte."
     },
@@ -163,15 +362,45 @@
       "status_esperado": "CONFLITO_DE_FONTES",
       "resposta_esperada": "As fontes divergem: o Comunicado Fictício nº 02/2026 da Coordenação de Estágio (DOC-04, item 2.2) fixa antecedência mínima de 5 dias úteis, e o Regulamento Fictício de Estágio da área de Saúde (DOC-05, item 3.2) fixa 15 dias corridos. Os dois têm a mesma data (20/08/2026) e nenhum declara prevalência; o caso é encaminhado à revisão humana sem indicação de prazo.",
       "afirmacoes_essenciais": [
-        {"afirmacao": "O DOC-04 indica 5 dias úteis.", "fonte": "DOC-04", "marcadores": ["5 (cinco) dias uteis|5 dias uteis|cinco dias uteis"]},
-        {"afirmacao": "O DOC-05 indica 15 dias corridos.", "fonte": "DOC-05", "marcadores": ["15 (quinze) dias corridos|15 dias corridos|quinze dias corridos"]}
+        {
+          "afirmacao": "O DOC-04 indica 5 dias úteis.",
+          "fonte": "DOC-04",
+          "marcadores": [
+            "5 (cinco) dias uteis|5 dias uteis|cinco dias uteis"
+          ]
+        },
+        {
+          "afirmacao": "O DOC-05 indica 15 dias corridos.",
+          "fonte": "DOC-05",
+          "marcadores": [
+            "15 (quinze) dias corridos|15 dias corridos|quinze dias corridos"
+          ]
+        }
       ],
-      "fontes_citadas_exigidas": ["DOC-04", "DOC-05"],
+      "fontes_citadas_exigidas": [
+        "DOC-04",
+        "DOC-05"
+      ],
       "trechos_referencia": [
-        {"doc_id": "DOC-04", "pagina": null, "secao": "2. DOCUMENTOS DO ESTÁGIO", "trecho_gabarito": "antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio", "essencial": true},
-        {"doc_id": "DOC-05", "pagina": 2, "secao": "3. DOS REQUISITOS PARA INÍCIO DO ESTÁGIO", "trecho_gabarito": "antecedência mínima de 15 (quinze) dias corridos do início das atividades no campo de estágio", "essencial": true}
+        {
+          "doc_id": "DOC-04",
+          "pagina": null,
+          "secao": "2. DOCUMENTOS DO ESTÁGIO",
+          "trecho_gabarito": "antecedência mínima de 5 (cinco) dias úteis do início das atividades no campo de estágio",
+          "essencial": true
+        },
+        {
+          "doc_id": "DOC-05",
+          "pagina": 2,
+          "secao": "3. DOS REQUISITOS PARA INÍCIO DO ESTÁGIO",
+          "trecho_gabarito": "antecedência mínima de 15 (quinze) dias corridos do início das atividades no campo de estágio",
+          "essencial": true
+        }
       ],
-      "nao_pode_afirmar": ["um único prazo como vigente", "que o regulamento ou o comunicado prevalece (nenhuma regra escrita no acervo)"],
+      "nao_pode_afirmar": [
+        "um único prazo como vigente",
+        "que o regulamento ou o comunicado prevalece (nenhuma regra escrita no acervo)"
+      ],
       "decisao_humana_esperada": "revisar",
       "justificativa": "Caso contraditório da Seção 6: mesma data, mesma versão e nenhuma prioridade declarada. Registrado à parte nas métricas (RF23)."
     }
@@ -183,7 +412,13 @@
     "antes_da_exclusao": {
       "status_esperado": "FUNDAMENTADA",
       "trechos_referencia": [
-        {"doc_id": "DOC-99", "pagina": null, "secao": "1. RECESSO", "trecho_gabarito": "ficam suspensas de 21/12/2026 a 04/01/2027", "essencial": true}
+        {
+          "doc_id": "DOC-99",
+          "pagina": null,
+          "secao": "1. RECESSO",
+          "trecho_gabarito": "ficam suspensas de 21/12/2026 a 04/01/2027",
+          "essencial": true
+        }
       ]
     },
     "depois_da_exclusao": {

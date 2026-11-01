@@ -59,8 +59,8 @@ tudo ─ auditoria.jsonl (ids, horários, versões, consulta mascarada, IDs recu
 - **Guardrails na troca:** os guardrails de entrada continuam no cliente principal quando a geração é trocada.
 
 ## 4. Resultados medidos
-Matriz completa em `documentacao/matriz_testes_rf23.md`: **11 CONFERE, 3 CONFERE_COM_RESSALVA e 1 PENDENTE
-(ação humana)**, nenhum NAO_CONFERE. Os gabaritos foram elaborados antes de qualquer chamada ao modelo.
+Matriz completa em `documentacao/matriz_testes_rf23.md`: **12 CONFERE e 3 CONFERE_COM_RESSALVA**, nenhum PENDENTE nem
+NAO_CONFERE. Os gabaritos foram elaborados antes de qualquer chamada ao modelo.
 
 | Requisito | Medida | Resultado |
 | :--- | :--- | :---: |
@@ -72,6 +72,7 @@ Matriz completa em `documentacao/matriz_testes_rf23.md`: **11 CONFERE, 3 CONFERE
 | RF18 (T07) | Acerto de recuperação A (350/50) × B (800/160); MRR | 5/5 × 5/5; 0,90 × 0,75 |
 | RF19 (T08) | Respondíveis que conferem; afirmações essenciais; referências citadas | 4/5; 10/10; 8/8 |
 | RF19 (T09, T10) | Abstenção nas sem resposta; conflito exposto | 2/2; 1/1 |
+| RF20/RF24 (T11) | Decisões do operador na interface (APROVADA / REJEITADA / REVISAR) | 4 decisões (2 / 1 / 1) |
 | RF21 (T12) | luna × terra nas mesmas perguntas | 4/5, 2/2, 1/1 nos dois |
 | RF22 | Polaridade contra o gabarito; casos para revisão sinalizados | 11/12; 3/4 |
 | RF23 (T13) | Filtro, duplicata e vazio nos rótulos reais | Totais certos, sem divisão por zero |
@@ -82,7 +83,8 @@ Matriz completa em `documentacao/matriz_testes_rf23.md`: **11 CONFERE, 3 CONFERE
 - Acurácia de categorias: 6/6.
 - Acerto de recuperação: 5/5.
 - Respostas institucionais com todas as afirmações sustentadas: 5/6 na verificação automática (citação e números no
-  trecho citado); a conferência humana está pendente.
+  trecho citado) e 5/6 na conferência humana (17/18 afirmações sustentadas; a meta-afirmação sem citação da RAG-08 foi
+  reprovada).
 - Abstenção correta: 2/2.
 - Caso contraditório, registrado à parte: RAG-08 com os dois trechos expostos.
 - Sentimentos: 11/12.
@@ -99,8 +101,8 @@ Matriz completa em `documentacao/matriz_testes_rf23.md`: **11 CONFERE, 3 CONFERE
 - **OCR da ficha (T15):**
   - *Falha:* código e RG lidos errado sem marcação de incerteza (o mesmo "2024" que o Gemini leu no Desafio 01). No
     fluxo integrado, a leitura ia direto para a extração.
-  - *Feito:* toda entrada de OCR passa a ter um alerta obrigatório e revisão prioritária. A conferência campo a campo
-    na imagem continua humana e fica declarada como pendência.
+  - *Feito:* toda entrada de OCR passa a ter um alerta obrigatório e revisão prioritária. Na revisão da fila
+    (`DEC-44785D43`), a minuta do OCR foi rejeitada após conferência na imagem original.
 - **Política v1.0:**
   - *Falha:* bloqueou a ficha SOL-05 por ler a regra 3 como "contém dados pessoais".
   - *Feito:* a v1.1 esclarece a regra; a v1.0 e a execução anterior foram preservadas.

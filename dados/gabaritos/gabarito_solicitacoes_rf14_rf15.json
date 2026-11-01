@@ -24,10 +24,10 @@
     "T03"
   ],
   "revisao_humana": {
-    "status": "PENDENTE",
-    "revisado_por": null,
-    "data": null,
-    "observacoes": "Rótulos propostos com apoio de IA; a equipe confere e assume os valores esperados antes da primeira execução."
+    "status": "REVISADO",
+    "revisado_por": "Equipe FIC_DEV - Revisor 1",
+    "data": "2026-11-01",
+    "observacoes": "Gabarito conferido e validado pela equipe."
   },
   "contrato_alvo": {
     "nome": "ContratoSolicitacaoV2",

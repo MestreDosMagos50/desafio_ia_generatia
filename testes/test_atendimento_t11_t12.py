@@ -180,6 +180,34 @@ def test_falha_na_extracao_nao_gera_minuta_e_fica_auditada(indice, audit, tmp_pa
     assert any(l["etapa"] == "extracao_contrato_v2" and l["sucesso"] is False for l in falhas)
 
 
+def test_regra_de_negocio_bloqueante_impede_minuta_e_vai_para_fila(indice, audit, tmp_path):
+    guardrails, _, _ = guardrails_offline()
+    texto_invalido = "Protocolo 2026-000199 em 31/02/2026: peço efetivação de matrícula no curso Técnico em Enfermagem."
+    chamadas_rag = []
+
+    def responder_t02(prompt, schema):
+        if schema is ContratoSolicitacaoV2:
+            return ContratoSolicitacaoV2(
+                protocolo="2026-000199", data_solicitacao="31/02/2026", solicitante_ficticio=None,
+                curso="Técnico em Enfermagem", assunto="Matrícula", pedido="peço efetivação de matrícula",
+                categoria="MATRICULA_INICIAL", necessita_revisao=False, campos_ausentes=["solicitante_ficticio"],
+                entidades=ContratoSolicitacaoV2.model_validate(SOL01["esperado"]).entidades.model_copy(
+                    update={"datas": ["31/02/2026"], "protocolos": ["2026-000199"], "cursos": ["Técnico em Enfermagem"],
+                            "nomes_ficticios": [], "documentos_citados": []}),
+            ).model_dump_json()
+        if schema is SaidaGeracaoRAG:
+            chamadas_rag.append(prompt)
+        return responder_simulado_conservador(prompt, schema)
+
+    resultado = processar_atendimento(texto_invalido, CONFIG_RAG, indice, cliente(responder_t02), guardrails, audit,
+                                      dir_base=tmp_path)
+    assert resultado.etapa_final == "EXTRACAO_BLOQUEADA"
+    assert resultado.rag is None and chamadas_rag == []
+    assert resultado.contrato_exibicao["solicitante_ficticio"] == "não localizado"
+    item = minutas_para_revisao(audit, tmp_path, tmp_path / "sem_rag")[0]
+    assert item["estado"] == "PENDENTE" and item["minuta"].startswith("Sem minuta")
+
+
 # ------------------------------------------------------------------------------
 # T12: troca da geração sem reconstruir o índice
 # ------------------------------------------------------------------------------

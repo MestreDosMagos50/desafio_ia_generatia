@@ -158,7 +158,7 @@ e alimentam `documentacao/relatorio_avaliacao_qualidade.md`.
 pytest                                             # offline: adaptador simulado, SDK e embeddings falsos, pastas temporárias
 $env:RODAR_TESTES_INTEGRACAO="1"; pytest           # PowerShell: inclui o teste com o modelo real
 ```
-Resultado atual: **291 testes passando e 1 pulado** (o de integração).
+Resultado atual: **292 testes passando e 1 pulado** (o de integração).
 
 **O que a suíte cobre:**
 - *Contratos e guardrails:* contrato e T01/T02; ficha e avaliação contra o gabarito; guardrails por camada; limites e

@@ -39,7 +39,7 @@ from src.embeddings import IndiceVetorial, chunking_principal, documentos_do_ind
 from src.guardrails import BLOQUEAR, PERMITIR, Guardrails
 from src.ingestion import sha256_arquivo
 from src.llm_client import LLMClient, OrcamentoExecucao
-from src.nlp import GERAR_MINUTA, ExtratorSolicitacoes
+from src.nlp import BLOQUEAR_REGRA, GERAR_MINUTA, ExtratorSolicitacoes
 from src.privacidade import mascarar_texto
 from src.prompts import FRASE_ABSTENCAO_PADRAO, TAG_DADOS_EXTERNOS
 from src.rag import SEM_EVIDENCIA, AssistenteRAG
@@ -191,6 +191,9 @@ def processar_atendimento(texto: str, config: Dict[str, Any], indice: Optional[I
         return _gravar(resultado, pasta)
     contrato = ContratoSolicitacaoV2.model_validate(extracao.contrato)
     resultado.contrato_exibicao = contrato.para_exibicao_interface()
+    if extracao.decisao == BLOQUEAR_REGRA:
+        resultado.etapa_final, resultado.motivo = "EXTRACAO_BLOQUEADA", extracao.motivo
+        return _gravar(resultado, pasta)
     ficha, _ = extrator.gerar_ficha(id_atendimento, texto, canal, arquivo_origem, contrato)
     resultado.ficha = ficha.model_dump() if ficha else None
     alertas += [f"{a['codigo']}: {a['mensagem']}" for a in extracao.alertas]

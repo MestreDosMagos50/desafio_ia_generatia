@@ -1,0 +1,86 @@
+[
+  {
+    "id_registro": "DEC-A10BE340",
+    "caso_id": "ATD-20261030-125142-DE2D",
+    "id_execucao_referencia": "EXEC-E2EB1AF3",
+    "estado": "APROVADA",
+    "operador": "Equipe FIC_DEV - Revisor 1",
+    "justificativa": "Conferidos os documentos exigidos nos itens 4.1 e 4.2 do DOC-01 (incluindo vacinação contra hepatite B e tétano para Técnico em Enfermagem) e o prazo retificado da 1ª chamada (01/10/2026 a 30/10/2026, das 13h às 21h) no Art. 1º do DOC-02. O alerta de revisão da extração decorreu de cautela sem lacuna real no e-mail SOL-01; minuta liberada para envio manual.",
+    "registrado_em": "2026-11-01T14:33:11",
+    "envio_automatico_bloqueado": true,
+    "liberada_para_envio_manual": true,
+    "participacao_ia": {
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "prompt": {
+        "id": "PROMPT_RAG",
+        "versao": "1.0"
+      },
+      "status_da_minuta": "FUNDAMENTADA"
+    },
+    "sha256_minuta": "0c8b9deaa0f9c824b1eafa667f31163aad80c5936a0e8cc49fe470890c0be086"
+  },
+  {
+    "id_registro": "DEC-1F236279",
+    "caso_id": "CONSULTA-20261030-121711",
+    "id_execucao_referencia": null,
+    "estado": "APROVADA",
+    "operador": "Equipe FIC_DEV - Revisor 1",
+    "justificativa": "Valor mensal de R$ 150,00 (item 1.2), prazo de solicitação nos primeiros 30 dias do semestre letivo com documentação comprobatória (item 1.3) e critérios de distância superior a 3 km e renda per capita de até 1,5 salário mínimo (item 1.1) conferidos integralmente na seção 1 do DOC-06.",
+    "registrado_em": "2026-11-01T14:33:11",
+    "envio_automatico_bloqueado": true,
+    "liberada_para_envio_manual": true,
+    "participacao_ia": {
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "prompt": {
+        "id": "PROMPT_RAG",
+        "versao": "1.0"
+      },
+      "status_da_minuta": "FUNDAMENTADA"
+    },
+    "sha256_minuta": "a017d60e617aa263d51d6242c7f7b046171218626852237aa4aadf95becd24f9"
+  },
+  {
+    "id_registro": "DEC-44785D43",
+    "caso_id": "ATD-20261030-131610-4222",
+    "id_execucao_referencia": "EXEC-D10858C8",
+    "estado": "REJEITADA",
+    "operador": "Equipe FIC_DEV - Revisor 1",
+    "justificativa": "Minuta rejeitada após conferência na imagem original da ficha manuscrita: a leitura OCR errou o protocolo ('2024-000142' por '2026-000142'), o nome ('MARCOS VINTIUS' por 'MARCOS VINÍCIUS'), a data de nascimento ('12/09/2008' por '12/08/2008') e o RG sem sinalizar todos os erros, além de faltar assinatura da Secretaria Escolar e não caber despacho da recusa técnica ao estudante.",
+    "registrado_em": "2026-11-01T14:33:11",
+    "envio_automatico_bloqueado": true,
+    "liberada_para_envio_manual": false,
+    "participacao_ia": {
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "prompt": {
+        "id": "PROMPT_RAG",
+        "versao": "1.0"
+      },
+      "status_da_minuta": "SEM_EVIDENCIA_SUFICIENTE"
+    },
+    "sha256_minuta": "3882141ac58a1e4fbe0bd087a2967a2a131400f445721b82da58525b35a5635d"
+  },
+  {
+    "id_registro": "DEC-A98944B4",
+    "caso_id": "RAG-08",
+    "id_execucao_referencia": null,
+    "estado": "REVISAR",
+    "operador": "Equipe FIC_DEV - Revisor 1",
+    "justificativa": "Conflito normativo real confirmado entre o item 2.2 do DOC-04 (5 dias úteis) e o item 3.2 do DOC-05 (15 dias corridos), ambos de 20/08/2026 sem regra escrita de prevalência, somado ao alerta AFIRMACAO_SEM_CITACAO na meta-afirmação de ausência de prevalência. Encaminhado à Coordenação de Estágio e à Direção para definição oficial antes do envio manual.",
+    "registrado_em": "2026-11-01T14:33:11",
+    "envio_automatico_bloqueado": true,
+    "liberada_para_envio_manual": false,
+    "participacao_ia": {
+      "provedor": "openai",
+      "modelo": "gpt-5.6-luna",
+      "prompt": {
+        "id": "PROMPT_RAG",
+        "versao": "1.0"
+      },
+      "status_da_minuta": "CONFLITO_DE_FONTES"
+    },
+    "sha256_minuta": "6702754781d25fc6d01b0d972ccbb195741f20062a0c5cc46351c7d10ef129ba"
+  }
+]

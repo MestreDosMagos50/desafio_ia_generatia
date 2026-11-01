@@ -1,7 +1,7 @@
 {
   "instrucoes": "Para cada solicitação, a equipe lê o resumo e o contrato, preenche resumo_fiel e categoria_correta (true/false) e registra em correcoes cada valor corrigido. Os achados automáticos estão em verificacao_automatica.",
-  "revisado_por": null,
-  "data": null,
+  "revisado_por": "Equipe FIC_DEV - Revisor 1",
+  "data": "2026-11-01",
   "casos": [
     {
       "id": "SOL-01",
@@ -13,10 +13,12 @@
         "entidades_sem_suporte": [],
         "fatos_nao_preservados": []
       },
-      "resumo_fiel": null,
-      "categoria_correta": null,
-      "correcoes": [],
-      "observacoes": null
+      "resumo_fiel": true,
+      "categoria_correta": true,
+      "correcoes": [
+        "contrato.entidades.datas: ['14/10/2026', '12/08/2008', '01/02/2027', '14/10/2026'] -> ['14/10/2026', '12/08/2008', '01/02/2027']"
+      ],
+      "observacoes": "Resumo fiel (64 palavras), preservando protocolo, curso, carga horária, turno, início das aulas (01/02/2027), ciência da regra de cancelamento por faltas e consulta sobre documentos pendentes, sem inferir deferimento. Crítica ao contrato/ficha: a data '14/10/2026' foi extraída em duplicidade em entidades.datas (cabeçalho e corpo do e-mail), falha que a avaliação automática ignorou por comparar conjuntos deduplicados."
     },
     {
       "id": "SOL-02",
@@ -30,10 +32,14 @@
         "entidades_sem_suporte": [],
         "fatos_nao_preservados": []
       },
-      "resumo_fiel": null,
-      "categoria_correta": null,
-      "correcoes": [],
-      "observacoes": null
+      "resumo_fiel": true,
+      "categoria_correta": true,
+      "correcoes": [
+        "contrato.necessita_revisao: true -> false",
+        "decisao: 'ENCAMINHAR_REVISAO_HUMANA' -> 'GERAR_MINUTA_PARA_REVISAO'",
+        "ficha.informacoes_inferidas: remover 'Trata-se de um pedido de matrícula escolar.' (fato explícito na transcrição, não inferência)"
+      ],
+      "observacoes": "Resumo fiel à transcrição oral (64 palavras) e sem contaminação com a data '01/02/2027' exclusiva de SOL-01. Confirmada a divergência apontada automaticamente: o extrator marcou necessita_revisao=true sem haver lacuna (campos_ausentes=[]) nem ambiguidade de escopo, desviando a solicitação de GERAR_MINUTA_PARA_REVISAO para ENCAMINHAR_REVISAO_HUMANA por excesso de cautela diante de fala contínua transcrita. Além disso, a ficha registrou em informacoes_inferidas um fato literal ('quero pedir a efetivação da minha matrícula')."
     },
     {
       "id": "SOL-03",
@@ -45,10 +51,10 @@
         "entidades_sem_suporte": [],
         "fatos_nao_preservados": []
       },
-      "resumo_fiel": null,
-      "categoria_correta": null,
+      "resumo_fiel": true,
+      "categoria_correta": true,
       "correcoes": [],
-      "observacoes": null
+      "observacoes": "Resumo fiel (66 palavras) e contrato íntegro: preserva módulo, curso, turno, início em 16/11/2026 no Hospital Municipal Fictício São Bento e as duas dúvidas (antecedência de entrega do termo de compromisso assinado e viabilidade de estágio noturno por vínculo laboral diurno), sem inventar prazos normativos. Ressalva estilística: o resumo omitiu o destinatário 'Coordenação de Estágio' (extraído em contrato.entidades.orgaos) e anexou metadados telegrafados ao final, destoando da prosa corrida de SOL-01 e SOL-02."
     },
     {
       "id": "SOL-04",
@@ -60,10 +66,10 @@
         "entidades_sem_suporte": [],
         "fatos_nao_preservados": []
       },
-      "resumo_fiel": null,
-      "categoria_correta": null,
+      "resumo_fiel": true,
+      "categoria_correta": true,
       "correcoes": [],
-      "observacoes": null
+      "observacoes": "Resumo objetivo e fiel (41 palavras): preserva vínculo no Técnico em Recursos Humanos (noturno), residência em Várzea Grande (~12 km da escola) e o pedido duplo (solicitação do auxílio-transporte e relação de documentos), sem extrapolar renda familiar per capita nem elegibilidade prévia ao benefício. Nota menor de padronização: ao contrário de SOL-03 e SOL-06, omitiu no resumo o canal de entrada ('Formulário do site')."
     },
     {
       "id": "SOL-05",
@@ -75,10 +81,13 @@
         "entidades_sem_suporte": [],
         "fatos_nao_preservados": []
       },
-      "resumo_fiel": null,
-      "categoria_correta": null,
-      "correcoes": [],
-      "observacoes": null
+      "resumo_fiel": false,
+      "categoria_correta": true,
+      "correcoes": [
+        "resumo: '...telefones e outros dados.' -> '...e telefones (celular e residencial).' (os 8 campos [EM BRANCO] da ficha já haviam sido integralmente listados; não existem outros campos em branco no OCR)",
+        "contrato.entidades.orgaos: remover 'SECRETARIA ESCOLAR' (extraído do rótulo de campo 'ASSINATURA DA SECRETARIA ESCOLAR: AUSENTE', setor interno já abrangido pela Escola Técnica Estadual de Cuiabá)"
+      ],
+      "observacoes": "Falso positivo da verificação automática do resumo: embora todos os marcadores léxicos tenham sido atendidos, o resumo afirma haver campos em branco para 'órgão expedidor, UF, nome do pai, turma, município, término, telefones e outros dados', extrapolando a existência de lacunas adicionais inexistentes na ficha OCR (todos os demais campos estão preenchidos e marcados como [LEGIVEL] ou [INCERTO]). No contrato, pedido=null e necessita_revisao=true encaminharam corretamente para revisão humana, mas protocolo='2026-000142' não carrega marca estruturada da tag [INCERTO] (preservada apenas no texto do resumo), e 'SECRETARIA ESCOLAR' foi extraída como entidade não esperada a partir de um rótulo de assinatura."
     },
     {
       "id": "SOL-06",
@@ -92,10 +101,12 @@
           "Pede orientação sobre o que fazer."
         ]
       },
-      "resumo_fiel": null,
-      "categoria_correta": null,
-      "correcoes": [],
-      "observacoes": null
+      "resumo_fiel": true,
+      "categoria_correta": true,
+      "correcoes": [
+        "contrato.assunto: 'Dúvida sobre parar o curso ou sair temporariamente do estágio' -> 'Reclamação sobre secretaria fechada no horário divulgado e dúvida entre parar o curso ou afastar-se temporariamente do estágio'"
+      ],
+      "observacoes": "Falso negativo do marcador automático no resumo: verificacao_automatica apontou 'Pede orientação sobre o que fazer.' como não preservado apenas porque o marcador léxico ('o que eu faco|orient|o que fazer') não cobriu a paráfrase válida em discurso indireto 'e pergunta o que deve fazer'. O resumo (56 palavras) preserva fielmente a reclamação das três idas à secretaria fechada, a indecisão entre interromper o curso ou afastar-se do estágio e o pedido de orientação, com leve formalização de 'no horário que dizem que abre' para 'no horário informado de atendimento'. Em contrapartida, a leitura humana detectou omissão parcial em contrato.assunto, que suprimiu a reclamação sobre o atendimento da secretaria (justamente o segundo tema que motiva a categoria REVISAO), falha não capturada pelo teste automático de não nulidade."
     }
   ]
 }
